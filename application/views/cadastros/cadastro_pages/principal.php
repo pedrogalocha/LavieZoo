@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 
-<header class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/doggo2.jpeg') ?>'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<header class="bg text-white" style="background-image: none; background-color: #F29F05; ">
     <div class="container d-flex align-items-center justify-content-center">
-        <section id="novomembro" class="mt-5 bg text-white w-100" style="background: #F29F05">
+        <section id="novomembro" class="mt-5 bg text-white w-100">
             <div class="container">
               <div class="row justify-content-center">
                 <div class=" mx-auto col col-lg-8">
