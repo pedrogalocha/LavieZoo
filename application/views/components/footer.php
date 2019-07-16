@@ -9,6 +9,14 @@
           contato@laviezoo.com.br
         </div>
       <div class="col-sm-2 mx-auto">
+      <a href="">
+            <div class="float-lg-right pb-2 fa-stack fa-2x"style="font-size: 20px;">
+                <i class="fas fa-circle fa-stack-2x" style = "color:white;"></i>
+                <i class=" fab fa-stack-1x fa-instagram fa-lg" style="color:grey"></i>
+              
+            </div>
+            </a>  
+            <br/>
         2019 todos os direitos reservados
       </div>
     </div>
