@@ -32,10 +32,14 @@
         $('.navbar').css('background', 'white');
         $('.navbar-brand').css('color', '#39BFBF');
         $('.navbar-links').css('color', '#39BFBF');
+        $('.insta-circle').css('color', '#39BFBF');
+        $('.insta-icon').css('color', 'white');
     } else{
         $('.navbar').css('background', '#39BFBF');
         $('.navbar-brand').css('color', 'white');
         $('.navbar-links').css('color', 'white');
+        $('.insta-circle').css('color', 'white');
+        $('.insta-icon').css('color', '#39BFBF');
     }
   });
   
@@ -43,6 +47,8 @@
     $('.navbar').css('background', 'white');
     $('.navbar-brand').css('color', '#39BFBF');
     $('.navbar-links').css('color', '#39BFBF');
+    $('.insta-circle').css('color', '#39BFBF');
+    $('.insta-icon').css('color', 'white');
 }
 
 })(jQuery); // End of use strict
