@@ -54,6 +54,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="nav item">
             <a href="<?php echo base_url('cadastro') ?>"><button class="btn btn-laranja">CADASTRE-SE</button></a>
           </li>
+          <li class="nav item">
+            <a href="">
+            <div class="fa-stack fa-2x"style="font-size: 20px;">
+                <i class="insta-circle fas fa-circle fa-stack-2x" style = ""></i>
+                <i class="insta-icon fab fa-stack-1x fa-instagram fa-lg"></i>
+              </a>  
+            </div>
+          </li>
         </ul>
       </div>
     </div>

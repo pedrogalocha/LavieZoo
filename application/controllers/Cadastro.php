@@ -34,6 +34,14 @@ class Cadastro extends CI_Controller {
 		$this->load->view('cadastros/cadastro_principal',$dados);
 	}
 	
+
+	public function tela_login()
+	{
+    $dados  =   array(
+			'tela'      =>  'login'
+		);
+		$this->load->view('cadastros/cadastro_principal',$dados);
+	}
 	public function insert_vet(){
 
 		$dados_form = $this->input->post();
