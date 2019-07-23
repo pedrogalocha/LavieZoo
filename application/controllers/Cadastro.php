@@ -6,7 +6,8 @@ class Cadastro extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Veterinario_Model','cadastro_insert');
+		$this->load->model('Veterinario_Model','vet_model');
+		$this->load->model('Usuario_Model','usu_model');
 	}
 
 	public function index()
@@ -47,13 +48,22 @@ class Cadastro extends CI_Controller {
 		$dados_insert['inputEmail'] = $dados_form['inputEmail'];
 		$dados_insert['inputSenha'] = $dados_form['inputSenha'];
 
-		$valida_cpf = $this->cadastro_insert->valdiar_cpf($dados_insert['inputCPF']);
+		$clinica_id = 0;
+
+		$valida_cpf = $this->vet_model->validar_cpf($dados_insert['inputCPF']);
 
 		if($valida_cpf == "LIBERADO"){
 			//cadastra Veterinario
-			$insere_dados = $this->cadastro_insert->cadastro_vet($dados_insert);
+			$insere_dados = $this->vet_model->cadastro_vet($dados_insert);
+
+			//Seleciona ID vet
+			$veterinario_id = $this->vet_model->pegar_id_vet($dados_insert['inputCPF']);
+
+			//Cadastra Usuario
+			$cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], $veterinario_id, $clinica_id);
+
 			echo "<script> 
-				alert('Veterinario Cadastrado com sucesso.'); window.location.href = '#';
+				alert('Veterinario Cadastrado com sucesso.'); window.location.href = 'Cadastro';
 			</script>";
 		} 
 		else 
