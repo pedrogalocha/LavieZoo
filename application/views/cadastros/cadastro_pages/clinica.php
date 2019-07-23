@@ -1,6 +1,6 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F9F2C7; background-image:none">
 
-      <form class="text-dark text-uppercase needs-validation" novalidate>
+      <form class="text-dark text-uppercase needs-validation" method="POST" action='<?php echo base_url('insert_vet') ?>' novalidate>
         <div class="row">
           
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -206,14 +206,9 @@
                       </div>
                       <div class="col-md-12">
                         <button class="btn btn-lg btn-warning text-white">Cadastrar</button>
-
                       </div>
                 </div>
-                
-
-          </div>
-          
-        
+          </div>     
       </div>
       </form>
   </body>

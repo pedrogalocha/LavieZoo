@@ -59,3 +59,6 @@ $route['about'] = 'Sobre';
 $route['cadastro_clinica'] = 'Cadastro/cadastro_clinica';
 $route['cadastro_vet'] = 'Cadastro/cadastro_vet';
 $route['cadastro_menu'] = 'Cadastro';
+
+//cadastro usuario vet ou clinica
+$route['insert_vet'] = 'Cadastro/insert_vet';
