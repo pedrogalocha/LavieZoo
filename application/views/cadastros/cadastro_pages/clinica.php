@@ -8,7 +8,7 @@
 
           <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
             style="background-color: rgba(255, 255, 255, 0.85)">
-            <img class="" src="img/agencia_cadastro_ICONE.svg" style="
+            <img class="" src="<?php echo base_url('includes/img/agencia_cadastro_icone.svg') ?>" style="
             position:absolute;
             top: 0;
             left: 50%;
