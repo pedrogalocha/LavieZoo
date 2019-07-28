@@ -26,7 +26,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
             <div class="form-group row">
               <div class="col-md-9 mx-auto text-center">
               <label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
-                  <input type="email" class="form-control text-uppercase text-left" id="inputEmail"
+                  <input type="email" class="form-control text-uppercase text-left" name="inputEmail" id="inputEmail"
                     placeholder="Digite o seu e-mail" required pattern="">
 
               </div>
@@ -34,7 +34,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
             <div class="form-group row">
               <div class="col-md-9 mx-auto text-center">
               <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
-                  <input type="password" class="form-control text-uppercase text-left" id="inputSenha"
+                  <input type="password" class="form-control text-uppercase text-left" name="inputSenha" id="inputSenha"
                     placeholder="Digite a sua senha" required>
               </div>
             </div>

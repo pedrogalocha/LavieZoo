@@ -1,6 +1,6 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F9F2C7; background-image:none">
 
-      <form class="text-dark text-uppercase needs-validation" method="POST" action='<?php echo base_url('insert_vet') ?>' novalidate>
+      <form class="text-dark text-uppercase needs-validation" method="POST" action='<?php echo base_url('insert_clinica') ?>' novalidate>
         <div class="row">
           
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -21,7 +21,7 @@
               <div class="col-md-9 mx-auto text-center">
                 <label class="align-self-center font-weight-bold" for="inputNomeDaInstituicao">Nome da
                   Instituição</label>
-                <input type="text" class="form-control text-uppercase" id="inputNomeDaInstituicao"
+                <input type="text" class="form-control text-uppercase" name="inputNomeDaInstituicao" id="inputNomeDaInstituicao"
                   placeholder="Opções: Clínica, Hospital, Consultório, Laboratório" required>
 
               </div>
@@ -29,7 +29,7 @@
             <div class="form-group row">
               <div class="col-md-9 mx-auto text-center">
                 <label class="align-self-center font-weight-bold" for="inputCNPJ">CNPJ</label>
-                <input type="text" class="form-control text-uppercase" id="inputCNPJ"
+                <input type="text" class="form-control text-uppercase" name="inputCNPJ" id="inputCNPJ"
                   placeholder="Digite o CNPJ da instituição" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
                   ">
               </div>
@@ -38,37 +38,22 @@
 
           <div class="pt-4 px-2 form-group row">
             <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputVeterinarioTitular">Veterinário
-                Titular</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputVeterinarioTitular"
-                placeholder="Nome completo do veterinário Titular" required>
+              <label class="align-self-center font-weight-bold" for="inputNomeTitular">Nome
+                Responsável</label>
+              <input type="text" class="form-control text-uppercase text-left" name="inputNomeTitular" id="inputNomeTitular"
+                placeholder="Nome completo do Responsável" required>
             </div>
-
-            <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputCRMV">CRMV</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputCRMV"
-                placeholder="Digite o CRMV" required pattern="^[0-9]*$">
-            </div>
-          </div>
-
-          <div class="pt-4 px-2 form-group row">
             <div class="col-md-6 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
-              <input type="date" class="form-control text-uppercase text-left" id="inputDataDeNascimento"
+              <input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento" id="inputDataDeNascimento"
                 placeholder="dd/mm/aaaa" required pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
-            </div>
-
-            <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputEspecialidade">Especialidade</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputEspecialidade"
-                placeholder="Qual a sua Especialidade?" required >
             </div>
           </div>
 
           <div class="px-2 form-group row">
               <div class="col-md-6 mx-auto ">
               <div class="pt-4 form-check form-check-inline">
-                <input class="form-check-input" type="radio" rname="inlineRadioOptions" id="inlineRadio1"
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                   value="Masculino" required>
                 <label class="form-check-label" for="inlineRadio1">Masculino</label>
               </div>
@@ -86,14 +71,14 @@
 
             <div class="col-md-6 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputCPF" placeholder="Digite o CPF" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
+              <input type="text" class="form-control text-uppercase text-left" name="inputCPF" id="inputCPF" placeholder="Digite o CPF" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
             </div>
           </div>
 
           <div class="px-2 form-group row">
             <div class="col-md-6 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputConveniado">Conveniado?</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputConveiado"
+              <input type="text" class="form-control text-uppercase text-left" name="inputConveniado" id="inputConveniado"
                 placeholder="Digite aqui">
             </div>
 
@@ -109,7 +94,7 @@
           <div class="px-2 pt-4 form-group row">
             <div class="col-md-12 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
-              <input type="text" class="form-control text-uppercase text-left" id="inputEndereco"
+              <input type="text" class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
                 placeholder="Digite o endereço da instituição" required>
             </div>
           </div>
@@ -118,24 +103,24 @@
 
               <div class="col-md-2 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputComplemento"
+                <input type="text" class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
                   placeholder="Digite Aqui" formnovalidate = "true">
               </div>
 
               <div class="col-md-4 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputBairro"
+                <input type="text" class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro"
                   placeholder="Digite Aqui" required>
               </div>
 
               <div class="col-md-4 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputCidade"
+                <input type="text" class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade"
                   placeholder="Digite Aqui" required>
               </div>
               <div class="col-md-2 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputEstado" placeholder="SP" required>
+                <input type="text" class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP" required>
               </div>
             </div>
 
@@ -143,13 +128,13 @@
           <div class="px-2 form-group row">
               <div class="col-md-2 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputCep"
+                <input type="text" class="form-control text-uppercase text-left" name="inputCep" id="inputCep"
                   placeholder="Digite Aqui" required pattern="[0-9]{5}[\-]?[0-9]{3}">
               </div>
   
               <div class="col-md-4 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
-                <input type="text" class="form-control text-uppercase text-left" id="inputCelular" 
+                <input type="text" class="form-control text-uppercase text-left" name="inputCelular" id="inputCelular" 
                   placeholder="(__) _____-____" required pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
               </div>
               <div class="col-md-6"></div>
@@ -160,13 +145,13 @@
             <div class="px-2 form-group row">
                 <div class="col-md-6 mx-auto ">
                   <label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
-                  <input type="email" class="form-control text-uppercase text-left" id="inputEmail"
+                  <input type="email" class="form-control text-uppercase text-left" name="inputEmail" id="inputEmail"
                     placeholder="Digite o seu e-mail" required pattern="">
                 </div>
     
                 <div class="col-md-6 mx-auto ">
                   <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
-                  <input type="password" class="form-control text-uppercase text-left" id="inputSenha"
+                  <input type="password" class="form-control text-uppercase text-left" name="inputSenha" id="inputSenha"
                     placeholder="Digite a sua senha" required>
                 </div>
               </div>
@@ -177,7 +162,6 @@
                     <input type="email" class="form-control text-uppercase text-left" id="inputEmailConfirm"
                       placeholder="Confirme o seu e-mail" required
                       onblur="camposIguais(document.getElementById('inputEmail'), this)"
-                      
                       >
                   </div>
       
@@ -205,7 +189,7 @@
                       </div>
                       </div>
                       <div class="col-md-12">
-                        <button class="btn btn-lg btn-warning text-white">Cadastrar</button>
+                        <button type="submit" class="btn btn-lg btn-warning text-white">Cadastrar</button>
                       </div>
                 </div>
           </div>     
@@ -217,7 +201,7 @@
 <!-- Scripts de validação de formulário-->
 <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
+/*(function() {
   'use strict';
   window.addEventListener('load', function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -233,10 +217,11 @@
       }, false);
     });
   }, false);
-})();
+})();*/
 </script>
 
-<script>        
+<script>   
+/*     
   function camposIguais(p1, p2) {
   if (p1.value != p2.value || p1.value == '' || p2.value == '') {
       p2.setCustomValidity('Campos estão diferentes');
@@ -244,4 +229,5 @@
     input.setCustomValidity('');
   }
   }
+  */
   </script>

@@ -59,6 +59,14 @@ $route['about'] = 'Sobre';
 $route['cadastro_clinica'] = 'Cadastro/cadastro_clinica';
 $route['cadastro_vet'] = 'Cadastro/cadastro_vet';
 $route['cadastro_menu'] = 'Cadastro';
-$route['login'] = 'Cadastro/tela_login';
+
 //cadastro usuario vet ou clinica
 $route['insert_vet'] = 'Cadastro/insert_vet';
+$route['insert_clinica'] = 'Cadastro/insert_clinica';
+
+//Tela Login
+$route['login'] = 'Login';
+//Iniciar Login
+$route['post_login'] = 'Login/logar';
+
+$route['Dash_Free'] = 'Dashboard';
