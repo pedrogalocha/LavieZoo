@@ -129,7 +129,8 @@
               <div class="col-md-2 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
                 <input type="text" class="form-control text-uppercase text-left" name="inputCep" id="inputCep"
-                  placeholder="Digite Aqui" required pattern="[0-9]{5}[\-]?[0-9]{3}">
+                  placeholder="Digite Aqui" required pattern="[0-9]{5}[\-]?[0-9]{3}"
+                  onblur="buscarEndereco(document.getElementById('inputCep').value); ">
               </div>
   
               <div class="col-md-4 mx-auto ">
@@ -230,4 +231,17 @@
   }
   }
   */
+  </script>
+
+  <script>
+    function buscarEndereco(cep){
+    var url = 'http://api.postmon.com.br/v1/cep/' + cep.toString();
+    $.getJSON(url, function(data){
+        document.getElementById("inputEndereco").value= data.logradouro
+        document.getElementById("inputCidade").value= data.cidade
+        document.getElementById("inputBairro").value= data.bairro
+        document.getElementById("inputEstado").value= data.estado
+    }
+    )
+}
   </script>
