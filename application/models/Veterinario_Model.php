@@ -19,7 +19,6 @@ class VETERINARIO_MODEL extends CI_Model
       $vet_conveniado = $dados['inputConveniado'];
 
       $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '11964924233');";
-
       $this->db->trans_start();
       $this->db->query($insertVet);
       $this->db->trans_complete();
@@ -54,4 +53,5 @@ class VETERINARIO_MODEL extends CI_Model
         return "LIBERADO";
       }
     }
+
 }

@@ -18,4 +18,16 @@ class Usuario_Model extends CI_Model
         return "Query Success";
       }
     }
+
+    public function validar_email($vet_mail)
+    {
+      $queryBuscaMail = "Select USUARIO_EMAIL from tb_usuario where USUARIO_EMAIL = '$vet_mail';";
+      $executaBuscaMail = $this->db->query($queryBuscaMail);
+      $validaMail = $executaBuscaMail->num_rows();
+      if($validaMail > 0 ){
+        return "CADASTRADO";
+      } else { 
+        return "LIBERADO";
+      }
+    }
 }

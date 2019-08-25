@@ -13,12 +13,12 @@ class Dashboard extends CI_Controller {
 	{
     $login = $this->session->userdata('USUARIO_EMAIL');
     $dados['pemissao'] = $this->permissao->getPermissao($login);
-    if($dados['pemissao'] != "CLI_FREE"){
-      echo "<script> 
-              alert('Você não tem permissão para acessar esta area'); window.location.href = 'Login';
-            </script>";
+    if($dados['pemissao'] == "CLI_FREE" || $dados['pemissao'] == "VET_FREE"){
+      $this->load->view('sub_views/pages/dash_free');
     }else{
-		$this->load->view('sub_views/pages/dash_free');
+    echo "<script> 
+            alert('Você não tem permissão para acessar esta area'); window.location.href = 'login';
+          </script>";
     }
   }
 }

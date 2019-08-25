@@ -57,26 +57,27 @@ class Cadastro extends CI_Controller {
 		// Pega CPF inserido e valida se já existe no banco
 		$valida_cpf = $this->vet_model->validar_cpf($dados_insert['inputCPF']);
 
+		//Validar se Email está cadastrado
+		$valida_mail = $this->usu_model->validar_email($dados_insert['inputEmail']);
+
 		//Caso esteja liberado, o mesmo retorna uma string informando isso.
-		if($valida_cpf == "LIBERADO"){
+		if($valida_cpf == "LIBERADO" && $valida_mail == "LIBERADO"){
 			//cadastra Veterinario
 			$insere_dados = $this->vet_model->cadastro_vet($dados_insert);
-
 			//Seleciona ID vet
 			$veterinario_id = $this->vet_model->pegar_id_vet($dados_insert['inputCPF']);
-
 			//Cadastra Usuario
 			$cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], $veterinario_id, $clinica_id, 'VET_FREE');
 
 			//Alerta JS com redirecionamento
 			echo "<script> 
-				alert('Veterinario Cadastrado com sucesso.'); window.location.href = 'Cadastro';
+			alert('Veterinario cadastrado com sucesso.'); window.location.href = 'Login';
 			</script>";
 		} 
 		else 
 		{
 			echo "<script> 
-				alert('CPF Já cadastrado.'); window.location.href = 'Cadastro';
+				alert('Usuario Já cadastrado.'); window.location.href = 'Cadastro';
 			</script>";
 		}
 	}
@@ -111,8 +112,11 @@ class Cadastro extends CI_Controller {
 		// Pega CPF inserido e valida se já existe no banco
 		$valida_cnpj = $this->cli_model->validar_cnpj($dados_insert['inputCNPJ']);
 
+		//Validar se Email está cadastrado
+		$valida_mail = $this->usu_model->validar_email($dados_insert['inputEmail']);
+
 		//Caso esteja liberado, o mesmo retorna uma string informando isso.
-		if($valida_cnpj == "LIBERADO"){
+		if($valida_cnpj == "LIBERADO" && $valida_mail = "LIBERADO"){
 			//cadastra Veterinario
 			$insere_dados = $this->cli_model->cadastro_clinica($dados_insert);
 
@@ -124,13 +128,13 @@ class Cadastro extends CI_Controller {
 
 			//Alerta JS com redirecionamento
 			echo "<script> 
-				alert('Clinica cadastrada com sucesso.'); window.location.href = 'Cadastro';
+				alert('Clinica cadastrada com sucesso.'); window.location.href = 'Login';
 			</script>";
 		} 
 		else 
 		{
 			echo "<script> 
-				alert('CNPJ Já cadastrado.'); window.location.href = 'Cadastro';
+				alert('Clinica Já cadastrado.'); window.location.href = 'Cadastro';
 			</script>";
 		}
 	}
