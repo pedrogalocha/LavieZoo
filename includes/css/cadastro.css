@@ -1,13 +1,45 @@
 input {
-    text-align: center;
-    background-color:transparent !important;
-    border: 2px #000 !important;
-    border-style: none none solid none !important;
-    border-radius: 0px !important;
+	text-align: center;
+	background-color: transparent !important;
+	border: 2px #000 !important;
+	border-style: none none solid none !important;
+	border-radius: 0px !important;
 }
 
 @media screen and (min-width: 600px) {
-    #maincontainer {
-        width: 75%;;
-    }
-  }
+	#maincontainer {
+		width: 75%;
+	}
+}
+
+.error {
+	color: red;
+}
+
+input[readonly] {
+	cursor: text;
+	background-color: #fff;
+}
+
+.ml-6 {
+	margin-left: 10rem !important;
+}
+
+.dashboard_user {
+	font-size: 11px;
+	margin-bottom: -0;
+}
+
+.text_padrao {
+	color: #224f59;
+}
+
+.background_dash {
+	background-color: #cacaca;
+	background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2));
+}
+
+.list_dash {
+	padding-bottom: 0;
+	background-color: #f2dbae;
+}

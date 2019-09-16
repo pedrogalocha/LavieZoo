@@ -26,8 +26,9 @@ class Clinica_Model extends CI_Model
     $cli_nome_titular = $dados['inputNomeTitular'];
     $cli_titular_dtnasc = $dados['inputDataDeNascimento'];
     $cli_titular_sex = $dados['inlineRadioOptions'];
-    $cli_titular_cpf = $dados['inputCPF'];
+    $cli_titular_cpf = $dados['inputTelefone'];
     $cli_conveniado = $dados['inputConveniado'];
+    
 
     $cli_endereco = $dados['inputEndereco'];
     $cli_complemento = $dados['inputComplemento'];

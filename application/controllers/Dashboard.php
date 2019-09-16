@@ -14,7 +14,11 @@ class Dashboard extends CI_Controller {
     $login = $this->session->userdata('USUARIO_EMAIL');
     $dados['pemissao'] = $this->permissao->getPermissao($login);
     if($dados['pemissao'] == "CLI_FREE" || $dados['pemissao'] == "VET_FREE"){
-      $this->load->view('sub_views/pages/dash_free');
+      $dados  =   array(
+        'tela'      =>  'dashboard',
+      );
+      $this->load->view('sub_views/area_nav',$dados);
+      //$this->load->view('sub_views/pages/dashboard');
     }else{
     echo "<script> 
             alert('Você não tem permissão para acessar esta area'); window.location.href = 'login';

@@ -15,9 +15,11 @@
     <!-- /.container -->
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
   
-  <script src="<?php echo base_url('includes/vendor/jquery/jquery.min.js') ?>"></script>
+
+  <!-- JS Mask -->
+
+  <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url('includes/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
   <!-- Plugin JavaScript -->

@@ -25,6 +25,7 @@ class Cadastro extends CI_Controller {
 			'tela'      =>  'vet'
 		);
 		$this->load->view('sub_views/area_nav',$dados);
+		
   }
 
   public function cadastro_clinica()
@@ -48,6 +49,8 @@ class Cadastro extends CI_Controller {
 		$dados_insert['inputEspecialidade'] = $dados_form['inputEspecialidade'];
 		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions'];
 		$dados_insert['inputCPF'] = $dados_form['inputCPF'];
+		$dados_insert['inputFixo'] = $dados_form['inputFixo'];
+		$dados_insert['inputCel'] = $dados_form['inputCel'];
 		$dados_insert['inputConveniado'] = $dados_form['inputConveniado'];
 		$dados_insert['inputEmail'] = $dados_form['inputEmail'];
 		$dados_insert['inputSenha'] = $dados_form['inputSenha'];

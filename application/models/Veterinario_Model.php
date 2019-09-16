@@ -16,9 +16,11 @@ class VETERINARIO_MODEL extends CI_Model
       $vet_especialidade = $dados['inputEspecialidade'];
       $vet_sexo = $dados['inlineRadioOptions'];
       $vet_cpf = $dados['inputCPF'];
-      $vet_conveniado = $dados['inputConveniado'];
+      $vet_conveniado = "Não";
+      $vet_cel = $dados['inputCel'];
+      $vet_fixo = $dados['inputFixo'];
 
-      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '11964924233');";
+      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '$vet_cel', '$vet_fixo');";
       $this->db->trans_start();
       $this->db->query($insertVet);
       $this->db->trans_complete();

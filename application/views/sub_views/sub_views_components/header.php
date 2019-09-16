@@ -16,18 +16,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Bootstrap core CSS -->
   
-  <link href="<?php echo base_url('includes/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('includes/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
 
     <!-- Custom fonts for this template -->
     <script src="https://kit.fontawesome.com/0f03743da6.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet" />
+    <script src="<?php echo base_url('includes/vendor/jquery/jquery.js') ?>"></script>
+    <script src="<?php echo base_url('includes/vendor/jquery/jquery.min.js') ?>"></script>
 
 
     
   <!-- Custom styles for this template -->
-  <link href="<?php echo base_url('includes/css/scrolling-nav.css') ?>" rel="stylesheet">
-  <link href="<?php echo base_url('includes/css/fonts.css') ?>" rel="stylesheet">
-  <link href="<?php echo base_url('includes/css/cadastro.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('includes/css/scrolling-nav.css') ?>" rel="stylesheet"/>
+  <link href="<?php echo base_url('includes/css/fonts.css') ?>" rel="stylesheet"/>
+  <link href="<?php echo base_url('includes/css/cadastro.css') ?>" rel="stylesheet"/>
+
+  <script type="text/javascript" src="<?php echo base_url('includes/js/jquery.mask.js')?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('includes/js/jquery.mask.min.js')?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('includes/js/jquery.validate.js')?>"></script>
+  <script type="text/javascript" src="<?php echo base_url('includes/js/jquery.validate.min.js')?>"></script>
 
 </head>
 

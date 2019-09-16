@@ -6,6 +6,5 @@ function buscarEndereco(cep){
         document.getElementById("inputBairro").value= data.bairro
         document.getElementById("inputEstado").value= data.cidade_info.estado
     }
-        
     )
 }
