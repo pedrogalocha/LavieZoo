@@ -1,10 +1,11 @@
+<body class="pt-3 bg">
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <div>
-  <div class="pt-5 px-2 form-group row mt-5">
+  <div class="pt-5 px-2 row_dash mt-5" style="margin-right: 0;">
     <div class="col-md-6 mx-6 ml-6">
       <div class="col-md-12">
         <div class="row">
@@ -22,62 +23,112 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
 
-    <div class="col-md-4 mt-4">
-    <div class="col-md-12">
-        <div class="row">
-          <div>
-          <span class="fa-stack fa-1x">
-            <i class="fas fa-circle fa-stack-2x" style = "color: #F29F05"></i>
-            <i class="fas fa-stack-1x fa-hands-helping" style = "color:white"></i>
-          </span>
+      <div class="col-md-4 mt-4">
+      <div class="col-md-12">
+          <div class="row">
+            <div>
+            <span class="fa-stack fa-1x">
+              <i class="fas fa-circle fa-stack-2x" style = "color: #F29F05"></i>
+              <i class="fas fa-stack-1x fa-hands-helping" style = "color:white"></i>
+            </span>
+            </div>
+            <div>
+              <p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Ajuda e Suporte</p>
+            </div>
           </div>
-          <div>
-            <p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Ajuda e Suporte</p>
+          <div class="row mt-2">
+            <div>
+            <span class="fa-stack fa-1x">
+              <i class="fas fa-circle fa-stack-2x" style = "color: #F29F05"></i>
+              <i class="fas fa-stack-1x fa-cog" style = "color:white"></i>
+            </span>
+            </div>
+            <div>
+              <p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Configurações</p>
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div>
-          <span class="fa-stack fa-1x">
-            <i class="fas fa-circle fa-stack-2x" style = "color: #F29F05"></i>
-            <i class="fas fa-stack-1x fa-cog" style = "color:white"></i>
-          </span>
-          </div>
-          <div>
-            <p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Configurações</p>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-<div class= "background_dash">
-    <div class="col-md-5 mx-6 ml-6">
-      <div>
-        <div class="panel panel-primary" id="result_panel">
-        <div class="panel-heading"><h3 class="panel-title text_padrao">Casos/ Seus Exames</h3>
-        </div>
-        <div class="panel-body" >
-        <ul class="list-group" style="background-color: #F2DBAE">
-            <li class="list-group-item list_dash"><strong>Signature
-                Accommodations</strong>
-                <p>Teste</p>
-            </li>
-            <li class="list-group-item list_dash"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item list_dash"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item list_dash"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-        </ul>
       </div>
     </div>
 </div>
-</div>
-</div>
-</body>
+<div class="pt-5 px-2 mt-5 row_dash background_dash ajuste_margin_dash_principal">
+    <div class="col-md-4 mx-6 ml-6 ajuste_margin_list">
+        <div>
+            <div class="panel panel-primary" id="result_panel">
+              <div class="panel-heading "><h3 class="panel-title text_padrao">Casos / Seus Exames</h3>
+              </div>
+                <div class="panel-body" >
+                <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
+                    <li class="list-group-item list_dash"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-md-4 mx-6 ml-4 ajuste_margin_list">
+        <div>
+            <div class="panel panel-primary" id="result_panel">
+              <div class="panel-heading "><h3 class="panel-title text_padrao">Cadastros Ativos</h3>
+              </div>
+                <div class="panel-body" >
+                <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #FFFFF ">
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                    <li class="list-group-item list_dash_cad"><strong>Signature
+                        Accommodations</strong>
+                        <p>Teste</p>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+</div>
+
+  </body>
 
 
