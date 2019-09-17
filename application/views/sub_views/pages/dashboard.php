@@ -50,83 +50,88 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
 </div>
-<div class="pt-5 px-2 mt-5 row_dash background_dash ajuste_margin_dash_principal">
-    <div class="col-md-4 mx-6 ml-6 ajuste_margin_list">
-        <div>
-            <div class="panel panel-primary" id="result_panel">
-              <div class="panel-heading "><h3 class="panel-title text_padrao">Casos / Seus Exames</h3>
-              </div>
-                <div class="panel-body" >
-                <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
-                    <li class="list-group-item list_dash"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                </ul>
+  <div class="pt-5 px-2 mt-5 row_dash background_dash ajuste_margin_dash_principal">
+      <div class="col-md-4 mx-6 ml-6 ajuste_margin_list">
+          <div>
+              <div class="panel panel-primary" id="result_panel">
+                <div class="panel-heading "><h3 class="panel-title text_padrao">Casos / Seus Exames</h3>
                 </div>
-            </div>
-        </div>
-    </div>
+                  <div class="panel-body" >
+                  <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
+                      <li class="list-group-item list_dash"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                  </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-    <div class="col-md-4 mx-6 ml-4 ajuste_margin_list">
-        <div>
-            <div class="panel panel-primary" id="result_panel">
-              <div class="panel-heading "><h3 class="panel-title text_padrao">Cadastros Ativos</h3>
-              </div>
-                <div class="panel-body" >
-                <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #FFFFF ">
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                    <li class="list-group-item list_dash_cad"><strong>Signature
-                        Accommodations</strong>
-                        <p>Teste</p>
-                    </li>
-                </ul>
+      <div class="col-md-4 mx-6 ml-4 ajuste_margin_list">
+          <div>
+              <div class="panel panel-primary" id="result_panel">
+                <div class="panel-heading "><h3 class="panel-title text_padrao">Cadastros Ativos</h3>
                 </div>
-            </div>
-        </div>
-    </div>
+                  <div class="panel-body" >
+                  <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #FFFFF ">
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                      <li class="list-group-item list_dash_cad"><strong>Signature
+                          Accommodations</strong>
+                          <p>Teste</p>
+                      </li>
+                  </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-8 mx-6 ml-6 mx-auto" style="text-align: center;">
+      <div class="panel-heading "><h3 class="panel-title text_padrao">Canal Laviezoo</h3>
+      </div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
 
   </div>
-
 </div>
 
   </body>
