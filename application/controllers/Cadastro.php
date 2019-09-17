@@ -9,12 +9,14 @@ class Cadastro extends CI_Controller {
 		$this->load->model('Veterinario_Model','vet_model');
 		$this->load->model('Clinica_Model','cli_model');
 		$this->load->model('Usuario_Model','usu_model');
+		$this->load->helper('limpaCpf');
 	}
 
 	public function index()
 	{
     $dados  =   array(
 			'tela'      =>  'principal',
+			'permissao' =>  'cadastro',
 		);
 		$this->load->view('sub_views/area_nav',$dados);
   }
@@ -22,7 +24,8 @@ class Cadastro extends CI_Controller {
   public function cadastro_vet()
 	{
     $dados  =   array(
-			'tela'      =>  'vet'
+			'tela'      =>  'vet',
+			'permissao' =>  'cadastro',
 		);
 		$this->load->view('sub_views/area_nav',$dados);
 		
@@ -31,7 +34,8 @@ class Cadastro extends CI_Controller {
   public function cadastro_clinica()
 	{
     $dados  =   array(
-			'tela'      =>  'clinica'
+			'tela'      =>  'clinica',
+			'permissao' =>  'cadastro',
 		);
 		$this->load->view('sub_views/area_nav',$dados);
 	}
@@ -48,12 +52,12 @@ class Cadastro extends CI_Controller {
 		$dados_insert['inputDataDeNascimento'] = $dados_form['inputDataDeNascimento'];
 		$dados_insert['inputEspecialidade'] = $dados_form['inputEspecialidade'];
 		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions'];
-		$dados_insert['inputCPF'] = $dados_form['inputCPF'];
+		$dados_insert['inputCPF'] = limpaCPF_CNPJ($dados_form['inputCPF']);
 		$dados_insert['inputFixo'] = $dados_form['inputFixo'];
 		$dados_insert['inputCel'] = $dados_form['inputCel'];
 		$dados_insert['inputConveniado'] = $dados_form['inputConveniado'];
 		$dados_insert['inputEmail'] = $dados_form['inputEmail'];
-		$dados_insert['inputSenha'] = $dados_form['inputSenha'];
+		$dados_insert['inputSenha'] = base64_encode($dados_form['inputSenha']);
 
 		$clinica_id = 0;
 
@@ -92,22 +96,22 @@ class Cadastro extends CI_Controller {
 		$dados_form = $this->input->post();
 
 		$dados_insert['inputNomeDaInstituicao'] = $dados_form['inputNomeDaInstituicao'];
-		$dados_insert['inputCNPJ'] = $dados_form['inputCNPJ'];
+		$dados_insert['inputCNPJ'] = $this->limpacpf->limpaCPF_CNPJ($dados_form['inputCNPJ']);
 		$dados_insert['inputNomeTitular'] = $dados_form['inputNomeTitular'];
 		$dados_insert['inputDataDeNascimento'] = $dados_form['inputDataDeNascimento'];
 		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions'];
-		$dados_insert['inputCPF'] = $dados_form['inputCPF'];
+		$dados_insert['inputCPF'] = $this->limpacpf->limpaCPF_CNPJ($dados_form['inputCPF']);
 		$dados_insert['inputConveniado'] = $dados_form['inputConveniado'];
 		$dados_insert['inputEndereco'] = $dados_form['inputEndereco'];
 		$dados_insert['inputComplemento'] = $dados_form['inputComplemento'];
 		$dados_insert['inputBairro'] = $dados_form['inputBairro'];
 		$dados_insert['inputCidade'] = $dados_form['inputCidade'];
 		$dados_insert['inputEstado'] = $dados_form['inputEstado'];
-		$dados_insert['inputCep'] = $dados_form['inputCep'];
+		$dados_insert['inputCep'] = $this->limpacpf->limpaCPF_CNPJ($dados_form['inputCep']);
 		$dados_insert['inputCelular'] = $dados_form['inputCelular'];
 
 		$dados_insert['inputEmail'] = $dados_form['inputEmail'];
-		$dados_insert['inputSenha'] = $dados_form['inputSenha'];
+		$dados_insert['inputSenha'] = base64_encode($dados_form['inputSenha']);
 
 		print_r("inputNomeDaInstituicao", $dados_insert['inputNomeDaInstituicao'] );
 		$id_vet = 0;

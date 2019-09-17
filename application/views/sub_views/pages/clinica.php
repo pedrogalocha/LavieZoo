@@ -1,6 +1,6 @@
-<body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F9F2C7; background-image:none">
+<body class="pt-5 bg text-white " style="margin-top:80px; background-color: #F9F2C7; background-image:none">
 
-      <form class="text-dark text-uppercase needs-validation" method="POST" action='<?php echo base_url('insert_clinica') ?>' novalidate>
+      <form class="text-dark text-uppercase needs-validation" id="form_cad" method="POST" action='<?php echo base_url('insert_clinica') ?>' novalidate>
         <div class="row">
           
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -29,9 +29,9 @@
             <div class="form-group row">
               <div class="col-md-9 mx-auto text-center">
                 <label class="align-self-center font-weight-bold" for="inputCNPJ">CNPJ</label>
-                <input type="text" class="form-control text-uppercase" name="inputCNPJ" id="inputCNPJ"
+                <input type="text" class="form-control text-uppercase cnpj" name="inputCNPJ" id="inputCNPJ"
                   placeholder="Digite o CNPJ da instituição" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-                  ">
+                  " required>
               </div>
             </div>
           </div> <!-- Fim da border transparente -->
@@ -76,12 +76,6 @@
           </div>
 
           <div class="px-2 form-group row">
-            <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputConveniado">Conveniado?</label>
-              <input type="text" class="form-control text-uppercase text-left" name="inputConveniado" id="inputConveniado"
-                placeholder="Digite aqui">
-            </div>
-
             <div class="col-md-6 mx-auto pt-5 ">
               <button class="btn-azul"> Ainda não é conveniado? Conheça o nosso plano!</button>
             </div>
@@ -128,14 +122,14 @@
           <div class="px-2 form-group row">
               <div class="col-md-2 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
-                <input type="text" class="form-control text-uppercase text-left" name="inputCep" id="inputCep"
+                <input type="text" class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep"
                   placeholder="Digite Aqui" required pattern="[0-9]{5}[\-]?[0-9]{3}"
                   onblur="buscarEndereco(document.getElementById('inputCep').value); ">
               </div>
   
               <div class="col-md-4 mx-auto ">
                 <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
-                <input type="text" class="form-control text-uppercase text-left" name="inputCelular" id="inputCelular" 
+                <input type="text" class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular" 
                   placeholder="(__) _____-____" required pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
               </div>
               <div class="col-md-6"></div>
@@ -160,17 +154,15 @@
               <div class="px-2 form-group row">
                   <div class="col-md-6 mx-auto ">
                     <label class="align-self-center font-weight-bold" for="inputEmailConfirm">Confirme o E-mail</label>
-                    <input type="email" class="form-control text-uppercase text-left" id="inputEmailConfirm"
+                    <input type="email" class="form-control text-uppercase text-left" name= "inputEmailConfirm" id="inputEmailConfirm"
                       placeholder="Confirme o seu e-mail" required
-                      onblur="camposIguais(document.getElementById('inputEmail'), this)"
                       >
                   </div>
       
                   <div class="col-md-6 mx-auto ">
                     <label class="align-self-center font-weight-bold" for="inputSenhaConfirm">Confirme a Senha</label>
-                    <input type="password" class="form-control text-uppercase text-left" id="inputSenhaConfirm"
-                      placeholder="Confirme a sua senha" required
-                      onblur="camposIguais(document.getElementById('inputSenha'), this)">
+                    <input type="password" class="form-control text-uppercase text-left" name = "inputSenhaConfirm" id="inputSenhaConfirm"
+                      placeholder="Confirme a sua senha" required>
                   </div>
                 </div>
 
@@ -199,39 +191,110 @@
   </body>
 
 
-<!-- Scripts de validação de formulário-->
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-/*(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();*/
-</script>
+  <script>   
+        $(document).ready(function($){
+          $('.ddd_cell').mask('(00) 00000-0000');
+          $('.ddd_fix').mask('(00) 0000-0000');
+          $('.cpf').mask('000.000.000-00');
+          $('.cnpj').mask('000.000.000/0000-00');
+          $('.cep').mask('00000-000')
 
-<script>   
-/*     
-  function camposIguais(p1, p2) {
-  if (p1.value != p2.value || p1.value == '' || p2.value == '') {
-      p2.setCustomValidity('Campos estão diferentes');
-  } else {
-    input.setCustomValidity('');
-  }
-  }
-  */
-  </script>
+          $("#form_cad").validate();
+        });
+
+        $("#form_cad").validate({
+          rules : {
+                inputNomeDaInstituicao:{
+                  required:true,
+                },
+                inputCNPJ:{
+                  required:true,
+                },
+                inputNomeTitular: {
+                  required:true,
+                },
+                inputDataDeNascimento:{
+                  required:true,
+                },
+                inputCel:{
+                  required:true,
+                },
+                inputEmail:{
+                  required:true,
+                  minlength: 6,
+                },
+                inputSenha:{
+                  required:true,
+                  minlength: 6,
+                },
+                inputSenhaConfirm:{
+                  equalTo: inputSenha,
+                },
+                inputEspecialidade:{
+                  required:true,
+                },
+                inputEmailConfirm:{
+                  equalTo: inputEmail,
+                },         
+                inputEndereco: {
+                  required: true,
+                }
+          },
+          messages:{
+                inputNomeDaInstituicao:{
+                  required:"Por favor, insira o nome da empresa",
+                },
+                inputCRMV:{
+                  required:"Por favor, insira o CNPJ",
+                },
+                inputNomeTitular: {
+                  required:"Por favor, insira um nome de titular",
+                },
+                inputDataDeNascimento:{
+                  required:"Por favor, insira data de nascimento.",
+                },
+                inputCel:{
+                  required:"Por favor, informe um telefone celular",
+                },
+                inputEmail:{
+                  required:"É necessário informar um email",
+                  minlength: "É necessário inserir um email valido.",
+                },
+                inputSenha: {
+                  required:"É necessário informar uma senha valida.",
+                  minlength: "A senha deve ter pelo menos 6 digitos.",
+                },
+                inputSenhaConfirm: {
+                  equalTo: "As duas senhas devem ser iguais.",
+                },
+                inputEmailConfirm:{
+                  equalTo: "Os dois emails devem ser iguais.",
+                },
+                inputEndereco: {
+                  required: "Por favor inserir um endereço."
+                }
+          }
+        });
+
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        
+      </script>
 
   <script>
     function buscarEndereco(cep){

@@ -56,4 +56,7 @@ class VETERINARIO_MODEL extends CI_Model
       }
     }
 
+    public function getVetInfo(){
+      
+    }
 }

@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('Login_Model','permissao');
+    $this->load->model('Veterinario_Model','vetModel');
   }
 
 	public function index()
@@ -16,6 +17,7 @@ class Dashboard extends CI_Controller {
     if($dados['pemissao'] == "CLI_FREE" || $dados['pemissao'] == "VET_FREE"){
       $dados  =   array(
         'tela'      =>  'dashboard',
+        'permissao' =>  $dados['pemissao']
       );
       $this->load->view('sub_views/area_nav',$dados);
       //$this->load->view('sub_views/pages/dashboard');

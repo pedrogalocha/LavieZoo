@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<body id="page-top">
+<body class="zoom" id="page-top">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light" id="mainNav">
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
           </li>
           <li class="nav-item nav-texto">
-            <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+            <a hidden class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
           </li>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>

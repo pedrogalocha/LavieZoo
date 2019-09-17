@@ -52,8 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="nav-item nav-texto" >
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
           </li>
-          <li class="nav-item nav-texto">
-            <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+          <li  class="nav-item nav-texto" >
+            <?php $hidden=""; 
+            if(strpos($permissao , 'Free') === true): 
+            $hidden="hidden"
+            ?>
+              <a <?php $hidden ?> class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+            <?php endif; ?>
           </li>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button  class="btn btn-azul">LOGIN</button></a>

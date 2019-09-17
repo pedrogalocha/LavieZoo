@@ -4,7 +4,8 @@ class Login extends CI_Controller {
 	public function index()
 	{
     $dados  =   array(
-			'tela'      =>  'login'
+			'tela'      =>  'login',
+			'permissao' => 'login'
 		);
 		$this->load->view('sub_views/area_nav',$dados);
 	}
@@ -15,7 +16,7 @@ class Login extends CI_Controller {
 		$this ->load->library('form_validation');
 		// Recuperamos os dados digitados pelo usuário no formulário via POST
 		$login = $this->input->post('inputEmail');
-		$senha = $this->input->post('inputSenha');
+		$senha = base64_encode($this->input->post('inputSenha'));
 		if($login && $senha){
 			//Carregar Model do Login
 			$this->load->model('Login_Model');

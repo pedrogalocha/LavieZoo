@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
           </div>
       </div>
-
+      
       <div class="col-md-8 mx-6 ml-6 mx-auto" style="text-align: center;">
       <div class="panel-heading "><h3 class="panel-title text_padrao">Canal Laviezoo</h3>
       </div>
