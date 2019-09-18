@@ -45,7 +45,7 @@ CREATE TABLE `tb_veterinario` (
 
 LOCK TABLES `tb_veterinario` WRITE;
 /*!40000 ALTER TABLE `tb_veterinario` DISABLE KEYS */;
-INSERT INTO `tb_veterinario` VALUES (1,'Pedro Galocha','12312312','1993-06-11','Masculino','Cacique','41803259850','SIM',NULL,'11964924233',NULL),(3,'Cachorro Loco','123131412','1993-06-14','Masculino','Cacique','12345678923','Não',NULL,'11964924233',NULL),(6,'Maguila o Gorila','5165156165','1993-06-14','Masculino','Matador','51516165166','Não',NULL,'(11) 96949-4949','(23) 2626-2626');
+INSERT INTO `tb_veterinario` VALUES (1,'Pedro Galocha','12312312','1993-06-11','Masculino','Cacique','41803259850','SIM',NULL,'11964924233',NULL),(3,'Cachorro Loco','123131412','1993-06-14','Masculino','Cacique','12345678923','Não',NULL,'11964924233',NULL),(6,'Maguila o Gorila','5165156165','1993-06-14','Masculino','Matador','51516165166','Não',0,'(11) 96949-4949','(23) 2626-2626');
 /*!40000 ALTER TABLE `tb_veterinario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-16 23:47:26
+-- Dump completed on 2019-09-17 22:19:18

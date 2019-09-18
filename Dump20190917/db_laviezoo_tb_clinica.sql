@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_laviezoo` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `db_laviezoo`;
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_laviezoo
@@ -42,7 +40,7 @@ CREATE TABLE `tb_clinica` (
   `CLINICA_CELULAR` varchar(50) NOT NULL,
   PRIMARY KEY (`CLINICA_ID`),
   UNIQUE KEY `CLINICA_ID_UNIQUE` (`CLINICA_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-02  6:54:38
+-- Dump completed on 2019-09-17 22:19:16

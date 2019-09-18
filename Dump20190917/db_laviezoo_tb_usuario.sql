@@ -40,7 +40,7 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (1,1,0,'pedro.galocha@cscall.com.br','123','VET_FREE'),(2,3,0,'pedro.galocha@uol.com.br','123','VET_FREE'),(6,6,0,'pedrogalocha@hotmail.com','NjMxNTQy','VET_FREE');
+INSERT INTO `tb_usuario` VALUES (1,1,0,'pedro.galocha@cscall.com.br','123','VET_FREE'),(2,0,1,'pedrogalocha@uol.com.br','NjMxNTQy','CLI_FREE'),(6,6,0,'pedrogalocha@hotmail.com','NjMxNTQy','VET_PRO');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-16 23:47:26
+-- Dump completed on 2019-09-17 22:19:19

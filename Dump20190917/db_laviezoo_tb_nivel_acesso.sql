@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_flag_iteracao`
+-- Table structure for table `tb_nivel_acesso`
 --
 
-DROP TABLE IF EXISTS `tb_flag_iteracao`;
+DROP TABLE IF EXISTS `tb_nivel_acesso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_flag_iteracao` (
-  `ID_FLAG_ITERACAO` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_USUARIO` varchar(45) DEFAULT NULL,
-  `DT_ITERACAO` datetime(2) DEFAULT NULL,
-  `DS_ITERACAO` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`ID_FLAG_ITERACAO`),
-  UNIQUE KEY `id_flag_iteracao_UNIQUE` (`ID_FLAG_ITERACAO`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `tb_nivel_acesso` (
+  `ID_NIVEL_ACESSO` int(11) NOT NULL AUTO_INCREMENT,
+  `DS_NIVEL_ACESSO` varchar(45) NOT NULL,
+  `ID_FLAG_ITERACAO` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_NIVEL_ACESSO`),
+  UNIQUE KEY `ID_NIVEL_ACESSO_UNIQUE` (`ID_NIVEL_ACESSO`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_flag_iteracao`
+-- Dumping data for table `tb_nivel_acesso`
 --
 
-LOCK TABLES `tb_flag_iteracao` WRITE;
-/*!40000 ALTER TABLE `tb_flag_iteracao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_flag_iteracao` ENABLE KEYS */;
+LOCK TABLES `tb_nivel_acesso` WRITE;
+/*!40000 ALTER TABLE `tb_nivel_acesso` DISABLE KEYS */;
+INSERT INTO `tb_nivel_acesso` VALUES (1,'VET_FREE',NULL),(2,'CLI_FREE',NULL),(3,'VET_PRO',NULL),(4,'CLI_PRO',NULL);
+/*!40000 ALTER TABLE `tb_nivel_acesso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-16 23:47:24
+-- Dump completed on 2019-09-17 22:19:18

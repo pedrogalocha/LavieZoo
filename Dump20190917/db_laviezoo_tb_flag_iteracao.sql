@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_laviezoo` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `db_laviezoo`;
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_laviezoo
@@ -18,36 +16,29 @@ USE `db_laviezoo`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_veterinario`
+-- Table structure for table `tb_flag_iteracao`
 --
 
-DROP TABLE IF EXISTS `tb_veterinario`;
+DROP TABLE IF EXISTS `tb_flag_iteracao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_veterinario` (
-  `VETERINARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `VETERINARIO_NOME` varchar(65) NOT NULL,
-  `VETERINARIO_CRMV` varchar(10) NOT NULL,
-  `VETERINARIO_DATA_NASC` date NOT NULL,
-  `VETERINARIO_SEXO` varchar(25) DEFAULT NULL,
-  `VETERINARIO_ESPECIALIDADE` varchar(40) NOT NULL,
-  `VETERINARIO_CPF` varchar(15) NOT NULL,
-  `VETERINARIO_CONVENIADO` varchar(10) NOT NULL,
-  `VETERINARIO_ID_CLINICA` int(11) DEFAULT NULL,
-  `VETERINARIO_CELULAR` varchar(45) NOT NULL,
-  PRIMARY KEY (`VETERINARIO_ID`),
-  UNIQUE KEY `tb_id_veterinario_UNIQUE` (`VETERINARIO_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+CREATE TABLE `tb_flag_iteracao` (
+  `ID_FLAG_ITERACAO` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_USUARIO` varchar(45) DEFAULT NULL,
+  `DT_ITERACAO` datetime(2) DEFAULT NULL,
+  `DS_ITERACAO` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID_FLAG_ITERACAO`),
+  UNIQUE KEY `id_flag_iteracao_UNIQUE` (`ID_FLAG_ITERACAO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_veterinario`
+-- Dumping data for table `tb_flag_iteracao`
 --
 
-LOCK TABLES `tb_veterinario` WRITE;
-/*!40000 ALTER TABLE `tb_veterinario` DISABLE KEYS */;
-INSERT INTO `tb_veterinario` VALUES (1,'Pedro Galocha','12312312','1993-06-11','Masculino','Cacique','41803259850','SIM',NULL,'11964924233'),(3,'Cachorro Loco','123131412','1993-06-14','Masculino','Cacique','12345678923','Não',NULL,'11964924233');
-/*!40000 ALTER TABLE `tb_veterinario` ENABLE KEYS */;
+LOCK TABLES `tb_flag_iteracao` WRITE;
+/*!40000 ALTER TABLE `tb_flag_iteracao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_flag_iteracao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-02  6:54:39
+-- Dump completed on 2019-09-17 22:19:17
