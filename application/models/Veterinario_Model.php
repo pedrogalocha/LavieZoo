@@ -56,7 +56,31 @@ class VETERINARIO_MODEL extends CI_Model
       }
     }
 
-    public function getVetInfo(){
-      
+    public function getInfoUsu($email){
+      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA,                                   c.CLINICA_CNPJ FROM tb_usuario u 
+                          LEFT JOIN tb_veterinario v ON u.VETERINARIO_ID = v.VETERINARIO_ID
+                          LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID 
+                          OR u.CLINICA_ID = c.CLINICA_ID 
+                          WHERE USUARIO_EMAIL = '$email';";
+      $executaBuscaIdVet = $this->db->query($queryBuscaIdVet);
+      $pegaID = $executaBuscaIdVet->row_array();
+      if($executaBuscaIdVet->num_rows() > 0){
+        return $pegaID;
+        print_r($pegaID);
+      } else {
+        return 0;
+      }
+    }
+
+    public function getInfoVet($idVet){
+      $queryNome = "Select VETERINARIO_NOME from tb_veterinario where VETERINARIO_ID = $idVet;";
+      $exeNome = $this->db->query($queryNome);
+      $pegaNome = $exeNome->row_array();
+      $NomeVet = implode(",", $pegaNome);
+      if($exeNome->num_rows() > 0){
+         return $NomeVet;
+      } else {
+        return 0;
+      }
     }
 }

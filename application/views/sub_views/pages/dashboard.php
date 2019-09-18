@@ -2,7 +2,9 @@
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?>
+
 
 <div>
   <div class="pt-5 px-2 row_dash mt-5" style="margin-right: 0;">
@@ -16,8 +18,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </span>
           </div>
           <div>
-            <p class="mt-5 font-weight-bold dashboard_user text_padrao">Seja bem vindo, Fulano de Tal</p>
-            <p class="font-weight-bold text_padrao">Dr. Fulano de Tal</p>
+          <?php if($userInfo['VETERINARIO_NOME']  != "") {?>
+            <p class="mt-5 font-weight-bold dashboard_user text_padrao">Seja bem vindo, <?php echo $userInfo['VETERINARIO_NOME'] ?></p>
+            <p class="font-weight-bold text_padrao"><?php echo ("Dr. ".$userInfo['VETERINARIO_NOME']) ?></p>
+          <?php } else { ?>
+            <p class="mt-5 font-weight-bold dashboard_user text_padrao">Seja bem vindo, <?php echo $userInfo['CLINICA_NOME_FANTASIA'] ?></p>
+            <p class="font-weight-bold text_padrao"><?php echo ($userInfo['CLINICA_NOME_FANTASIA']) ?></p>
+          <?php }?>
           </div>
         </div>
       </div>
@@ -45,6 +52,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div>
               <p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Configurações</p>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div>
+            <span class="fa-stack fa-1x">
+              <i class="fas fa-circle fa-stack-2x" style = "color: #F29F05"></i>
+              <i class="fas fa-stack-1x fa-cog" style = "color:white"></i>
+            </span>
+            </div>
+            <div>
+              <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><p class="mt-2 ml-1 font-weight-bold dashboard_user text_padrao">Agendamento</p></a>
             </div>
           </div>
       </div>
@@ -133,7 +151,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   </div>
 </div>
+</div>
 
-  </body>
+
+</body>
 
 

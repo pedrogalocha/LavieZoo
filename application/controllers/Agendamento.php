@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Agendamento extends CI_Controller {
 
   public function __construct()
   {
@@ -13,13 +13,11 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
     $login = $this->session->userdata('USUARIO_EMAIL');
-    $dados['usu'] = $this->vetModel->getInfoUsu($login);
     $dados['pemissao'] = $this->permissao->getPermissao($login);
-    if($dados['pemissao'] == "CLI_FREE" || $dados['pemissao'] == "VET_FREE" || $dados['pemissao'] == "VET_PRO" ){
+    if($dados['pemissao'] == "CLI_PRO" || $dados['pemissao'] == "VET_PRO"){
       $dados  =   array(
-        'tela'      =>  'dashboard',
-        'permissao' =>  $dados['pemissao'],
-        'userInfo' =>  $dados['usu']
+        'tela'      =>  'agendamento',
+        'permissao' =>  $dados['pemissao']
       );
       $this->load->view('sub_views/area_nav',$dados);
       //$this->load->view('sub_views/pages/dashboard');
