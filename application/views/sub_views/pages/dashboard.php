@@ -146,7 +146,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="col-md-8 mx-6 ml-6 mx-auto" style="text-align: center;">
       <div class="panel-heading "><h3 class="panel-title text_padrao">Canal Laviezoo</h3>
       </div>
+      <div class="embed-responsive embed-responsive-16by9">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
       </div>
 
   </div>
