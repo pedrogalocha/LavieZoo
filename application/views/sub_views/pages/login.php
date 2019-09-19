@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div style="padding-top:110px;"></div>
       <form class="text-dark text-uppercase needs-validation" method="POST" action='<?php echo base_url('post_login') ?>' novalidate>
-        <div class="row">
+        <div class="row" style="margin-right: 0px; margin-left: 0px;">
           
         <div class="container col-sm-8 col-md-6 mx-auto align-self-center align-items-center justify-content-center" >
           <!-- Começo da border transparente-->

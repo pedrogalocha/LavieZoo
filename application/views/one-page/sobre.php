@@ -1,7 +1,7 @@
 <section id="about">
     <div class="container">
       <div class="row">
-        <img src="<?php echo base_url('includes/img/icon_doggo.svg') ?>" class=" col-sm-2 rounded mx-auto d-block" alt="ìcone de um cachorro"/>
+        <img src="<?php echo base_url('includes/img/icon_doggo.svg') ?>" class="dog_mobile col-sm-2 rounded mx-auto d-block" alt="ìcone de um cachorro"/>
         <div class="w-100"></div>
         <div class="col-lg-8 mx-auto">
           <p class="lead text-center font-weight-bold" style="color: #224F59">Veterinário, você está <br/> no lugar certo e na hora certa!</p>

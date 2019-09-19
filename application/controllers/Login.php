@@ -27,14 +27,14 @@ class Login extends CI_Controller {
 				// Caso o usuario exista no BD
 				if($verifica === true){
 					//Faz todo processo de verificação
-						if($permissao == "CLI_FREE" || $permissao == "CLI_PRO"){
+						if($permissao == "CLI_FREE" || $permissao == "VET_FREE"){
+							$this->session->set_userdata('USUARIO_EMAIL', $login);
+							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 0);
+							redirect(base_url('Dash'));
+						} else if($permissao == "VET_PRO" || $permissao == "VET_PRO"){
 							$this->session->set_userdata('USUARIO_EMAIL', $login);
 							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 1);
-							redirect(base_url('Dash_Free'));
-						} else if($permissao == "VET_FREE" || $permissao == "VET_PRO"){
-							$this->session->set_userdata('USUARIO_EMAIL', $login);
-							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 1);
-							redirect(base_url('Dash_Free'));
+							redirect(base_url('Dash'));
 						}
 				}else{
 

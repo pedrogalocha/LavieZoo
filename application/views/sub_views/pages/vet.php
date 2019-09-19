@@ -93,6 +93,50 @@
             </div>
           </div>
 
+          <hr style="border-top: dotted 10px; color: #6EB1B9;" />
+
+          <div class="px-2 pt-4 form-group row">
+            <div class="col-md-12 mx-auto ">
+              <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
+              <input type="text" class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
+                placeholder="Digite o endereço da instituição" required>
+            </div>
+          </div>
+
+            <div class="px-2 form-group row">
+
+              <div class="col-md-2 mx-auto ">
+                <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
+                <input type="text" class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
+                  placeholder="Digite Aqui" formnovalidate = "true">
+              </div>
+
+              <div class="col-md-5 mx-auto ">
+                <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
+                <input type="text" class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro"
+                  placeholder="Digite Aqui" required>
+              </div>
+
+              <div class="col-md-5 mx-auto ">
+                <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
+                <input type="text" class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade"
+                  placeholder="Digite Aqui" required>
+              </div>
+
+            </div>
+
+            <div class="px-2 form-group row">
+              <div class="col-md-6 mx-auto ">
+                <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
+                <input type="text" class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP" required>
+              </div>
+              <div class="col-md-6 mx-auto ">
+                <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
+                <input type="text" class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep"
+                  placeholder="Digite Aqui" required pattern="[0-9]{5}[\-]?[0-9]{3}"
+                  onblur="buscarEndereco(document.getElementById('inputCep').value); ">
+              </div>
+            </div>
             <hr style="border-top: dotted 10px; color: #6EB1B9;" />
 
             <div class="px-2 form-group row">
@@ -185,6 +229,24 @@
                 },
                 inputEmailConfirm:{
                   equalTo: inputEmail,
+                },
+                inputEndereco: {
+                  required: true,
+                },
+                inputComplemento: {
+                  required: true,
+                },
+                inputBairro: {
+                  required: true,
+                },
+                inputCidade: {
+                  required: true,
+                },
+                inputEstado: {
+                  required: true,
+                },
+                inputCep: {
+                  required: true,
                 },         
           },
           messages:{
@@ -214,6 +276,24 @@
                 inputEmailConfirm:{
                   equalTo: "Os dois emails devem ser iguais.",
                 },
+                inputEndereco: {
+                  required: "Por favor inserir um endereço."
+                },
+                inputComplemento: {
+                  required: "Por favor inserir um complemento.",
+                },
+                inputBairro: {
+                  required: "Por favor inserir um Bairro.",
+                },
+                inputCidade: {
+                  required: "Por favor inserir uma Cidade.",
+                },
+                inputEstado: {
+                  required: "Por favor inserir uma Estado.",
+                },
+                inputCep: {
+                  required: "Por favor inserir uma CEP.",
+                },
           }
         });
 
@@ -235,5 +315,16 @@
           }, false);
         })();
         
+
+        function buscarEndereco(cep){
+          var url = 'http://api.postmon.com.br/v1/cep/' + cep.toString();
+          $.getJSON(url, function(data){
+              document.getElementById("inputEndereco").value= data.logradouro
+              document.getElementById("inputCidade").value= data.cidade
+              document.getElementById("inputBairro").value= data.bairro
+              document.getElementById("inputEstado").value= data.estado
+          }
+          )
+        }
       </script>
   </body>

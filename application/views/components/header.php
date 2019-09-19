@@ -28,6 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link href="<?php echo base_url('includes/css/scrolling-nav.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('includes/css/fonts.css') ?>" rel="stylesheet">
 
+
 </head>
 
 <body class="zoom" id="page-top">
@@ -35,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger fonte-rale" href="#page-top"><span style="color:#00617C;">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
+      <a class="navbar-brand font_logo js-scroll-trigger fonte-rale" href="#page-top"><span style="color:#00617C;">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,8 +45,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="nav-item nav-texto" >
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
           </li>
-          <li class="nav-item nav-texto">
-            <a hidden class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+          <li  class="nav-item nav-texto" >
+            <?php $hidden="id"; 
+            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
+            $hidden="hidden"
+            ?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+            <?php }; ?>
+            
+          </li>
+          <li  class="nav-item nav-texto" >
+            <?php $hidden="id"; 
+            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
+            $hidden="hidden"
+            ?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
+            <?php }; ?>
+            
           </li>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>

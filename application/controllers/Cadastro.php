@@ -55,9 +55,14 @@ class Cadastro extends CI_Controller {
 		$dados_insert['inputCPF'] = limpaCPF_CNPJ($dados_form['inputCPF']);
 		$dados_insert['inputFixo'] = $dados_form['inputFixo'];
 		$dados_insert['inputCel'] = $dados_form['inputCel'];
-		$dados_insert['inputConveniado'] = $dados_form['inputConveniado'];
 		$dados_insert['inputEmail'] = $dados_form['inputEmail'];
 		$dados_insert['inputSenha'] = base64_encode($dados_form['inputSenha']);
+		$dados_insert['inputEndereco'] = $dados_form['inputEndereco'];
+		$dados_insert['inputComplemento'] = $dados_form['inputComplemento'];
+		$dados_insert['inputBairro'] = $dados_form['inputBairro'];
+		$dados_insert['inputCidade'] = $dados_form['inputCidade'];
+		$dados_insert['inputEstado'] = $dados_form['inputEstado'];
+		$dados_insert['inputCep'] = limpaCPF_CNPJ($dados_form['inputCep']);
 
 		$clinica_id = 0;
 

@@ -72,6 +72,20 @@ section {
 	background-size: cover;
 }
 
+.font_logo {
+	font-size: 30px;
+}
+
 .zoom {
 	zoom: 90%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.dog_mobile {
+		max-width: 50%;
+	}
+
+	.font_logo {
+		font-size: 30px;
+	}
 }

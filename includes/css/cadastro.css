@@ -22,7 +22,7 @@ input[readonly] {
 }
 
 .ml-6 {
-	margin-left: 10rem !important;
+	margin-left: 10rem;
 }
 
 .dashboard_user {
@@ -45,7 +45,7 @@ input[readonly] {
 	-webkit-overflow-scrolling: touch;
 	padding-left: 0;
 	margin-bottom: 0;
-	height: calc(100vh - 20.75rem);
+	height: calc(80vh - 20.75rem);
 }
 
 .list_dash {
@@ -100,8 +100,77 @@ input[readonly] {
 }
 /* Ajuste Mobile */
 
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
 
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.ml-6 {
+		margin-left: 0rem !important;
+	}
+
+	.ajuste_margin_dash_principal {
+		padding-left: 0rem !important;
+	}
+
+	.ml-4 {
+		margin-left: 0rem !important;
+	}
+
+	.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap; 
+    margin-right: -15px;
+    margin-left: -15px;
+	}
+
+	.footer-mobile{
+		display: table-footer-group;
+	}
 
 
 /* Modal */
-

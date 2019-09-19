@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger fonte-rale" href="<?php echo base_url('') ?>"><span style="color:#00617C;">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
+      <a class=" font_logo navbar-brand js-scroll-trigger fonte-rale" href="<?php echo base_url('') ?>"><span style="color:#00617C; ">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,10 +54,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </li>
           <li  class="nav-item nav-texto" >
             <?php $hidden="id"; 
-            if(strpos($permissao , 'FREE') != true){ 
+            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
             $hidden="hidden"
             ?>
               <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+            <?php }; ?>
+            
+          </li>
+          <li  class="nav-item nav-texto" >
+            <?php $hidden="id"; 
+            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
+            $hidden="hidden"
+            ?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
             <?php }; ?>
             
           </li>

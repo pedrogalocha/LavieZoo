@@ -19,8 +19,15 @@ class VETERINARIO_MODEL extends CI_Model
       $vet_conveniado = "Não";
       $vet_cel = $dados['inputCel'];
       $vet_fixo = $dados['inputFixo'];
+      $vet_endereco = $dados['inputEndereco'];
+      $vet_complemento = $dados['inputComplemento'];
+      $vet_bairro = $dados['inputBairro'];
+      $vet_cidade = $dados['inputCidade'];
+      $vet_estado = $dados['inputEstado'];
+      $vet_cep = $dados['inputCep'];
 
-      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '$vet_cel', '$vet_fixo');";
+      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '$vet_cel', '$vet_fixo', 
+      '$vet_endereco', '$vet_complemento', '$vet_bairro', '$vet_cidade', '$vet_estado ', '$vet_cep');";
       $this->db->trans_start();
       $this->db->query($insertVet);
       $this->db->trans_complete();
@@ -29,6 +36,7 @@ class VETERINARIO_MODEL extends CI_Model
       } else {
         return "Query Success.";
       }
+
     }
 
     public function pegar_id_vet($CPF)
@@ -57,7 +65,7 @@ class VETERINARIO_MODEL extends CI_Model
     }
 
     public function getInfoUsu($email){
-      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA,                                   c.CLINICA_CNPJ FROM tb_usuario u 
+      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA,                                   c.CLINICA_CNPJ, u.VETERINARIO_ID, u.CLINICA_ID FROM tb_usuario u 
                           LEFT JOIN tb_veterinario v ON u.VETERINARIO_ID = v.VETERINARIO_ID
                           LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID 
                           OR u.CLINICA_ID = c.CLINICA_ID 

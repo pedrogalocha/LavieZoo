@@ -69,4 +69,8 @@ $route['login'] = 'Login';
 //Iniciar Login
 $route['post_login'] = 'Login/logar';
 
-$route['Dash_Free'] = 'Dashboard';
+$route['Dash'] = 'Dashboard';
+
+
+//Agendamento
+$route['agendamento_form'] = 'Agendamento';

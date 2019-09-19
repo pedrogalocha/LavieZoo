@@ -14,10 +14,13 @@ class Agendamento extends CI_Controller {
 	{
     $login = $this->session->userdata('USUARIO_EMAIL');
     $dados['pemissao'] = $this->permissao->getPermissao($login);
-    if($dados['pemissao'] == "CLI_PRO" || $dados['pemissao'] == "VET_PRO"){
+    $dados['usu'] = $this->vetModel->getInfoUsu($login);
+    $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+    if($sessao == 1){
       $dados  =   array(
         'tela'      =>  'agendamento',
-        'permissao' =>  $dados['pemissao']
+        'permissao' =>  $dados['pemissao'],
+        'sessao'    => $sessao
       );
       $this->load->view('sub_views/area_nav',$dados);
       //$this->load->view('sub_views/pages/dashboard');
