@@ -54,15 +54,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php }; ?>
             
           </li>
-          <li  class="nav-item nav-texto" >
-            <?php $hidden="id"; 
-            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
-            $hidden="hidden"
-            ?>
+          <?php if($this->session->userdata('USUARIO_NIVEL_ACESSO') != 0){?>
+          <li class="nav-item nav-texto" >
               <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
-            <?php }; ?>
-            
           </li>
+          <li class="nav item">
+            <a href="<?php echo base_url('sair') ?>"><button  class="btn btn-azul">Sair</button></a>
+          </li>
+          <?php }; ?>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>
           </li>

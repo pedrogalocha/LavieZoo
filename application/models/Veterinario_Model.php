@@ -65,7 +65,7 @@ class VETERINARIO_MODEL extends CI_Model
     }
 
     public function getInfoUsu($email){
-      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA,                                   c.CLINICA_CNPJ, u.VETERINARIO_ID, u.CLINICA_ID FROM tb_usuario u 
+      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA,                                   c.CLINICA_CNPJ, u.VETERINARIO_ID, u.CLINICA_ID, u.USUARIO_NIVEL_ACESSO,                                  u.ID_USUARIO FROM  tb_usuario u 
                           LEFT JOIN tb_veterinario v ON u.VETERINARIO_ID = v.VETERINARIO_ID
                           LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID 
                           OR u.CLINICA_ID = c.CLINICA_ID 
@@ -91,4 +91,6 @@ class VETERINARIO_MODEL extends CI_Model
         return 0;
       }
     }
+
+
 }

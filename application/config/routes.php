@@ -60,6 +60,8 @@ $route['cadastro_clinica'] = 'Cadastro/cadastro_clinica';
 $route['cadastro_vet'] = 'Cadastro/cadastro_vet';
 $route['cadastro_menu'] = 'Cadastro';
 
+//Editar
+$route['editar/(:any)'] = 'Usuario/editar/$1'; 
 //cadastro usuario vet ou clinica
 $route['insert_vet'] = 'Cadastro/insert_vet';
 $route['insert_clinica'] = 'Cadastro/insert_clinica';
@@ -71,6 +73,11 @@ $route['post_login'] = 'Login/logar';
 
 $route['Dash'] = 'Dashboard';
 
-
 //Agendamento
 $route['agendamento_form'] = 'Agendamento';
+
+//email
+$route['email'] = 'Email/cadastroEmailFeed';
+
+//sair
+$route['sair'] = 'Login/logout';

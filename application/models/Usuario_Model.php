@@ -30,4 +30,27 @@ class Usuario_Model extends CI_Model
         return "LIBERADO";
       }
     }
+
+    public function getInfoTotalUsu($id){
+      $queryBuscaIdVet = "SELECT v.VETERINARIO_NOME, v.VETERINARIO_CRMV, c.CLINICA_NOME_FANTASIA, 
+                                  c.CLINICA_CNPJ, u.VETERINARIO_ID, u.CLINICA_ID, u.USUARIO_NIVEL_ACESSO,                                  
+                                  u.ID_USUARIO, v.VETERINARIO_DATA_NASC, v.VETERINARIO_ESPECIALIDADE, v.VETERINARIO_CPF,
+                                  v.VETERINARIO_SEXO, v.VETERINARIO_ENDERECO, v.VETERINARIO_COMPLEMENTO, v.VETERINARIO_BAIRRO, v.VETERINARIO_CIDADE,
+                                  v.VETERINARIO_ESTADO, v.VETERINARIO_CEP, v.VETERINARIO_CELULAR, c.CLINICA_RESPONSAVEL_CPF,
+                                  c.CLINICA_RESPONSAVEL_SEXO, c.CLINICA_ENDEREÇO, c.CLINICA_COMPLEMENTO, c.CLINICA_BAIRRO, c.CLINICA_CIDADE,
+                                  c.CLINICA_ESTADO, c.CLINICA_CEP, c.CLINICA_CELULAR
+                                  FROM  tb_usuario u 
+                                  LEFT JOIN tb_veterinario v ON u.VETERINARIO_ID = v.VETERINARIO_ID
+                                  LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID 
+                                  OR u.CLINICA_ID = c.CLINICA_ID 
+                                  WHERE u.ID_USUARIO = $id ;";
+      $executaBuscaIdVet = $this->db->query($queryBuscaIdVet);
+      $pegaID = $executaBuscaIdVet->row_array();
+      if($executaBuscaIdVet->num_rows() > 0){
+      return $pegaID;
+      print_r($pegaID);
+      } else {
+      return 0;
+      }
+    }
 }
