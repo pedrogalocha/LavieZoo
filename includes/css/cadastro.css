@@ -104,6 +104,13 @@ input[readonly] {
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
 */
+.coleta-clinica {
+	display: none;
+}
+
+.coleta-clinica-faixa {
+	display: none;
+}
 
 @media (min-width: 1281px) {
 }

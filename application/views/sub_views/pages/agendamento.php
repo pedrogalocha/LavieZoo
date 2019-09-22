@@ -2,49 +2,23 @@
 <?php 
 ?>
       <form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" action='<?php echo base_url('insert_vet') ?>' novalidate autocomplete="off">
-        <div class="row">
+        <div class="row" style="display: inline">
           
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
-            <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
-            style="background-color: rgba(255, 255, 255, 0.85)">
-            <img class="" src="<?php echo base_url('includes/img/agencia_cadastro_ICONE.svg') ?>" style="
-            position:absolute;
-            top: 0;
-            left: 50%;
-            transform:translate(-50%,-25%);
-            "/>
-
-            <div class="mt-5 row form-group">
-              <h3 class="mt-5 mx-auto font-weight-bold text-center" style="color: #0C7C95">Cadastro Veterinário</h3>
-            </div>
-            <div class="form-group row">
-              <div class="col-md-9 mx-auto text-center">
-                <label class="align-self-center font-weight-bold" for="inputNomeCompleto">Nome Completo</label>
-                <input type="text" class="form-control text-uppercase" name="inputNomeCompleto" id="inputNomeCompleto"
-                  placeholder="Digite o seu nome completo" required>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-md-9 mx-auto text-center">
-                <label class="align-self-center font-weight-bold" for="inputCRMV">CRMV</label>
-                <input type="text" class="form-control text-uppercase" name="inputCRMV" id="inputCRMV"
-                  placeholder="Digite o CRMV" required pattern="^[0-9]*$">
-              </div>
-            </div>
-          </div> <!-- Fim da border transparente -->
+            
 
 
           <div class="pt-4 px-2 form-group row">
             <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
-              <input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento" id="inputDataDeNascimento"
-                placeholder="dd/mm/aaaa" required pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
+              <label class="align-self-center font-weight-bold" for="inputNomeAnimal">Nome</label>
+              <input type="text" class="form-control text-uppercase text-left" name="inputNomeAnimal" id="inputNomeAnimal"
+                placeholder="Nome Do Animal" required >
             </div>
 
             <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" for="inputEspecialidade">Especialidade</label>
-              <input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade" id="inputEspecialidade"
-                placeholder="Qual a sua Especialidade?" required>
+              <label class="align-self-center font-weight-bold" for="inputIdadeAnimal">IDADE</label>
+              <input type="text" required class="form-control text-uppercase text-left" name="inputIdadeAnimal" id="inputIdadeAnimal"
+                placeholder="Idade do Animal" required>
             </div>
           </div>
 
@@ -52,97 +26,99 @@
               <div class="col-md-6 mx-auto ">
               <div class="pt-4 form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                  value="Masculino" required>
-                <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                  value="Cachorro" required>
+                <label class="form-check-label" for="inlineRadio1">Cachorro</label>
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                  value="Feminino">
-                <label class="form-check-label" for="inlineRadio2">Feminino</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                  value="NaoBinario">
-                <label class="form-check-label" for="inlineRadio3">Não Binário</label>
+                  value="Gato">
+                <label class="form-check-label" for="inlineRadio2">Gato</label>
               </div>
             </div>
 
             <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold"  for="inputCPF">CPF</label>
-              <input type="text" class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
+              <label class="align-self-center font-weight-bold"  for="inputRaça">Raça</label>
+              <input type="text" class="form-control text-uppercase text-left cpf" name="inputRaça" id="inputRaça" placeholder="Digite a Raça do Animal" required>
             </div>
           </div>
 
           <div class="px-2 form-group row">
-            <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold" required for="inputConveniado">Telefone Celular</label>
-              <input type="text" class="form-control text-uppercase text-left ddd_cell form-control" name="inputCel" id="inputCel"
-                placeholder="+55(__)_____-____"
-                onfocus="this.removeAttribute('readonly');" readonly>
-            </div>
-
-            <div class="col-md-6 mx-auto ">
-              <label class="align-self-center font-weight-bold"  for="inputConveniado">Telefone Fixo</label>
-              <input type="text" class="form-control text-uppercase text-left ddd_fix" name="inputFixo" id="inputFixo"
-                placeholder="+55(__)____-____"
-                onfocus="this.removeAttribute('readonly');" readonly>
-            </div>
-
-            <div class="col-md-3 mx-auto pt-5 ">
-              <button class="btn-azul">Conheça o nosso plano!</button>
+            <div class="col-md-12 mx-auto ">
+              <label class="align-self-center font-weight-bold" required for="inputConveniado">Nome do Porprietário</label>
+              <input type="text" class="form-control text-uppercase text-left form-control" name="inputNomeProprietario" id="inputNomeProprietario" placeholder="Nome Completo do Proprietario do Animal">
             </div>
           </div>
 
             <hr style="border-top: dotted 10px; color: #6EB1B9;" />
+          
+            <div class="px-2 form-group row">
+              <div class="col-md-12 mx-auto ">
+              <?php foreach($tipoAgendamento as $tpagen){ ?>
+                <div class="pt-2 form-check form-check">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="<?php print_r($tpagen->PERFIL_EXAME_ID) ?>" required>
+                  <label class="form-check-label" for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME)?> </b>- <?php print_r($tpagen->DS_PERFIL_EXAME) ?></label>
+                </div>
+              <?php } ?>
+              </div>
+            </div>
 
             <div class="px-2 form-group row">
-                <div class="col-md-6 mx-auto ">
-                  <label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
-                  <input type="email"   required class="form-control text-uppercase text-left form-control" name="inputEmail" id="inputEmail"
-                  placeholder="Digite seu Email"
-                  onfocus="this.removeAttribute('readonly');" readonly>
+              <div class="col-md-12 mx-auto ">
+                <label class="align-self-center font-weight-bold" required for="inputConveniado">Outros Exames: </label>
+                <input type="text" class="form-control text-uppercase text-left form-control" name="inputOutrosExames" id="inputOutrosExames" placeholder="Digite Aqui">
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="pt-2 container col-sm-12 mx-auto align-self-center align-items-center justify-content-center" style="margin-top:30px; margin-bottom:30px; background-color: #F9F2C7">
+            <div class="px-2 form-group row">
+            <div class="col-md-8 mx-auto mb-2 ">
+                <div class="pt-2 form-check form-check">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadioOptions2"
+                    value="buscaEmClinica" required>
+                  <label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
                 </div>
-    
-                <div class="col-md-6 mx-auto ">
-                  <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
-                  <input type="password" required class="form-control text-uppercase text-left"  name="inputSenha" id="inputSenha"
-                  placeholder="Digite sua Senha"
-                  onfocus="this.removeAttribute('readonly');" readonly>
+                <div class="pt-2 form-check form-check" style="padding-left: 0px !important">
+                  <div class="col-sm-3 d-inline" style="padding-left: 0px !important">
+                    <div class="pt-2 form-check form-check d-inline">
+                      <input class="form-check-input" type="radio" name="Coleta" id="inlineRadioOptions2"
+                        value="outro">
+                      <label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+                    <label name="dataColeta" id="outro" class="align-self-center font-weight-bold" for="inputDataColeta">Data</label>
+                  </div>
+                  <div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+                    <input type="date" name="inputColeta" id="inputColeta"
+                    placeholder="dd/mm/aaaa" >
+                  </div>
+                  <div class="col-sm-2 d-inline" style="padding-left: 1px !important">
+                    <select class="coleta-clinica-faixa" id="exampleFormControlSelect1" onchange="">
+                      <option value="0">Faixa de Horario</option>
+                      <option value="1">09h-10h</option>
+                      <option value="2">10h-11h</option>
+                      <option value="3">11h-12h</option>
+                      <option valur="4">12h-13h</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="pt-2 form-check form-check" tyle="
+                    padding-top: 0px !important;
+                ">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadioOptions2"
+                    value="buscaDomiciliar" required>
+                  <label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
                 </div>
               </div>
-            
-              <div class="px-2 form-group row">
-                  <div class="col-md-6 mx-auto ">
-                    <label class="align-self-center font-weight-bold" for="inputEmailConfirm">Confirme o seu E-mail</label>
-                    <input type="email" name="inputEmailConfirm" class="form-control text-uppercase text-left" id="inputEmailConfirm" placeholder="Insira o email novamente" >
-                  </div>
-      
-                  <div class="col-md-6 mx-auto ">
-                    <label class="align-self-center font-weight-bold" for="inputSenhaConfirm">Confirme a sua Senha</label>
-                    <input type="password" name="inputSenhaConfirm" class="form-control text-uppercase text-left" id="inputSenhaConfirm" placeholder="Insira a senha novamente">
-                  </div>
-                </div>
-
-                <div class="px-2 form-group row pb-5">
-                  <div class="col-md-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="TermosECondicoes" required>
-                        <label class="form-check-label" for="TermosECondicoes">
-                          Li e concordo com os termos e condições do LavieZoo
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="SaberMais" required>
-                        <label  class="form-check-label" for="SaberMais">
-                          Para saber mais sobre como o LavieZoo coleta, processa, compartilha e protege seus dados pessoais, leia a Política de Privacidade do Laviezoo
-                        </label>
-                      </div>
-                   </div>
-                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-lg btn-warning text-white">Cadastrar</button>
-                      </div>
-                 </div>
+            </div>
           </div>
+            <div class="col-md-12 mb-2" style="text-align:center;">
+              <button type="submit" class="btn btn-lg btn-warning text-white">Enviar</button>
+            </div>
+        </div>
       </div>
       </form>
 
@@ -235,5 +211,8 @@
           }, false);
         })();
         
+        $("input[name='Coleta']:radio")
+        .change(function() {
+          $("#ativo").toggle($(this).val() == "outro");
       </script>
   </body>

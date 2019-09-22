@@ -8,6 +8,7 @@ class Agendamento extends CI_Controller {
     parent::__construct();
     $this->load->model('Login_Model','permissao');
     $this->load->model('Veterinario_Model','vetModel');
+    $this->load->model('Agendamento_Model','agendamento');
   }
 
 	public function index()
@@ -16,11 +17,13 @@ class Agendamento extends CI_Controller {
     $dados['pemissao'] = $this->permissao->getPermissao($login);
     $dados['usu'] = $this->vetModel->getInfoUsu($login);
     $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+    $tipoAgendamento = $this->agendamento->getTipoAgendamento();
     if($sessao == 1){
       $dados  =   array(
         'tela'      =>  'agendamento',
         'permissao' =>  $dados['pemissao'],
-        'sessao'    => $sessao
+        'sessao'    => $sessao,
+        'tipoAgendamento' => $tipoAgendamento
       );
       $this->load->view('sub_views/area_nav',$dados);
       //$this->load->view('sub_views/pages/dashboard');
