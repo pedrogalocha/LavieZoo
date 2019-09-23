@@ -75,6 +75,8 @@ $route['Dash'] = 'Dashboard';
 
 //Agendamento
 $route['agendamento_form'] = 'Agendamento';
+$route['faixaHorario'] = 'Agendamento/agendamento';
+$route['cadastrarAgendamento'] = 'Agendamento/cadastrarAgendamento';
 
 //email
 $route['email'] = 'Email/cadastroEmailFeed';

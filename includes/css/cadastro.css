@@ -112,6 +112,11 @@ input[readonly] {
 	display: none;
 }
 
+.margin-final-agendamento {
+	margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 @media (min-width: 1281px) {
 }
 

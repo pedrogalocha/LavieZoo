@@ -53,4 +53,15 @@ class Usuario_Model extends CI_Model
       return 0;
       }
     }
+      public function getUsuId($email){
+        $qIdUsu = " SELECT ID_USUARIO FROM tb_usuario WHERE USUARIO_EMAIL = '$email'";
+        $eIdUsu = $this->db->query($qIdUsu);
+        $rIdUsu = $eIdUsu->row_array();
+        if($eIdUsu->num_rows() > 0){
+          return $rIdUsu;
+          } else {
+          return 0;
+          }
+      }
+    
 }
