@@ -30,8 +30,7 @@
               <div class="col-md-9 mx-auto text-center">
                 <label class="align-self-center font-weight-bold" for="inputCNPJ">CNPJ</label>
                 <input type="text" class="form-control text-uppercase cnpj" name="inputCNPJ" id="inputCNPJ"
-                  placeholder="Digite o CNPJ da instituição" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-                  " required>
+                  placeholder="Digite o CNPJ da instituição" required>
               </div>
             </div>
           </div> <!-- Fim da border transparente -->
@@ -71,7 +70,7 @@
 
             <div class="col-md-6 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
-              <input type="text" class="form-control text-uppercase text-left" name="inputCPF" id="inputCPF" placeholder="Digite o CPF" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
+              <input type="text" class="cpf form-control text-uppercase text-left" name="inputCPF" id="inputCPF" placeholder="Digite o CPF" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
             </div>
           </div>
 
@@ -141,7 +140,7 @@
                 <div class="col-md-6 mx-auto ">
                   <label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
                   <input type="email" class="form-control text-uppercase text-left" name="inputEmail" id="inputEmail"
-                    placeholder="Digite o seu e-mail" required pattern="">
+                    placeholder="Digite o seu e-mail" required >
                 </div>
     
                 <div class="col-md-6 mx-auto ">
@@ -154,9 +153,7 @@
               <div class="px-2 form-group row">
                   <div class="col-md-6 mx-auto ">
                     <label class="align-self-center font-weight-bold" for="inputEmailConfirm">Confirme o E-mail</label>
-                    <input type="email" class="form-control text-uppercase text-left" name= "inputEmailConfirm" id="inputEmailConfirm"
-                      placeholder="Confirme o seu e-mail" required
-                      >
+                    <input type="email" class="form-control text-uppercase text-left" name= "inputEmailConfirm" id="inputEmailConfirm" placeholder="Confirme o seu e-mail" required>
                   </div>
       
                   <div class="col-md-6 mx-auto ">
@@ -221,7 +218,6 @@
                 },
                 inputEmail:{
                   required:true,
-                  minlength: 6,
                 },
                 inputSenha:{
                   required:true,
@@ -273,7 +269,6 @@
                 },
                 inputEmail:{
                   required:"É necessário informar um email",
-                  minlength: "É necessário inserir um email valido.",
                 },
                 inputSenha: {
                   required:"É necessário informar uma senha valida.",

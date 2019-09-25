@@ -2,7 +2,7 @@
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+print_r($agendamentos);
 ?>
 
 <div>
@@ -61,10 +61,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                   <div class="panel-body" >
                   <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
-                      <li class="list-group-item list_dash"><strong>Signature
-                          Accommodations</strong>
-                          <p>Teste</p>
+                  <?php if($agendamentos != null){?>
+                    <?php $i = 1; foreach($agendamentos as $agend ){ ?>
+                      <li class="list-group-item list_dash">
+                      <strong><?php print_r($i." - ".$agend->DS_PERFIL_EXAME)?></strong>
+                          <p class="margin-botton-perso"><?php print_r("<b>Nome do Animal: </b>".$agend->ANIMAL_NOME)?></p>
+                          <p><?php print_r("<b>Status: </b>".$agend->STATUS)?></p>
                       </li>
+                    <?php $i++; }?>
+                    <?php }else {?>
+                      <li class="list-group-item list_dash">
+                      <strong>Nenhum Item associado</strong>
+                      </li>
+                    <?php }?>
                   </ul>
                   </div>
               </div>
@@ -110,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </li>
                   </ul>
                   <div class="mt-2" style="text-align:center;">
-                      <button class="btn-primary ajuste_bord_redonda">Cadastrar Novo Usuário</button>
+                      <a href="<?php echo base_url('cadastroVetCli/'.$userInfo->USUARIO_ID) ?>"><button class="btn-primary ajuste_bord_redonda">Cadastrar Novo Usuário</button></a>
                   </div>
                   </div>
               </div>

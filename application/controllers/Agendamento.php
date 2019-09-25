@@ -19,7 +19,7 @@ class Agendamento extends CI_Controller {
     $dados['usu'] = $this->usuario->getUsuId($login);
     $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
     $tipoAgendamento = $this->agendamento->getTipoAgendamento();
-    if($sessao == 1){
+    if($sessao >= 1){
       $dados  =   array(
         'tela'      =>  'agendamento',
         'permissao' =>  $dados['pemissao'],
@@ -53,21 +53,31 @@ class Agendamento extends CI_Controller {
 		$dados_insert['inputRaça'] = $dados_form['inputRaça'];
 		$dados_insert['inputNomeProprietario'] = $dados_form['inputNomeProprietario'];
 		$dados_insert['inlineRadioOptions2'] = $dados_form['inlineRadioOptions2'];
-		$dados_insert['inputOutrosExames'] = $dados_form['inputOutrosExames'] == null ? "" : $dados_form['inputOutrosExames'];
+		$dados_insert['inputOutrosExames'] = $dados_form['inputOutrosExames'] == null ? null : $dados_form['inputOutrosExames'];
 		$dados_insert['inlineRadioOptions3'] = $dados_form['inlineRadioOptions3'];
-    $dados_insert['inputColeta'] = $dados_form['inputColeta'] == null ? "" : $dados_form['inputColeta'] ;
-    $dados_insert['inputFaixaHorario'] = $dados_form['inputFaixaHorario'] == null ? "" : $dados_form['inputFaixaHorario']  ;
-		$dados_insert['inputEndereco'] = $dados_form['inputEndereco'] == null ? "" : $dados_form['inputEndereco']  ;
-		$dados_insert['inputComplemento'] = $dados_form['inputComplemento'] == null ? "" : $dados_form['inputComplemento'] ;
-		$dados_insert['inputBairro'] = $dados_form['inputBairro'] == null ? "" : $dados_form['inputBairro']  ;
-		$dados_insert['inputCidade'] = $dados_form['inputCidade'] == null ? "" : $dados_form['inputCidade'];
-		$dados_insert['inputEstado'] = $dados_form['inputEstado'] == null ? "" : $dados_form['inputEstado'];
-    $dados_insert['inputCep'] = $dados_form['inputCep'] == null ? "" : $dados_form['inputCep'];
-    $dados_insert['inputCelular'] = $dados_form['inputCelular'] == null ? "" : $dados_form['inputCelular'];
+    $dados_insert['inputColeta'] = $dados_form['inputColeta'] == null ? null : $dados_form['inputColeta'] ;
+    $dados_insert['inputFaixaHorario'] = $dados_form['inputFaixaHorario'] == null ? 0 : $dados_form['inputFaixaHorario']  ;
+		$dados_insert['inputEndereco'] = $dados_form['inputEndereco'] == null ? null : $dados_form['inputEndereco']  ;
+		$dados_insert['inputComplemento'] = $dados_form['inputComplemento'] == null ? null : $dados_form['inputComplemento'] ;
+		$dados_insert['inputBairro'] = $dados_form['inputBairro'] == null ? null : $dados_form['inputBairro']  ;
+		$dados_insert['inputCidade'] = $dados_form['inputCidade'] == null ? null : $dados_form['inputCidade'];
+		$dados_insert['inputEstado'] = $dados_form['inputEstado'] == null ? null : $dados_form['inputEstado'];
+    $dados_insert['inputCep'] = $dados_form['inputCep'] == null ? null : $dados_form['inputCep'];
+    $dados_insert['inputCelular'] = $dados_form['inputCelular'] == null ? null : $dados_form['inputCelular'];
     $dados_insert['idUsu'] = $dados_form['idUsu'];
 
-    $insere_dados = $this->agendamento->cadastro_vet($dados_insert);
+    $insere_dados = $this->agendamento->cadastraAgendamento($dados_insert);
 
-    print_r($dados_insert);
+    if($insere_dados = true) {
+      echo "<script> 
+			window.location.href = 'Dash';
+			</script>";
+		} 
+		else 
+		{
+			echo "<script> 
+				window.location.href = 'cadastrarAgendamento';
+			</script>";
+		}
   }
 }

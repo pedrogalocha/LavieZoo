@@ -5,6 +5,7 @@ class Agendamento_Model extends CI_Model
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('Agendamento_Model','agendamento');
   }
 
   public function getTipoAgendamento(){
@@ -43,7 +44,8 @@ class Agendamento_Model extends CI_Model
     }
   }
 
-  public function cadastraAgendamento($dados){
+  public function cadastraAgendamento($dados_insert){
+
     $inputNomeAnimal = $dados_insert['inputNomeAnimal'];
 		$inputIdadeAnimal = $dados_insert['inputIdadeAnimal'] ;
 		$inlineRadioOptions = $dados_insert['inlineRadioOptions'] ;
@@ -63,60 +65,100 @@ class Agendamento_Model extends CI_Model
     $inputCelular = $dados_insert['inputCelular'] ;
     $idUsu = $dados_insert['idUsu']; 
 
-    $cadAnimal = cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inlineRadioOptions, $inputRaça, $inputNomeProprietario);
+    $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inlineRadioOptions, $inputRaça, $inputNomeProprietario);
+    $this->db->query($cadAnimal);
+    
+    $idAnimal = $this->agendamento->getIdAnimal($inputNomeAnimal);
+    $idAni = $this->db->query($idAnimal)->row()->ANIMAL_ID;
 
-    $idAnimal = getIdAnimal($inputNomeAnimal);
 
     $qPrincipal = "INSERT INTO tb_agendamento (
-    'ANIMAL_ID',
-    'PERFIL_EXAME_ID',
-    'AGENDAMENTO_OUTROS_EXAMES',
-    'TIPO_BUSCA',
-    'DATA_COLETA',
-    'FAIXA_HORARIO_ID',
-    'USUARIO_ID',
-    'AGENDAMENTO_LAUDO',
-    'FLAG_ID') values 
-    ()"
-
+    ANIMAL_ID,
+    PERFIL_EXAME_ID,
+    AGENDAMENTO_OUTROS_EXAMES,
+    TIPO_BUSCA,
+    DATA_COLETA,
+    FAIXA_HORARIO_ID,
+    USUARIO_ID,
+    ENDERECO,
+    COMPLEMENTO,
+    BAIRRO,
+    CIDADE,
+    ESTADO,
+    CEP,
+    CELULAR,
+    STATUS
+    ) values 
+    ($idAni,
+     $inlineRadioOptions2,
+    '$inputOutrosExames',
+    '$inlineRadioOptions3',
+    '$inputColeta',
+     $inputFaixaHorario,
+     $idUsu,
+    '$inputEndereco',
+    '$inputComplemento',
+    '$inputBairro',
+    '$inputCidade',
+    '$inputEstado',
+    '$inputCep',
+    '$inputCelular',
+    'SOLICITADO')";
+    
+    print_r($qPrincipal);
     $this->db->trans_start();
-    $this->db->query($cadAnimal);
-    $idAni = $this->db->query($idAnimal)->row()->ANIMAL_ID;
-    $this->db->query($cadAnimal);
+    $this->db->query($qPrincipal);
     if ($this->db->trans_status() === FALSE)
       {
+              echo "<script>alert('Houve um erro ao cadastrar o agendamento.')</script>";
               $this->db->trans_rollback();
+              return false;
       }
       else
       {
               $this->db->trans_commit();
+              echo "<script>alert('Agendamento efetuado com sucesso.')</script>";
+              return true;
       }
+    
   }
 
   public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario){
     $qPrincipal = "INSERT INTO tb_animal
-    (
-    'ANIMAL_NOME',
-    'ANIMAL_IDADE',
-    'ANIMAL_RACA',
-    'ANIMAL_ESPECIE',
-    'ANIMAL_PROPRIETARIO'
+    (ANIMAL_NOME, 
+    ANIMAL_IDADE, 
+    ANIMAL_RACA, 
+    ANIMAL_ESPECIE, 
+    ANIMAL_PROPRIETARIO)
     VALUES
     (
     '$nome',
      $idade,
     '$raca',
     '$especie',
-    '$proprietario');"
-
+    '$proprietario');";
+    print_r($qPrincipal);
     return $qPrincipal;
   }
 
   public function getIdAnimal($nome){
     $qprincipal = "SELECT ANIMAL_ID FROM tb_animal WHERE ANIMAL_NOME = '$nome';";
 
-    return $qprincipal
+    return $qprincipal;
   }
 
+  public function getAgendamentos($idUsu){
+    $qAgendamento = "SELECT pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS FROM tb_agendamento  ag
+    INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+    INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+    WHERE ag.USUARIO_ID = $idUsu; ";
+    $eAgendamento = $this->db->query($qAgendamento);
+    $aAgendamento = $eAgendamento->result();
+    if($eAgendamento->num_rows() > 0){
+      return $aAgendamento;
+    } else {
+      return null;
+    }
+  }
 
 }

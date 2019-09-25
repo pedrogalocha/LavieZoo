@@ -71,8 +71,10 @@ $route['login'] = 'Login';
 //Iniciar Login
 $route['post_login'] = 'Login/logar';
 
+//Dashboard
 $route['Dash'] = 'Dashboard';
-
+//CLINICA
+$route['cadastroVetCli/(:any)'] = 'Cadastro/cadastro_vet_clinica/$1'; 
 //Agendamento
 $route['agendamento_form'] = 'Agendamento';
 $route['faixaHorario'] = 'Agendamento/agendamento';

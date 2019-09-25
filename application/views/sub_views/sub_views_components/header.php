@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </li>
           <li  class="nav-item nav-texto" >
             <?php $hidden="id"; 
-            if($this->session->userdata('USUARIO_NIVEL_ACESSO') == 1){ 
+            if($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1){ 
             $hidden="hidden"
             ?>
               <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>

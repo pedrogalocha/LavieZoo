@@ -26,10 +26,7 @@ class Clinica_Model extends CI_Model
     $cli_nome_titular = $dados['inputNomeTitular'];
     $cli_titular_dtnasc = $dados['inputDataDeNascimento'];
     $cli_titular_sex = $dados['inlineRadioOptions'];
-    $cli_titular_cpf = $dados['inputTelefone'];
-    $cli_conveniado = $dados['inputConveniado'];
-    
-
+    $cli_titular_cpf = $dados['inputCPF'];
     $cli_endereco = $dados['inputEndereco'];
     $cli_complemento = $dados['inputComplemento'];
     $cli_bairro = $dados['inputBairro'];
@@ -38,7 +35,7 @@ class Clinica_Model extends CI_Model
     $cli_cep = $dados['inputCep'];
     $cli_celular = $dados['inputCelular'];
 
-    $insertCli = "Insert into tb_clinica values (null,'$cli_nome_inst', '$cli_cnpj', '$cli_nome_titular','$cli_titular_dtnasc', '$cli_titular_cpf', '$cli_titular_sex' , '$cli_conveniado', '$cli_endereco', '$cli_complemento', '$cli_bairro','$cli_estado' ,'$cli_cidade', '$cli_cep', '$cli_celular');";
+    $insertCli = "Insert into tb_clinica values (null,'$cli_nome_inst', '$cli_cnpj', '$cli_nome_titular','$cli_titular_dtnasc', '$cli_titular_cpf', '$cli_titular_sex' , 'NAO', '$cli_endereco', '$cli_complemento', '$cli_bairro','$cli_estado' ,'$cli_cidade', '$cli_cep', '$cli_celular');";
     
     $this->db->trans_start();
     $this->db->query($insertCli);
@@ -52,7 +49,7 @@ class Clinica_Model extends CI_Model
 
   public function pegar_id_cli($cnpj)
   {
-    $queryPegaID = "Select CLINICA_ID from tb_clinica where CLINICA_ID = '$cnpj';";
+    $queryPegaID = "Select CLINICA_ID from tb_clinica where CLINICA_CNPJ = '$cnpj';";
     $executaPegaID = $this->db->query($queryPegaID);
     $Clinica_Array = $executaPegaID->row_array();
     $ID_CLI = implode(",", $Clinica_Array);

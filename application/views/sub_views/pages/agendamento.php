@@ -6,8 +6,6 @@
           
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
             
-
-
           <div class="pt-4 px-2 form-group row">
             <div class="col-md-6 mx-auto ">
               <label class="align-self-center font-weight-bold" for="inputNomeAnimal">Nome</label>
@@ -27,12 +25,12 @@
               <div class="pt-4 form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                   value="Cachorro" required>
-                <label class="form-check-label" for="inlineRadio1">Cachorro</label>
+                <label class="form-check-label" for="inlineRadio1">Canino</label>
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                   value="Gato">
-                <label class="form-check-label" for="inlineRadio2">Gato</label>
+                <label class="form-check-label" for="inlineRadio2">Felino</label>
               </div>
             </div>
 
