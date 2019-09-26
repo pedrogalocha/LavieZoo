@@ -1,9 +1,14 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none">
 <?php 
 ?>
+
+      <?php if($permissao == "CLI_PRO" && $clinica == true ){ ?>
+      <form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" action='<?php echo base_url('insert_vet_cli/'.$idCli) ?>' novalidate autocomplete="off">
+      <?php } else {?>
       <form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" action='<?php echo base_url('insert_vet') ?>' novalidate autocomplete="off">
+      <?php } ?>
         <div class="row">
-          
+        <?php print_r($clinica) ?>
         <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
             <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
             style="background-color: rgba(255, 255, 255, 0.85)">

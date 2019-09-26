@@ -37,4 +37,28 @@ class Email extends CI_Controller {
             show_error($this->email->print_debugger());
         }
     }
+
+    public function cadastroUsuarioMail($email, $senha, $nome) {
+        $this->load->config('email');
+        $this->load->library('email');
+        
+        $from = $this->config->item('smtp_user');
+        $to = $email;
+        $subject = "contato@laviezoo.com.br";
+        $message = "Obrigado por se cadastrar no LavieZoo, Seu usuário é $email e sua senha é $senha";
+
+        $this->email->set_newline("\r\n");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($message);
+
+        if ($this->email->send()) {
+            echo "<script> 
+            alert('Obrigado por se cadastrar $nome.');
+            </script>";
+        } else {
+            show_error($this->email->print_debugger());
+        }
+    }
 }

@@ -25,8 +25,9 @@ class VETERINARIO_MODEL extends CI_Model
       $vet_cidade = $dados['inputCidade'];
       $vet_estado = $dados['inputEstado'];
       $vet_cep = $dados['inputCep'];
+      $vet_clinica = $dados['idClinica'];
 
-      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', null, '$vet_cel', '$vet_fixo', 
+      $insertVet = "Insert into tb_veterinario values (null,'$vet_nome','$vet_crmv', '$vet_data_nasc', '$vet_sexo','$vet_especialidade' , '$vet_cpf', '$vet_conveniado', $vet_clinica, '$vet_cel', '$vet_fixo', 
       '$vet_endereco', '$vet_complemento', '$vet_bairro', '$vet_cidade', '$vet_estado ', '$vet_cep');";
       $this->db->trans_start();
       $this->db->query($insertVet);
@@ -92,5 +93,16 @@ class VETERINARIO_MODEL extends CI_Model
       }
     }
 
+    public function getVetsCli($idCli){
+      $qVets = "SELECT VETERINARIO_NOME, VETERINARIO_CRMV FROM tb_veterinario WHERE VETERINARIO_ID_CLINICA = $idCli;";
+      $eVets = $this->db->query($qVets);
+      $pVets = $eVets->result();
+      if($eVets->num_rows() > 0){
+        return $pVets;
+     } else {
+       return false;
+     }
+
+    }
 
 }

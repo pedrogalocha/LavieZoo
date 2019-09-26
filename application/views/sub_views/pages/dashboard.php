@@ -105,21 +105,20 @@ print_r($agendamentos);
                 </div>
                   <div class="panel-body" >
                   <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
-                      <li class="list-group-item list_dash"><strong>Signature
-                          Accommodations</strong>
-                          <p>Teste</p>
-                      </li>
-                      <li class="list-group-item list_dash"><strong>Signature
-                          Accommodations</strong>
-                          <p>Teste</p>
-                      </li>
-                      <li class="list-group-item list_dash"><strong>Signature
-                          Accommodations</strong>
-                          <p>Teste</p>
-                      </li>
+                  <?php if($vetAssociados != null){?>
+                    <?php foreach($vetAssociados as $vetass) { ?>
+                        <li class="list-group-item list_dash"><strong><?php print_r("Veterinario: ".$vetass->VETERINARIO_NOME)?></strong>
+                            <p><?php print_r("CRMV: ".$vetass->VETERINARIO_CRMV)?></p>
+                        </li>
+                    <?php } ?>    
+                  <?php } else {?>
+                    <li class="list-group-item list_dash">
+                    <strong>Nenhum Item associado</strong>
+                    </li>
+                  <?php }?>
                   </ul>
                   <div class="mt-2" style="text-align:center;">
-                      <a href="<?php echo base_url('cadastroVetCli/'.$userInfo->USUARIO_ID) ?>"><button class="btn-primary ajuste_bord_redonda">Cadastrar Novo Usuário</button></a>
+                      <a href="<?php echo base_url('cadastroVetCli/'.$userInfo['CLINICA_ID']) ?>"><button class="btn-primary ajuste_bord_redonda">Cadastrar Novo Usuário</button></a>
                   </div>
                   </div>
               </div>

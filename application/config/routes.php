@@ -65,6 +65,8 @@ $route['editar/(:any)'] = 'Usuario/editar/$1';
 //cadastro usuario vet ou clinica
 $route['insert_vet'] = 'Cadastro/insert_vet';
 $route['insert_clinica'] = 'Cadastro/insert_clinica';
+$route['insert_vet_cli/(:any)'] = "Cadastro/insert_vet/$1" ;
+
 
 //Tela Login
 $route['login'] = 'Login';

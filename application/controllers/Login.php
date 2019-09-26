@@ -30,7 +30,7 @@ class Login extends CI_Controller {
 						if($permissao == "CLI_FREE" || $permissao == "VET_FREE"){
 							$this->session->set_userdata('USUARIO_EMAIL', $login);
 							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 2);
-						} else if($permissao == "VET_PRO" || $permissao == "VET_PRO"){
+						} else if($permissao == "VET_PRO" || $permissao == "CLI_PRO"){
 							$this->session->set_userdata('USUARIO_EMAIL', $login);
 							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 1);
 						}
