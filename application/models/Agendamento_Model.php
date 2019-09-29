@@ -107,7 +107,6 @@ class Agendamento_Model extends CI_Model
     '$inputCelular',
     'SOLICITADO')";
 
-        print_r($qPrincipal);
         $this->db->trans_start();
         $this->db->query($qPrincipal);
         if ($this->db->trans_status() === false) {
