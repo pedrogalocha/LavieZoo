@@ -12,7 +12,7 @@ class Cadastro extends CI_Controller
         $this->load->model('Usuario_Model', 'usu_model');
         $this->load->library('email');
         $this->email->initialize($config);
-        $this->load->helper('limpacpf');
+        $this->load->helper('limpadoc_helper');
         $rotabaseLogin = base_url('Login');
         $rotabaseCadastro = base_url('Cadastro');
     }
