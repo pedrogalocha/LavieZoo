@@ -11,7 +11,7 @@ class Cadastro extends CI_Controller
         $this->load->model('Clinica_Model', 'cli_model');
         $this->load->model('Usuario_Model', 'usu_model');
         $this->load->library('Email');
-        //$this->load->helper('limpacpf');
+        $this->load->helper('limpacpf');
         $rotabaseLogin = base_url('Login');
         $rotabaseCadastro = base_url('Cadastro');
     }
