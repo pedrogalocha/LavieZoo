@@ -73,7 +73,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <a href=""><strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
                   <?php }?>
                   <p class="margin-botton-perso"><?php print_r("<b>Nome do Animal: </b>" . $agend->ANIMAL_NOME)?></p>
-                  <p class="margin-botton-perso"><?php print_r("<b>Proprietario: </b>" . $agend->ANIMAL_PROPRIETARIO)?></p>
+                  <p class="margin-botton-perso"><?php print_r("<b>Proprietario: </b>" . $agend->ANIMAL_PROPRIETARIO)?>
+                  </p>
                   <p><?php print_r("<b>Status: </b>" . $agend->STATUS)?></p>
                 </li>
                 <?php $i++;}?>
@@ -96,9 +97,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             <div class="panel-body">
               <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #FFFFFF ">
-                <li class="list-group-item list_dash_cad"><strong>Signature
-                    Accommodations</strong>
-                  <p>Teste</p>
+                <li class="list-group-item list_dash_cad"><strong>Nenhum Item associado</strong>
                 </li>
               </ul>
             </div>
