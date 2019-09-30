@@ -54,12 +54,14 @@
         <div class="px-2 form-group row">
           <div class="col-md-12 mx-auto ">
             <?php foreach ($tipoAgendamento as $tpagen) {?>
+            <?php if($tpagen->PERFIL_EXAME_ID != 9){?>
             <div class="pt-2 form-check form-check">
               <input onclick="ocultaOutrosExames()" class="form-check-input" type="radio" name="inlineRadioOptions2"
                 id="inlineRadio1" value="<?php print_r($tpagen->PERFIL_EXAME_ID)?>" required>
               <label class="form-check-label" for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME)?> </b>-
                 <?php print_r($tpagen->DS_PERFIL_EXAME)?></label>
             </div>
+            <?php }?>
             <?php }?>
             <div class="pt-2 form-check form-check coleta">
               <input onclick="exibeOutrosExames();" class="form-check-input" type="radio" name="inlineRadioOptions2"
