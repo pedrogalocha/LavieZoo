@@ -25,15 +25,22 @@ class Login extends CI_Controller {
       //Função para verificar login e senha existe no BD
       $verifica = $this->Login_Model->verifica($login, $senha);
 				// Caso o usuario exista no BD
+
+				print_r($permissao);
 				if($verifica === true){
+					$this->session->set_userdata('USUARIO_EMAIL', $login);
+					$this->session->set_userdata('USUARIO_ID', $permissao['ID_USUARIO']);
+					$this->session->set_userdata('TIPO_CONTA', $permissao['USUARIO_NIVEL_ACESSO']);
 					//Faz todo processo de verificação
-						if($permissao == "CLI_FREE" || $permissao == "VET_FREE"){
-							$this->session->set_userdata('USUARIO_EMAIL', $login);
-							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 2);
-						} else if($permissao == "VET_PRO" || $permissao == "CLI_PRO"){
-							$this->session->set_userdata('USUARIO_EMAIL', $login);
-							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', 1);
+						if($permissao['USUARIO_NIVEL_ACESSO'] == "CLI_FREE" || $permissao['USUARIO_NIVEL_ACESSO'] == "VET_FREE"){				
+							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', "FREE");
+						} else if($permissao['USUARIO_NIVEL_ACESSO']  == "VET_PRO" || $permissao['USUARIO_NIVEL_ACESSO']  == "CLI_PRO"){
+							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', "PRO");
+						} else if($permissao['USUARIO_NIVEL_ACESSO']  == "ADMIN"){
+							$this->session->set_userdata('USUARIO_NIVEL_ACESSO', "ADMIN");
+							redirect(base_url('Admin'));
 						}
+			
 						redirect(base_url('Dash'));
 				}else{
 					echo "<script> 

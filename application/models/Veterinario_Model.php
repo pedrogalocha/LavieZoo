@@ -105,4 +105,17 @@ class VETERINARIO_MODEL extends CI_Model
 
     }
 
+    public function getVets(){
+      $qVets = "SELECT v.VETERINARIO_ID, v.VETERINARIO_NOME,v.VETERINARIO_CRMV,v.VETERINARIO_ESPECIALIDADE, u.USUARIO_NIVEL_ACESSO, u.ID_USUARIO FROM tb_veterinario v
+      INNER JOIN tb_usuario u ON v.VETERINARIO_ID = u.VETERINARIO_ID
+      WHERE u.CLINICA_ID = 0
+      AND  u.USUARIO_NIVEL_ACESSO != 'ADMIN';";
+      $eVets = $this->db->query($qVets);
+      $pVets = $eVets->result();
+      if($eVets->num_rows() > 0){
+        return $pVets;
+     } else {
+       return false;
+     }
+    }
 }

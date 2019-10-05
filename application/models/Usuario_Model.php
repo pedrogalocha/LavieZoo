@@ -53,15 +53,29 @@ class Usuario_Model extends CI_Model
       return 0;
       }
     }
-      public function getUsuId($email){
-        $qIdUsu = " SELECT ID_USUARIO FROM tb_usuario WHERE USUARIO_EMAIL = '$email'";
-        $eIdUsu = $this->db->query($qIdUsu);
-        $rIdUsu = $eIdUsu->row_array();
-        if($eIdUsu->num_rows() > 0){
-          return $rIdUsu;
-          } else {
-          return 0;
-          }
+
+    public function getUsuId($email){
+      $qIdUsu = " SELECT ID_USUARIO FROM tb_usuario WHERE USUARIO_EMAIL = '$email'";
+      $eIdUsu = $this->db->query($qIdUsu);
+      $rIdUsu = $eIdUsu->row_array();
+      if($eIdUsu->num_rows() > 0){
+        return $rIdUsu;
+        } else {
+        return 0;
+        }
+    }
+
+    public function alteraPlano($plano, $idUsu){
+      print_r($plano, $idUsu);
+      $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
+      $this->db->trans_start();
+      $this->db->query($qUser);
+      $this->db->trans_complete();
+      if ($this->db->trans_status() === FALSE) {
+        return "Query Failed";
+      } else {
+        return "Query Success";
       }
+    }
     
 }

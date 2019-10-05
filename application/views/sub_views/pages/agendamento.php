@@ -88,14 +88,14 @@
           <div class="col-md-8 mx-auto mb-2 ">
             <div class="pt-2 form-check form-check">
               <input onchange="ocultaData();ocultaAgend()" class="form-check-input" type="radio"
-                name="inlineRadioOptions3" id="inlineRadioOptions2" value="buscaEmClinica" required>
+                name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
               <label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
             </div>
             <div class="pt-2 form-check form-check" style="padding-left: 0px !important">
               <div class="col-sm-3 d-inline" style="padding-left: 0px !important">
                 <div class="pt-2 form-check form-check d-inline">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
-                    value="coletaEmClinica" onchange="exibeData();ocultaAgend()">
+                    value="Coleta Em Clinica" onchange="exibeData();ocultaAgend()">
                   <label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
                 </div>
               </div>
@@ -117,7 +117,7 @@
             <div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
               <input onchange="ocultaData();exibeAgend()" class="form-check-input" type="radio"
-                name="inlineRadioOptions3" id="inlineRadioOptions3" value="buscaDomiciliar">
+                name="inlineRadioOptions3" id="inlineRadioOptions3" value="Busca Domiciliar">
               <label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
             </div>
             <div class="px-2 form-group row" style="font-size:0.8rem !important">

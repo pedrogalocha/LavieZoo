@@ -38,7 +38,6 @@ class Agendamento extends CI_Controller {
 
   public function agendamento(){
     $data_form = $this->input->post('data_selecionada');
-    print_r($data_form);
     $dados['faixaHorario'] = $this->agendamento->getFaixaHorario($data_form);
   }
 
@@ -105,5 +104,37 @@ class Agendamento extends CI_Controller {
 		} else {
 				show_error($this->email->print_debugger());
 		}
-	}
+  }
+  
+  public function SubirLaudo(){
+      $agendamento = $_FILES['agendamento'];
+      $agendamentoID = $_POST['agId'];
+      $configuracao = array(
+        'upload_path'   => './uploads/',
+        'allowed_types' => 'gif|jpg|png|pdf',
+        'max_size'      => '5000',
+        'max_width'     => 2024,
+        'max_height'    => 1768
+        );    
+
+        
+        
+      $this->load->library('upload');
+      $this->upload->initialize($configuracao);    
+      if ( ! $this->upload->do_upload('agendamento')) {
+         $error = array('error' => $this->upload->display_errors());
+         echo "<script>alert('Não foi possivel Anexar o arquivo.')</script>";
+      }
+   
+      else { 
+         $data = array('upload_data' => $this->upload->data()); 
+         $this->agendamento->atualizaLaudo(base_url()."uploads/".$_FILES['agendamento']['name'], $agendamentoID);
+         echo "<script>alert('Arquivo Enviado com sucesso')</script>";
+      } 
+
+      echo "<script> 
+			window.location.href = 'exibeAgendVets';
+			</script>";
+   
+  }
 }

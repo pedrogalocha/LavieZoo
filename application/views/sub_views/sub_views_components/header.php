@@ -65,7 +65,7 @@ if ($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1) {
 ;?>
 
           </li>
-          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != 0) {?>
+          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != null || $this->session->userdata('USUARIO_NIVEL_ACESSO') != "ADMIN") {?>
           <li class="nav-item nav-texto">
             <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
           </li>
@@ -74,7 +74,7 @@ if ($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1) {
           </li>
           <?php }
 ;?>
-          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == 0) {?>
+          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == null){?>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>
           </li>

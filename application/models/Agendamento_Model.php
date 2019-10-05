@@ -149,7 +149,7 @@ class Agendamento_Model extends CI_Model
 
     public function getAgendamentos($idUsu)
     {
-        $qAgendamento = "SELECT pa.PERFIL_EXAME_ID, pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO FROM tb_agendamento  ag
+        $qAgendamento = "SELECT pa.PERFIL_EXAME_ID, pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.AGENDAMENTO_LAUDO FROM tb_agendamento  ag
     INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
     INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
     WHERE ag.USUARIO_ID = $idUsu; ";
@@ -159,6 +159,38 @@ class Agendamento_Model extends CI_Model
             return $aAgendamento;
         } else {
             return null;
+        }
+    }
+
+    public function getAgendamentosVet(){
+        $qAgendamento = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, 
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.ID_USUARIO = v.VETERINARIO_ID 
+        WHERE u.VETERINARIO_ID != 0
+        AND ag.STATUS = 'SOLICITADO'";
+            $eAgendamento = $this->db->query($qAgendamento);
+            $aAgendamento = $eAgendamento->result();
+            if ($eAgendamento->num_rows() > 0) {
+                return $aAgendamento;
+            } else {
+                return null;
+            }
+    }
+
+    public function atualizaLaudo($path, $idAgendamento){
+        $qAgendamento = "UPDATE tb_agendamento SET AGENDAMENTO_LAUDO = '$path' WHERE AGENDAMENTO_ID = $idAgendamento";
+        $this->db->trans_start();
+        $this->db->query($qAgendamento);
+        if ($this->db->trans_status() === false) {
+            echo "<script>alert('Houve um erro ao associari o laudo.')</script>";
+            $this->db->trans_rollback();
+        } else {
+            $this->db->trans_commit();
+
         }
     }
 

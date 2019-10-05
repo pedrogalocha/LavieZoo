@@ -12,7 +12,7 @@ class Login_Model extends CI_Model
       $query = $this->db->get('tb_usuario', 1);
       if($query->num_rows() == 1){
         $row = $query->row();
-        return $row->USUARIO_NIVEL_ACESSO;
+        return $query->row_array();
       }
     }
 

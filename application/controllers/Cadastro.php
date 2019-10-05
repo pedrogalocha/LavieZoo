@@ -51,12 +51,13 @@ class Cadastro extends CI_Controller
     {
         $this->load->model('Login_Model', 'permissao');
         $login = $this->session->userdata('USUARIO_EMAIL');
-        $dados['pemissao'] = $this->permissao->getPermissao($login);
+        $conta = $this->session->userdata('TIPO_CONTA');
+        $dados['pemissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 
-        if ($dados['pemissao'] == "CLI_PRO") {
+        if ($dados['pemissao'] == "PRO" || $conta = "CLI_PRO" ) {
             $dados = array(
                 'tela' => 'vet',
-                'permissao' => $dados['pemissao'],
+                'permissao' => $conta,
                 'idCli' => $idCli,
                 'clinica' => true,
             );
