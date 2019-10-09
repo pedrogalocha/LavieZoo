@@ -33,8 +33,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </tr>
     </tfoot>
     <tbody>
+      <?php foreach($agendamentos as $ag){ ?>
       <tr>
-        <?php foreach($agendamentos as $ag){ ?>
+
         <td id="ag_<?php print_r($ag->AGENDAMENTO_ID) ?>"><?php print_r($ag->AGENDAMENTO_ID) ?></td>
         <td><?php print_r($ag->ANIMAL_NOME) ?></td>
         <td><?php print_r($ag->ANIMAL_ESPECIE) ?></td>
@@ -53,8 +54,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </td>
         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top"
             title="Mais Inforamações">+</button></td>
-        <?php } ?>
+        
       </tr>
+      <?php } ?>
     </tbody>
   </table>
 </div>

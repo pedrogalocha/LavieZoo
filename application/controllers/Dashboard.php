@@ -122,7 +122,7 @@ class Dashboard extends CI_Controller
             $dados['agendamentos'] = $this->agenModel->getAgendamentosCli();
 
             $dados = array(
-                'tela' => 'agendamentoCli',
+                'tela' => 'areaAgendamentosCli',
                 'permissao' => $dados['permissao'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
                 'agendamentos' => $dados['agendamentos']
