@@ -1,5 +1,5 @@
 // Call the dataTables jQuery plugin
-var baseUrl = 'http://laviezoo.com.br/LavieZoo/';
+var baseUrl = 'http://laviezoo.com.br/';
 
 $(document).ready(function() {
 	var table = $('#dataTable').DataTable({
