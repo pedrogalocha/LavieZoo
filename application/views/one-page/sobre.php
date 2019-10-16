@@ -46,7 +46,7 @@
       </div>
       <div class="col-sm-2"></div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top:20px">
       <a href="<?php echo base_url('cadastro') ?>"><button
           class="text-center btn btn-lg btn-laranja">CADASTRE-SE</button></a>
     </div>
