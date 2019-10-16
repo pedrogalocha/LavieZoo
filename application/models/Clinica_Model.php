@@ -64,7 +64,8 @@ class Clinica_Model extends CI_Model
     {
         $qCli = "SELECT c.CLINICA_NOME_FANTASIA, c.CLINICA_CNPJ,c.CLINICA_RESPONSAVEL_NOME,u.USUARIO_NIVEL_ACESSO, u.ID_USUARIO FROM tb_clinica c
       INNER JOIN tb_usuario u ON c.CLINICA_ID = u.CLINICA_ID
-      WHERE  u.USUARIO_NIVEL_ACESSO != 'ADMIN';";
+      WHERE  u.USUARIO_NIVEL_ACESSO != 'ADMIN';
+      AND u.VETERINARIO_ID = 0";
         $eCli = $this->db->query($qCli);
         $pCli = $eCli->result();
         if ($eCli->num_rows() > 0) {
