@@ -7,7 +7,7 @@
         <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
           style="background-color: rgba(255, 255, 255, 0.85)">
           <!-- Começo da border transparente-->
-          <?php  print_r($userInfo['USUARIO_NIVEL_ACESSO']) ;?>
+          
           <?php if(strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ) {?> <img class=""
             src="<?php echo base_url('includes/img/agencia_cadastro_icone.svg') ?>" style="
       position:absolute;
