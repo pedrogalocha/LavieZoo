@@ -123,14 +123,14 @@
         <div class="px-2 form-group row">
           <div class="col-md-2 mx-auto ">
             <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
-            <input type="text" value="<?php  $userInfo['CLINICA_CEP']?>"
+            <input type="text" value="<?php echo $userInfo['CLINICA_CEP']?>"
               class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
               pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
           </div>
 
           <div class="col-md-4 mx-auto ">
             <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
-            <input type="text" value="<?php  $userInfo['CLINICA_CELULAR']?>"
+            <input type="text" value="<?php echo $userInfo['CLINICA_CELULAR']?>"
               class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
               placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
           </div>
