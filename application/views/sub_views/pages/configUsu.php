@@ -158,7 +158,7 @@
         <div class="col-md-12 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
           <input type="text"
-            value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
+            value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
             class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
             placeholder="Digite o endereço da instituição">
         </div>
@@ -169,7 +169,7 @@
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
           <input type="text"
-            value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_COMPLEMENTO'] : $userInfo['CLINICA_COMPLEMENTO']?>"
+            value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_COMPLEMENTO'] : $userInfo['CLINICA_COMPLEMENTO']?>"
             class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
             placeholder="Digite Aqui" formnovalidate="true">
         </div>
@@ -177,20 +177,20 @@
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
           <input type="text"
-            value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_BAIRRO'] : $userInfo['CLINICA_BAIRRO']?>"
+            value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_BAIRRO'] : $userInfo['CLINICA_BAIRRO']?>"
             class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
           <input type="text"
-            value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_CIDADE'] : $userInfo['CLINICA_CIDADE']?>"
+            value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_CIDADE'] : $userInfo['CLINICA_CIDADE']?>"
             class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui">
         </div>
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
           <input type="text"
-            value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_ESTADO'] : $userInfo['CLINICA_ESTADO']?>"
+            value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_ESTADO'] : $userInfo['CLINICA_ESTADO']?>"
             class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
         </div>
       </div>
