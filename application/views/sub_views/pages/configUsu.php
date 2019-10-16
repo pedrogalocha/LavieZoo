@@ -7,7 +7,7 @@
         <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
           style="background-color: rgba(255, 255, 255, 0.85)">
           <!-- Começo da border transparente-->
-          <?php print_r( $permissao); if(strpos($permissao, "CLI") !== false ) {?>
+          <?php if(strpos($permissao, "CLI") !== false ) {?>
           <img class="" src="<?php echo base_url('includes/img/agencia_cadastro_icone.svg') ?>" style="
       position:absolute;
       top: 0;
@@ -33,6 +33,47 @@
                 name="inputCNPJ" id="inputCNPJ" placeholder="Digite o CNPJ da instituição" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
             " required>
             </div>
+          </div>
+        </div>
+
+        <div class="pt-4 px-2 form-group row">
+          <div class="col-md-6 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputEspecialidade">Nome Responsável</label>
+            <input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade"
+              id="inputEspecialidade" placeholder="Qual a sua Especialidade?"
+              value="<?php echo $userInfo['CLINICA_RESPONSAVEL_NOME']?>">
+          </div>
+          <div class="col-md-6 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
+            <input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento"
+              id="inputDataDeNascimento" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO']?>">
+          </div>
+        </div>
+
+        <div class="px-2 form-group row">
+          <div class="col-md-6 mx-auto ">
+            <div class="pt-4 form-check form-check-inline">
+              <input class="form-check-input" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_SEXO']?>" type="radio"
+                name="inlineRadioOptions" id="inlineRadio1" value="Masculino" required>
+              <label class="form-check-label" for="inlineRadio1">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
+              <label class="form-check-label" for="inlineRadio2">Feminino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                value="NaoBinario">
+              <label class="form-check-label" for="inlineRadio3">Não Binário</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
+            <input type="text" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_CPF']?>"
+              class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
+              required
+              pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
           </div>
         </div>
         <?php } else {?>
@@ -63,19 +104,19 @@
           </div>
         </div>
       </div>
-      <?php }?>
-
 
       <div class="pt-4 px-2 form-group row">
         <div class="col-md-6 mx-auto ">
-          <label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
+          <label class="align-self-center font-weight-bold" value="<?php echo $userInfo['VETERINARIO_DATA_NASC']?>"
+            for="inputDataDeNascimento">Data de Nascimento</label>
           <input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento"
             id="inputDataDeNascimento" placeholder="dd/mm/aaaa" required
             pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
         </div>
 
         <div class="col-md-6 mx-auto ">
-          <label class="align-self-center font-weight-bold" for="inputEspecialidade">Especialidade</label>
+          <label class="align-self-center font-weight-bold" value="<?php echo $userInfo['VETERINARIO_ESPECIALIDADE']?>"
+            for="inputEspecialidade">Especialidade</label>
           <input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade"
             id="inputEspecialidade" placeholder="Qual a sua Especialidade?" required>
         </div>
@@ -84,8 +125,8 @@
       <div class="px-2 form-group row">
         <div class="col-md-6 mx-auto ">
           <div class="pt-4 form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Masculino"
-              required>
+            <input class="form-check-input" value="<?php echo $userInfo['VETERINARIO_SEXO']?>" type="radio"
+              name="inlineRadioOptions" id="inlineRadio1" value="Masculino" required>
             <label class="form-check-label" for="inlineRadio1">Masculino</label>
           </div>
           <div class="form-check form-check-inline">
@@ -100,11 +141,14 @@
 
         <div class="col-md-6 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
-          <input type="text" class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF"
-            placeholder="Digite o CPF" required
+          <input type="text" value="<?php echo $userInfo['VETERINARIO_CPF']?>"
+            class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
+            required
             pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
         </div>
       </div>
+      <?php }?>
+
 
       <hr style="border-top: dotted 10px; color: #6EB1B9;" />
 
