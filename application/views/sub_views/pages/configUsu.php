@@ -55,7 +55,7 @@
           <div class="col-md-6 mx-auto ">
             <div class="pt-4 form-check form-check-inline">
               <input class="form-check-input"
-                <?php echo $userInfo['VETERINARIO_SEXO']=="Masculino" ? "checked" : "" ?> type="radio"
+                <?php echo $userInfo['CLINICA_RESPONSAVEL_SEXO']=="Masculino" ? "checked" : "" ?> type="radio"
                 name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
               <label class="form-check-label" for="inlineRadio1">Masculino</label>
             </div>
