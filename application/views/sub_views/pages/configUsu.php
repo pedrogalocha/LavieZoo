@@ -7,7 +7,7 @@
         <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
           style="background-color: rgba(255, 255, 255, 0.85)">
           <!-- Começo da border transparente-->
-          
+
           <?php if(strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ) {?> <img class=""
             src="<?php echo base_url('includes/img/agencia_cadastro_icone.svg') ?>" style="
       position:absolute;
@@ -77,6 +77,64 @@
               class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
               pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
           </div>
+        </div>
+
+        <hr style="border-top: dotted 10px; color: #6EB1B9;" />
+
+        <div class="px-2 pt-4 form-group row">
+          <div class="col-md-12 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
+            <input type="text" value="<?php echo $userInfo['CLINICA_ENDEREÇO']?>"
+              class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
+              placeholder="Digite o endereço da instituição">
+          </div>
+        </div>
+
+        <div class="px-2 form-group row">
+
+          <div class="col-md-2 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
+            <input type="text" value="<?php echo $userInfo['CLINICA_COMPLEMENTO']?>"
+              class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
+              placeholder="Digite Aqui" formnovalidate="true">
+          </div>
+
+          <div class="col-md-4 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
+            <input type="text" value="<?php echo  $userInfo['CLINICA_BAIRRO']?>"
+              class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro"
+              placeholder="Digite Aqui">
+          </div>
+
+          <div class="col-md-4 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
+            <input type="text" value="<?php echo $userInfo['CLINICA_CIDADE']?>"
+              class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade"
+              placeholder="Digite Aqui">
+          </div>
+          <div class="col-md-2 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
+            <input type="text" value="<?php echo  $userInfo['CLINICA_ESTADO']?>"
+              class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
+          </div>
+        </div>
+
+
+        <div class="px-2 form-group row">
+          <div class="col-md-2 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
+            <input type="text" value="<?php  $userInfo['CLINICA_CEP']?>"
+              class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
+              pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
+          </div>
+
+          <div class="col-md-4 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
+            <input type="text" value="<?php  $userInfo['CLINICA_CELULAR']?>"
+              class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
+              placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
+          </div>
+          <div class="col-md-6"></div>
         </div>
         <?php } else {?>
 
@@ -149,16 +207,13 @@
             pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
         </div>
       </div>
-      <?php }?>
-
 
       <hr style="border-top: dotted 10px; color: #6EB1B9;" />
 
       <div class="px-2 pt-4 form-group row">
         <div class="col-md-12 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_ENDERECO']?>"
             class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
             placeholder="Digite o endereço da instituição">
         </div>
@@ -168,29 +223,25 @@
 
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_COMPLEMENTO'] : $userInfo['CLINICA_COMPLEMENTO']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_COMPLEMENTO'] ?>"
             class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
             placeholder="Digite Aqui" formnovalidate="true">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_BAIRRO'] : $userInfo['CLINICA_BAIRRO']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_BAIRRO']?>"
             class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_CIDADE'] : $userInfo['CLINICA_CIDADE']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_CIDADE']?>"
             class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui">
         </div>
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_ESTADO'] : $userInfo['CLINICA_ESTADO']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_ESTADO'] ?>"
             class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
         </div>
       </div>
@@ -199,21 +250,23 @@
       <div class="px-2 form-group row">
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
-          <input type="text"
-            value="<?php  echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') !== true ? $userInfo['VETERINARIO_CEP'] : $userInfo['CLINICA_CEP']?>"
+          <input type="text" value="<?php  echo s $userInfo['VETERINARIO_CEP'] ?>"
             class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
             pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
-          <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_CELULAR'] : $userInfo['CLINICA_CELULAR']?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_CELULAR'] ?>"
             class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
             placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
         </div>
         <div class="col-md-6"></div>
       </div>
+      <?php }?>
+
+
+
     </div>
 
 
