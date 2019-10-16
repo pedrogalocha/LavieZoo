@@ -250,7 +250,7 @@
       <div class="px-2 form-group row">
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
-          <input type="text" value="<?php  echo s $userInfo['VETERINARIO_CEP'] ?>"
+          <input type="text" value="<?php echo  $userInfo['VETERINARIO_CEP'] ?>"
             class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
             pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
         </div>
