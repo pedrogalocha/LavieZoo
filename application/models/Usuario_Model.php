@@ -36,7 +36,7 @@ class Usuario_Model extends CI_Model
                                   c.CLINICA_CNPJ, u.VETERINARIO_ID, u.CLINICA_ID, u.USUARIO_NIVEL_ACESSO,                                  
                                   u.ID_USUARIO, v.VETERINARIO_DATA_NASC, v.VETERINARIO_ESPECIALIDADE, v.VETERINARIO_CPF,
                                   v.VETERINARIO_SEXO, v.VETERINARIO_ENDERECO, v.VETERINARIO_COMPLEMENTO, v.VETERINARIO_BAIRRO, v.VETERINARIO_CIDADE,
-                                  v.VETERINARIO_ESTADO, v.VETERINARIO_CEP, v.VETERINARIO_CELULAR, c.CLINICA_RESPONSAVEL_CPF,
+                                  v.VETERINARIO_ESTADO, v.VETERINARIO_CEP, v.VETERINARIO_CELULAR, c.CLINICA_RESPONSAVEL_CPF, c.CLINICA_RESPONSAVEL_NOME,
                                   c.CLINICA_RESPONSAVEL_SEXO, c.CLINICA_ENDEREÇO, c.CLINICA_COMPLEMENTO, c.CLINICA_BAIRRO, c.CLINICA_CIDADE,
                                   c.CLINICA_ESTADO, c.CLINICA_CEP, c.CLINICA_CELULAR
                                   FROM  tb_usuario u 
