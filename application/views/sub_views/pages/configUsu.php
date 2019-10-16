@@ -23,15 +23,15 @@
                 Instituição</label>
               <input type="text" class="form-control text-uppercase"
                 value="<?php echo $userInfo['CLINICA_NOME_FANTASIA']?>" name="inputNomeDaInstituicao"
-                id="inputNomeDaInstituicao" placeholder="Opções: Clínica, Hospital, Consultório, Laboratório" required>
+                id="inputNomeDaInstituicao" placeholder="Opções: Clínica, Hospital, Consultório, Laboratório">
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-9 mx-auto text-center">
               <label class="align-self-center font-weight-bold" for="inputCNPJ">CNPJ</label>
               <input type="text" class="form-control text-uppercase cnpj" value="<?php echo $userInfo['CLINICA_CNPJ']?>"
-                name="inputCNPJ" id="inputCNPJ" placeholder="Digite o CNPJ da instituição" required pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-            " required>
+                name="inputCNPJ" id="inputCNPJ" placeholder="Digite o CNPJ da instituição" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
+            ">
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="pt-4 px-2 form-group row">
           <div class="col-md-6 mx-auto ">
             <label class="align-self-center font-weight-bold" for="inputEspecialidade">Nome Responsável</label>
-            <input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade"
+            <input type="text" class="form-control text-uppercase text-left" name="inputEspecialidade"
               id="inputEspecialidade" placeholder="Qual a sua Especialidade?"
               value="<?php echo $userInfo['CLINICA_RESPONSAVEL_NOME']?>">
           </div>
@@ -54,7 +54,7 @@
           <div class="col-md-6 mx-auto ">
             <div class="pt-4 form-check form-check-inline">
               <input class="form-check-input" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_SEXO']?>" type="radio"
-                name="inlineRadioOptions" id="inlineRadio1" value="Masculino" required>
+                name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
               <label class="form-check-label" for="inlineRadio1">Masculino</label>
             </div>
             <div class="form-check form-check-inline">
@@ -72,7 +72,6 @@
             <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
             <input type="text" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_CPF']?>"
               class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
-              required
               pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
           </div>
         </div>
@@ -93,48 +92,50 @@
           <div class="col-md-9 mx-auto text-center">
             <label class="align-self-center font-weight-bold" for="inputNomeCompleto">Nome Completo</label>
             <input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_NOME']?>"
-              name="inputNomeCompleto" id="inputNomeCompleto" placeholder="Digite o seu nome completo" required>
+              name="inputNomeCompleto" id="inputNomeCompleto" placeholder="Digite o seu nome completo">
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-9 mx-auto text-center">
             <label class="align-self-center font-weight-bold" for="inputCRMV">CRMV</label>
             <input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_CRMV']?>"
-              name="inputCRMV" id="inputCRMV" placeholder="Digite o CRMV" required pattern="^[0-9]*$">
+              name="inputCRMV" id="inputCRMV" placeholder="Digite o CRMV" pattern="^[0-9]*$">
           </div>
         </div>
       </div>
 
       <div class="pt-4 px-2 form-group row">
         <div class="col-md-6 mx-auto ">
-          <label class="align-self-center font-weight-bold" value="<?php echo $userInfo['VETERINARIO_DATA_NASC']?>"
-            for="inputDataDeNascimento">Data de Nascimento</label>
-          <input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento"
-            id="inputDataDeNascimento" placeholder="dd/mm/aaaa" required
-            pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
+          <label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
+          <input type="date" value="<?php echo $userInfo['VETERINARIO_DATA_NASC']?>"
+            class="form-control text-uppercase text-left" name="inputDataDeNascimento" id="inputDataDeNascimento"
+            placeholder="dd/mm/aaaa" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
         </div>
 
         <div class="col-md-6 mx-auto ">
-          <label class="align-self-center font-weight-bold" value="<?php echo $userInfo['VETERINARIO_ESPECIALIDADE']?>"
-            for="inputEspecialidade">Especialidade</label>
-          <input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade"
-            id="inputEspecialidade" placeholder="Qual a sua Especialidade?" required>
+          <label class="align-self-center font-weight-bold" for="inputEspecialidade">Especialidade</label>
+          <input type="text" value="<?php echo $userInfo['VETERINARIO_ESPECIALIDADE']?>"
+            class="form-control text-uppercase text-left" name="inputEspecialidade" id="inputEspecialidade"
+            placeholder="Qual a sua Especialidade?">
         </div>
       </div>
 
       <div class="px-2 form-group row">
         <div class="col-md-6 mx-auto ">
           <div class="pt-4 form-check form-check-inline">
-            <input class="form-check-input" value="<?php echo $userInfo['VETERINARIO_SEXO']?>" type="radio"
-              name="inlineRadioOptions" id="inlineRadio1" value="Masculino" required>
+            <input class="form-check-input"
+              <?php echo $userInfo['VETERINARIO_SEXO']=="Masculino" ? "checked=true" : "checked=false" ?> type="radio"
+              name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
             <label class="form-check-label" for="inlineRadio1">Masculino</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
+            <input <?php echo $userInfo['VETERINARIO_SEXO']=="Feminino" ? "checked=true" : "checked=false" ?>
+              class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
             <label class="form-check-label" for="inlineRadio2">Feminino</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="NaoBinario">
+            <input <?php echo $userInfo['VETERINARIO_SEXO']=="NaoBinario" ? "checked=true" : "checked=false" ?>
+              class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="NaoBinario">
             <label class="form-check-label" for="inlineRadio3">Não Binário</label>
           </div>
         </div>
@@ -143,7 +144,6 @@
           <label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
           <input type="text" value="<?php echo $userInfo['VETERINARIO_CPF']?>"
             class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
-            required
             pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
         </div>
       </div>
@@ -158,7 +158,7 @@
           <input type="text"
             value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
             class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
-            placeholder="Digite o endereço da instituição" required>
+            placeholder="Digite o endereço da instituição">
         </div>
       </div>
 
@@ -176,22 +176,20 @@
           <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
           <input type="text"
             value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_BAIRRO'] : $userInfo['CLINICA_BAIRRO']?>"
-            class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui"
-            required>
+            class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
           <input type="text"
             value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_CIDADE'] : $userInfo['CLINICA_CIDADE']?>"
-            class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui"
-            required>
+            class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui">
         </div>
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
           <input type="text"
             value="<?php echo $permissao !== strpos($permissao, 'CLI') ? $userInfo['VETERINARIO_ESTADO'] : $userInfo['CLINICA_ESTADO']?>"
-            class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP" required>
+            class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
         </div>
       </div>
 
@@ -202,8 +200,7 @@
           <input type="text"
             value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') == false ? $userInfo['VETERINARIO_CEP'] :  $userInfo['CLINICA_CEP']?>"
             class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
-            required pattern="[0-9]{5}[\-]?[0-9]{3}"
-            onblur="buscarEndereco(document.getElementById('inputCep').value); ">
+            pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
         </div>
 
         <div class="col-md-4 mx-auto ">
@@ -211,7 +208,7 @@
           <input type="text"
             value="<?php echo $userInfo['USUARIO_NIVEL_ACESSO'] !== strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') ? $userInfo['VETERINARIO_CELULAR'] : $userInfo['CLINICA_CELULAR']?>"
             class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
-            placeholder="(__) _____-____" required pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
+            placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
         </div>
         <div class="col-md-6"></div>
       </div>
