@@ -21,33 +21,28 @@
           <i class="fas fa-hands-helping"></i>
         </span>
         <h5 class="service-heading">SUPORTE</h4>
-          <p class="text-muted">Discuta seus casos não só com patologistas mas também com vários outros médicos que
-            fazem aprte do @Laviezoo.</p>
+
       </div>
       <div class="col-sm-2">
         <span class="fa-stack fa-3x">
           <i class="fas fa-vial"></i>
         </span>
         <h5 class="service-heading">LABORATÓRIO</h4>
-          <p class="text-muted">Trabalhe com um máquinário de ponta, aliado a uma equipe que entrega resultados exatos
-            e fidedignos, pronta para te auxiliar em qualquer momento.
-          </p>
+
       </div>
       <div class="col-sm-2">
         <span class="fa-stack fa-3x">
           <i class="fas fa-credit-card "></i>
         </span>
         <h5 class="service-heading">PAGAMENTO INTEGRADO</h4>
-          <p class="text-muted">Pague online via cartão de credito, boleto ou via transferência bancaria e coemce a usar
-            nosso sistema imediatamente.
-          </p>
+
       </div>
       <div class="col-sm-2">
         <span class="fa-stack fa-3x">
           <i class="fas fa-user-md "></i>
         </span>
         <h5 class="service-heading">PLATAFORMA PESSOAL</h4>
-          <p class="text-muted">Dashboard única, de fácil acesso, personalizada para uma navegação leve e rápida.</p>
+
       </div>
       <div class="col-sm-2"></div>
     </div>
