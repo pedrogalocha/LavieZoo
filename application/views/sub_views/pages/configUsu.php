@@ -158,7 +158,7 @@
         <div class="col-md-12 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ?$userInfo['CLINICA_ENDEREÇO'] : $userInfo['VETERINARIO_ENDERECO'] ?>"
             class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
             placeholder="Digite o endereço da instituição">
         </div>
@@ -169,7 +169,7 @@
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_COMPLEMENTO'] : $userInfo['CLINICA_COMPLEMENTO']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ? $userInfo['CLINICA_COMPLEMENTO'] : $userInfo['VETERINARIO_COMPLEMENTO'] ?>"
             class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
             placeholder="Digite Aqui" formnovalidate="true">
         </div>
@@ -177,20 +177,20 @@
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_BAIRRO'] : $userInfo['CLINICA_BAIRRO']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ? $userInfo['CLINICA_BAIRRO']: $userInfo['VETERINARIO_BAIRRO'] ?>"
             class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui">
         </div>
 
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_CIDADE'] : $userInfo['CLINICA_CIDADE']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ?$userInfo['CLINICA_CIDADE'] :  $userInfo['VETERINARIO_CIDADE'] ?>"
             class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui">
         </div>
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_ESTADO'] : $userInfo['CLINICA_ESTADO']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ? $userInfo['CLINICA_ESTADO']:  $userInfo['VETERINARIO_ESTADO'] ?>"
             class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
         </div>
       </div>
@@ -200,7 +200,7 @@
         <div class="col-md-2 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
           <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') == true ? $userInfo['VETERINARIO_CEP'] : $userInfo['CLINICA_CEP']?>"
+            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], 'CLI') !== false ?$userInfo['CLINICA_CEP'] : $userInfo['VETERINARIO_CEP'] ?>"
             class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
             pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
         </div>
@@ -208,7 +208,7 @@
         <div class="col-md-4 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
           <input type="text"
-            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_CELULAR'] : $userInfo['CLINICA_CELULAR']?>"
+            value="<?php strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ? $userInfo['CLINICA_CELULAR'] : $userInfo['VETERINARIO_CELULAR'] ?>"
             class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
             placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
         </div>
