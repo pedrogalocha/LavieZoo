@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <div class="col-sm-12">
+  <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Mais Inforamações">+</button>
   <table class="table table-bordered" id="dataTableAgend" cellspacing="0">
     <thead>
       <tr>
