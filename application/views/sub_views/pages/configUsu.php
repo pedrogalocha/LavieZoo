@@ -54,17 +54,19 @@
         <div class="px-2 form-group row">
           <div class="col-md-6 mx-auto ">
             <div class="pt-4 form-check form-check-inline">
-              <input class="form-check-input" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_SEXO']?>" type="radio"
+              <input class="form-check-input"
+                <?php echo $userInfo['VETERINARIO_SEXO']=="Masculino" ? "checked=true" : "checked=false" ?> type="radio"
                 name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
               <label class="form-check-label" for="inlineRadio1">Masculino</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
+              <input <?php echo $userInfo['VETERINARIO_SEXO']=="Feminino" ? "checked=true" : "checked=false" ?>
+                class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
               <label class="form-check-label" for="inlineRadio2">Feminino</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                value="NaoBinario">
+              <input <?php echo $userInfo['VETERINARIO_SEXO']=="NaoBinario" ? "checked=true" : "checked=false" ?>
+                lass="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="NaoBinario">
               <label class="form-check-label" for="inlineRadio3">Não Binário</label>
             </div>
           </div>
