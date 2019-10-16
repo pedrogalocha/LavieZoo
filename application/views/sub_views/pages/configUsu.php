@@ -158,7 +158,7 @@
         <div class="col-md-12 mx-auto ">
           <label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
           <input type="text"
-            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
+            value="<?php echo strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== true ? $userInfo['VETERINARIO_ENDERECO'] : $userInfo['CLINICA_ENDEREÇO']?>"
             class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
             placeholder="Digite o endereço da instituição">
         </div>
