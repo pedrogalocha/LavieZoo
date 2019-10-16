@@ -11,6 +11,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Tipo de Busca</th>
         <th>Data Coleta</th>
+        <th>CEP</th>
+        <th>Endreçeo</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
         <th>Laudo</th>
@@ -24,6 +26,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Animal</th>
         <th>Perfil Exame</th>
         <th>Tipo de Busca</th>
+        <th>CEP</th>
+        <th>Endreçeo</th>
         <th>Data Coleta</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
@@ -41,6 +45,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <td><?php print_r($ag->ANIMAL_ESPECIE) ?></td>
         <td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
         <td><?php print_r($ag->TIPO_BUSCA) ?></td>
+        <td><?php print_r($ag->CEP)?></td>
+        <td><?php print_r($ag->ENDERECO)?></td>
         <td><?php print_r($ag->DATA_COLETA) ?></td>
         <td><?php print_r($ag->VETERINARIO_NOME) ?></td>
         <td>
@@ -54,7 +60,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </td>
         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top"
             title="Mais Inforamações">+</button></td>
-        
+
       </tr>
       <?php } ?>
     </tbody>

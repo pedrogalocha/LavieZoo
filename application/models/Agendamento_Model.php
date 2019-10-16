@@ -164,7 +164,7 @@ class Agendamento_Model extends CI_Model
 
     public function getAgendamentosVet(){
         $qAgendamento = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, 
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO,ag.CEP, ag.ENDERECO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
@@ -182,7 +182,7 @@ class Agendamento_Model extends CI_Model
 
     public function getAgendamentosCli(){
         $qAgendamento = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, 
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
