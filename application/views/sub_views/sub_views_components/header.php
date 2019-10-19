@@ -55,14 +55,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
           </li>
           <li class="nav-item nav-texto">
-            <?php $hidden = "id";
-if ($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1) {
-    $hidden = "hidden"
-    ?>
+            <?php $hidden = "hidden";
+            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1) {
+                $hidden = "id"
+                ?>
             <a class="nav-link js-scroll-trigger navbar-links"
               href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
-            <?php }
-;?>
+            <?php };?>
 
           </li>
           <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != null || $this->session->userdata('USUARIO_NIVEL_ACESSO') != "ADMIN") {?>
