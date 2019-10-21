@@ -69,7 +69,7 @@ function atualizaPlano() {
 				.val();
 
 			idUser = table.row(this).data()[0];
-			console.log(idUser);
+			console.log(dropdownValue);
 			var target_url = baseUrl + 'atualizaPlano';
 			$.ajax({
 				url: target_url,
@@ -80,8 +80,9 @@ function atualizaPlano() {
 					idUsuario: idUser
 				},
 				error: function(xhr, status, error) {
-					alert('Houve um erro: ' + error + status);
-					location.reload();
+					alert('Houve um erro: A ' + error + status);
+					console.log(dropdownValue);
+					// location.reload();
 				},
 				success: function(results) {
 					location.reload();
