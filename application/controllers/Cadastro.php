@@ -110,7 +110,7 @@ class Cadastro extends CI_Controller
             if ($idClinica = 0) {
                 $rotabase = $rotabase;
             } else {
-                $rotabase = base_url('Dash');
+                $rotabase = base_url('login');
             }
             echo "<script>
 			alert('Veterinario cadastrado com sucesso.'); window.location.href = '$rotabase';
