@@ -43,6 +43,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/area_nav', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";
@@ -64,6 +65,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/admin/dashAdmin', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";
@@ -86,6 +88,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/admin/dashAdmin', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";
@@ -108,6 +111,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/admin/dashAdmin', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";
@@ -130,6 +134,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/admin/dashAdmin', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";
@@ -152,6 +157,7 @@ class Dashboard extends CI_Controller
             $this->load->view('sub_views/admin/dashAdmin', $dados);
             //$this->load->view('sub_views/pages/dashboard');
         } else {
+            $rotabaseLogin = base_url('Login');
             echo "<script>
             alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
           </script>";

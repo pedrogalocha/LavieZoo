@@ -177,6 +177,11 @@ class Cadastro extends CI_Controller
         }
     }
 
+    public function update_vet(){
+        
+    }
+
+
     public function cadastroUsuarioMail($email, $senha, $nome)
     {
         $this->load->config('email');

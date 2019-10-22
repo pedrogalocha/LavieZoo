@@ -69,6 +69,8 @@ $route['atualizaPlanoCli'] = 'Usuario/AlterarPlanoCli';
 $route['insert_vet'] = 'Cadastro/insert_vet';
 $route['insert_clinica'] = 'Cadastro/insert_clinica';
 $route['insert_vet_cli/(:any)'] = "Cadastro/insert_vet/$1";
+//atualiza o veterinario
+$route['update_vet'] = 'Cadastro/update_vet';
 
 //Tela Login
 $route['login'] = 'Login';

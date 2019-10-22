@@ -27,7 +27,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
               <div class="col-md-9 mx-auto text-center">
               <label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
                   <input type="email" class="form-control text-uppercase text-left" name="inputEmail" id="inputEmail"
-                    placeholder="Digite o seu e-mail" required pattern="">
+                    placeholder="Digite o seu e-mail"  required = "required">
 
               </div>
             </div>
@@ -35,18 +35,20 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
               <div class="col-md-9 mx-auto text-center">
               <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
                   <input type="password" class="form-control text-uppercase text-left" name="inputSenha" id="inputSenha"
-                    placeholder="Digite a sua senha" required>
+                    placeholder="Digite a sua senha" required = "required">
               </div>
             </div>
 
             <div class="d-flex justify-content-center col-md-12">
                         <button class="btn btn-lg btn-warning text-white">Acessar</button>
                       </div>
-                      <div class=" d-flex justify-content-center pt-2 col-md-12">
+                      <br>
+                      <!-- <div class=" d-flex justify-content-center pt-2 col-md-12">
                         <button class="btn btn-sm btn-info">Ainda não é membro? Cadastre-se Aqui</button>
-                      </div>
+                      </div> -->
 
-          </div> <!-- Fim da border transparente -->
+          </div> 
+          <!-- Fim da border transparente -->
 </form>
 
 

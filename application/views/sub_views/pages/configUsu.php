@@ -256,14 +256,20 @@
         </div>
 
         <div class="col-md-4 mx-auto ">
-          <label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
+          <label class="align-self-center font-weight-bold" for="inputCelular">Cel</label>
           <input type="text" value="<?php echo  $userInfo['VETERINARIO_CELULAR'] ?>"
             class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
             placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
         </div>
         <div class="col-md-6"></div>
+        
       </div>
+      
       <?php }?>
+      <div class="col-md-12">
+                        <button type="submit" class="btn btn-lg btn-warning text-white">Atualizar</button>
+                      </div>
+                 </div>
 
 
 
@@ -271,3 +277,4 @@
 
 
     </div>
+    

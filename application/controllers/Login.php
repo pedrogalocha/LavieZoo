@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
     $dados  =   array(
-			'tela'      =>  'login',
+			'tela'      => 'login',
 			'permissao' => 'login'
 		);
 		$this->load->view('sub_views/area_nav',$dados);
