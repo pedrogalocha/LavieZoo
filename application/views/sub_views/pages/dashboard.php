@@ -67,7 +67,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php if ($agendamentos != null) {?>
                 <?php $i = 1;foreach ($agendamentos as $agend) {?>
                 <li class="list-group-item list_dash">
-                  <?php if ($agend->PERFIL_EXAME_ID == 9) {?>
+                  
+                  <?php if ($agend->PERFIL_EXAME_ID == 24) {?>
                   <a
                     href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->AGENDAMENTO_OUTROS_EXAMES)?></strong></a>
                   <?php } else {?>

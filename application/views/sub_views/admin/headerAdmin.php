@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('Admin') ?>">
+        <a class="nav-link" href="<?php echo base_url('Dash') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -227,11 +227,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                 Settings
               </a>
-              <a class="dropdown-item" href="#">
+-->
+              <a class="dropdown-item" href="<?php echo base_url('Dash')?>">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
-              </a> -->
-              <!-- <div class="dropdown-divider"></div> -->
+                Agendamentos
+              </a>
+              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?php echo base_url('sair')?>">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout

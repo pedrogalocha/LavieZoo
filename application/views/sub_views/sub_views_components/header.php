@@ -56,7 +56,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </li>
           <li class="nav-item nav-texto">
             <?php $hidden = "hidden";
-            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') >= 1) {
+            
+            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "PRO") {
                 $hidden = "id"
                 ?>
             <a class="nav-link js-scroll-trigger navbar-links"
@@ -68,11 +69,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item nav-texto">
             <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
           </li>
+          <li class="nav-item nav-texto">
+            <?php $hidden = "hidden";
+            
+            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN") {
+                $hidden = "id"
+                ?>
+            <a class="nav-link js-scroll-trigger navbar-links"
+              href="<?php echo base_url('Admin') ?>">ADMINISTRADOR</a>
+            <?php };?>
+
+          </li>
           <li class="nav item">
             <a href="<?php echo base_url('sair') ?>"><button class="btn btn-azul">Sair</button></a>
           </li>
           <?php }
 ;?>
+
           <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == null){?>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>

@@ -19,7 +19,9 @@ class Agendamento extends CI_Controller {
     $dados['usu'] = $this->usuario->getUsuId($login);
     $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
     $tipoAgendamento = $this->agendamento->getTipoAgendamento();
-    if($sessao >= 1){
+    
+
+    if($sessao == 'PRO' || $sessao == 'ADMIN'){
       $dados  =   array(
         'tela'      =>  'agendamento',
         'permissao' =>  $dados['pemissao'],
@@ -31,7 +33,8 @@ class Agendamento extends CI_Controller {
       //$this->load->view('sub_views/pages/dashboard');
     }else{
     echo "<script> 
-            alert('Você não tem permissão para acessar esta area'); window.location.href = 'login';
+            // console.log('$sessao');
+            alert('Você não tem permissão para acessar esta batata'); window.location.href = 'login';
           </script>";
     }
   }
