@@ -116,8 +116,9 @@ class Cadastro extends CI_Controller
 			alert('Veterinario cadastrado com sucesso.'); window.location.href = '$rotabase';
 			</script>";
         } else {
+            $rotabaseCadastro = base_url('cadastro');    
             echo "<script>
-				alert('Usuario Já cadastrado.'); window.location.href = 'Cadastro';
+				alert('Usuario Já cadastrado.'); window.location.href = '$rotabaseCadastro';
 			</script>";
         }
     }
@@ -167,10 +168,12 @@ class Cadastro extends CI_Controller
             // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
 
             //Alerta JS com redirecionamento
+            $rotabase = base_url('login');
             echo "<script>
 				alert('Clinica cadastrada com sucesso.'); window.location.href = '$rotabase';
 			</script>";
         } else {
+            $rotabaseCadastro = base_url('cadastro');
             echo "<script>
 				alert('Clinica Já cadastrado.'); window.location.href = '$rotabaseCadastro';
 			</script>";
