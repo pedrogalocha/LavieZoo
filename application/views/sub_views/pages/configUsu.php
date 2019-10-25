@@ -1,7 +1,7 @@
 <body class="pt-5 bg text-white " style="margin-top:80px; background-color: #F3F3F3; background-image:none">
 
-  <form class="text-dark text-uppercase needs-validation" id="form_cad" method="POST"
-    action="<?php echo base_url('edit_user') ?>" novalidate>
+  <form class="text-dark text-uppercase needs-validation" id="form_atu" method="POST"
+    action="<?php echo base_url('update_vet') ?>" novalidate>
     <div class="row">
       <div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
         <div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
@@ -149,6 +149,7 @@
         <div class="mt-5 row form-group">
           <h3 class="mt-5 mx-auto font-weight-bold text-center" style="color: #0C7C95">Dados Veterinário</h3>
         </div>
+
         <div class="form-group row">
           <div class="col-md-9 mx-auto text-center">
             <label class="align-self-center font-weight-bold" for="inputNomeCompleto">Nome Completo</label>
@@ -161,6 +162,9 @@
             <label class="align-self-center font-weight-bold" for="inputCRMV">CRMV</label>
             <input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_CRMV']?>"
               name="inputCRMV" id="inputCRMV" placeholder="Digite o CRMV" pattern="^[0-9]*$">
+
+              <input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_ID']?>"
+              name="inputId" id="inputId"  pattern="^[0-9]*$" hidden>
           </div>
         </div>
       </div>

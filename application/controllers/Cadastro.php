@@ -66,6 +66,59 @@ class Cadastro extends CI_Controller
         }
     }
 
+    public function update_vet($idClinica = 0){
+        //apenas um teste
+        $dados_form = $this->input->post();
+        $id = $dados_form['inputId'];
+        $nome = $dados_form['inputNomeCompleto'];
+        $crmv = $dados_form['inputCRMV'];
+        $nasc = $dados_form['inputDataDeNascimento'];
+        $sexo = $dados_form['inlineRadioOptions'];
+        $spec = $dados_form['inputEspecialidade'];
+        $cpf = limpaCPF_CNPJ($dados_form['inputCPF']);
+        $end = $dados_form['inputEndereco'];
+        $comp = $dados_form['inputComplemento'];
+        $bairro = $dados_form['inputBairro'];
+        $cid = $dados_form['inputCidade'];
+        $estd = $dados_form['inputEstado'];
+        $cep = limpaCPF_CNPJ($dados_form['inputCep']);
+        // $dados_update['idClinica'] = $idClinica;
+
+        
+       
+        $qVet = "UPDATE TB_VETERINARIO SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
+        VETERINARIO_CPF = '$cpf', VETERINARIO_ENDERECO = '$end', VETERINARIO_COMPLEMENTO = '$comp', VETERINARIO_BAIRRO = '$bairro', VETERINARIO_CIDADE = '$cid', 
+        VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$id'" ;
+        $this->db->trans_start();
+        $this->db->query($qVet);
+        if ($this->db->trans_status() === false) {
+            $route = base_url('editar');
+            echo "<script>alert('Erro ao atualizar os dados veterinario')</script>"; window.location.href = '$route/$id';
+            $this->db->trans_rollback();
+        } else {
+            $route = base_url('editar');
+            echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route/$id';
+            
+            </script>";
+            $this->db->trans_commit();
+
+        }
+//template
+        // $qAgendamento = "UPDATE tb_agendamento SET AGENDAMENTO_LAUDO = '$path', STATUS = 'DEMANDADO' WHERE AGENDAMENTO_ID = $idAgendamento";
+        // $this->db->trans_start();
+        // $this->db->query($qAgendamento);
+        // if ($this->db->trans_status() === false) {
+        //     echo "<script>alert('Houve um erro ao associari o laudo.')</script>";
+        //     $this->db->trans_rollback();
+        // } else {
+        //     $this->db->trans_commit();
+
+        // }
+
+
+        
+    }
+
     //Cadastro Vet
     public function insert_vet($idClinica = 0)
     {
@@ -180,9 +233,7 @@ class Cadastro extends CI_Controller
         }
     }
 
-    public function update_vet(){
-        
-    }
+    
 
 
     public function cadastroUsuarioMail($email, $senha, $nome)
