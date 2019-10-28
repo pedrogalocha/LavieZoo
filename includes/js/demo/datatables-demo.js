@@ -74,7 +74,7 @@ function atualizaPlano() {
 			// var target_url = baseUrl + 'atualizaPlano';
 			
 			// var target_url = 'https://localhost/homolog/LavieZoo/atualizaPlano';
-			var target_url = 'https://laviezoo.com.br/atualizaPlano';
+			var target_url = 'http://laviezoo.com.br/atualizaPlano';
 			$.ajax({
 				url: target_url,
 				dataType: 'html',
