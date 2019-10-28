@@ -93,7 +93,7 @@ class Cadastro extends CI_Controller
         $this->db->query($qVet);
         if ($this->db->trans_status() === false) {
             $route = base_url('editar');
-            echo "<script>alert('Erro ao atualizar os dados veterinario')</script>"; window.location.href = '$route/$id';
+            echo "<script>alert('Erro ao atualizar os dados veterinario') window.location.href = '$route/$id';</script>";
             $this->db->trans_rollback();
         } else {
             $route = base_url('editar');
