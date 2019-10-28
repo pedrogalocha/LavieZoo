@@ -1,5 +1,5 @@
 // Call the dataTables jQuery plugin
-var baseUrl = 'http://laviezoo.com.br/';
+var baseUrl = 'https://laviezoo.com.br/';
 // var baseUrl = 'https://localhost/homolog/LavieZoo/';
 
 $(document).ready(function() {
