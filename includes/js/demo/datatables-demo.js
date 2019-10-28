@@ -1,5 +1,5 @@
 // Call the dataTables jQuery plugin
-var baseUrl = 'https//laviezoo.com.br/';
+// var baseUrl = 'https//laviezoo.com.br/';
 // var baseUrl = 'https://localhost/homolog/LavieZoo/';	
 
 $(document).ready(function() {
@@ -71,7 +71,10 @@ function atualizaPlano() {
 
 			idUser = table.row(this).data()[0];
 			console.log(dropdownValue);
-			var target_url = baseUrl + 'atualizaPlano';
+			// var target_url = baseUrl + 'atualizaPlano';
+			
+			// var target_url = 'https://localhost/homolog/LavieZoo/atualizaPlano';
+			var target_url = 'https://laviezoo.com.br/atualizaPlano';
 			$.ajax({
 				url: target_url,
 				dataType: 'html',
