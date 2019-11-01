@@ -85,7 +85,7 @@ function atualizaPlano() {
 				},
 				error: function(xhr, status, error) {
 					alert('Houve um erro: A ' + error + status);
-					console.log(dropdownValue);
+					console.log(dropdownValue + ' || ' + target_url);
 					// location.reload();
 				},
 				success: function(results) {
