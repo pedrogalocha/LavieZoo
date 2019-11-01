@@ -1,10 +1,10 @@
 // Call the dataTables jQuery plugin
-var baseUrl = 'https//laviezoo.com.br/';
+var baseUrl = 'https://laviezoo.com.br/';
 // var baseUrl = 'https://localhost/homolog/LavieZoo/';	
 
 $(document).ready(function() {
 	var table = $('#dataTable').DataTable({
-		// "paging": false,
+		"paging": false,
 		columnDefs: [
 			{
 				targets: [0],
