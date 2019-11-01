@@ -42,9 +42,24 @@ class Usuario extends CI_Controller
 
     public function alterarPlano()
     {
-        $valorAlterado = $this->input->post('valorAlterado');
-        $idUsuario = $this->input->post('idUsuario');
-        $this->usuModel->alteraPlano($valorAlterado,$idUsuario);
+
+        $plano = $this->input->post('valorAlterado');
+        $idUsu = $this->input->post('idUsuario');
+        
+        $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
+        $this->db->trans_start();
+        $this->db->query($qUser);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === false) {
+            return "Query Failed";
+        } else {
+            return "Query Success";
+        }
+
+
+        // $valorAlterado = $this->input->post('valorAlterado');
+        // $idUsuario = $this->input->post('idUsuario');
+        // $this->usuModel->alteraPlano($valorAlterado,$idUsuario);
     }
 
 }

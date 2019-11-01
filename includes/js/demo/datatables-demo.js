@@ -90,6 +90,7 @@ function atualizaPlano() {
 				},
 				success: function(results) {
 					location.reload();
+					console.log(dropdownValue + ' || ' + target_url);
 					alert('Plano Alterado');
 				}
 			});

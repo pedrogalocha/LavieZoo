@@ -68,18 +68,18 @@ class Usuario_Model extends CI_Model
         }
     }
 
-    public function alteraPlano($plano, $idUsu)
-    {
-        print_r($plano, $idUsu);
-        $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
-        $this->db->trans_start();
-        $this->db->query($qUser);
-        $this->db->trans_complete();
-        if ($this->db->trans_status() === false) {
-            return "Query Failed";
-        } else {
-            return "Query Success";
-        }
-    }
+    // public function alteraPlano($plano, $idUsu)
+    // {
+    //     print_r($plano, $idUsu);
+    //     $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
+    //     $this->db->trans_start();
+    //     $this->db->query($qUser);
+    //     $this->db->trans_complete();
+    //     if ($this->db->trans_status() === false) {
+    //         return "Query Failed";
+    //     } else {
+    //         return "Query Success";
+    //     }
+    // }
 
 }
