@@ -75,9 +75,6 @@ function atualizaPlano() {
 			idUser = table.row(this).data()[0];
 			console.log(dropdownValue);
 			var target_url = baseUrl + 'atualizaPlano';
-			
-			// var target_url = 'https://localhost/homolog/LavieZoo/atualizaPlano';
-			// var target_url = 'http://laviezoo.com.br/atualizaPlano';
 			$.ajax({
 				url: target_url,
 				dataType: 'html',
