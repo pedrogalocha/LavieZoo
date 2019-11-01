@@ -1,9 +1,10 @@
 // Call the dataTables jQuery plugin
-// var baseUrl = 'https//laviezoo.com.br/';
+var baseUrl = 'https//laviezoo.com.br/';
 // var baseUrl = 'https://localhost/homolog/LavieZoo/';	
 
 $(document).ready(function() {
 	var table = $('#dataTable').DataTable({
+		"paging": false,
 		columnDefs: [
 			{
 				targets: [0],
@@ -20,6 +21,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var table = $('#dataTableCli').DataTable({
+		"paging": false,
 		columnDefs: [
 			{
 				targets: [0],
@@ -36,6 +38,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var table = $('#dataTableAgend').DataTable({
+		"paging": false,
 		columnDefs: [
 			{
 				targets: [0],
@@ -71,10 +74,10 @@ function atualizaPlano() {
 
 			idUser = table.row(this).data()[0];
 			console.log(dropdownValue);
-			// var target_url = baseUrl + 'atualizaPlano';
+			var target_url = baseUrl + 'atualizaPlano';
 			
 			// var target_url = 'https://localhost/homolog/LavieZoo/atualizaPlano';
-			var target_url = 'http://laviezoo.com.br/atualizaPlano';
+			// var target_url = 'http://laviezoo.com.br/atualizaPlano';
 			$.ajax({
 				url: target_url,
 				dataType: 'html',
