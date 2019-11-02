@@ -1,6 +1,6 @@
 // Call the dataTables jQuery plugin
-var baseUrl = 'https://laviezoo.com.br/';
-// var baseUrl = 'https://localhost/homolog/LavieZoo/';	
+// var baseUrl = 'https://laviezoo.com.br/';
+var baseUrl = 'https://localhost/homolog/LavieZoo/';	
 
 $(document).ready(function() {
 	var table = $('#dataTable').DataTable({
@@ -67,13 +67,14 @@ function atualizaPlano() {
 
 		$('#dataTable tbody').on('change', 'tr', function() {
 			var table = $('#dataTable').DataTable();
-			var dropdownValue = $(this)
-				.closest('tr')
-				.find('#planoVet')
-				.val();
+
+			// var dropdownValue = $(this)
+			// 	.closest('tr')
+			// 	.find('#planoVet')
+			// 	.val();
 
 			idUser = table.row(this).data()[0];
-			console.log(dropdownValue);
+			// console.log(dropdownValue);
 			var target_url = baseUrl + 'atualizaPlano';
 			$.ajax({
 				url: target_url,
@@ -85,12 +86,12 @@ function atualizaPlano() {
 				},
 				error: function(xhr, status, error) {
 					alert('Houve um erro: A ' + error + status);
-					console.log(dropdownValue + ' || ' + target_url);
+					// console.log(dropdownValue + ' || ' + target_url);
 					// location.reload();
 				},
 				success: function(results) {
 					location.reload();
-					console.log(dropdownValue + ' || ' + target_url);
+					// console.log(dropdownValue + ' || ' + target_url);
 					alert('Plano Alterado');
 				}
 			});

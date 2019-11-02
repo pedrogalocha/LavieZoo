@@ -260,4 +260,6 @@ class Cadastro extends CI_Controller
             show_error($this->email->print_debugger());
         }
     }
+
+    
 }

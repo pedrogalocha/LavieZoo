@@ -67,6 +67,18 @@ class Usuario_Model extends CI_Model
             return 0;
         }
     }
+    public function getUsuPlano($id)
+    {
+        $qPlanoUsu = " SELECT USUARIO_NIVEL_ACESSO FROM tb_usuario WHERE ID_USUARIO = '$id'";
+        $eIdUsu = $this->db->query($qPlanoUsu);
+        $plano = $eIdUsu->row_array();
+        if ($eIdUsu->num_rows() > 0) {
+            return $plano;
+        } else {
+            return 0;
+        }
+    }
+
 
     // public function alteraPlano($plano, $idUsu)
     // {

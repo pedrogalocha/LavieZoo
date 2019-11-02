@@ -63,7 +63,10 @@ $route['salvarLaudo']  = 'Agendamento/SubirLaudo';
 
 //Editar
 $route['editar/(:any)'] = 'Usuario/editar/$1';
-$route['atualizaPlano'] = 'Usuario/AlterarPlano';
+$route['alterar_plano/(:any)'] = 'Usuario/alterar_plano/$1';
+
+// $route['atualizaPlano'] = 'Usuario/AlterarPlano';
+
 $route['atualizaPlanoCli'] = 'Usuario/AlterarPlanoCli';
 //cadastro usuario vet ou clinica
 $route['insert_vet'] = 'Cadastro/insert_vet';
@@ -71,6 +74,7 @@ $route['insert_clinica'] = 'Cadastro/insert_clinica';
 $route['insert_vet_cli/(:any)'] = "Cadastro/insert_vet/$1";
 //atualiza o veterinario
 $route['update_vet'] = 'Cadastro/update_vet';
+
 
 //Tela Login
 $route['login'] = 'Login';

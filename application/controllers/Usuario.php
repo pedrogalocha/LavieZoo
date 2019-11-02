@@ -39,14 +39,23 @@ class Usuario extends CI_Controller
         print_r($id);
         }
     }
+    public function alterar_plano($id){
 
-    public function alterarPlano()
-    {
+        $pl = $this->usuModel->getUsuPlano($id);
 
-        $plano = $this->input->post('valorAlterado');
-        $idUsu = $this->input->post('idUsuario');
+        // print_r($pl[0]);    
+
+        if(in_array("VET_PRO", $pl)){
+            $plano = 'VET_FREE';
+            print_r('VET_PRO');
+        }
+        else if(in_array("VET_FREE", $pl)){
+            print_r('VET_FREE');
+            $plano = 'VET_PRO';
+        }
+
         
-        $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
+        $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $id";
         $this->db->trans_start();
         $this->db->query($qUser);
         $this->db->trans_complete();
@@ -55,11 +64,10 @@ class Usuario extends CI_Controller
         } else {
             return "Query Success";
         }
-
-
-        // $valorAlterado = $this->input->post('valorAlterado');
-        // $idUsuario = $this->input->post('idUsuario');
-        // $this->usuModel->alteraPlano($valorAlterado,$idUsuario);
+        
+        
     }
+
+    
 
 }
