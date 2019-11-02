@@ -25,6 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Conveniado</th>
         <th>-</th>
         <th>-</th>
+        <th>-</th>
       </tr>
     </tfoot>
     <tbody>
@@ -37,8 +38,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <td><?php print_r($vet->USUARIO_NIVEL_ACESSO) ?></td>
         <td><a target="_blank" href="<?php echo base_url('alterar_plano/' . $vet->ID_USUARIO) ?>"><button
               class="btn btn-primary">Alterar o plano</button></a></td>
-        
-            
         <td><a target="_blank" href="<?php echo base_url('editar/' . $vet->ID_USUARIO) ?>"><button
               class="btn btn-primary">Editar</button></a></td>
         <td><button class="btn btn-danger">Remover</button></td>

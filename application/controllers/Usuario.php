@@ -41,33 +41,56 @@ class Usuario extends CI_Controller
     }
     public function alterar_plano($id){
 
-        $pl = $this->usuModel->getUsuPlano($id);
+        $pl = $this->usuModel->getUsuPlano($id); 
 
-        // print_r($pl[0]);    
-
+        $route = base_url('admin');
+            echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
+        
         if(in_array("VET_PRO", $pl)){
             $plano = 'VET_FREE';
-            print_r('VET_PRO');
         }
         else if(in_array("VET_FREE", $pl)){
-            print_r('VET_FREE');
             $plano = 'VET_PRO';
         }
 
-        
         $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $id";
         $this->db->trans_start();
         $this->db->query($qUser);
-        $this->db->trans_complete();
+        
         if ($this->db->trans_status() === false) {
-            return "Query Failed";
+            $route = base_url('admin');
+            echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
+            $this->db->trans_rollback();
         } else {
-            return "Query Success";
+            $route = base_url('admin');
+            echo "<script>alert('Plano atualizado!') window.location.href = '$route';</script>";
+            $this->db->trans_commit();
         }
-        
-        
     }
+    public function alterar_plano_cli($id){
+        $pl = $this->usuModel->getUsuPlano($id); 
 
     
+        
+        if(in_array("CLI_PRO", $pl)){
+            $plano = 'CLI_FREE';
+        }
+        else if(in_array("CLI_FREE", $pl)){
+            $plano = 'CLI_PRO';
+        }
 
+        $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $id";
+        $this->db->trans_start();
+        $this->db->query($qUser);
+        
+        if ($this->db->trans_status() === false) {
+            $route = base_url('admin');
+            echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
+            $this->db->trans_rollback();
+        } else {
+            $route = base_url('admin');
+            echo "<script>alert('Plano atualizado!') window.location.href = '$route';</script>";
+            $this->db->trans_commit();
+        }
+    }
 }

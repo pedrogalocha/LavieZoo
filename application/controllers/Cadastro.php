@@ -84,7 +84,7 @@ class Cadastro extends CI_Controller
         $cep = limpaCPF_CNPJ($dados_form['inputCep']);
         // $dados_update['idClinica'] = $idClinica;
 
-        
+        //tem que adicioar a atualização do cliente!!!
        
         $qVet = "UPDATE tb_veterinario SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
         VETERINARIO_CPF = '$cpf', VETERINARIO_ENDERECO = '$end', VETERINARIO_COMPLEMENTO = '$comp', VETERINARIO_BAIRRO = '$bairro', VETERINARIO_CIDADE = '$cid', 
@@ -93,30 +93,14 @@ class Cadastro extends CI_Controller
         $this->db->query($qVet);
         if ($this->db->trans_status() === false) {
             $route = base_url('editar');
-            echo "<script>alert('Erro ao atualizar os dados veterinario') window.location.href = '$route/$id';</script>";
+            echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route/$id';</script>";
             $this->db->trans_rollback();
         } else {
             $route = base_url('editar');
-            echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route/$id';
-            
+            echo "<script>alert('Dados atlizados com sucesso'); window.location.href = '$route/$id';
             </script>";
             $this->db->trans_commit();
-
-        }
-//template
-        // $qAgendamento = "UPDATE tb_agendamento SET AGENDAMENTO_LAUDO = '$path', STATUS = 'DEMANDADO' WHERE AGENDAMENTO_ID = $idAgendamento";
-        // $this->db->trans_start();
-        // $this->db->query($qAgendamento);
-        // if ($this->db->trans_status() === false) {
-        //     echo "<script>alert('Houve um erro ao associari o laudo.')</script>";
-        //     $this->db->trans_rollback();
-        // } else {
-        //     $this->db->trans_commit();
-
-        // }
-
-
-        
+        }   
     }
 
     //Cadastro Vet

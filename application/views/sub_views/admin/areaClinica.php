@@ -13,15 +13,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Acesso</th>
         <th>-</th>
         <th>-</th>
+        <th>-</th>
       </tr>
     </thead>
     <tfoot>
-      <tr>
+      <tr> 
         <th>ID</th>
         <th>Nome Fantasia</th>
         <th>CNPJ</th>
         <th>Responsável</th>
         <th>Acesso</th>
+        <th>-</th>
         <th>-</th>
         <th>-</th>
       </tr>
@@ -33,15 +35,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <td><?php print_r($cli->CLINICA_NOME_FANTASIA) ?></td>
         <td><?php print_r($cli->CLINICA_CNPJ) ?></td>
         <td><?php print_r($cli->CLINICA_RESPONSAVEL_NOME) ?></td>
-        <td> <select value="<?php print_r($cli->USUARIO_NIVEL_ACESSO) ?>" onchange="atualizaPlanoCli()"
-            class="custom-select" id="planoCli">
-            <option selected><?php print_r($cli->USUARIO_NIVEL_ACESSO) ?></option>
-            <?php if($cli->USUARIO_NIVEL_ACESSO != "CLI_FREE"){ ?>
-            <option value="CLI_FREE">CLI_FREE</option>
-            <?php }else{ ?>
-            <option value="CLI_PRO">CLI_PRO</option>
-            <?php }?>
-          </select></td>
+          <td><?php print_r($cli->USUARIO_NIVEL_ACESSO) ?></td>
+          <td><a target="_blank" href="<?php echo base_url('alterar_plano_cli/' . $cli->ID_USUARIO) ?>"><button
+              class="btn btn-primary">Alterar o plano</button></a></td>
         <td><a target="_blank" href="<?php echo base_url('editar/' . $cli->ID_USUARIO) ?>"><button
               class="btn btn-primary">Editar</button></a></td>
         <td><button class="btn btn-danger">Remover</button></td>

@@ -64,6 +64,7 @@ $route['salvarLaudo']  = 'Agendamento/SubirLaudo';
 //Editar
 $route['editar/(:any)'] = 'Usuario/editar/$1';
 $route['alterar_plano/(:any)'] = 'Usuario/alterar_plano/$1';
+$route['alterar_plano_cli/(:any)'] = 'Usuario/alterar_plano_cli/$1';
 
 // $route['atualizaPlano'] = 'Usuario/AlterarPlano';
 
