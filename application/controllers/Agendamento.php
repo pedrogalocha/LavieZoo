@@ -34,9 +34,31 @@ class Agendamento extends CI_Controller {
     }else{
     echo "<script> 
             // console.log('$sessao');
-            alert('Você não tem permissão para acessar esta batata'); window.location.href = 'login';
+            alert('Você não tem permissão para acessar esta '); window.location.href = 'login';
           </script>";
     }
+  }
+
+  public function ver_agendamento($id){
+    
+    $login = $this->session->userdata('USUARIO_EMAIL');
+    $dados['pemissao'] = $this->permissao->getPermissao($login);
+    $dados['usu'] = $this->usuario->getUsuId($login);
+    $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+    $tipoAgendamento = $this->agendamento->getTipoAgendamento();
+    $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
+
+    $dados  =   array(
+      'tela'      =>  'dados_agendamento',
+      'permissao' =>  $dados['pemissao'],
+      'sessao'    => $sessao,
+      'tipoAgendamento' => $tipoAgendamento,
+      'acionaInfo' => $dados['aciona']
+      
+      
+    );
+    $this->load->view('sub_views/area_nav', $dados);
+  
   }
 
   public function agendamento(){
@@ -140,4 +162,5 @@ class Agendamento extends CI_Controller {
 			</script>";
    
   }
+  
 }

@@ -43,7 +43,7 @@
 
         <div class="px-2 form-group row">
           <div class="col-md-12 mx-auto ">
-            <label class="align-self-center font-weight-bold" required for="inputConveniado">Porprietário</label>
+            <label class="align-self-center font-weight-bold" required for="inputConveniado">Proprietário</label>
             <input type="text" class="form-control text-uppercase text-left form-control" name="inputNomeProprietario"
               id="inputNomeProprietario" placeholder="Nome Completo do Proprietario do Animal">
           </div>

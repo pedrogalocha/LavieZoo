@@ -49,9 +49,22 @@ class Usuario_Model extends CI_Model
         $executaBuscaIdVet = $this->db->query($queryBuscaIdVet);
         $pegaID = $executaBuscaIdVet->row_array();
         if ($executaBuscaIdVet->num_rows() > 0) {
-            return $pegaID;
+            return $pegaID; 
             print_r($pegaID);
         } else {
+            return 0;
+        }
+    }
+
+    public function getInfoTotalAciona($id){
+        $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;"
+        $exec = $this->db->query($queryBuscaAc);
+        $dadosAc = $exec->row_array();
+        if($executaBuscaIdVet->num_rows() > 0)){
+            return $dadosAc; 
+            print_r($dadosAc);
+        }
+        else{
             return 0;
         }
     }
@@ -78,20 +91,5 @@ class Usuario_Model extends CI_Model
             return 0;
         }
     }
-
-
-    // public function alteraPlano($plano, $idUsu)
-    // {
-    //     print_r($plano, $idUsu);
-    //     $qUser = "UPDATE tb_usuario SET USUARIO_NIVEL_ACESSO = '$plano' WHERE ID_USUARIO = $idUsu";
-    //     $this->db->trans_start();
-    //     $this->db->query($qUser);
-    //     $this->db->trans_complete();
-    //     if ($this->db->trans_status() === false) {
-    //         return "Query Failed";
-    //     } else {
-    //         return "Query Success";
-    //     }
-    // }
 
 }

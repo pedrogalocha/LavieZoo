@@ -363,7 +363,7 @@ class Uri implements UriInterface
      */
     public function setUserInfo($userInfo)
     {
-        $this->userInfo = $userInfo ? $this->protectUserInfo($userInfo) : '';
+        $this->userInfo = ? $this->protectUserInfo($userInfo) : '';
         $this->rawUserInfo = $userInfo;
     }
 

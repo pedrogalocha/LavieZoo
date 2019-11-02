@@ -96,6 +96,7 @@ $route['cadastroVetCli/(:any)'] = 'Cadastro/cadastro_vet_clinica/$1';
 $route['agendamento_form'] = 'Agendamento';
 $route['faixaHorario'] = 'Agendamento/agendamento';
 $route['cadastrarAgendamento'] = 'Agendamento/cadastrarAgendamento';
+$route['ver_agendamento/(:any)'] = 'Agendamento/ver_agendamento/$1';
 
 //email
 $route['email'] = 'Email/cadastroEmailFeed';
