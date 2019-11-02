@@ -4,7 +4,7 @@ var baseUrl = 'https://laviezoo.com.br/';
 
 $(document).ready(function() {
 	var table = $('#dataTable').DataTable({
-		"paging": false,
+		
 		columnDefs: [
 			{
 				targets: [0],
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var table = $('#dataTableCli').DataTable({
-		"paging": false,
+		
 		columnDefs: [
 			{
 				targets: [0],
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var table = $('#dataTableAgend').DataTable({
-		"paging": false,
+		
 		columnDefs: [
 			{
 				targets: [0],
