@@ -11,11 +11,13 @@ $config = array(
     // 'newline' => "\r\n",
     // 'smtp_port' => 587,
     // 'smtp_timeout'=> 15
-    'protocol' =>'sendmail',
-    'smtp_host' => 'localhost',
+    'protocol' =>'smtp',
+    'smtp_host' => 'mail.laviezoo.com.br',
     'smtp_user' => 'contato@laviezoo.com.br',
     'smtp_pass' => '631542aW1',
-    'smtp_port' => 25,
+    'smtp_port' => 587,
+    'crlf' => "\r\n",
+    'newline' => "\r\n"
     
 
 );
