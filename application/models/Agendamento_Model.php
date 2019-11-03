@@ -210,5 +210,28 @@ class Agendamento_Model extends CI_Model
 
         }
     }
+    public function getInfoTotalAciona($id){
+        $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE, a.ANIMAL_RACA,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA ,
+        ag.ENDERECO, ag.COMPLEMENTO, ag.BAIRRO, ag.CIDADE, ag.ESTADO, ag.CEP, ag.CELULAR
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID 
+        WHERE ag.AGENDAMENTO_ID = '$id';";
+        // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
+
+        $execBuscaAciona = $this->db->query($queryBuscaAc);
+        $dadosAc = $execBuscaAciona->row_array();
+        if($execBuscaAciona->num_rows() > 0)   
+        {
+            return $dadosAc; 
+      
+        }
+        else{
+            return 0;
+        }
+    }
 
 }

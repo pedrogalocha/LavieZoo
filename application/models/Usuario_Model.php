@@ -46,6 +46,7 @@ class Usuario_Model extends CI_Model
                                   LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID
                                   OR u.CLINICA_ID = c.CLINICA_ID
                                   WHERE u.ID_USUARIO = $id ;";
+
         $executaBuscaIdVet = $this->db->query($queryBuscaIdVet);
         $pegaID = $executaBuscaIdVet->row_array();
         if ($executaBuscaIdVet->num_rows() > 0) {
@@ -56,18 +57,7 @@ class Usuario_Model extends CI_Model
         }
     }
 
-    public function getInfoTotalAciona($id){
-        $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;"
-        $exec = $this->db->query($queryBuscaAc);
-        $dadosAc = $exec->row_array();
-        if($executaBuscaIdVet->num_rows() > 0)){
-            return $dadosAc; 
-            print_r($dadosAc);
-        }
-        else{
-            return 0;
-        }
-    }
+
 
     public function getUsuId($email)
     {

@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Tipo de Busca</th>
         <th>CEP</th>
-        <th>Endreçeo</th>
+        <th>Endereço</th>
         <th>Data Coleta</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Tipo de Busca</th>
         <th>CEP</th>
-        <th>Endreçeo</th>
+        <th>Endereço</th>
         <th>Data Coleta</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
@@ -58,8 +58,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </td>
         <td><button class=" btn btn-danger">Remover</button>
         </td>
-        <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top"
-            title="Mais Inforamações">+</button></td>
+        <td>
+        <a href="#" onclick="window.open('<?= base_url('ver_agendamento/' . $ag->AGENDAMENTO_ID)  ?>', 'Atualizar', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=10, LEFT=10, WIDTH=1200, HEIGHT=800');"><button type='button' class='btn btn-primary'>+</button></a> 
+        </td>
 
       </tr>
       <?php }?>

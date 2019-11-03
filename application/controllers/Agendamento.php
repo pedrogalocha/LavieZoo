@@ -40,25 +40,22 @@ class Agendamento extends CI_Controller {
   }
 
   public function ver_agendamento($id){
-    
-    $login = $this->session->userdata('USUARIO_EMAIL');
-    $dados['pemissao'] = $this->permissao->getPermissao($login);
-    $dados['usu'] = $this->usuario->getUsuId($login);
-    $sessao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
-    $tipoAgendamento = $this->agendamento->getTipoAgendamento();
-    $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
 
-    $dados  =   array(
-      'tela'      =>  'dados_agendamento',
-      'permissao' =>  $dados['pemissao'],
-      'sessao'    => $sessao,
-      'tipoAgendamento' => $tipoAgendamento,
-      'acionaInfo' => $dados['aciona']
-      
-      
-    );
-    $this->load->view('sub_views/area_nav', $dados);
-  
+    $rotabaseDash = base_url('Dash');
+        $login = $this->session->userdata('USUARIO_EMAIL');
+        $id_sessao = $this->session->userdata('USUARIO_ID');
+        $conta = $this->session->userdata('TIPO_CONTA');
+        $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+        if($id_sessao == $id || $conta == "ADMIN"){
+          $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
+            $dados = array(
+                'tela' =>  'dados_agendamento',
+                'permissao' => $conta,
+                'acionaInfo' => $dados['aciona'],
+                'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO')
+              );
+              $this->load->view('sub_views/area_nav', $dados);
+        }
   }
 
   public function agendamento(){

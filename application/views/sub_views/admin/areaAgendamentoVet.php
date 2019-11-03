@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Tipo de Busca</th>
         <th>Data Coleta</th>
         <th>CEP</th>
-        <th>Endreçeo</th>
+        <th>Endereço</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
         <th>Laudo</th>
@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Tipo de Busca</th>
         <th>CEP</th>
-        <th>Endreçeo</th>
+        <th>Endereço</th>
         <th>Data Coleta</th>
         <th>Faixa de Horario</th>
         <th>Solicitante</th>
