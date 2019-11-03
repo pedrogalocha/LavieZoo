@@ -20,7 +20,7 @@ class Email extends CI_Controller {
         
         $from = $this->config->item('smtp_user');
         $to = $this->input->post('email');
-        $subject = $this->input->post('pedrogalocha@gmail.com');
+        $subject = $this->input->post('paulo041299@gmail.com');
         $message = "Obrigado por se inscrever em nosso feed.";
 
         $this->email->set_newline("\r\n");

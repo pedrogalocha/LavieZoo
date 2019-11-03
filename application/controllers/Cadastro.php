@@ -142,7 +142,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], $veterinario_id, $dados_insert['idClinica'], $dados_insert['idClinica'] == 0 ? 'VET_FREE' : 'VET_PRO');
 
-            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
+            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
             //Alerta JS com redirecionamento
             if ($idClinica = 0) {
                 $rotabase = $rotabase;
@@ -225,12 +225,12 @@ class Cadastro extends CI_Controller
         $this->load->config('email');
         $this->load->library('email');
 
-        $from = $this->config->item('smtp_user');
-        $to = $email;
+        $from = $this->config->item('contato@laviezoo.com.br','Paulo');
+        $to = 'paulo041299@gmail.com';
         $subject = "contato@laviezoo.com.br";
         $message = "Obrigado por se cadastrar no LavieZoo, Seu usuário é $email e sua senha é $senha";
 
-        $this->email->set_newline("\r\n");
+        // $this->email->set_newline("\r\n");
         $this->email->from($from);
         $this->email->to($to);
         $this->email->subject($subject);
