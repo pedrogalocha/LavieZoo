@@ -56,11 +56,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <input type="submit" value="Salvar" style="margin-top:5px;">
           </form>
         </td>
-        <td><button class=" btn btn-danger">Remover</button>
-        </td>
+
         <td>
         <a href="#" onclick="window.open('<?= base_url('ver_agendamento/' . $ag->AGENDAMENTO_ID)  ?>', 'Atualizar', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=10, LEFT=10, WIDTH=1200, HEIGHT=800');"><button type='button' class='btn btn-primary'>+</button></a> 
         </td>
+        <td><button class=" btn btn-danger">Remover</button>
+        </td>
+        
 
       </tr>
       <?php }?>
