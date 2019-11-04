@@ -193,9 +193,12 @@
 							</div>
 						</div>
 						<div class="col-md-12">
-            <?php if ($permissao == 'CLI_PRO' ) {?>
-							<button type="submit" class="btn btn-lg btn-warning text-black" >BATATA</button>
-							<?php }?>
+                        <?php if ($permissao != 'CLI_PRO' ) {?>
+							<button type="submit" class="btn btn-lg btn-warning text-white">Cadastrar</button>
+							<?php }else{?>
+								<button type="button" class="btn btn-lg btn-warning text-black" disabled>Cadastrar</button>
+								<label color="red"> --->  Função disponivel apenas para Clinicas com o plano PRO</label>
+								<?php } ?>
               
 						</div>
 					</div>
