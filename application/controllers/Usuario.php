@@ -43,7 +43,7 @@ class Usuario extends CI_Controller
 
         $pl = $this->usuModel->getUsuPlano($id); 
 
-        $route = base_url('admin');
+        $route = base_url('exibeVets');
             echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
         
         if(in_array("VET_PRO", $pl)){
@@ -58,15 +58,24 @@ class Usuario extends CI_Controller
         $this->db->query($qUser);
         
         if ($this->db->trans_status() === false) {
-            $route = base_url('admin');
-            echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
+            $route = base_url('exibeVets');
+            echo "<script type='text/javascript'>
+             alert('Erro ao alterar o plano!');
+             window.location.href = '$route';
+             </script>";
             $this->db->trans_rollback();
         } else {
-            $route = base_url('admin');
-            echo "<script>alert('Plano atualizado!') window.location.href = '$route';</script>";
+            // print_r('aaaa');
+            
+            $route = base_url('exibeVets');
+             echo "<script type='text/javascript'>
+             alert('Plano alterado com sucesso');
+             window.location.href = '$route';
+             </script>";
             $this->db->trans_commit();
         }
     }
+
     public function alterar_plano_cli($id){
         $pl = $this->usuModel->getUsuPlano($id); 
         
@@ -82,16 +91,20 @@ class Usuario extends CI_Controller
         $this->db->query($qUser);
         
         if ($this->db->trans_status() === false) {
-            $route = base_url('admin');
-            echo "<script> 
-					alert('Usuário ou senha incorretos.'); window.location.href = 'login';
-					</script>";
+            $route = base_url('exibeCli');
+            echo "<script type='text/javascript'>
+             alert('Erro ao alterar o plano!');
+             window.location.href = '$route';
+             </script>";
+            
             $this->db->trans_rollback();
         } else {
-            $route = base_url('admin');
-            echo "<script> 
-            alert('Usuário ou senha incorretos.'); window.location.href = 'login';
-            </script>";
+            
+            $route = base_url('exibeCli');
+            echo "<script type='text/javascript'>
+             alert('Plano alterado com sucesso');
+             window.location.href = '$route';
+             </script>";
             $this->db->trans_commit();
         }
     }
