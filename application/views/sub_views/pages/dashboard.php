@@ -108,7 +108,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
 
-      <?php if ($permissao == 'CLI_PRO') {?>
+      <?php if ($permissao == 'CLI_PRO' || $permissao == 'CLI_FREE') {?>
       <div class="col-md-4 mx-6 ml-6 ajuste_margin_list">
         <div>
           <div class="panel panel-primary" id="result_panel">

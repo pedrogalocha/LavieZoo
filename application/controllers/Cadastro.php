@@ -69,7 +69,7 @@ class Cadastro extends CI_Controller
     public function update_vet($idClinica = 0){
         //apenas um teste
         $dados_form = $this->input->post();
-        $id = $dados_form['inputId'];
+        $idVet = $dados_form['inputId'];
         $nome = $dados_form['inputNomeCompleto'];
         $crmv = $dados_form['inputCRMV'];
         $nasc = $dados_form['inputDataDeNascimento'];
@@ -88,16 +88,16 @@ class Cadastro extends CI_Controller
        
         $qVet = "UPDATE tb_veterinario SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
         VETERINARIO_CPF = '$cpf', VETERINARIO_ENDERECO = '$end', VETERINARIO_COMPLEMENTO = '$comp', VETERINARIO_BAIRRO = '$bairro', VETERINARIO_CIDADE = '$cid', 
-        VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$id'" ;
+        VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$idVet'" ;
         $this->db->trans_start();
         $this->db->query($qVet);
         if ($this->db->trans_status() === false) {
-            $route = base_url('editar');
-            echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route/$id';</script>";
+            $route = base_url('exibeVets');
+            echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
             $this->db->trans_rollback();
         } else {
-            $route = base_url('editar');
-            echo "<script>alert('Dados atlizados com sucesso'); window.location.href = '$route/$id';
+            $route = base_url('exibeVets');
+            echo "<script>alert('Dados atlizados com sucesso'); window.location.href = '$route';
             </script>";
             $this->db->trans_commit();
         }   
@@ -179,7 +179,6 @@ class Cadastro extends CI_Controller
         $dados_insert['inputEstado'] = $dados_form['inputEstado'];
         $dados_insert['inputCep'] = limpaCPF_CNPJ($dados_form['inputCep']);
         $dados_insert['inputCelular'] = $dados_form['inputCelular'];
-
         $dados_insert['inputEmail'] = $dados_form['inputEmail'];
         $dados_insert['inputSenha'] = base64_encode($dados_form['inputSenha']);
 
@@ -202,7 +201,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], 0, $clinica_id, 'CLI_FREE');
 
-            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
+            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
 
             //Alerta JS com redirecionamento
             $rotabase = base_url('login');

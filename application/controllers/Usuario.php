@@ -69,8 +69,6 @@ class Usuario extends CI_Controller
     }
     public function alterar_plano_cli($id){
         $pl = $this->usuModel->getUsuPlano($id); 
-
-    
         
         if(in_array("CLI_PRO", $pl)){
             $plano = 'CLI_FREE';
@@ -85,11 +83,15 @@ class Usuario extends CI_Controller
         
         if ($this->db->trans_status() === false) {
             $route = base_url('admin');
-            echo "<script>alert('Erro ao alterar o plano do veterinario!') window.location.href = '$route';</script>";
+            echo "<script> 
+					alert('Usuário ou senha incorretos.'); window.location.href = 'login';
+					</script>";
             $this->db->trans_rollback();
         } else {
             $route = base_url('admin');
-            echo "<script>alert('Plano atualizado!') window.location.href = '$route';</script>";
+            echo "<script> 
+            alert('Usuário ou senha incorretos.'); window.location.href = 'login';
+            </script>";
             $this->db->trans_commit();
         }
     }

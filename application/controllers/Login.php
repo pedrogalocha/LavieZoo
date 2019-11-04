@@ -26,7 +26,7 @@ class Login extends CI_Controller {
       $verifica = $this->Login_Model->verifica($login, $senha);
 				// Caso o usuario exista no BD
 
-				print_r($permissao);
+				// print_r($permissao);
 				if($verifica === true){
 					$this->session->set_userdata('USUARIO_EMAIL', $login);
 					$this->session->set_userdata('USUARIO_ID', $permissao['ID_USUARIO']);
@@ -44,7 +44,7 @@ class Login extends CI_Controller {
 						redirect(base_url('Dash'));
 				}else{
 					echo "<script> 
-					alert('Você não tem permissão para acessar esta area'); window.location.href = 'login';
+					alert('Usuário ou senha incorretos.'); window.location.href = 'login';
 					</script>";
 				}
 		}

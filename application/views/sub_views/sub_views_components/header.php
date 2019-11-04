@@ -52,6 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item nav-texto">
+            
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
           </li>
           <li class="nav-item nav-texto">
@@ -95,6 +96,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </li>
           <?php }
 ;?>
+
+
+
           <li class="nav item">
             <a href="">
               <div class="fa-stack fa-2x" style="font-size: 20px;">
