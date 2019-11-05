@@ -21,7 +21,7 @@ class Agendamento extends CI_Controller {
     $tipoAgendamento = $this->agendamento->getTipoAgendamento();
     
 
-    if($sessao == 'PRO' || $sessao == 'ADMIN'){
+    if($sessao == 'PRO' || $sessao == 'ADMIN' || $sessao == 'FREE'){
       $dados  =   array(
         'tela'      =>  'agendamento',
         'permissao' =>  $dados['pemissao'],

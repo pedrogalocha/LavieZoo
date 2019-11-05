@@ -1,5 +1,7 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none">
+
   <?php
+  $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 ?>
   <form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad"
     action='<?php echo base_url('cadastrarAgendamento') ?>' novalidate autocomplete="off">
@@ -9,6 +11,7 @@
 
         <div class="pt-4 px-2 form-group row">
           <div class="col-md-6 mx-auto ">
+
             <label class="align-self-center font-weight-bold" for="inputNomeAnimal">Nome</label>
             <input type="text" class="form-control text-uppercase text-left" name="inputNomeAnimal" id="inputNomeAnimal"
               placeholder="Nome Do Animal" required>
@@ -16,7 +19,7 @@
 
           <div class="col-md-6 mx-auto ">
             <label class="align-self-center font-weight-bold" for="inputIdadeAnimal">IDADE</label>
-            <input type="text" required class="form-control text-uppercase text-left" name="inputIdadeAnimal"
+            <input type="number" required class="form-control text-uppercase text-left" name="inputIdadeAnimal"
               id="inputIdadeAnimal" placeholder="Idade do Animal" required>
           </div>
         </div>
@@ -86,11 +89,13 @@
         style="margin-top:30px; margin-bottom:30px; background-color: #F9F2C7">
         <div class="px-2 form-group row">
           <div class="col-md-8 mx-auto mb-2 ">
+          <?php if($permissao == 'PRO' || $permissao == 'ADMIN'){?>
             <div class="pt-2 form-check form-check">
               <input onchange="ocultaData();ocultaAgend()" class="form-check-input" type="radio"
                 name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
               <label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
             </div>
+            
             <div class="pt-2 form-check form-check" style="padding-left: 0px !important">
               <div class="col-sm-3 d-inline" style="padding-left: 0px !important">
                 <div class="pt-2 form-check form-check d-inline">
@@ -114,12 +119,47 @@
                 </select>
               </div>
             </div>
+            <?php }
+            else{?>
+            <div class="pt-2 form-check form-check">
+              <input onchange="ocultaData();ocultaAgend()" class="form-check-input" type="radio"
+                name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" disabled>
+              <label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
+            </div>
+            
+            <div class="pt-2 form-check form-check" style="padding-left: 0px !important">
+              <div class="col-sm-3 d-inline" style="padding-left: 0px !important">
+                <div class="pt-2 form-check form-check d-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
+                    value="Coleta Em Clinica" disabled onchange="exibeData();ocultaAgend()">
+                  <label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+                </div>
+              </div>
+              <div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+                <label id="DataColeta" class=" coleta-clinica align-self-center font-weight-bold"
+                  for="inputDataColeta">Data</label>
+              </div>
+              <div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+                <input onchange="validaData()" id="DataColeta2" class="coleta-clinica" type="date" name="inputColeta"
+                  placeholder="dd/mm/aaaa">
+              </div>
+              <div class="col-sm-2 d-inline" style="padding-left: 1px !important">
+                <select name="inputFaixaHorario" onchange="ValidaHorario(this.options[this.selectedIndex].value)"
+                  id="faixaHorario" class="coleta-clinica" onchange="">
+                  <option label="Faixa de Horario">Faixa de Horario</option>
+                </select>
+              </div>
+            </div>
+
+            <?php } ?>
+            
             <div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
               <input onchange="ocultaData();exibeAgend()" class="form-check-input" type="radio"
                 name="inlineRadioOptions3" id="inlineRadioOptions3" value="Busca Domiciliar">
               <label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
             </div>
+            
             <div class="px-2 form-group row" style="font-size:0.8rem !important">
               <div class="px-2 col-md-12 pt-4 form-group row" style="
                 padding-top: 0px !important;

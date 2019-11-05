@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +55,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item nav-texto">
             
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
+
           </li>
           <li class="nav-item nav-texto">
             <?php $hidden = "hidden";
             
-            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "PRO") {
+            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "PRO" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "FREE" ) {
                 $hidden = "id"
                 ?>
             <a class="nav-link js-scroll-trigger navbar-links"
@@ -107,7 +109,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </a>
       </div>
       </li>
+      <!-- <li>
+      <?php echo UrlAtual(); ?>
+      </li> -->
       </ul>
+          
+
     </div>
     </div>
   </nav>
+<?php
+  function UrlAtual(){
+ $dominio= $_SERVER['HTTP_HOST'];
+ $url = $_SERVER['REQUEST_URI'];
+//  $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
+ $ok = "ok";
+ $erro = "erro";
+
+ 
+if (strpos($url, 'login') !== false) {
+    // echo 'true';
+    return $ok;
+}
+else{
+  return $erro;
+}
+
+
+ }
+ ?>

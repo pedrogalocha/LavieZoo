@@ -136,7 +136,7 @@ class Agendamento_Model extends CI_Model
     '$raca',
     '$especie',
     '$proprietario');";
-        print_r($qPrincipal);
+        // print_r($qPrincipal);
         return $qPrincipal;
     }
 

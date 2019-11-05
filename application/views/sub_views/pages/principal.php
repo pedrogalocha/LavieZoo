@@ -33,7 +33,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
                     </div>
                     </div> 
               <div class="row justify-content-center mt-2">
-              <button class="rounded text-center btn btn-sm btn-light" >Ja é membro? Faça o login</button>
+              <a href="<?php echo base_url('login') ?>"><button class="rounded text-center btn btn-sm btn-light" >Ja é membro? Faça o login</button>
                 </div>  
             </div>
           </section>
