@@ -104,29 +104,29 @@ class Agendamento extends CI_Controller {
 		}
   }
 
-  public function agendamentoEfetuado($nomeAnimal , $tipoAgendamento, $idUsu) {
-		$this->load->config('email');
-		$this->load->library('email');
+  // public function agendamentoEfetuado($nomeAnimal , $tipoAgendamento, $idUsu) {
+	// 	$this->load->config('email');
+	// 	$this->load->library('email');
 		
-		$from = $this->config->item('smtp_user');
-		$to = $email;
-		$subject = "contato@laviezoo.com.br";
-		$message = "Efetuado Agendamento para $nomeAnimal ";
+	// 	$from = $this->config->item('smtp_user');
+	// 	$to = $email;
+	// 	$subject = "contato@laviezoo.com.br";
+	// 	$message = "Efetuado Agendamento para $nomeAnimal ";
 
-		$this->email->set_newline("\r\n");
-		$this->email->from($from);
-		$this->email->to($to);
-		$this->email->subject($subject);
-		$this->email->message($message);
+	// 	$this->email->set_newline("\r\n");
+	// 	$this->email->from($from);
+	// 	$this->email->to($to);
+	// 	$this->email->subject($subject);
+	// 	$this->email->message($message);
 
-		if ($this->email->send()) {
-				echo "<script> 
-				alert('Obrigado por se cadastrar $nome.');
-				</script>";
-		} else {
-				show_error($this->email->print_debugger());
-		}
-  }
+	// 	if ($this->email->send()) {
+	// 			echo "<script> 
+	// 			alert('Obrigado por se cadastrar $nome.');
+	// 			</script>";
+	// 	} else {
+	// 			show_error($this->email->print_debugger());
+	// 	}
+  // }
   
   public function SubirLaudo(){
       $agendamento = $_FILES['agendamento'];
