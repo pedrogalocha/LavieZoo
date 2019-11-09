@@ -1,7 +1,23 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-$config = array(
-    
+$config['useragent'] = 'CodeIgniter';
+$config['protocol'] = 'smtp';
+//$config['mailpath'] = '/usr/sbin/sendmail';
+$config['smtp_host'] = 'ssl://a2plcpnl0842.prod.iad2.secureserver.net';
+$config['smtp_user'] = 'contato@laviezoo.com.br';
+$config['smtp_pass'] = 'facepr13';
+$config['smtp_port'] = 465; 
+$config['smtp_timeout'] = 5;
+$config['wordwrap'] = TRUE;
+$config['wrapchars'] = 76;
+$config['mailtype'] = 'html';
+$config['charset'] = 'utf-8';
+$config['validate'] = FALSE;
+$config['priority'] = 3;
+$config['crlf'] = "\r\n";
+$config['newline'] = "\r\n";
+$config['bcc_batch_mode'] = FALSE;
+$config['bcc_batch_size'] = 200;
     
     // 'protocol' => 'smtp',
     // 'smtp_host' => 'smtp.sendgrid.net',
@@ -11,16 +27,14 @@ $config = array(
     // 'newline' => "\r\n",
     // 'smtp_port' => 587,
     // 'smtp_timeout'=> 15
-    'protocol' =>'smtp',
-    'smtp_host' => 'mail.laviezoo.com.br',
-    'smtp_user' => 'contato@laviezoo.com.br',
-    'smtp_pass' => '631542aW1',
-    'smtp_port' => 587,
-    'crlf' => "\r\n",
-    'newline' => "\r\n"
-    
+    // 'protocol' =>'smtp',
+    // 'smtp_host' => 'mail.laviezoo.com.br',
+    // 'smtp_user' => 'contato@laviezoo.com.br',
+    // 'smtp_pass' => '631542aW1',
+    // 'smtp_port' => 587,
+    // 'crlf' => "\r\n",
+    // 'newline' => "\r\n"
 
-);
 
     
 

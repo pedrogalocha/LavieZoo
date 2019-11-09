@@ -142,7 +142,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], $veterinario_id, $dados_insert['idClinica'], $dados_insert['idClinica'] == 0 ? 'VET_FREE' : 'VET_PRO');
 
-            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
+            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
             //Alerta JS com redirecionamento
             if ($idClinica = 0) {
                 $rotabase = $rotabase;
@@ -201,7 +201,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], 0, $clinica_id, 'CLI_FREE');
 
-            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
+            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
 
             //Alerta JS com redirecionamento
             $rotabase = base_url('login');
@@ -218,19 +218,24 @@ class Cadastro extends CI_Controller
 
     public function cadastroUsuarioMail($email, $senha, $nome)
     {
-        $this->load->config('email');
+        
         $this->load->library('email');
 
-        $from = $this->config->item('contato@laviezoo.com.br','Paulo');
-        $to = $email;
-        $subject = "contato@laviezoo.com.br";
+        $this->email->from('contato@laviezoo.com.br', 'contato@laviezoo.com.br');
+		$this->email->to($email);
+        $this->email->subject('contato@laviezoo.com.br');
         $message = "Obrigado por se cadastrar no LavieZoo, Seu usuário é $email e sua senha é $senha";
+		$this->email->message($message);
+        // $from = $this->config->item('contato@laviezoo.com.br','contato@laviezoo.com.br');
+        // $to = "paulo041299@gmail.com";
+        // $subject = "contato@laviezoo.com.br";
+        
 
-        // $this->email->set_newline("\r\n");
-        $this->email->from($from);
-        $this->email->to($to);
-        $this->email->subject($subject);
-        $this->email->message($message);
+        // // $this->email->set_newline("\r\n");
+        // $this->email->from($from);
+        // $this->email->to($to);
+        // $this->email->subject($subject);
+        // $this->email->message($message);
 
         if ($this->email->send()) {
             echo "<script>
