@@ -53,9 +53,10 @@ $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item nav-texto">
+       
             
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
-
+       
           </li>
           <li class="nav-item nav-texto">
             <?php $hidden = "hidden";
@@ -122,7 +123,7 @@ $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
   function UrlAtual(){
  $dominio= $_SERVER['HTTP_HOST'];
  $url = $_SERVER['REQUEST_URI'];
-//  $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
+ $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
  $ok = "ok";
  $erro = "erro";
 
