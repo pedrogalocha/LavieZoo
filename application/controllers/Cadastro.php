@@ -221,7 +221,7 @@ class Cadastro extends CI_Controller
         
         $this->load->library('email');
 
-        $this->email->from('contato@laviezoo.com.br', 'contato@laviezoo.com.br');
+        $this->email->from('contato@laviezoo.com.br');
 		$this->email->to($email);
         $this->email->subject('contato@laviezoo.com.br');
         $message = "Obrigado por se cadastrar no LavieZoo, Seu usuário é $email e sua senha é $senha";
