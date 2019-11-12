@@ -3,10 +3,10 @@
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
 //$config['mailpath'] = '/usr/sbin/sendmail';
-$config['smtp_host'] = 'ssl://a2plcpnl0842.prod.iad2.secureserver.net';
+$config['smtp_host'] = 'mail.laviezoo.com.br';
 $config['smtp_user'] = 'contato@laviezoo.com.br';
 $config['smtp_pass'] = 'facepr13';
-$config['smtp_port'] = 465; 
+$config['smtp_port'] = 587; 
 $config['smtp_timeout'] = 5;
 $config['wordwrap'] = TRUE;
 $config['wrapchars'] = 76;
