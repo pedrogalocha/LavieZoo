@@ -142,7 +142,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], $veterinario_id, $dados_insert['idClinica'], $dados_insert['idClinica'] == 0 ? 'VET_FREE' : 'VET_PRO');
 
-            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
+            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeCompleto']);
             //Alerta JS com redirecionamento
             if ($idClinica = 0) {
                 $rotabase = $rotabase;
@@ -201,7 +201,7 @@ class Cadastro extends CI_Controller
             //Cadastra Usuario
             $cadastro_usuario = $this->usu_model->cadastro_usu($dados_insert['inputEmail'], $dados_insert['inputSenha'], 0, $clinica_id, 'CLI_FREE');
 
-            $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
+            // $this->cadastroUsuarioMail($dados_insert['inputEmail'], $dados_form['inputSenha'], $dados_insert['inputNomeDaInstituicao']);
 
             //Alerta JS com redirecionamento
             $rotabase = base_url('login');
