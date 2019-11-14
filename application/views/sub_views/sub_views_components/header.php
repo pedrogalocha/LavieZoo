@@ -44,98 +44,116 @@ $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light" id="mainNav">
     <div class="container">
-      <a class=" font_logo navbar-brand js-scroll-trigger fonte-rale" href="<?php echo base_url('') ?>"><span
-          style="color:#00617C; ">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a class=" font_logo navbar-brand js-scroll-trigger fonte-rale" href="<?php echo base_url('') ?>"><span style="color:#00617C; ">Lavie</span><span style="color: #0C7C95;">Zoo</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item nav-texto">
-       
-            
-            <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
-       
-          </li>
-          <li class="nav-item nav-texto">
-            <?php $hidden = "hidden";
-            
-            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "PRO" || $this->session->userdata('USUARIO_NIVEL_ACESSO') == "FREE" ) {
-                $hidden = "id"
-                ?>
-            <a class="nav-link js-scroll-trigger navbar-links"
-              href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
-            <?php };?>
+
+            <?php
+            $urlAt = UrlAtual();
+            if ($urlAt == "login" || $urlAt == "dash" || $urlAt == "admin" || $urlAt == "agendamento" || $urlAt == "cadastro") { ?>
+              <a class="nav-link js-scroll-trigger navbar-links" hidden href="#about">SOBRE</a>
+            <?php } else { ?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
+            <?php } ?>
+
 
           </li>
-          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != null || $this->session->userdata('USUARIO_NIVEL_ACESSO') != "ADMIN") {?>
           <li class="nav-item nav-texto">
-            <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
+            <?php $urlAt = UrlAtual();
+            if ($urlAt == "login" || $urlAt == "cadastro") { ?>
+              <a class="nav-link js-scroll-trigger navbar-links" hidden href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+
+            <?php } else { ?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('agendamento') ?>">AGENDAMENTO</a>
+            <?php } ?>
+          </li>
+          <li class="nav-item nav-texto">
+            
+            <?php 
+            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != null && $this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN") { ?>
+
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Dash') ?>">DASHBOARD</a>
           </li>
           <li class="nav-item nav-texto">
             <?php $hidden = "hidden";
-            
-            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN") {
+
+              if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == "ADMIN") {
                 $hidden = "id"
                 ?>
-            <a class="nav-link js-scroll-trigger navbar-links"
-              href="<?php echo base_url('Admin') ?>">ADMINISTRADOR</a>
-            <?php };?>
+              <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('Admin') ?>">ADMINISTRADOR</a>
+            <?php }; ?>
 
           </li>
           <li class="nav item">
             <a href="<?php echo base_url('sair') ?>"><button class="btn btn-azul">Sair</button></a>
           </li>
-          <?php }
-;?>
+        <?php }; ?>
 
-          <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == null){?>
+        <?php if ($this->session->userdata('USUARIO_NIVEL_ACESSO') == null) { ?>
           <li class="nav item">
             <a href="<?php echo base_url('login') ?>"><button class="btn btn-azul">LOGIN</button></a>
           </li>
           <li class="nav item">
             <a href="<?php echo base_url('cadastro') ?>"><button class="btn btn-laranja">CADASTRE-SE</button></a>
           </li>
-          <?php }
-;?>
+        <?php }; ?>
 
 
 
-          <li class="nav item">
-            <a href="">
-              <div class="fa-stack fa-2x" style="font-size: 20px;">
-                <i class="insta-circle fas fa-circle fa-stack-2x" style=""></i>
-                <i class="insta-icon fab fa-stack-1x fa-instagram fa-lg"></i>
-            </a>
+        <li class="nav item">
+          <a href="">
+            <div class="fa-stack fa-2x" style="font-size: 20px;">
+              <i class="insta-circle fas fa-circle fa-stack-2x" style=""></i>
+              <i class="insta-icon fab fa-stack-1x fa-instagram fa-lg"></i>
+          </a>
       </div>
       </li>
-      <!-- <li>
-      <?php echo UrlAtual(); ?>
-      </li> -->
+      <li>
+
+      </li>
       </ul>
-          
+
 
     </div>
     </div>
   </nav>
-<?php
-  function UrlAtual(){
- $dominio= $_SERVER['HTTP_HOST'];
- $url = $_SERVER['REQUEST_URI'];
- $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
- $ok = "ok";
- $erro = "erro";
-
- 
-if (strpos($url, 'login') !== false) {
-    // echo 'true';
-    return $ok;
-}
-else{
-  return $erro;
-}
+  <?php
+  function UrlAtual()
+  {
+    $dominio = $_SERVER['HTTP_HOST'];
+    $url = $_SERVER['REQUEST_URI'];
+    $url = "http://" . $dominio . $_SERVER['REQUEST_URI'];
+    //  $ok = "ok";
+    $erro = "erro";
 
 
- }
- ?>
+    if (strpos($url, 'login') !== false) {
+      $ur = 'login';
+      return $ur;
+    } elseif (strpos($url, 'Login') !== false) {
+      $ur = 'login';
+      return $ur;
+    } elseif (strpos($url, 'Dash') !== false) {
+      $ur = 'dash';
+      return $ur;
+    } elseif (strpos($url, 'admin') !== false) {
+      $ur = 'admin';
+      return $ur;
+    } elseif (strpos($url, 'agendamento') !== false) {
+      $ur = 'agendamento';
+      return $ur;
+    } elseif (strpos($url, 'cadastro') !== false) {
+      $ur = 'cadastro';
+      return $ur;
+    }
+    
+    else {
+      return $erro;
+    }
+  }
+  ?>
+  

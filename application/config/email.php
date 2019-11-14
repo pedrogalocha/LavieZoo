@@ -3,7 +3,7 @@
 $config['useragent'] = 'CodeIgniter';
 $config['protocol'] = 'smtp';
 //$config['mailpath'] = '/usr/sbin/sendmail';
-$config['smtp_host'] = 'mail.laviezoo.com.br';
+$config['smtp_host'] = 'mail.laviezoo.com.br ';
 $config['smtp_user'] = 'contato@laviezoo.com.br';
 $config['smtp_pass'] = 'facepr13';
 $config['smtp_port'] = 587; 
