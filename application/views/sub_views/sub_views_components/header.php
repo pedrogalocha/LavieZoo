@@ -102,17 +102,26 @@ $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
           </li>
         <?php }; ?>
 
-
+        
 
         <li class="nav item">
-          <a href="">
+          <a href="https://www.instagram.com/laviezoo/">
             <div class="fa-stack fa-2x" style="font-size: 20px;">
               <i class="insta-circle fas fa-circle fa-stack-2x" style=""></i>
               <i class="insta-icon fab fa-stack-1x fa-instagram fa-lg"></i>
           </a>
       </div>
       </li>
-      <li>
+      <!-- <li class="nav item">
+          <a href="https://www.instagram.com/laviezoo/">
+            <div class="fa-stack fa-2x" style="font-size: 20px;">
+              <i class="insta-circle fas fa-circle fa-stack-2x" style=""></i>
+              <i class="insta-icon fab fa-stack-1x fa-youtube "></i>
+              
+              
+          </a>
+      </div>
+      </li> -->
 
       </li>
       </ul>
