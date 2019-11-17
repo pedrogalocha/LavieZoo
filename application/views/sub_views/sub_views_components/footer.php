@@ -2,16 +2,16 @@
  <footer class="py-5 bg-dark text-white">
     <div class="container">
       <div class="row justify-content-center footer-mobile">
-        <div class="col-sm-2 mx-auto"><b style="font-size:20px">LavieZoo</b></div>
-        <div class="col-sm-5 mx-auto">
-          Endereço nº 123 <br/> 
-          Bela Vista - SP - Cep 00000-000 <br/>
-          contato@laviezoo.com.br
-        </div>
-      <div class="col-sm-3 mx-auto">
-        2019 todos os direitos reservados
-      </div>
-    </div>
+      <div class="col-sm-2 mx-auto"><b style="font-size:20px">Laviezoo</b></div>
+       <div class="col-sm-5 mx-auto">
+         Rua constantino de souza - Nº 533 <br/>
+         Campo Belo - SP  <br />
+         contato@laviezoo.com.br
+       </div>
+       <div class="col-sm-3 mx-auto">
+         2019 Todos os direitos reservados
+       </div>
+     </div>
     <!-- /.container -->
   </footer>
 

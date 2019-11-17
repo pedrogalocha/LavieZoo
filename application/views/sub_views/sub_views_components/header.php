@@ -55,9 +55,9 @@ $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO')
             <?php
             $urlAt = UrlAtual();
             if ($urlAt == "login" || $urlAt == "dash" || $urlAt == "admin" || $urlAt == "agendamento" || $urlAt == "cadastro") { ?>
-              <a class="nav-link js-scroll-trigger navbar-links" hidden href="#about">SOBRE</a>
+              <a class="nav-link js-scroll-trigger navbar-links" hidden href="#about">CONHEÇA</a>
             <?php } else { ?>
-              <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
+              <a class="nav-link js-scroll-trigger navbar-links" href="#about">CONHEÇA</a>
             <?php } ?>
 
 

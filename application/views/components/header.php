@@ -45,7 +45,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item nav-texto">
-            <a class="nav-link js-scroll-trigger navbar-links" href="#about">SOBRE</a>
+            <a class="nav-link js-scroll-trigger navbar-links" href="#about">CONHEÇA</a>
           </li>
           <li class="nav-item nav-texto">
             <?php 
@@ -83,7 +83,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <?php }
 ;?>
           <li class="nav item">
-            <a href="">
+            <a href="https://www.instagram.com/laviezoo/">
               <div class="fa-stack fa-2x" style="font-size: 20px;">
                 <i class="insta-circle fas fa-circle fa-stack-2x" style=""></i>
                 <i class="insta-icon fab fa-stack-1x fa-instagram fa-lg"></i>
