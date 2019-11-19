@@ -90,6 +90,7 @@ $route['exibeVets'] ='Dashboard/exibeVets';
 $route['exibeCli'] = 'Dashboard/exibeCli';
 $route['exibeAgendVets'] = 'Dashboard/exibeAgendamentosVet';
 $route['exibeAgendCli'] = 'Dashboard/exibeAgendamentosCli';
+$route['exibeAgendTipo'] = 'Dashboard/exibeAgendametosTipo';
 //CLINICA
 $route['cadastroVetCli/(:any)'] = 'Cadastro/cadastro_vet_clinica/$1';
 //Agendamento
@@ -97,6 +98,8 @@ $route['agendamento_form'] = 'Agendamento';
 $route['faixaHorario'] = 'Agendamento/agendamento';
 $route['cadastrarAgendamento'] = 'Agendamento/cadastrarAgendamento';
 $route['ver_agendamento/(:any)'] = 'Agendamento/ver_agendamento/$1';
+$route['del_agendamento/(:any)'] = 'Agendamento/del_agendamento/$1';
+
 
 //email
 $route['email'] = 'Email/cadastroEmailFeed';

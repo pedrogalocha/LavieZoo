@@ -57,6 +57,15 @@ class Agendamento extends CI_Controller {
               $this->load->view('sub_views/area_nav', $dados);
         }
   }
+  public function del_agendamento($id){
+    $this->db->where('AGENDAMENTO_ID', $id);
+    $this->db->delete('tb_agendamento');
+
+
+    echo "<script> 
+			window.location.href = '../exibeAgendVets';
+			</script>";
+  }
 
   public function agendamento(){
     $data_form = $this->input->post('data_selecionada');
@@ -66,7 +75,7 @@ class Agendamento extends CI_Controller {
   public function cadastrarAgendamento(){
     $dados_form = $this->input->post();
 
-    echo "<script>alert(cheguei)</script>";
+    // echo "<script>alert(cheguei)</script>";
 
     $dados_insert['inputNomeAnimal'] = $dados_form['inputNomeAnimal'];
 		$dados_insert['inputIdadeAnimal'] = $dados_form['inputIdadeAnimal'];

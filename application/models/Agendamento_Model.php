@@ -220,6 +220,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         -- INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID 
         WHERE ag.AGENDAMENTO_ID = '$id';";
+        
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
         $execBuscaAciona = $this->db->query($queryBuscaAc);
@@ -232,6 +233,10 @@ class Agendamento_Model extends CI_Model
         else{
             return 0;
         }
+    }
+
+    public function deletaAgendamento($id){
+
     }
 
 }
