@@ -51,6 +51,7 @@ class Agendamento_Model extends CI_Model
 
         $inputNomeAnimal = $dados_insert['inputNomeAnimal'];
         $inputIdadeAnimal = $dados_insert['inputIdadeAnimal'];
+        $inputMesesAnimal = $dados_insert['inputMesesAnimal'];
         $inlineRadioOptions = $dados_insert['inlineRadioOptions'];
         $inputRaça = $dados_insert['inputRaça'];
         $inputNomeProprietario = $dados_insert['inputNomeProprietario'];
@@ -68,7 +69,7 @@ class Agendamento_Model extends CI_Model
         $inputCelular = $dados_insert['inputCelular'];
         $idUsu = $dados_insert['idUsu'];
 
-        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inlineRadioOptions, $inputRaça, $inputNomeProprietario);
+        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal);
         $this->db->query($cadAnimal);
 
         $idAnimal = $this->agendamento->getIdAnimal($inputNomeAnimal);
@@ -110,7 +111,7 @@ class Agendamento_Model extends CI_Model
         $this->db->trans_start();
         $this->db->query($qPrincipal);
         if ($this->db->trans_status() === false) {
-            echo "<script>alert('Houve um erro ao cadastrar o agendamento.')</script>";
+            echo "<script>alert('erro ao cadastrar o agendamento')</script>";
             $this->db->trans_rollback();
             return false;
         } else {
@@ -121,21 +122,25 @@ class Agendamento_Model extends CI_Model
 
     }
 
-    public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario)
+    public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario, $meses)
     {
         $qPrincipal = "INSERT INTO tb_animal
     (ANIMAL_NOME,
     ANIMAL_IDADE,
     ANIMAL_RACA,
     ANIMAL_ESPECIE,
-    ANIMAL_PROPRIETARIO)
+    ANIMAL_PROPRIETARIO,
+    ANIMAL_MESES
+    )
     VALUES
     (
     '$nome',
      $idade,
     '$raca',
     '$especie',
-    '$proprietario');";
+    '$proprietario',
+    '$meses'
+    );";
         // print_r($qPrincipal);
         return $qPrincipal;
     }

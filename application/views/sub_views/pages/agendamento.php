@@ -17,10 +17,15 @@
               placeholder="Nome Do Animal" required>
           </div>
 
-          <div class="col-md-6 mx-auto ">
-            <label class="align-self-center font-weight-bold" for="inputIdadeAnimal">IDADE</label>
+          <div class="col-md-3 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputIdadeAnimal">ANOS</label>
             <input type="number" required class="form-control text-uppercase text-left" name="inputIdadeAnimal"
-              id="inputIdadeAnimal" placeholder="Idade do Animal" required>
+              id="inputIdadeAnimal" placeholder="Idade em anos" required>
+          </div>
+          <div class="col-md-3 mx-auto ">
+            <label class="align-self-center font-weight-bold" for="inputMesesAnimal">MÊSES</label>
+            <input type="number" required class="form-control text-uppercase text-left" name="inputMesesAnimal"
+              id="inputMesesAnimal" placeholder="Idade em mêses" required>
           </div>
         </div>
 
