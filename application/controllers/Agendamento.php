@@ -81,6 +81,7 @@ class Agendamento extends CI_Controller {
 		$dados_insert['inputIdadeAnimal'] = $dados_form['inputIdadeAnimal'];
 		$dados_insert['inputMesesAnimal'] = $dados_form['inputMesesAnimal'];
 		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions'];
+		$dados_insert['sexo'] = $dados_form['RadioSexo'];
 		$dados_insert['inputRaça'] = $dados_form['inputRaça'];
 		$dados_insert['inputNomeProprietario'] = $dados_form['inputNomeProprietario'];
 		$dados_insert['inlineRadioOptions2'] = $dados_form['inlineRadioOptions2'];

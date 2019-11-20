@@ -68,8 +68,9 @@ class Agendamento_Model extends CI_Model
         $inputCep = $dados_insert['inputCep'];
         $inputCelular = $dados_insert['inputCelular'];
         $idUsu = $dados_insert['idUsu'];
+        $sexo = $dados_insert['sexo'];
 
-        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal);
+        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal, $sexo);
         $this->db->query($cadAnimal);
 
         $idAnimal = $this->agendamento->getIdAnimal($inputNomeAnimal);
@@ -122,7 +123,7 @@ class Agendamento_Model extends CI_Model
 
     }
 
-    public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario, $meses)
+    public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario, $meses, $sexoA)
     {
         $qPrincipal = "INSERT INTO tb_animal
     (ANIMAL_NOME,
@@ -130,7 +131,8 @@ class Agendamento_Model extends CI_Model
     ANIMAL_RACA,
     ANIMAL_ESPECIE,
     ANIMAL_PROPRIETARIO,
-    ANIMAL_MESES
+    ANIMAL_MESES,
+    ANIMAL_SEXO
     )
     VALUES
     (
@@ -139,7 +141,8 @@ class Agendamento_Model extends CI_Model
     '$raca',
     '$especie',
     '$proprietario',
-    '$meses'
+    '$meses',
+    '$sexoA'
     );";
         // print_r($qPrincipal);
         return $qPrincipal;
