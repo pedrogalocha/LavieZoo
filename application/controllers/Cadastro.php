@@ -82,6 +82,7 @@ class Cadastro extends CI_Controller
         $cid = $dados_form['inputCidade'];
         $estd = $dados_form['inputEstado'];
         $cep = limpaCPF_CNPJ($dados_form['inputCep']);
+        $senha = base64_encode($dados_form['inputSenha']);
         // $dados_update['idClinica'] = $idClinica;
 
         //tem que adicioar a atualização do cliente!!!
@@ -96,10 +97,17 @@ class Cadastro extends CI_Controller
             echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
             $this->db->trans_rollback();
         } else {
+            $this->db->trans_commit();
+
+            $qSenha = "UPDATE tb_usuario SET USUARIO_SENHA = '$senha' WHERE ID_USUARIO = '$idVet'";
+            $this->db->trans_start();
+            $this->db->query($qSenha);
+            $this->db->trans_commit();
+
             $route = base_url('exibeVets');
             echo "<script>alert('Dados atlizados com sucesso'); window.location.href = '$route';
             </script>";
-            $this->db->trans_commit();
+            
         }   
     }
 

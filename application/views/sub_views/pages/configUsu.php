@@ -35,6 +35,13 @@
             ">
             </div>
           </div>
+          <div class="form-group row">
+          <div class="col-md-9 mx-auto text-center">
+            <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
+            <input type="text" class="form-control text-uppercase" value="<?php echo base64_decode($userInfo['USUARIO_SENHA'])?>"
+              name="inputSenha" id="inputSenha" placeholder="Digite o sua senha">
+          </div>
+        </div>
         </div>
 
         <div class="pt-4 px-2 form-group row">
@@ -157,6 +164,14 @@
               name="inputNomeCompleto" id="inputNomeCompleto" placeholder="Digite o seu nome completo">
           </div>
         </div>
+        <div class="form-group row">
+          <div class="col-md-9 mx-auto text-center">
+            <label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
+            <input type="text" class="form-control text-uppercase" value="<?php echo base64_decode($userInfo['USUARIO_SENHA'])?>"
+              name="inputSenha" id="inputSenha" placeholder="Digite o sua senha">
+          </div>
+        </div>
+
         <div class="form-group row">
           <div class="col-md-9 mx-auto text-center">
             <label class="align-self-center font-weight-bold" for="inputCRMV">CRMV</label>

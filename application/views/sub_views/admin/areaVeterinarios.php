@@ -8,10 +8,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <tr>
         <th>ID</th>
         <th>Nome</th>
+        <!-- <th>senha</th> -->
         <th>CRMV</th>
         <th>Especialidade</th>
         <th>ACESSO</th>
-        <th>-</th>
+        <th>PLANO</th>
         <th>-</th>
         <th>-</th>
       </tr>
@@ -20,10 +21,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <tr>
         <th>ID</th>
         <th>Nome</th>
+        <!-- <th>senha</th> -->
         <th>CRMV</th>
         <th>Especialidade</th>
-        <th>Conveniado</th>
-        <th>-</th>
+        <th>ACESSO</th>
+        <th>PLANO</th>
         <th>-</th>
         <th>-</th>
       </tr>
@@ -33,6 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <tr id="vet_<?php print_r($vet->ID_USUARIO) ?>">
         <td id="vetID"><?php print_r($vet->VETERINARIO_ID) ?></td>
         <td><?php print_r($vet->VETERINARIO_NOME) ?></td>
+        <!-- <td id="vetSenha" ><?php echo base64_decode($vet->USUARIO_SENHA) ?></td> -->
         <td><?php print_r($vet->VETERINARIO_CRMV) ?></td>
         <td><?php print_r($vet->VETERINARIO_ESPECIALIDADE) ?></td>
         <td><?php print_r($vet->USUARIO_NIVEL_ACESSO) ?></td>
