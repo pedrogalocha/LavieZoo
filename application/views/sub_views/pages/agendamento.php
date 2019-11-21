@@ -47,7 +47,7 @@
           
           <div class="col-md-3 mx-auto ">
             <div class="pt-4 form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="RadioSexo" id="RadioMacho" value="Macho"
+              <input class="form-check-input" type="radio" name=" " id="RadioMacho" value="Macho"
                 required>
               <label class="form-check-label" for="inlineRadio1">Macho</label>
             </div>
