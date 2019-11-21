@@ -40,7 +40,7 @@ class Usuario_Model extends CI_Model
                                   v.VETERINARIO_SEXO, v.VETERINARIO_ENDERECO, v.VETERINARIO_COMPLEMENTO, v.VETERINARIO_BAIRRO, v.VETERINARIO_CIDADE,
                                   v.VETERINARIO_ESTADO, v.VETERINARIO_CEP, v.VETERINARIO_CELULAR, c.CLINICA_RESPONSAVEL_CPF, c.CLINICA_RESPONSAVEL_NOME, c.CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO,
                                   c.CLINICA_RESPONSAVEL_SEXO, c.CLINICA_ENDEREÇO, c.CLINICA_COMPLEMENTO, c.CLINICA_BAIRRO, c.CLINICA_CIDADE,
-                                  c.CLINICA_ESTADO, c.CLINICA_CEP, c.CLINICA_CELULAR, u.USUARIO_SENHA
+                                  c.CLINICA_ESTADO, c.CLINICA_CEP, c.CLINICA_CELULAR, u.USUARIO_SENHA, u.USUARIO_EMAIL
                                   FROM  tb_usuario u
                                   LEFT JOIN tb_veterinario v ON u.VETERINARIO_ID = v.VETERINARIO_ID
                                   LEFT JOIN tb_clinica c ON v.VETERINARIO_ID_CLINICA = c.CLINICA_ID

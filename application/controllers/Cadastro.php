@@ -83,6 +83,7 @@ class Cadastro extends CI_Controller
         $estd = $dados_form['inputEstado'];
         $cep = limpaCPF_CNPJ($dados_form['inputCep']);
         $senha = base64_encode($dados_form['inputSenha']);
+        $email = $dados_form['inputEmail'];
         // $dados_update['idClinica'] = $idClinica;
 
         //tem que adicioar a atualização do cliente!!!
@@ -92,6 +93,7 @@ class Cadastro extends CI_Controller
         VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$idVet'" ;
         $this->db->trans_start();
         $this->db->query($qVet);
+        $this->db->trans_complete();
         if ($this->db->trans_status() === false) {
             $route = base_url('exibeVets');
             echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
@@ -99,16 +101,24 @@ class Cadastro extends CI_Controller
         } else {
             $this->db->trans_commit();
 
-            $qSenha = "UPDATE tb_usuario SET USUARIO_SENHA = '$senha' WHERE ID_USUARIO = '$idVet'";
+            $qSenha = "UPDATE tb_usuario SET USUARIO_SENHA = '$senha', USUARIO_EMAIL = '$email' WHERE ID_USUARIO = '$idVet'";
             $this->db->trans_start();
             $this->db->query($qSenha);
-            $this->db->trans_commit();
-
+            $this->db->trans_complete();
             $route = base_url('exibeVets');
-            echo "<script>alert('Dados atlizados com sucesso'); window.location.href = '$route';
+
+            if($this->db->trans_status() === false){ 
+                echo "<script>alert('ERRO: EMAIL JÁ CADASTRADO!!!') window.location.href = '$route';</script>";
+                $this->db->trans_rollback();
+            }
+            else{
+                $this->db->trans_commit();
+                echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route';
             </script>";
+            }
             
         }   
+        
     }
 
     //Cadastro Vet
