@@ -47,8 +47,7 @@
           
           <div class="col-md-3 mx-auto ">
             <div class="pt-4 form-check form-check-inline">
-              <input class="form-check-input" type="radio" name=" " id="RadioMacho" value="Macho"
-                required>
+              <input class="form-check-input" type="radio" name="RadioSexo" id="RadioMacho" value="Macho">
               <label class="form-check-label" for="inlineRadio1">Macho</label>
             </div>
             <div class="form-check form-check-inline">
@@ -425,7 +424,7 @@
   jQuery.extend(jQuery.validator.messages, {
     required: "Favor Preencher esse campo",
     remote: "Please fix this field.",
-    email: "Please enter a valid email address.",
+    email: "Favor Digitar um E-mail valido.",
     url: "Please enter a valid URL.",
     date: "Please enter a valid date.",
     dateISO: "Please enter a valid date (ISO).",
