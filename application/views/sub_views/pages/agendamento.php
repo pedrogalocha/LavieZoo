@@ -48,11 +48,11 @@
 					<div class="col-md-3 mx-auto ">
 						<div class="pt-4 form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="RadioSexo" id="RadioMacho" value="Macho" required>
-							<label class="form-check-label" for="inlineRadio1">Macho</label>
+							<label class="form-check-label" for="inlineRadio3">Macho</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="RadioSexo" id="RadioFemea" value="Fêmea">
-							<label class="form-check-label" for="inlineRadio2">Fêmea</label>
+							<label class="form-check-label" for="inlineRadio4">Fêmea</label>
 						</div>
 					</div>
 
@@ -62,7 +62,7 @@
 							placeholder="Digite a Raça do Animal" required>
 					</div>
 				</div>
-
+ 
 				<div class="px-2 form-group row">
 					<div class="col-md-12 mx-auto ">
 						<label class="align-self-center font-weight-bold" required for="inputConveniado">Proprietário</label>
@@ -126,7 +126,7 @@
 							<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
 								<input onchange="validaDataBusca()" id="DataBusca2" class="coleta-clinica" type="datetime-local" name="inputBusca"
 									placeholder="dd/mm/aaaa">
-							</div>
+							</div> 
 						</div>
 
 
@@ -135,7 +135,7 @@
 							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
 								<div class="pt-2 form-check form-check d-inline">
 									<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
-										value="Coleta Em Clinica" onchange="exibeData();ocultaAgend()">
+										value="Coleta Em Clinica" onchange="exibeData();ocultaAgend();ocultaDataBusca()">
 									<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
 								</div>
               </div>
@@ -167,7 +167,7 @@
 							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
 								<div class="pt-2 form-check form-check d-inline">
 									<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
-										value="Coleta Em Clinica" disabled onchange="exibeData();ocultaAgend()">
+										value="Coleta Em Clinica" disabled onchange="exibeData();ocultaAgend();ocultaDataBusca()">
 									<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
 								</div>
 							</div>
@@ -191,7 +191,7 @@
 
 						<div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
-							<input onchange="ocultaData();exibeAgend()" class="form-check-input" type="radio"
+							<input onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input" type="radio"
 								name="inlineRadioOptions3" id="inlineRadioOptions3" value="Busca Domiciliar">
 							<label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
 						</div>
@@ -331,6 +331,13 @@
 			$("#DataColeta").prop("required", false);
 			$("#DataColeta2").prop("required", false);
 			$("#faixaHorario").prop("required", false);
+		}
+
+		function ocultaDataBusca() {
+			$("#DataBusca").addClass("coleta-clinica");
+			$("#DataBusca2").addClass("coleta-clinica");
+			$("#DataBusca").prop("required", false);
+			$("#DataBusca2").prop("required", false);
 		}
 
 		function validaData() {

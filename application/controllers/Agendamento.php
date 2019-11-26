@@ -80,13 +80,14 @@ class Agendamento extends CI_Controller {
     $dados_insert['inputNomeAnimal'] = $dados_form['inputNomeAnimal'];
 		$dados_insert['inputIdadeAnimal'] = $dados_form['inputIdadeAnimal'];
 		$dados_insert['inputMesesAnimal'] = $dados_form['inputMesesAnimal'];
-		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions'];
+		$dados_insert['inlineRadioOptions'] = $dados_form['inlineRadioOptions']; 
 		$dados_insert['sexo'] = $dados_form['RadioSexo'];
 		$dados_insert['inputRaça'] = $dados_form['inputRaça'];
 		$dados_insert['inputNomeProprietario'] = $dados_form['inputNomeProprietario'];
 		$dados_insert['inlineRadioOptions2'] = $dados_form['inlineRadioOptions2'];
 		$dados_insert['inputOutrosExames'] = $dados_form['inputOutrosExames'] == null ? null : $dados_form['inputOutrosExames'];
 		$dados_insert['inlineRadioOptions3'] = $dados_form['inlineRadioOptions3'];
+    $dados_insert['inputBusca'] = $dados_form['inputBusca'] == null ? null : $dados_form['inputBusca'] ;
     $dados_insert['inputColeta'] = $dados_form['inputColeta'] == null ? null : $dados_form['inputColeta'] ;
     $dados_insert['inputFaixaHorario'] = $dados_form['inputFaixaHorario'] == null ? 0 : $dados_form['inputFaixaHorario']  ;
 		$dados_insert['inputEndereco'] = $dados_form['inputEndereco'] == null ? null : $dados_form['inputEndereco']  ;

@@ -69,6 +69,8 @@ class Agendamento_Model extends CI_Model
         $inputCelular = $dados_insert['inputCelular'];
         $idUsu = $dados_insert['idUsu'];
         $sexo = $dados_insert['sexo'];
+        $inputBusca = $dados_insert['inputBusca'];
+        
 
         $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal, $sexo);
         $this->db->query($cadAnimal);
@@ -91,7 +93,8 @@ class Agendamento_Model extends CI_Model
     ESTADO,
     CEP,
     CELULAR,
-    STATUS
+    STATUS,
+    DATA_BUSCA_CLINICA
     ) values
     ($idAni,
      $inlineRadioOptions2,
@@ -107,7 +110,8 @@ class Agendamento_Model extends CI_Model
     '$inputEstado',
     '$inputCep',
     '$inputCelular',
-    'SOLICITADO')";
+    'SOLICITADO',
+    '$inputBusca')";
 
         $this->db->trans_start();
         $this->db->query($qPrincipal);
@@ -211,7 +215,7 @@ class Agendamento_Model extends CI_Model
         $this->db->trans_start();
         $this->db->query($qAgendamento);
         if ($this->db->trans_status() === false) {
-            echo "<script>alert('Houve um erro ao associari o laudo.')</script>";
+            echo "<script>alert('Houve um erro ao associar o laudo.')</script>";
             $this->db->trans_rollback();
         } else {
             $this->db->trans_commit();
