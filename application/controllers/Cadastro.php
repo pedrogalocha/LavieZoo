@@ -67,7 +67,8 @@ class Cadastro extends CI_Controller
     }
 
     public function update_vet($idClinica = 0){
-        //apenas um teste
+        
+        
         $dados_form = $this->input->post();
         $idVet = $dados_form['inputId'];
         $nome = $dados_form['inputNomeCompleto'];
