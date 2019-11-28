@@ -6,7 +6,7 @@
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
 				<div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
 					style="background-color: rgba(255, 255, 255, 0.85)">
-					<!-- Começo da border transparente-->
+					<!-- Começo da border transparente--> 
 
 					<?php if(strpos($userInfo['USUARIO_NIVEL_ACESSO'], "CLI") !== false ) {?> <img class=""
 						src="<?php echo base_url('includes/img/agencia_cadastro_icone.svg') ?>" style="
@@ -32,9 +32,18 @@
 							<label class="align-self-center font-weight-bold" for="inputCNPJ">CNPJ</label>
 							<input type="text" class="form-control text-uppercase cnpj" value="<?php echo $userInfo['CLINICA_CNPJ']?>"
 								name="inputCNPJ" id="inputCNPJ" placeholder="Digite o CNPJ da instituição" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-            ">
+			">
+			<input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_ID']?>"
+							name="inputId" id="inputId" pattern="^[0-9]*$" hidden>
 						</div>
 					</div>
+					<div class="form-group row">
+					<div class="col-md-9 mx-auto text-center">
+						<label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
+						<input type="email" class="form-control text-uppercase" value="<?php echo $userInfo['USUARIO_EMAIL']?>"
+							name="inputEmail" id="inputEmail" placeholder="Digite o seu e-mail">
+					</div>
+				</div>
 					<div class="form-group row">
 						<div class="col-md-9 mx-auto text-center">
 							<label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>

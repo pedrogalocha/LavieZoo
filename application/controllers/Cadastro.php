@@ -33,7 +33,6 @@ class Cadastro extends CI_Controller
             'clinica' => false,
         );
         $this->load->view('sub_views/area_nav', $dados);
-
     }
 
     public function cadastro_clinica()
@@ -54,7 +53,7 @@ class Cadastro extends CI_Controller
         $conta = $this->session->userdata('TIPO_CONTA');
         $dados['pemissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 
-        if ($dados['pemissao'] == "PRO" || $conta = "CLI_PRO" ) {
+        if ($dados['pemissao'] == "PRO" || $conta = "CLI_PRO") {
             $dados = array(
                 'tela' => 'vet',
                 'permissao' => $conta,
@@ -66,60 +65,66 @@ class Cadastro extends CI_Controller
         }
     }
 
-    public function update_vet($idClinica = 0){
-        
-        
+    public function update_vet($idClinica = 0)
+    {
+
+
         $dados_form = $this->input->post();
-        $idVet = $dados_form['inputId'];
+
         $nome = $dados_form['inputNomeCompleto'];
-        $crmv = $dados_form['inputCRMV'];
-        $nasc = $dados_form['inputDataDeNascimento'];
-        $sexo = $dados_form['inlineRadioOptions'];
-        $spec = $dados_form['inputEspecialidade'];
-        $cpf = limpaCPF_CNPJ($dados_form['inputCPF']);
-        $end = $dados_form['inputEndereco'];
-        $comp = $dados_form['inputComplemento'];
-        $bairro = $dados_form['inputBairro'];
-        $cid = $dados_form['inputCidade'];
-        $estd = $dados_form['inputEstado'];
-        $cep = limpaCPF_CNPJ($dados_form['inputCep']);
-        $senha = base64_encode($dados_form['inputSenha']);
-        $email = $dados_form['inputEmail'];
-        // $dados_update['idClinica'] = $idClinica;
+        $nomeCli = $dados_form['inputNomeCompleto'];
+        if (isset($nome)) {
 
-        //tem que adicioar a atualização do cliente!!!
-       
-        $qVet = "UPDATE tb_veterinario SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
+            $idVet = $dados_form['inputId'];
+            $crmv = $dados_form['inputCRMV'];
+            $nasc = $dados_form['inputDataDeNascimento'];
+            $sexo = $dados_form['inlineRadioOptions'];
+            $spec = $dados_form['inputEspecialidade'];
+            $cpf = limpaCPF_CNPJ($dados_form['inputCPF']);
+            $end = $dados_form['inputEndereco'];
+            $comp = $dados_form['inputComplemento'];
+            $bairro = $dados_form['inputBairro'];
+            $cid = $dados_form['inputCidade'];
+            $estd = $dados_form['inputEstado'];
+            $cep = limpaCPF_CNPJ($dados_form['inputCep']);
+            $senha = base64_encode($dados_form['inputSenha']);
+            $email = $dados_form['inputEmail'];
+            // $dados_update['idClinica'] = $idClinica;
+
+            //tem que adicioar a atualização do cliente!!!
+
+            $qVet = "UPDATE tb_veterinario SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
         VETERINARIO_CPF = '$cpf', VETERINARIO_ENDERECO = '$end', VETERINARIO_COMPLEMENTO = '$comp', VETERINARIO_BAIRRO = '$bairro', VETERINARIO_CIDADE = '$cid', 
-        VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$idVet'" ;
-        $this->db->trans_start();
-        $this->db->query($qVet);
-        $this->db->trans_complete();
-        if ($this->db->trans_status() === false) {
-            $route = base_url('exibeVets');
-            echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
-            $this->db->trans_rollback();
-        } else {
-            $this->db->trans_commit();
-
-            $qSenha = "UPDATE tb_usuario SET USUARIO_SENHA = '$senha', USUARIO_EMAIL = '$email' WHERE ID_USUARIO = '$idVet'";
+        VETERINARIO_ESTADO = '$estd', VETERINARIO_CEP = '$cep' WHERE VETERINARIO_ID = '$idVet'";
             $this->db->trans_start();
-            $this->db->query($qSenha);
+            $this->db->query($qVet);
             $this->db->trans_complete();
-            $route = base_url('exibeVets');
-
-            if($this->db->trans_status() === false){ 
-                echo "<script>alert('ERRO: EMAIL JÁ CADASTRADO!!!') window.location.href = '$route';</script>";
+            if ($this->db->trans_status() === false) {
+                $route = base_url('exibeVets');
+                echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
                 $this->db->trans_rollback();
-            }
-            else{
+            } else {
                 $this->db->trans_commit();
-                echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route';
+
+                $qSenha = "UPDATE tb_usuario SET USUARIO_SENHA = '$senha', USUARIO_EMAIL = '$email' WHERE ID_USUARIO = '$idVet'";
+                $this->db->trans_start();
+                $this->db->query($qSenha);
+                $this->db->trans_complete();
+                $route = base_url('exibeVets');
+
+                if ($this->db->trans_status() === false) {
+                    echo "<script>alert('ERRO: EMAIL JÁ CADASTRADO!!!') window.location.href = '$route';</script>";
+                    $this->db->trans_rollback();
+                } else {
+                    $this->db->trans_commit();
+                    echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route';
             </script>";
+                }
             }
+        } else if (isset($nomeCli)) {
             
-        }   
-        
+         }
+
     }
 
     //Cadastro Vet
@@ -172,7 +177,7 @@ class Cadastro extends CI_Controller
 			alert('Veterinario cadastrado com sucesso.'); window.location.href = '$rotabase';
 			</script>";
         } else {
-            $rotabaseCadastro = base_url('cadastro');    
+            $rotabaseCadastro = base_url('cadastro');
             echo "<script>
 				alert('Usuario Já cadastrado.'); window.location.href = '$rotabaseCadastro';
 			</script>";
@@ -237,18 +242,18 @@ class Cadastro extends CI_Controller
 
     public function cadastroUsuarioMail($email, $senha, $nome)
     {
-        
+
         $this->load->library('email');
 
         $this->email->from('contato@laviezoo.com.br');
-		$this->email->to($email);
+        $this->email->to($email);
         $this->email->subject('contato@laviezoo.com.br');
         $message = "Obrigado por se cadastrar no LavieZoo, Seu usuário é $email e sua senha é $senha";
-		$this->email->message($message);
+        $this->email->message($message);
         // $from = $this->config->item('contato@laviezoo.com.br','contato@laviezoo.com.br');
         // $to = "paulo041299@gmail.com";
         // $subject = "contato@laviezoo.com.br";
-        
+
 
         // // $this->email->set_newline("\r\n");
         // $this->email->from($from);
@@ -264,6 +269,4 @@ class Cadastro extends CI_Controller
             show_error($this->email->print_debugger());
         }
     }
-
-    
 }
