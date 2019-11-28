@@ -72,7 +72,7 @@ class Cadastro extends CI_Controller
         $dados_form = $this->input->post();
 
         $nome = $dados_form['inputNomeCompleto'];
-        $nomeCli = $dados_form['inputNomeCompleto'];
+        $nomeCli = $dados_form['inputNomeDaInstituicao'];
         if (isset($nome)) {
 
             $idVet = $dados_form['inputId'];
@@ -122,9 +122,50 @@ class Cadastro extends CI_Controller
                 }
             }
         } else if (isset($nomeCli)) {
-            
-         }
+            $idCli = $dados_form['inputIdCli'];
+            $inputNomeDaInstituicao = $dados_form['inputNomeDaInstituicao'];
+            $inputCNPJ = $dados_form['inputCNPJ'];
+            $inputEmailCli = $dados_form['inputEmailCli'];
+            $inputSenhaCli = base64_encode($dados_form['inputSenhaCli']);
+            $inputResponsavelCli = $dados_form['inputResponsavelCli'];
+            $inputDataDeNascimentoCli = $dados_form['inputDataDeNascimentoCli'];
+            $RadioSexo = $dados_form['RadioSexo'];
+            $inputCPFCli = $dados_form['inputCPFCli'];
+            $inputEnderecoCli = $dados_form['inputEnderecoCli'];
+            $inputComplementoCli = $dados_form['inputComplementoCli'];
+            $inputBairroCli = $dados_form['inputBairroCli'];
+            $inputCidadeCli = $dados_form['inputCidadeCli'];
+            $inputEstadoCli = $dados_form['inputEstadoCli'];
+            $inputCepCli = $dados_form['inputCepCli'];
+            $inputCelularCli = $dados_form['inputCelularCli'];
+            $inputIdUsuCli = $dados_form['inputIdUsuCli'];
 
+            # CLINICA_ID, CLINICA_NOME_FANTASIA, CLINICA_CNPJ, CLINICA_RESPONSAVEL_NOME, CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO, CLINICA_RESPONSAVEL_CPF, CLINICA_RESPONSAVEL_SEXO, CLINICA_CONVENIADO, 
+            # CLINICA_ENDEREÇO, CLINICA_COMPLEMENTO, CLINICA_BAIRRO, CLINICA_ESTADO, CLINICA_CIDADE, CLINICA_CEP, CLINICA_CELULAR
+            $qCli = "UPDATE tb_clinica SET CLINICA_NOME_FANTASIA = '$inputNomeDaInstituicao', CLINICA_CNPJ = '$inputCNPJ', 
+            CLINICA_RESPONSAVEL_NOME = '$inputResponsavelCli', CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO = '$inputDataDeNascimentoCli',
+             CLINICA_RESPONSAVEL_CPF = '$inputCPFCli', CLINICA_RESPONSAVEL_SEXO = '$RadioSexo', CLINICA_ENDEREÇO = '$inputEnderecoCli',
+              CLINICA_COMPLEMENTO = '$inputComplementoCli', CLINICA_BAIRRO = '$inputBairroCli',
+             CLINICA_CIDADE = 'inputCidadeCli', CLINICA_CEP = '$inputCepCli', CLINICA_CELULAR = '$inputCelularCli' WHERE CLINICA_ID = $idCli";
+            $this->db->trans_start();
+            $this->db->query($qCli);
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === false) {
+                $route = base_url('exibeCli');
+                echo "<script>alert('Erro ao atualizar os dados') window.location.href = '$route';</script>";
+                $this->db->trans_rollback();
+            } else { 
+                $this->db->trans_commit();
+                $qSenhaCli = "UPDATE tb_usuario SET USUARIO_SENHA = '$inputSenhaCli', USUARIO_EMAIL = '$inputEmailCli' WHERE ID_USUARIO = '$inputIdUsuCli'";
+                $this->db->trans_start();
+                $this->db->query($qSenhaCli);
+                $this->db->trans_complete();
+                $route = base_url('exibeCli');
+                    echo "<script>alert('Dados atualizados com sucesso'); window.location.href = '$route';
+            </script>";
+            }
+
+        }
     }
 
     //Cadastro Vet

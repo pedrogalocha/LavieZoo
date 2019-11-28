@@ -33,22 +33,25 @@
 							<input type="text" class="form-control text-uppercase cnpj" value="<?php echo $userInfo['CLINICA_CNPJ']?>"
 								name="inputCNPJ" id="inputCNPJ" placeholder="Digite o CNPJ da instituição" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
 			">
-			<input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['VETERINARIO_ID']?>"
-							name="inputId" id="inputId" pattern="^[0-9]*$" hidden>
+			<input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['CLINICA_ID']?>"
+							name="inputIdCli" id="inputIdCli" pattern="^[0-9]*$" hidden>
+
+							<input type="text" class="form-control text-uppercase" value="<?php echo $userInfo['ID_USUARIO']?>"
+							name="inputIdUsuCli" id="inputIdUsuCli" pattern="^[0-9]*$" hidden>
 						</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-md-9 mx-auto text-center">
-						<label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
+						<label class="align-self-center font-weight-bold" for="inputEmailCli">E-mail</label>
 						<input type="email" class="form-control text-uppercase" value="<?php echo $userInfo['USUARIO_EMAIL']?>"
-							name="inputEmail" id="inputEmail" placeholder="Digite o seu e-mail">
+							name="inputEmailCli" id="inputEmailCli" placeholder="Digite o seu e-mail">
 					</div>
 				</div>
 					<div class="form-group row">
 						<div class="col-md-9 mx-auto text-center">
-							<label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
+							<label class="align-self-center font-weight-bold" for="inputSenhaCli">Senha</label>
 							<input type="text" class="form-control text-uppercase"
-								value="<?php echo base64_decode($userInfo['USUARIO_SENHA'])?>" name="inputSenha" id="inputSenha"
+								value="<?php echo base64_decode($userInfo['USUARIO_SENHA'])?>" name="inputSenhaCli" id="inputSenhaCli"
 								placeholder="Digite o sua senha">
 						</div>
 					</div>
@@ -56,15 +59,15 @@
 
 				<div class="pt-4 px-2 form-group row">
 					<div class="col-md-6 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputEspecialidade">Nome Responsável</label>
-						<input type="text" class="form-control text-uppercase text-left" name="inputEspecialidade"
-							id="inputEspecialidade" placeholder="Qual a sua Especialidade?"
+						<label class="align-self-center font-weight-bold" for="inputResponsavelCli">Nome Responsável</label>
+						<input type="text" class="form-control text-uppercase text-left" name="inputResponsavelCli"
+							id="inputResponsavelCli" placeholder="Qual a sua Especialidade?"
 							value="<?php echo $userInfo['CLINICA_RESPONSAVEL_NOME']?>">
 					</div>
 					<div class="col-md-6 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
-						<input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento"
-							id="inputDataDeNascimento" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO']?>">
+						<label class="align-self-center font-weight-bold" for="inputDataDeNascimentoCli">Data de Nascimento</label>
+						<input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimentoCli"
+							id="inputDataDeNascimentoCli" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_DATA_DE_NASCIMENTO']?>">
 					</div>
 				</div>
 
@@ -73,25 +76,25 @@
 						<div class="pt-4 form-check form-check-inline">
 							<input class="form-check-input"
 								<?php echo $userInfo['CLINICA_RESPONSAVEL_SEXO']=="Masculino" ? "checked" : "" ?> type="radio"
-								name="inlineRadioOptions" id="inlineRadio1" value="Masculino">
-							<label class="form-check-label" for="inlineRadio1">Masculino</label>
+								name="RadioSexo" id="masculino" value="Masculino">
+							<label class="form-check-label" for="masculino">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<input <?php echo $userInfo['VETERINARIO_SEXO']=="Feminino" ? "checked" : "" ?> class="form-check-input"
-								type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Feminino">
-							<label class="form-check-label" for="inlineRadio2">Feminino</label>
+								type="radio" name="RadioSexo" id="feminino" value="Feminino">
+							<label class="form-check-label" for="feminino">Feminino</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<input <?php echo $userInfo['VETERINARIO_SEXO']=="NaoBinario" ? 'checked' : '' ?> lass="form-check-input"
-								type="radio" name="inlineRadioOptions" id="inlineRadio3" value="NaoBinario">
-							<label class="form-check-label" for="inlineRadio3">Não Binário</label>
+								type="radio" name="RadioSexo" id="naoBinario" value="NaoBinario">
+							<label class="form-check-label" for="naoBinario">Não Binário</label>
 						</div>
 					</div>
 
 					<div class="col-md-6 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
+						<label class="align-self-center font-weight-bold" for="inputCPFCli">CPF</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_RESPONSAVEL_CPF']?>"
-							class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF" placeholder="Digite o CPF"
+							class="form-control text-uppercase text-left cpf" name="inputCPFCli" id="inputCPFCli" placeholder="Digite o CPF"
 							pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
 					</div>
 				</div>
@@ -100,9 +103,9 @@
 
 				<div class="px-2 pt-4 form-group row">
 					<div class="col-md-12 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
+						<label class="align-self-center font-weight-bold" for="inputEnderecoCli">Endereço</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_ENDEREÇO']?>"
-							class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
+							class="form-control text-uppercase text-left" name="inputEnderecoCli" id="inputEnderecoCli"
 							placeholder="Digite o endereço da instituição">
 					</div>
 				</div>
@@ -110,45 +113,45 @@
 				<div class="px-2 form-group row">
 
 					<div class="col-md-2 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
+						<label class="align-self-center font-weight-bold" for="inputComplementoCli">Complemento</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_COMPLEMENTO']?>"
-							class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento"
+							class="form-control text-uppercase text-left" name="inputComplementoCli" id="inputComplementoCli"
 							placeholder="Digite Aqui" formnovalidate="true">
 					</div>
 
 					<div class="col-md-4 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
+						<label class="align-self-center font-weight-bold" for="inputBairroCli">Bairro</label>
 						<input type="text" value="<?php echo  $userInfo['CLINICA_BAIRRO']?>"
-							class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro"
+							class="form-control text-uppercase text-left" name="inputBairroCli" id="inputBairroCli"
 							placeholder="Digite Aqui">
 					</div>
 
 					<div class="col-md-4 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
+						<label class="align-self-center font-weight-bold" for="inputCidadeCli">Cidade</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_CIDADE']?>"
-							class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade"
+							class="form-control text-uppercase text-left" name="inputCidadeCli" id="inputCidadeCli"
 							placeholder="Digite Aqui">
 					</div>
 					<div class="col-md-2 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputEstado">Estado</label>
+						<label class="align-self-center font-weight-bold" for="inputEstadoCli">Estado</label>
 						<input type="text" value="<?php echo  $userInfo['CLINICA_ESTADO']?>"
-							class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
+							class="form-control text-uppercase text-left" name="inputEstadoCli" id="inputEstadoCli" placeholder="SP">
 					</div>
 				</div>
 
 
 				<div class="px-2 form-group row">
 					<div class="col-md-2 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputCep">CEP</label>
+						<label class="align-self-center font-weight-bold" for="inputCepCli">CEP</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_CEP']?>"
-							class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui"
-							pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
+							class="form-control text-uppercase text-left cep" name="inputCepCli" id="inputCepCli" placeholder="Digite Aqui"
+							pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCepCli').value); ">
 					</div>
 
 					<div class="col-md-4 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
+						<label class="align-self-center font-weight-bold" for="inputCelularCli">Celular</label>
 						<input type="text" value="<?php echo $userInfo['CLINICA_CELULAR']?>"
-							class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular"
+							class="form-control text-uppercase text-left ddd_cell" name="inputCelularCli" id="inputCelularCli"
 							placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
 					</div>
 					<div class="col-md-6"></div>
