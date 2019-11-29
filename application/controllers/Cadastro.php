@@ -68,8 +68,6 @@ class Cadastro extends CI_Controller
 
     public function update_vet($idClinica = 0)
     {
-
-
         $dados_form = $this->input->post();
 
         $nome = $dados_form['inputNomeCompleto'];

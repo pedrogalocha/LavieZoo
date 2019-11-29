@@ -22,7 +22,7 @@ class Agendamento_Model extends CI_Model
 
     public function getExameUsuario($id)
     {
-        $qExameUsu = "SELECT PERFIL_EXAME_USU_ID, DS_EXAME_USU, ID_EXAME_USU FROM tb_perfil_exame_usuario WHERE ID_EXAME_USU = $id";
+        $qExameUsu = "SELECT PERFIL_EXAME_ID, DS_PERFIL_EXAME, ID_EXAME_USU FROM tb_perfil_exame WHERE ID_EXAME_USU = $id";
         $dadosExame = $this->db->query($qExameUsu);
         $exameResul = $dadosExame->result();
         if ($dadosExame->num_rows() > 0) {
@@ -110,7 +110,7 @@ class Agendamento_Model extends CI_Model
     ) values
     ($idAni,
      $inlineRadioOptions2,
-    '$inputOutrosExames',
+    '$inputOutro    sExames',
     '$inlineRadioOptions3',
     '$inputColeta',
      $inputFaixaHorario,

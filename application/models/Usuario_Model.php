@@ -20,7 +20,8 @@ class Usuario_Model extends CI_Model
         }
     }
     public function cadastro_exame($desc, $idUser){
-        $qExame = "INSERT INTO tb_perfil_exame_usuario VALUES (null, '$desc', $idUser);";
+        #PERFIL_EXAME_ID, DS_PERFIL_EXAME, TIPO_PERFIL_EXAME, ID_EXAME_USU
+        $qExame = "INSERT INTO tb_perfil_exame VALUES (null, '$desc', null, $idUser);";
         $this->db->trans_start();
         $this->db->query($qExame);
         $this->db->trans_complete();
