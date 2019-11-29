@@ -20,6 +20,18 @@ class Agendamento_Model extends CI_Model
         }
     }
 
+    public function getExameUsuario($id)
+    {
+        $qExameUsu = "SELECT PERFIL_EXAME_USU_ID, DS_EXAME_USU, ID_EXAME_USU FROM tb_perfil_exame_usuario WHERE ID_EXAME_USU = $id";
+        $dadosExame = $this->db->query($qExameUsu);
+        $exameResul = $dadosExame->result();
+        if ($dadosExame->num_rows() > 0) {
+            return $exameResul;
+        } else {
+            return 0;
+        }
+    }
+
     public function getFaixaHorario($data)
     {
         $qValida = "SELECT FH.DS_FAIXA_HORARIO FROM tb_agendamento a

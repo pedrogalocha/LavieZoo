@@ -64,6 +64,7 @@ class Cadastro extends CI_Controller
             $this->load->view('sub_views/area_nav', $dados);
         }
     }
+    
 
     public function update_vet($idClinica = 0)
     {
@@ -279,6 +280,19 @@ class Cadastro extends CI_Controller
 				alert('Clinica Já cadastrado.'); window.location.href = '$rotabaseCadastro';
 			</script>";
         }
+    }
+
+    public function insert_exame(){
+        $dados_exame = $this->input->post();
+
+
+        $ins_exame['idUsu'] = $dados_exame['idUsu'];
+        $ins_exame['novoExame'] = $dados_exame['novoExame'];
+        $cadastro_exame = $this->usu_model->cadastro_exame($dados_exame['novoExame'],$ins_exame['idUsu']);
+        $rotabase = base_url('agendamento');
+            echo "<script>
+				alert('Exame cadastrado com sucesso.'); window.location.href = '$rotabase';
+			</script>";
     }
 
     public function cadastroUsuarioMail($email, $senha, $nome)

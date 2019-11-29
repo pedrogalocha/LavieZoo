@@ -1,10 +1,10 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none">
 
+
 	<?php
-  $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
-?>
-	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad"
-		action='<?php echo base_url('cadastrarAgendamento') ?>' novalidate autocomplete="off">
+	$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+	?>
+	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" action='<?php echo base_url('cadastrarAgendamento') ?>' novalidate autocomplete="off">
 		<div class="row" style="display: inline">
 
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -13,19 +13,16 @@
 					<div class="col-md-6 mx-auto ">
 
 						<label class="align-self-center font-weight-bold" for="inputNomeAnimal">Nome</label>
-						<input type="text" class="form-control text-uppercase text-left" name="inputNomeAnimal" id="inputNomeAnimal"
-							placeholder="Nome Do Animal" required>
+						<input type="text" class="form-control text-uppercase text-left" name="inputNomeAnimal" id="inputNomeAnimal" placeholder="Nome Do Animal" required>
 					</div>
 
 					<div class="col-md-3 mx-auto ">
 						<label class="align-self-center font-weight-bold" for="inputIdadeAnimal">ANOS</label>
-						<input type="number" required class="form-control text-uppercase text-left" name="inputIdadeAnimal"
-							id="inputIdadeAnimal" placeholder="Idade em anos" required>
+						<input type="number" required class="form-control text-uppercase text-left" name="inputIdadeAnimal" id="inputIdadeAnimal" placeholder="Idade em anos" required>
 					</div>
 					<div class="col-md-3 mx-auto ">
 						<label class="align-self-center font-weight-bold" for="inputMesesAnimal">MÊSES</label>
-						<input type="number" required class="form-control text-uppercase text-left" name="inputMesesAnimal"
-							id="inputMesesAnimal" placeholder="Idade em mêses" required>
+						<input type="number" required class="form-control text-uppercase text-left" name="inputMesesAnimal" id="inputMesesAnimal" placeholder="Idade em mêses" required>
 					</div>
 				</div>
 
@@ -34,8 +31,7 @@
 					<div class="col-md-3 mx-auto ">
 						<div class="pt-4 form-check form-check-inline">
 
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Cachorro"
-								required>
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Cachorro" required>
 							<label class="form-check-label" for="inlineRadio1">Canino</label>
 						</div>
 						<div class="form-check form-check-inline">
@@ -58,16 +54,14 @@
 
 					<div class="col-md-6 mx-auto ">
 						<label class="align-self-center font-weight-bold" for="inputRaça">Raça</label>
-						<input type="text" class="form-control text-uppercase text-left" name="inputRaça" id="inputRaça"
-							placeholder="Digite a Raça do Animal" required>
+						<input type="text" class="form-control text-uppercase text-left" name="inputRaça" id="inputRaça" placeholder="Digite a Raça do Animal" required>
 					</div>
 				</div>
- 
+
 				<div class="px-2 form-group row">
 					<div class="col-md-12 mx-auto ">
 						<label class="align-self-center font-weight-bold" required for="inputConveniado">Proprietário</label>
-						<input type="text" class="form-control text-uppercase text-left form-control" name="inputNomeProprietario"
-							id="inputNomeProprietario" placeholder="Nome Completo do Proprietario do Animal">
+						<input type="text" class="form-control text-uppercase text-left form-control" name="inputNomeProprietario" id="inputNomeProprietario" placeholder="Nome Completo do Proprietario do Animal">
 					</div>
 				</div>
 
@@ -75,124 +69,118 @@
 
 				<div class="px-2 form-group row">
 					<div class="col-md-12 mx-auto ">
-						<?php foreach ($tipoAgendamento as $tpagen) {?>
-						<?php if($tpagen->PERFIL_EXAME_ID != 9){?>
-						<div class="pt-2 form-check form-check">
-							<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio" name="inlineRadioOptions2"
-								id="inlineRadio1" value="<?php print_r($tpagen->PERFIL_EXAME_ID)?>" required>
-							<label class="form-check-label" for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME)?> </b>-
-								<?php print_r($tpagen->DS_PERFIL_EXAME)?></label>
-						</div>
-						<?php }?>
-						<?php }?>
+						<?php foreach ($tipoAgendamento as $tpagen) { ?>
+							<?php if ($tpagen->PERFIL_EXAME_ID != 9) { ?>
+								<div class="pt-2 form-check form-check">
+									<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="<?php print_r($tpagen->PERFIL_EXAME_ID) ?>" required>
+									<label class="form-check-label" for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME) ?> </b>-
+										<?php print_r($tpagen->DS_PERFIL_EXAME) ?></label>
+								</div>
+							<?php } ?>
+						<?php } ?>
+						<?php foreach ($exameUsuario as $eUsu) { ?>
+							
+								<div class="pt-2 form-check form-check">
+									<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="<?php print_r($eUsu->PERFIL_EXAME_USU_ID) ?>" required>
+									<label class="form-check-label" for="inlineRadio1"><?php print_r($eUsu->DS_EXAME_USU) ?></label>
+								</div>
+							
+						<?php } ?>
+						
 						<div class="pt-2 form-check form-check coleta">
-							<input onclick="exibeOutrosExames();" class="form-check-input" type="radio" name="inlineRadioOptions2"
-								id="inlineRadio1" value="9" required>
+							<!-- <input class="form-check-input" type="radio" name="inlineRadioOptions2" data-toggle="modal" data-target="#myModal" id="inlineRadio1" value="9" required>
 							<label class="form-check-label" for="inlineRadio1"><b>Outros exames </b>
-							</label>
+							</label> -->
+							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Cadastrar um novo exame</button>
 						</div>
 					</div>
 				</div>
 
 				<div id="newExame" class="px-2 form-group row coleta-clinica">
 					<div class="col-md-12 mx-auto ">
-						<label class="align-self-center font-weight-bold" required for="inputOutros">Descreva o Exame: </label>
-						<input type="text" class="form-control text-uppercase text-left form-control" name="inputOutrosExames"
-							id="inputOutrosExames" placeholder="Digite Aqui">
+						<!-- <label class="align-self-center font-weight-bold" required for="inputOutros">Descreva o Exame: </label> -->
+						<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+						<!-- <input type="text" class="form-control text-uppercase text-left form-control" name="inputOutrosExames"
+							id="inputOutrosExames" placeholder="Digite Aqui"> -->
 					</div>
 				</div>
 			</div>
 
 
-			<div class="pt-2 container col-sm-12 mx-auto align-self-center align-items-center justify-content-center"
-				style="margin-top:30px; margin-bottom:30px; background-color: #F9F2C7">
+			<div class="pt-2 container col-sm-12 mx-auto align-self-center align-items-center justify-content-center" style="margin-top:30px; margin-bottom:30px; background-color: #F9F2C7">
 				<div class="px-2 form-group row">
 					<div class="col-md-8 mx-auto mb-2 ">
-						<?php if($permissao == 'PRO' || $permissao == 'ADMIN'){?>
+						<?php if ($permissao == 'PRO' || $permissao == 'ADMIN') { ?>
 
 
-						<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
-							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
-								<div class="pt-2 form-check form-check d-inline">
-									<input onchange="ocultaData();ocultaAgend();exibeDataBusca()" class="form-check-input" type="radio"
-										name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
-									<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
+							<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
+								<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
+									<div class="pt-2 form-check form-check d-inline">
+										<input onchange="ocultaData();ocultaAgend();exibeDataBusca()" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
+										<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
+									</div>
 								</div>
-              </div>
-              <div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
-								<label id="DataBusca" class=" coleta-clinica align-self-center font-weight-bold"
-									for="inputDataBusca">Data busca</label>
-							</div>
-							<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
-								<input onchange="validaDataBusca()" id="DataBusca2" class="coleta-clinica" type="datetime-local" name="inputBusca"
-									placeholder="dd/mm/aaaa">
-							</div> 
-						</div>
-
-
-
-						<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
-							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
-								<div class="pt-2 form-check form-check d-inline">
-									<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
-										value="Coleta Em Clinica" onchange="exibeData();ocultaAgend();ocultaDataBusca()">
-									<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+								<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+									<label id="DataBusca" class=" coleta-clinica align-self-center font-weight-bold" for="inputDataBusca">Data busca</label>
 								</div>
-              </div>
-              
-							<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
-								<label id="DataColeta" class=" coleta-clinica align-self-center font-weight-bold"
-									for="inputDataColeta">Data</label>
-							</div>
-							<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
-								<input onchange="validaData()" id="DataColeta2" class="coleta-clinica" type="date" name="inputColeta"
-									placeholder="dd/mm/aaaa">
-							</div>
-							<div class="col-sm-2 d-inline" style="padding-left: 1px !important">
-								<select name="inputFaixaHorario" onchange="ValidaHorario(this.options[this.selectedIndex].value)"
-									id="faixaHorario" class="coleta-clinica" onchange="">
-									<option label="Faixa de Horario">Faixa de Horario</option>
-								</select>
-							</div>
-						</div>
-						<?php }
-            else{?>
-						<div class="pt-2 form-check form-check">
-							<input onchange="ocultaData();ocultaAgend();validaDataBusca()" class="form-check-input" type="radio"
-								name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" disabled>
-							<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
-						</div>
-
-						<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
-							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
-								<div class="pt-2 form-check form-check d-inline">
-									<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
-										value="Coleta Em Clinica" disabled onchange="exibeData();ocultaAgend();ocultaDataBusca()">
-									<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+								<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+									<input onchange="validaDataBusca()" id="DataBusca2" class="coleta-clinica" type="datetime-local" name="inputBusca" placeholder="dd/mm/aaaa">
 								</div>
 							</div>
-							<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
-								<label id="DataColeta" class=" coleta-clinica align-self-center font-weight-bold"
-									for="inputDataColeta">Data</label>
+
+
+
+							<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
+								<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
+									<div class="pt-2 form-check form-check d-inline">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3" value="Coleta Em Clinica" onchange="exibeData();ocultaAgend();ocultaDataBusca()">
+										<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+									</div>
+								</div>
+
+								<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+									<label id="DataColeta" class=" coleta-clinica align-self-center font-weight-bold" for="inputDataColeta">Data</label>
+								</div>
+								<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+									<input onchange="validaData()" id="DataColeta2" class="coleta-clinica" type="date" name="inputColeta" placeholder="dd/mm/aaaa">
+								</div>
+								<div class="col-sm-2 d-inline" style="padding-left: 1px !important">
+									<select name="inputFaixaHorario" onchange="ValidaHorario(this.options[this.selectedIndex].value)" id="faixaHorario" class="coleta-clinica" onchange="">
+										<option label="Faixa de Horario">Faixa de Horario</option>
+									</select>
+								</div>
 							</div>
-							<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
-								<input onchange="validaData()" id="DataColeta2" class="coleta-clinica" type="date" name="inputColeta"
-									placeholder="dd/mm/aaaa">
+						<?php } else { ?>
+							<div class="pt-2 form-check form-check">
+								<input onchange="ocultaData();ocultaAgend();validaDataBusca()" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" disabled>
+								<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
 							</div>
-							<div class="col-sm-2 d-inline" style="padding-left: 1px !important">
-								<select name="inputFaixaHorario" onchange="ValidaHorario(this.options[this.selectedIndex].value)"
-									id="faixaHorario" class="coleta-clinica" onchange="">
-									<option label="Faixa de Horario">Faixa de Horario</option>
-								</select>
+
+							<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
+								<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
+									<div class="pt-2 form-check form-check d-inline">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3" value="Coleta Em Clinica" disabled onchange="exibeData();ocultaAgend();ocultaDataBusca()">
+										<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
+									</div>
+								</div>
+								<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+									<label id="DataColeta" class=" coleta-clinica align-self-center font-weight-bold" for="inputDataColeta">Data</label>
+								</div>
+								<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+									<input onchange="validaData()" id="DataColeta2" class="coleta-clinica" type="date" name="inputColeta" placeholder="dd/mm/aaaa">
+								</div>
+								<div class="col-sm-2 d-inline" style="padding-left: 1px !important">
+									<select name="inputFaixaHorario" onchange="ValidaHorario(this.options[this.selectedIndex].value)" id="faixaHorario" class="coleta-clinica" onchange="">
+										<option label="Faixa de Horario">Faixa de Horario</option>
+									</select>
+								</div>
 							</div>
-						</div>
 
 						<?php } ?>
 
 						<div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
-							<input onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input" type="radio"
-								name="inlineRadioOptions3" id="inlineRadioOptions3" value="Busca Domiciliar">
+							<input onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3" value="Busca Domiciliar">
 							<label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
 						</div>
 
@@ -207,10 +195,8 @@
                 padding-top: 0px !important;
             ">
 							<div class="col-md-12 mx-auto ">
-								<label id="Endereco" class="coleta-clinica align-self-center font-weight-bold"
-									for="inputEndereco">Endereço</label>
-								<input type="text" class="coleta-clinica form-control text-uppercase text-left" name="inputEndereco"
-									id="inputEndereco" placeholder="Digite o endereço da instituição">
+								<label id="Endereco" class="coleta-clinica align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
+								<input type="text" class="coleta-clinica form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco" placeholder="Digite o endereço da instituição">
 							</div>
 						</div>
 
@@ -218,48 +204,39 @@
 
 							<div id="complemento" class="coleta-clinica col-md-4 mx-auto ">
 								<label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
-								<input type="text" class="form-control text-uppercase text-left" name="inputComplemento"
-									id="inputComplemento" placeholder="Digite Aqui" formnovalidate="true">
+								<input type="text" class="form-control text-uppercase text-left" name="inputComplemento" id="inputComplemento" placeholder="Digite Aqui" formnovalidate="true">
 							</div>
 
 							<div id="bairro" class="coleta-clinica col-md-4 mx-auto ">
 								<label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
-								<input type="text" class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro"
-									placeholder="Digite Aqui">
+								<input type="text" class="form-control text-uppercase text-left" name="inputBairro" id="inputBairro" placeholder="Digite Aqui">
 							</div>
 
 							<div id="cidade" class="coleta-clinica col-md-4 mx-auto ">
 								<label class="align-self-center font-weight-bold" for="inputCidade">Cidade</label>
-								<input type="text" class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade"
-									placeholder="Digite Aqui">
+								<input type="text" class="form-control text-uppercase text-left" name="inputCidade" id="inputCidade" placeholder="Digite Aqui">
 							</div>
 						</div>
 
 
 						<div class="px-2 form-group row">
 							<div id="estado" class="coleta-clinica margin-final-agendamento col-md-2 mx-auto ">
-								<label class="margin-final-agendamento align-self-center font-weight-bold"
-									for="inputEstado">Estado</label>
-								<input type="text" class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado"
-									placeholder="SP">
+								<label class="margin-final-agendamento align-self-center font-weight-bold" for="inputEstado">Estado</label>
+								<input type="text" class="form-control text-uppercase text-left" name="inputEstado" id="inputEstado" placeholder="SP">
 							</div>
 							<div id="cep" class="coleta-clinica margin-final-agendamento col-md-4 mx-auto ">
 								<label class="margin-final-agendamento align-self-center font-weight-bold" for="inputCep">CEP</label>
-								<input type="text" class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep"
-									placeholder="Digite Aqui" pattern="[0-9]{5}[\-]?[0-9]{3}"
-									onblur="buscarEndereco(document.getElementById('inputCep').value); ">
+								<input type="text" class="form-control text-uppercase text-left cep" name="inputCep" id="inputCep" placeholder="Digite Aqui" pattern="[0-9]{5}[\-]?[0-9]{3}" onblur="buscarEndereco(document.getElementById('inputCep').value); ">
 							</div>
 
 							<div id="celular" class="coleta-clinica margin-final-agendamento col-md-4 mx-auto ">
 								<label class="align-self-center font-weight-bold" for="inputCelular">Celular</label>
-								<input type="text" class="form-control text-uppercase text-left ddd_cell" name="inputCelular"
-									id="inputCelular" placeholder="(__) _____-____"
-									pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
+								<input type="text" class="form-control text-uppercase text-left ddd_cell" name="inputCelular" id="inputCelular" placeholder="(__) _____-____" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
 							</div>
 							<div class="col-md-6"></div>
 						</div>
 						<div>
-							<input hidden="true" name="idUsu" value='<?=$idUsuario['ID_USUARIO'];?>'>
+							<input hidden="true" name="idUsu" value='<?= $idUsuario['ID_USUARIO']; ?>'>
 						</div>
 					</div>
 				</div>
@@ -272,9 +249,38 @@
 
 
 	</form>
+	<!-- Modal -->
+	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_exame"
+		action='<?php echo base_url('insert_exame') ?>' novalidate autocomplete="off">
+
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">
+							<font color="Black">Cadastrar Tipo de Exame
+						</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+					</div>
+					<div class="modal-body text">
+					<input hidden="true" name="idUsu" value='<?= $idUsuario['ID_USUARIO']; ?>'>
+						<input type="text" class="form-control text-uppercase text-left form-control"
+							name="novoExame" id="novoExame" placeholder="Descreva o Exame...">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-info btn-lg" >Cadastrar</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
 
 	<script>
-		$(document).ready(function ($) {
+		$(document).ready(function($) {
 			$('.ddd_cell').mask('(00) 00000-0000');
 			$('.ddd_fix').mask('(00) 0000-0000');
 			$('.cpf').mask('000.000.000-00');
@@ -282,14 +288,14 @@
 			$("#form_cad").validate();
 		});
 
-		(function () {
+		(function() {
 			'use strict';
-			window.addEventListener('load', function () {
+			window.addEventListener('load', function() {
 				// Fetch all the forms we want to apply custom Bootstrap validation styles to
 				var forms = document.getElementsByClassName('needs-validation');
 				// Loop over them and prevent submission
-				var validation = Array.prototype.filter.call(forms, function (form) {
-					form.addEventListener('submit', function (event) {
+				var validation = Array.prototype.filter.call(forms, function(form) {
+					form.addEventListener('submit', function(event) {
 						if (form.checkValidity() === false) {
 							event.preventDefault();
 							event.stopPropagation();
@@ -312,7 +318,7 @@
 			$("#DataBusca").prop("required", true);
 			$("#DataBusca2").removeClass("coleta-clinica");
 			$("#DataBusca2").prop("required", true);
-			
+
 		}
 
 		function exibeOutrosExames() {
@@ -353,7 +359,7 @@
 			} else {
 				$("#faixaHorario").removeClass("coleta-clinica");
 				$("#faixaHorario").prop("required", true);
-				var target_url = "<?=base_url()?>faixaHorario";
+				var target_url = "<?= base_url() ?>faixaHorario";
 				var data_to_be_sent = data;
 				$.ajax({
 					url: target_url,
@@ -362,17 +368,17 @@
 					data: {
 						data_selecionada: data_to_be_sent
 					},
-					error: function (xhr, status, error) {
+					error: function(xhr, status, error) {
 						alert('Houve um erro: ' + error);
 					},
-					success: function (results) {
+					success: function(results) {
 						var faixaHorarios = results.replace(data_to_be_sent, "");
 						faixaHorarios2 = $.parseJSON(faixaHorarios);
 
-						$.each(faixaHorarios2, function (index) {
+						$.each(faixaHorarios2, function(index) {
 							$("#faix").remove();
 						});
-						$.each(faixaHorarios2, function (index) {
+						$.each(faixaHorarios2, function(index) {
 							$("#faixaHorario").append("<option id='faix' value ='" + faixaHorarios2[index].FAIXA_HORARIO_ID +
 								"'>" + faixaHorarios2[index].DS_FAIXA_HORARIO + "</option>");
 						});
@@ -381,6 +387,7 @@
 				return false;
 			}
 		}
+
 		function validaDataBusca() {
 			var data = $("#DataBusca2").val();
 			var today = new Date();
@@ -388,14 +395,13 @@
 				.slice(-2);
 			if (data == '' || data < date2) {
 				alert("Favor escolher uma data valida");
-				
+
 				$("#DataBusca2").val('');
-				
-			}
-       else {
+
+			} else {
 				// $("#faixaHorario").removeClass("coleta-clinica");
 				// $("#faixaHorario").prop("required", true);
-				// var target_url = "<?=base_url()?>faixaHorario";
+				// var target_url = "<?= base_url() ?>faixaHorario";
 				// var data_to_be_sent = data;
 				// $.ajax({
 				// 	url: target_url,
@@ -514,6 +520,5 @@
 			max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
 			min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 		});
-
 	</script>
 </body>

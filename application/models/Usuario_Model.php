@@ -9,7 +9,7 @@ class Usuario_Model extends CI_Model
 
     public function cadastro_usu($email, $senha, $idVet, $idClinica, $tipo)
     {
-        $queryCadastroUsu = "Insert Into tb_usuario values (null, $idVet, $idClinica, '$email', '$senha', '$tipo');";
+        $queryCadastroUsu = "INSERT INTO tb_usuario VALUES (null, $idVet, $idClinica, '$email', '$senha', '$tipo');";
         $this->db->trans_start();
         $this->db->query($queryCadastroUsu);
         $this->db->trans_complete();
@@ -19,6 +19,18 @@ class Usuario_Model extends CI_Model
             return "Query Success";
         }
     }
+    public function cadastro_exame($desc, $idUser){
+        $qExame = "INSERT INTO tb_perfil_exame_usuario VALUES (null, '$desc', $idUser);";
+        $this->db->trans_start();
+        $this->db->query($qExame);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === false) {
+            return "Query Failed";
+        } else {
+            return "Query Success";
+        }
+    }
+    
 
     public function validar_email($vet_mail)
     {

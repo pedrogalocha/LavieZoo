@@ -72,6 +72,7 @@ $route['atualizaPlanoCli'] = 'Usuario/AlterarPlanoCli';
 //cadastro usuario vet ou clinica
 $route['insert_vet'] = 'Cadastro/insert_vet';
 $route['insert_clinica'] = 'Cadastro/insert_clinica';
+$route['insert_exame'] = 'Cadastro/insert_exame';
 $route['insert_vet_cli/(:any)'] = "Cadastro/insert_vet/$1";
 //atualiza o veterinario
 $route['update_vet'] = 'Cadastro/update_vet';
