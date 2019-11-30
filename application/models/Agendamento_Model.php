@@ -235,9 +235,10 @@ class Agendamento_Model extends CI_Model
         }
     }
     public function getInfoTotalAciona($id){
-        $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE, a.ANIMAL_RACA,
+        $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE,
+         a.ANIMAL_RACA, a.ANIMAL_MESES, a.ANIMAL_SEXO, pa.ID_EXAME_USU,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA ,
-        ag.ENDERECO, ag.COMPLEMENTO, ag.BAIRRO, ag.CIDADE, ag.ESTADO, ag.CEP, ag.CELULAR
+        ag.DATA_BUSCA_CLINICA, ag.ENDERECO, ag.COMPLEMENTO, ag.BAIRRO, ag.CIDADE, ag.ESTADO, ag.CEP, ag.CELULAR
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID

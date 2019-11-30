@@ -83,6 +83,18 @@ class Usuario_Model extends CI_Model
             return 0;
         }
     }
+
+    public function getUsuAgendamentos($id){
+        $qUsu = "SELECT USUARIO_ID FROM tb_agendamento WHERE AGENDAMENTO_ID = $id";
+        $eUsu = $this->db->query($qUsu);
+        $rUsu = $eUsu->row_array();
+        if ($eUsu->num_rows() > 0) {
+            return $rUsu;
+        } else {
+            return 0;
+        }
+    }
+
     public function getUsuPlano($id)
     {
         $qPlanoUsu = " SELECT USUARIO_NIVEL_ACESSO FROM tb_usuario WHERE ID_USUARIO = '$id'";

@@ -48,12 +48,18 @@ class Agendamento extends CI_Controller {
         $login = $this->session->userdata('USUARIO_EMAIL');
         $id_sessao = $this->session->userdata('USUARIO_ID');
         $conta = $this->session->userdata('TIPO_CONTA');
+        $tipoAgendamento = $this->agendamento->getTipoAgendamento();
+        $id_usu_exame['ID'] = $this->usuario->getUsuAgendamentos($id);
+        $id_exame = implode("",$id_usu_exame['ID']);
+        $exame_usuario = $this->agendamento->getExameUsuario($id_exame);
         $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
         if($id_sessao == $id || $conta == "ADMIN"){
           $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
             $dados = array(
                 'tela' =>  'dados_agendamento',
                 'permissao' => $conta,
+                'tipoAgendamento' => $tipoAgendamento,
+                'exameUsuario' => $exame_usuario,
                 'acionaInfo' => $dados['aciona'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO')
               );

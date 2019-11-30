@@ -79,12 +79,10 @@
 							<?php } ?>
 						<?php } ?>
 						<?php foreach ($exameUsuario as $eUsu) { ?>
-							
 								<div class="pt-2 form-check form-check">
 									<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="<?php print_r($eUsu->PERFIL_EXAME_ID) ?>" required>
 									<label class="form-check-label" for="inlineRadio1"><?php print_r($eUsu->DS_PERFIL_EXAME) ?></label>
 								</div>
-							
 						<?php } ?>
 						
 						<div class="pt-2 form-check form-check coleta">
