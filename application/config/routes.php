@@ -52,7 +52,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'Principal';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
-
 $route['about'] = 'Sobre';
 
 //cadastro
@@ -100,6 +99,7 @@ $route['faixaHorario'] = 'Agendamento/agendamento';
 $route['cadastrarAgendamento'] = 'Agendamento/cadastrarAgendamento';
 $route['ver_agendamento/(:any)'] = 'Agendamento/ver_agendamento/$1';
 $route['del_agendamento/(:any)'] = 'Agendamento/del_agendamento/$1';
+$route['update_agendamento'] = 'Agendamento/update_agendamento';
 
 
 //email

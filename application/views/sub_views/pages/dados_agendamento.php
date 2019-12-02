@@ -2,7 +2,8 @@
 	<?php
 	$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 	?>
-	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad"  action='<?php echo base_url('cadastrarAgendamento') ?>' novalidate autocomplete="off">
+	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" 
+	 action='<?php echo base_url('update_agendamento') ?>' novalidate autocomplete="off">
 		<div class="row" style="display: inline">
 
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -63,10 +64,10 @@
 					</div>
 
 					<div class="col-md-6 mx-auto ">
-						<label class="align-self-center font-weight-bold" for="inputNomeAnimal">ESPECIE</label>
+						<label class="align-self-center font-weight-bold" for="inputEspecie">ESPECIE</label>
 						<input type="text" class="form-control text-uppercase text-left"
-							value="<?php echo  $acionaInfo['ANIMAL_ESPECIE'] ?>" name="inputNomeAnimal"
-							id="inputNomeAnimal" placeholder="Nome Do Animal" required>
+							value="<?php echo  $acionaInfo['ANIMAL_ESPECIE'] ?>" name="inputEspecie"
+							id="inputEspecie" placeholder="Especie do Animal" required>
 					</div>
 				</div>
 
@@ -88,7 +89,7 @@
 						<?php if ($tpagen->PERFIL_EXAME_ID <= 9) { ?>
 						<div class="pt-2 form-check form-check">
 							<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio"
-								name="inlineRadioOptions2" id="inlineRadio1"
+								name="radioExame" id="inlineRadio1"
 								value="<?php print_r($tpagen->PERFIL_EXAME_ID) ?>" required>
 							<label class="form-check-label"
 								for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME) ?> </b>-
@@ -99,7 +100,7 @@
 						<?php foreach ($exameUsuario as $eUsu) { ?>
 						<div class="pt-2 form-check form-check">
 							<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio"
-								name="inlineRadioOptions2" id="inlineRadio1"
+								name="radioExame" id="inlineRadio1"
 								value="<?php print_r($eUsu->PERFIL_EXAME_ID) ?>" required>
 							<label class="form-check-label"
 								for="inlineRadio1"><?php print_r($eUsu->DS_PERFIL_EXAME) ?></label>
@@ -119,7 +120,7 @@
 								<div class="pt-2 form-check form-check d-inline">
 									<input <?php echo $acionaInfo['TIPO_BUSCA']=="Busca em Clinica" ? "checked" : "" ?>
 										onchange="ocultaData();ocultaAgend();exibeDataBusca()" class="form-check-input"
-										type="radio" name="inlineRadioOptions3" id="inlineRadioOptions2"
+										type="radio" name="radioBusca" id="inlineRadioOptions2"
 										value="Busca em Clinica" required>
 									<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
 								</div>
@@ -140,7 +141,7 @@
 								<div class="pt-2 form-check form-check d-inline">
 									<input <?php echo $acionaInfo['TIPO_BUSCA']=="Coleta Em Clinica" ? "checked" : "" ?>
 										onchange="exibeData();ocultaAgend();ocultaDataBusca()" class="form-check-input"
-										type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
+										type="radio" name="radioBusca" id="inlineRadioOptions3"
 										value="Coleta Em Clinica">
 									<label class="form-check-label" for="coletaEmClinica">Coleta em Clinica</label>
 								</div>
@@ -168,7 +169,7 @@
 						<div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
 							<input onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input"
-								type="radio" name="inlineRadioOptions3" id="inlineRadioOptions3"
+								type="radio" name="radioBusca" id="inlineRadioOptions3"
 								value="Busca Domiciliar">
 							<label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
 						</div>
@@ -248,8 +249,17 @@
 							<input hidden="true" name="idUsu" value='<?= $idUsuario['ID_USUARIO']; ?>'>
 						</div>
 					</div>
+					
 				</div>
+				
 			</div>
+			
+			<!-- <div class="pt-5 container col-sm-8 mx-auto ">
+			<label class="align-self-center font-weight-bold" for="inputDesc">Descrição</label>
+						<textarea class="form-control text-uppercase" cols="20" rows="2" name="inputDesc"
+							id="inputDesc" placeholder="Descrição..."  required>
+						</textarea>
+					</div> -->
 		</div>
 		<!-- btn btn-info btn-lg -->
 		<div class="col-md-12 mb-2" style="text-align:center;">

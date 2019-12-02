@@ -125,6 +125,51 @@ class Agendamento extends CI_Controller {
 		}
   }
 
+  public function update_agendamento(){
+    $dados_post = $this->input->post();
+    $dadosAt['inputNomeAnimal'] = $dados_post['inputNomeAnimal'];
+    $dadosAt['inputIdadeAnimal'] = $dados_post['inputIdadeAnimal'];
+    $dadosAt['inputMesesAnimal'] = $dados_post['inputMesesAnimal'];
+    $dadosAt['radioRaca'] = $dados_post['radioRaca'];
+    $dadosAt['radioSexo'] = $dados_post['radioSexo'];
+    $dadosAt['inputEspecie'] = $dados_post['inputEspecie'];
+    $dadosAt['inputNomeProprietario'] = $dados_post['inputNomeProprietario'];
+    $dadosAt['radioExame'] = $dados_post['radioExame'];
+    $dadosAt['radioBusca'] = $dados_post['radioBusca'];
+    $dadosAt['inputBusca'] = $dados_post['inputBusca'];
+    $dadosAt['DataColeta'] = $dados_post['DataColeta'];
+    $dadosAt['inputColeta'] = $dados_post['inputColeta'];
+    $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'];
+    $dadosAt['inputBusca'] = $dados_post['inputBusca'] == null ? null : $dados_post['inputBusca'] ;
+    $dadosAt['inputColeta'] = $dados_post['inputColeta'] == null ? null : $dados_post['inputColeta'] ;
+    $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'] == null ? 0 : $dados_post['inputFaixaHorario']  ;
+		$dadosAt['inputEndereco'] = $dados_post['inputEndereco'] == null ? null : $dados_post['inputEndereco']  ;
+		$dadosAt['inputComplemento'] = $dados_post['inputComplemento'] == null ? null : $dados_post['inputComplemento'] ;
+		$dadosAt['inputBairro'] = $dados_post['inputBairro'] == null ? null : $dados_post['inputBairro']  ;
+		$dadosAt['inputCidade'] = $dados_post['inputCidade'] == null ? null : $dados_post['inputCidade'];
+		$dadosAt['inputEstado'] = $dados_post['inputEstado'] == null ? null : $dados_post['inputEstado'];
+    $dadosAt['inputCep'] = $dados_post['inputCep'] == null ? null : $dados_post['inputCep'];
+    $dadosAt['inputCelular'] = $dados_post['inputCelular'] == null ? null : $dados_post['inputCelular'];
+    $dadosAt['idUsu'] = $dadosAt['idUsu'];
+
+    $atualiza_dados = $this->agendamento->atulizarAgendamento($dadosAt);
+    
+
+    if($atualiza_dados = true) {
+      
+      echo "<script> 
+			window.location.href = 'Dash';
+			</script>";
+		} 
+		else 
+		{
+			echo "<script> 
+				window.location.href = 'cadastrarAgendamento';
+			</script>";
+		}
+  }
+
+
   // public function agendamentoEfetuado($nomeAnimal , $tipoAgendamento, $idUsu) {
 	// 	$this->load->config('email');
 	// 	$this->load->library('email');

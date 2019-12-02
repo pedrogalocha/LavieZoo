@@ -58,6 +58,37 @@ class Agendamento_Model extends CI_Model
         }
     }
 
+    public function atualizarAgendamento($dadosAt){
+    $dadosAt['inputNomeAnimal'];
+    $dadosAt['inputIdadeAnimal'];
+    $dadosAt['inputMesesAnimal'];
+    $dadosAt['radioRaca'];
+    $dadosAt['radioSexo'];
+    $dadosAt['inputEspecie'];
+    $dadosAt['inputNomeProprietario'];
+    $dadosAt['radioExame'];
+    $dadosAt['radioBusca'];
+    $dadosAt['inputBusca'];
+    $dadosAt['DataColeta'];
+    $dadosAt['inputColeta'];
+    $dadosAt['inputFaixaHorario'];
+    $dadosAt['inputBusca'];
+    $dadosAt['inputColeta'];
+    $dadosAt['inputFaixaHorario'];
+	$dadosAt['inputEndereco'];
+	$dadosAt['inputComplemento'];
+	$dadosAt['inputBairro'];
+	$dadosAt['inputCidade'];
+	$dadosAt['inputEstado'];
+    $dadosAt['inputCep'];
+    $dadosAt['inputCelular'];
+    $dadosAt['idUsu'];
+
+    $qAtualizar;
+
+
+    }
+
     public function cadastraAgendamento($dados_insert)
     {
 
