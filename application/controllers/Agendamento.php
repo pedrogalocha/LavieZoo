@@ -137,7 +137,7 @@ class Agendamento extends CI_Controller {
     $dadosAt['radioExame'] = $dados_post['radioExame'];
     $dadosAt['radioBusca'] = $dados_post['radioBusca'];
     $dadosAt['inputBusca'] = $dados_post['inputBusca'];
-    $dadosAt['DataColeta'] = $dados_post['DataColeta'];
+    $dadosAt['DataColeta'] = $dados_post['DataColeta2'];
     $dadosAt['inputColeta'] = $dados_post['inputColeta'];
     $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'];
     $dadosAt['inputBusca'] = $dados_post['inputBusca'] == null ? null : $dados_post['inputBusca'] ;
@@ -150,9 +150,9 @@ class Agendamento extends CI_Controller {
 		$dadosAt['inputEstado'] = $dados_post['inputEstado'] == null ? null : $dados_post['inputEstado'];
     $dadosAt['inputCep'] = $dados_post['inputCep'] == null ? null : $dados_post['inputCep'];
     $dadosAt['inputCelular'] = $dados_post['inputCelular'] == null ? null : $dados_post['inputCelular'];
-    $dadosAt['idUsu'] = $dadosAt['idUsu'];
+    $dadosAt['idUsu'] = $dados_post['idUsu'];
 
-    $atualiza_dados = $this->agendamento->atulizarAgendamento($dadosAt);
+    $atualiza_dados = $this->agendamento->atualizarAgendamento($dadosAt);
     
 
     if($atualiza_dados = true) {

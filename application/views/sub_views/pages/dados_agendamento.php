@@ -246,7 +246,7 @@
 							<div class="col-md-6"></div>
 						</div>
 						<div>
-							<input hidden="true" name="idUsu" value='<?= $idUsuario['ID_USUARIO']; ?>'>
+							<input name="idUsu" value='<?php echo $acionaInfo['AGENDAMENTO_ID']?>'>
 						</div>
 					</div>
 					

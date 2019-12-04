@@ -59,34 +59,56 @@ class Agendamento_Model extends CI_Model
     }
 
     public function atualizarAgendamento($dadosAt){
-    $dadosAt['inputNomeAnimal'];
-    $dadosAt['inputIdadeAnimal'];
-    $dadosAt['inputMesesAnimal'];
-    $dadosAt['radioRaca'];
-    $dadosAt['radioSexo'];
-    $dadosAt['inputEspecie'];
-    $dadosAt['inputNomeProprietario'];
-    $dadosAt['radioExame'];
-    $dadosAt['radioBusca'];
-    $dadosAt['inputBusca'];
-    $dadosAt['DataColeta'];
-    $dadosAt['inputColeta'];
-    $dadosAt['inputFaixaHorario'];
-    $dadosAt['inputBusca'];
-    $dadosAt['inputColeta'];
-    $dadosAt['inputFaixaHorario'];
-	$dadosAt['inputEndereco'];
-	$dadosAt['inputComplemento'];
-	$dadosAt['inputBairro'];
-	$dadosAt['inputCidade'];
-	$dadosAt['inputEstado'];
-    $dadosAt['inputCep'];
-    $dadosAt['inputCelular'];
-    $dadosAt['idUsu'];
+    $inputNomeAnimal = $dadosAt['inputNomeAnimal'];
+    $inputIdadeAnimal = $dadosAt['inputIdadeAnimal'];
+    $inputMesesAnimal = $dadosAt['inputMesesAnimal'];
+    $radioRaca = $dadosAt['radioRaca'];
+    $radioSexo = $dadosAt['radioSexo'];
+    $inputEspecie = $dadosAt['inputEspecie'];
+    $inputNomeProprietario = $dadosAt['inputNomeProprietario'];
+    $radioExame = $dadosAt['radioExame'];
+    $radioBusca = $dadosAt['radioBusca'];
+    $inputBusca = $dadosAt['inputBusca'];
+    $DataColeta = $dadosAt['DataColeta'];
+    // $inputColeta = $dadosAt['inputColeta'];
+    $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+    $inputBusca = $dadosAt['inputBusca'];
+    // $inputColeta = $dadosAt['inputColeta'];
+    $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+	$inputEndereco = $dadosAt['inputEndereco'];
+	$inputComplemento = $dadosAt['inputComplemento'];
+	$inputBairro = $dadosAt['inputBairro'];
+	$inputCidade = $dadosAt['inputCidade'];
+	$inputEstado = $dadosAt['inputEstado'];
+    $inputCep = $dadosAt['inputCep'];
+    $inputCelular = $dadosAt['inputCelular'];
+    $idAgen = $dadosAt['idUsu'];
+ 
 
-    $qAtualizar;
+    $qAtualizar ="UPDATE tb_agendamento AS age
+    INNER JOIN tb_animal AS ani ON (age.ANIMAL_ID = ani.ANIMAL_ID) 
+    SET ani.ANIMAL_NOME = '$inputNomeAnimal'
+    , ani.ANIMAL_IDADE = '$inputIdadeAnimal', ani.ANIMAL_MESES = '$inputMesesAnimal', ani.ANIMAL_RACA = '$radioRaca', 
+    ani.ANIMAL_SEXO = '$radioSexo', ani.ANIMAL_ESPECIE = '$inputEspecie', ani.ANIMAL_PROPRIETARIO = '$inputNomeProprietario', age.PERFIL_EXAME_ID = '$radioExame', 
+    age.TIPO_BUSCA = '$radioBusca', age.DATA_BUSCA_CLINICA = '$inputBusca', age.DATA_COLETA = '$DataColeta', age.FAIXA_HORARIO_ID = '$inputFaixaHorario', 
+    age.ENDERECO = '$inputEndereco', age.COMPLEMENTO = '$inputComplemento', age.BAIRRO = '$inputBairro', age.CIDADE = '$inputCidade', age.ESTADO = '$inputEstado',
+    age.CEP = '$inputCep' 
+    WHERE age.AGENDAMENTO_ID = $idAgen";
 
-
+    $this->db->trans_start();
+            $this->db->query($qAtualizar);
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === false) {
+                // $route = base_url('exibeAgendVets');
+                echo "<script>alert('Erro ao atualizar os dados')</script>";
+                $this->db->trans_rollback();
+            }
+            else{   
+                $this->db->trans_commit();
+                // $route = base_url('exibeAgendVets');
+                    echo "<script>alert('Dados atualizados com sucesso');
+            // </script>";
+            }
     }
 
     public function cadastraAgendamento($dados_insert)
@@ -141,7 +163,6 @@ class Agendamento_Model extends CI_Model
     ) values
     ($idAni,
      $inlineRadioOptions2,
-    '$inputOutro    sExames',
     '$inlineRadioOptions3',
     '$inputColeta',
      $inputFaixaHorario,
@@ -291,8 +312,8 @@ class Agendamento_Model extends CI_Model
         }
     }
 
-    public function deletaAgendamento($id){
-
+    public function getIdAgendamento(){
+        $qId = "SELECT";
     }
 
 }
