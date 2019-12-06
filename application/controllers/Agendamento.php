@@ -139,6 +139,7 @@ class Agendamento extends CI_Controller {
     $dadosAt['inputBusca'] = $dados_post['inputBusca'];
     $dadosAt['DataColeta'] = $dados_post['DataColeta2'];
     $dadosAt['inputColeta'] = $dados_post['inputColeta'];
+    $dadosAt['selectStatus'] = $dados_post['selectStatus'];
     $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'];
     $dadosAt['inputBusca'] = $dados_post['inputBusca'] == null ? null : $dados_post['inputBusca'] ;
     $dadosAt['inputColeta'] = $dados_post['inputColeta'] == null ? null : $dados_post['inputColeta'] ;

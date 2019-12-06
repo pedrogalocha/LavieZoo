@@ -168,7 +168,7 @@
 
 						<div class="pt-2 form-check form-check" tyle="
                     padding-top: 0px !important;">
-							<input onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input"
+							<input <?php echo $acionaInfo['TIPO_BUSCA']=="Busca Domiciliar" ? "checked" : "" ?> onchange="ocultaData();exibeAgend();ocultaDataBusca()" class="form-check-input"
 								type="radio" name="radioBusca" id="inlineRadioOptions3"
 								value="Busca Domiciliar">
 							<label class="form-check-label" for="buscaDomiciliar">Coleta Domiciliar</label>
@@ -246,15 +246,24 @@
 							<div class="col-md-6"></div>
 						</div>
 						<div>
-							<input name="idUsu" value='<?php echo $acionaInfo['AGENDAMENTO_ID']?>'>
+							<input hidden name="idUsu" value='<?php echo $acionaInfo['AGENDAMENTO_ID']?>'>
 						</div>
 					</div>
 					
 				</div>
 				
 			</div>
-			
-			<!-- <div class="pt-5 container col-sm-8 mx-auto ">
+			<div class="pt-5 container col-sm-8 mx-auto ">
+			<label class="align-self-center font-weight-bold" for="selectStatus">Status</label>
+				<select class="form-control text-uppercase" id="selectStatus" name="selectStatus" required>
+					<option disabled>---<?php echo $acionaInfo['STATUS']?>---</option>
+					<option value="DEMANDADO">DEMANDADO</option>
+					<option value="SOLICITADO">SOLICITADO</option>
+					<option value="CANCELADO">CANCELADO</option>
+				</select>
+			</div>
+<!-- 			
+			<div class="pt-5 container col-sm-8 mx-auto ">
 			<label class="align-self-center font-weight-bold" for="inputDesc">Descrição</label>
 						<textarea class="form-control text-uppercase" cols="20" rows="2" name="inputDesc"
 							id="inputDesc" placeholder="Descrição..."  required>

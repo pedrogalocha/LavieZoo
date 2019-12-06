@@ -82,6 +82,7 @@ class Agendamento_Model extends CI_Model
 	$inputEstado = $dadosAt['inputEstado'];
     $inputCep = $dadosAt['inputCep'];
     $inputCelular = $dadosAt['inputCelular'];
+    $selectStatus = $dadosAt['selectStatus'];
     $idAgen = $dadosAt['idUsu'];
  
 
@@ -92,7 +93,7 @@ class Agendamento_Model extends CI_Model
     ani.ANIMAL_SEXO = '$radioSexo', ani.ANIMAL_ESPECIE = '$inputEspecie', ani.ANIMAL_PROPRIETARIO = '$inputNomeProprietario', age.PERFIL_EXAME_ID = '$radioExame', 
     age.TIPO_BUSCA = '$radioBusca', age.DATA_BUSCA_CLINICA = '$inputBusca', age.DATA_COLETA = '$DataColeta', age.FAIXA_HORARIO_ID = '$inputFaixaHorario', 
     age.ENDERECO = '$inputEndereco', age.COMPLEMENTO = '$inputComplemento', age.BAIRRO = '$inputBairro', age.CIDADE = '$inputCidade', age.ESTADO = '$inputEstado',
-    age.CEP = '$inputCep' 
+    age.CEP = '$inputCep',age.STATUS = '$selectStatus', age.CELULAR = '$inputCelular'
     WHERE age.AGENDAMENTO_ID = $idAgen";
 
     $this->db->trans_start();
@@ -146,7 +147,6 @@ class Agendamento_Model extends CI_Model
         $qPrincipal = "INSERT INTO tb_agendamento (
     ANIMAL_ID,
     PERFIL_EXAME_ID,
-    AGENDAMENTO_OUTROS_EXAMES,
     TIPO_BUSCA,
     DATA_COLETA,
     FAIXA_HORARIO_ID,
@@ -245,8 +245,8 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
-        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID 
-        WHERE ag.STATUS = 'SOLICITADO'";
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID";
+        // WHERE ag.STATUS = 'SOLICITADO'";
             $eAgendamento = $this->db->query($qAgendamento);
             $aAgendamento = $eAgendamento->result();
             if ($eAgendamento->num_rows() > 0) {
@@ -287,7 +287,7 @@ class Agendamento_Model extends CI_Model
         }
     }
     public function getInfoTotalAciona($id){
-        $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE,
+        $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID ,ag.STATUS,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE,
          a.ANIMAL_RACA, a.ANIMAL_MESES, a.ANIMAL_SEXO, pa.ID_EXAME_USU,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA ,
         ag.DATA_BUSCA_CLINICA, ag.ENDERECO, ag.COMPLEMENTO, ag.BAIRRO, ag.CIDADE, ag.ESTADO, ag.CEP, ag.CELULAR
