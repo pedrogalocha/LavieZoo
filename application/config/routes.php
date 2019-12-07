@@ -87,6 +87,9 @@ $route['Dash'] = 'Dashboard';
 //DashAdmin
 $route['Admin'] = 'Dashboard/admin';
 $route['exibeVets'] ='Dashboard/exibeVets';
+$route['buscaEmClinica'] ='Dashboard/buscaEmClinica';
+$route['coletaEmClinica'] ='Dashboard/coletaEmClinica';
+$route['coletaDomiciliar'] ='Dashboard/coletaDomiciliar';
 $route['exibeCli'] = 'Dashboard/exibeCli';
 $route['exibeAgendVets'] = 'Dashboard/exibeAgendamentosVet';
 $route['exibeAgendCli'] = 'Dashboard/exibeAgendamentosCli';

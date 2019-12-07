@@ -3,9 +3,13 @@
 
 	<?php
 	$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+	date_default_timezone_set('America/Argentina/Buenos_Aires');
+	$horario_solicitacao = date('Y-m-d H:i:s');
 	?>
 	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" action='<?php echo base_url('cadastrarAgendamento') ?>' novalidate autocomplete="off">
 		<div class="row" style="display: inline">
+
+		
 
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
 
@@ -64,6 +68,11 @@
 						<input type="text" class="form-control text-uppercase text-left form-control" name="inputNomeProprietario" id="inputNomeProprietario" placeholder="Nome Completo do Proprietario do Animal">
 					</div>
 				</div>
+				<div class="px-2 form-group row">
+					<div class="col-md-12 mx-auto ">
+						<input type="text" value="<?php echo($horario_solicitacao)?>" hidden class="form-control text-uppercase text-left form-control" name="inputHorario" id="inputHorario" placeholder="Nome Completo do Proprietario do Animal">
+					</div>
+				</div>	
 
 				<hr style="border-top: dotted 10px; color: #6EB1B9;" />
 

@@ -136,10 +136,11 @@ class Agendamento_Model extends CI_Model
         $idUsu = $dados_insert['idUsu'];
         $sexo = $dados_insert['sexo'];
         $inputBusca = $dados_insert['inputBusca'];
+        $inputHorario = $dados_insert['inputHorario'];
         
 
-        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal, $sexo);
-        $this->db->query($cadAnimal);
+        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal, $sexo, $inputHorario);
+        $this->db->query($cadAnimal); 
 
         $idAnimal = $this->agendamento->getIdAnimal($inputNomeAnimal);
         $idAni = $this->db->query($idAnimal)->row()->ANIMAL_ID;
@@ -159,7 +160,8 @@ class Agendamento_Model extends CI_Model
     CEP,
     CELULAR,
     STATUS,
-    DATA_BUSCA_CLINICA
+    DATA_BUSCA_CLINICA,
+    HORARIO_SOLICITACAO
     ) values
     ($idAni,
      $inlineRadioOptions2,
@@ -175,7 +177,9 @@ class Agendamento_Model extends CI_Model
     '$inputCep',
     '$inputCelular',
     'SOLICITADO',
-    '$inputBusca')";
+    '$inputBusca',
+    '$inputHorario'
+    )";
 
         $this->db->trans_start();
         $this->db->query($qPrincipal);
@@ -251,6 +255,62 @@ class Agendamento_Model extends CI_Model
             $aAgendamento = $eAgendamento->result();
             if ($eAgendamento->num_rows() > 0) {
                 return $aAgendamento;
+            } else {
+                return null;
+            }
+    }
+
+    public function getBuscaEmClinica(){
+        $qClinica = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_SEXO, a.ANIMAL_NOME, a.ANIMAL_RACA,ag.STATUS, 
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO,ag.CEP, ag.ENDERECO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, ag.DATA_BUSCA_CLINICA, ag.HORARIO_SOLICITACAO
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        WHERE ag.TIPO_BUSCA = 'Busca em Clinica'";
+            $eClinica = $this->db->query($qClinica);
+            $aClinica = $eClinica->result();
+            if ($eClinica->num_rows() > 0) {
+                return $aClinica;
+            } else {
+                return null;
+            }
+    }
+
+    public function getColetaEmClinica(){
+        $qClinica = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_SEXO, a.ANIMAL_NOME, a.ANIMAL_RACA,ag.STATUS, 
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO,ag.CEP, ag.ENDERECO, v.VETERINARIO_NOME,
+        a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, ag.DATA_BUSCA_CLINICA, fh.DS_FAIXA_HORARIO, ag.HORARIO_SOLICITACAO
+        FROM tb_agendamento ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_faixa_horario fh ON ag.FAIXA_HORARIO_ID = fh.FAIXA_HORARIO_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'";
+            $eClinica = $this->db->query($qClinica);
+            $aClinica = $eClinica->result();
+            if ($eClinica->num_rows() > 0) {
+                return $aClinica;
+            } else {
+                return null;
+            }
+    }
+
+    public function getBuscaDomiciliar(){
+        $qClinica = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_SEXO, a.ANIMAL_NOME, a.ANIMAL_RACA,ag.STATUS, 
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO,ag.CEP, ag.ENDERECO, ag.COMPLEMENTO, ag.BAIRRO, ag.CIDADE, ag.ESTADO, v.VETERINARIO_NOME, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, ag.DATA_BUSCA_CLINICA, ag.HORARIO_SOLICITACAO
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        WHERE ag.TIPO_BUSCA = 'Busca Domiciliar';";
+            $eClinica = $this->db->query($qClinica);
+            $aClinica = $eClinica->result();
+            if ($eClinica->num_rows() > 0) {
+                return $aClinica;
             } else {
                 return null;
             }

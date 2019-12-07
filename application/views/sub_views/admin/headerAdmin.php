@@ -83,23 +83,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <!-- Nav Item - Utilities Collapse Menu -->
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <!-- <hr class="sidebar-divider"> -->
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgendamento"
           aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Agendamentos</span>
+          <span>Agendamentos old</span>
         </a>
         <div id="collapseAgendamento" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Áreas:</h6>
+            <h6 class="collapse-header">Áreas</h6>
             <a class="collapse-item" href="<?php echo base_url('exibeAgendVets') ?>">Veterinarios</a>
             <a class="collapse-item" href="<?php echo base_url('exibeAgendCli') ?>">Clinicas</a>
           </div>
         </div>
+      </li> -->
+
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgendamento2"
+          aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-list-alt"></i>
+          <span>Agendamentos</span>
+        </a>
+        <div id="collapseAgendamento2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tipos de Agendamento:</h6>
+            <a class="collapse-item" href="<?php echo base_url('buscaEmClinica') ?>">Busca em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaEmClinica') ?>">Coleta em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaDomiciliar') ?>">Coleta Domiciliar</a>
+          </div>
+        </div>
       </li>
+
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">

@@ -163,4 +163,71 @@ class Dashboard extends CI_Controller
           </script>";
         }
     }
+    public function buscaEmClinica(){
+        $login = $this->session->userdata('USUARIO_EMAIL');
+        $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+
+        if ($dados['permissao'] == "ADMIN") {
+            $dados['agendamentos'] = $this->agenModel->getBuscaEmClinica();
+
+            $dados = array(
+                'tela' => 'buscaEmClinica',
+                'permissao' => $dados['permissao'],
+                'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
+                'agendamentos' => $dados['agendamentos']
+            );
+            $this->load->view('sub_views/admin/dashAdmin', $dados);
+            //$this->load->view('sub_views/pages/dashboard');
+        } else {
+            $rotabaseLogin = base_url('Login');
+            echo "<script>
+            alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
+          </script>";
+        }
+    }
+
+    public function coletaEmClinica(){
+        $login = $this->session->userdata('USUARIO_EMAIL');
+        $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+
+        if ($dados['permissao'] == "ADMIN") {
+            $dados['agendamentos'] = $this->agenModel->getColetaEmClinica();
+
+            $dados = array(
+                'tela' => 'coletaEmClinica',
+                'permissao' => $dados['permissao'],
+                'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
+                'agendamentos' => $dados['agendamentos']
+            );
+            $this->load->view('sub_views/admin/dashAdmin', $dados);
+            //$this->load->view('sub_views/pages/dashboard');
+        } else {
+            $rotabaseLogin = base_url('Login');
+            echo "<script>
+            alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
+          </script>";
+        }
+    }
+    public function coletaDomiciliar(){
+        $login = $this->session->userdata('USUARIO_EMAIL');
+        $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+
+        if ($dados['permissao'] == "ADMIN") {
+            $dados['agendamentos'] = $this->agenModel->getBuscaDomiciliar();
+
+            $dados = array(
+                'tela' => 'coletaDomiciliar',
+                'permissao' => $dados['permissao'],
+                'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
+                'agendamentos' => $dados['agendamentos']
+            );
+            $this->load->view('sub_views/admin/dashAdmin', $dados);
+            //$this->load->view('sub_views/pages/dashboard');
+        } else {
+            $rotabaseLogin = base_url('Login');
+            echo "<script>
+            alert('Você não tem permissão para acessar esta area'); window.location.href = '$rotabaseLogin';
+          </script>";
+        }
+    }
 }
