@@ -258,7 +258,7 @@
 				<select class="form-control text-uppercase" id="selectStatus" name="selectStatus" required>
 					<option disabled>---<?php echo $acionaInfo['STATUS']?>---</option>
 					<option value="DEMANDADO">DEMANDADO</option>
-					<option value="SOLICITADO">SOLICITADO</option>
+					<option value="EM EXECUÇÃO">EM EXECUÇÃO</option>
 					<option value="CANCELADO">CANCELADO</option>
 				</select>
 			</div>

@@ -176,7 +176,7 @@ class Agendamento_Model extends CI_Model
     '$inputEstado',
     '$inputCep',
     '$inputCelular',
-    'SOLICITADO',
+    'EM EXECUÇÃO',
     '$inputBusca',
     '$inputHorario'
     )";
@@ -222,7 +222,7 @@ class Agendamento_Model extends CI_Model
 
     public function getIdAnimal($nome)
     {
-        $qprincipal = "SELECT ANIMAL_ID FROM tb_animal WHERE ANIMAL_NOME = '$nome';";
+        $qprincipal = "SELECT ANIMAL_ID FROM tb_animal WHERE ANIMAL_NOME = '$nome' order by animal_id desc;";
 
         return $qprincipal;
     }
@@ -268,7 +268,8 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
-        WHERE ag.TIPO_BUSCA = 'Busca em Clinica'";
+        WHERE ag.TIPO_BUSCA = 'Busca em Clinica'
+        AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
@@ -288,7 +289,8 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
-        WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'";
+        WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
+        AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
@@ -306,7 +308,8 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
-        WHERE ag.TIPO_BUSCA = 'Busca Domiciliar';";
+        WHERE ag.TIPO_BUSCA = 'Busca Domiciliar'
+        AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
