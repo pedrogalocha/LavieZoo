@@ -269,7 +269,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         WHERE ag.TIPO_BUSCA = 'Busca em Clinica'
-        AND ag.STATUS = 'EM EXECUÇÃO';";
+        -- AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
@@ -290,7 +290,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
-        AND ag.STATUS = 'EM EXECUÇÃO';";
+        -- AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
@@ -309,7 +309,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         WHERE ag.TIPO_BUSCA = 'Busca Domiciliar'
-        AND ag.STATUS = 'EM EXECUÇÃO';";
+        -- AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
             $aClinica = $eClinica->result();
             if ($eClinica->num_rows() > 0) {
@@ -327,7 +327,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID 
-        WHERE ag.STATUS = 'SOLICITADO'";
+        -- WHERE ag.STATUS = 'SOLICITADO'";
             $eAgendamento = $this->db->query($qAgendamento);
             $aAgendamento = $eAgendamento->result();
             if ($eAgendamento->num_rows() > 0) {
