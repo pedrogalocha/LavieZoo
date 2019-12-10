@@ -72,7 +72,7 @@ class Agendamento extends CI_Controller {
 
 
     echo "<script> 
-			window.location.href = '../exibeAgendVets';
+			window.location.href = '../Admin';
 			</script>";
   }
 

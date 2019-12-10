@@ -86,10 +86,20 @@ $route['post_login'] = 'Login/logar';
 $route['Dash'] = 'Dashboard';
 //DashAdmin
 $route['Admin'] = 'Dashboard/admin';
-$route['exibeVets'] ='Dashboard/exibeVets';
+//DASHBOARD LISTAGENS
 $route['buscaEmClinica'] ='Dashboard/buscaEmClinica';
 $route['coletaEmClinica'] ='Dashboard/coletaEmClinica';
 $route['coletaDomiciliar'] ='Dashboard/coletaDomiciliar';
+//listagem demandados
+$route['buscaEmClinicaDm'] ='Dashboard/buscaEmClinicaDm';
+$route['coletaEmClinicaDm'] ='Dashboard/coletaEmClinicaDm';
+$route['coletaDomiciliarDm'] ='Dashboard/coletaDomiciliarDm';
+//listagem Cancelados
+$route['buscaEmClinicaCld'] ='Dashboard/buscaEmClinicaCld';
+$route['coletaEmClinicaCld'] ='Dashboard/coletaEmClinicaCld';
+$route['coletaDomiciliarCld'] ='Dashboard/coletaDomiciliarCld';
+
+$route['exibeVets'] ='Dashboard/exibeVets';
 $route['exibeCli'] = 'Dashboard/exibeCli';
 $route['exibeAgendVets'] = 'Dashboard/exibeAgendamentosVet';
 $route['exibeAgendCli'] = 'Dashboard/exibeAgendamentosCli';

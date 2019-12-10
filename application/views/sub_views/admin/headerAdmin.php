@@ -108,7 +108,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgendamento2"
           aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-list-alt"></i>
-          <span>Agendamentos</span>
+          <span>Agendamentos Em Execução</span>
         </a>
         <div id="collapseAgendamento2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -116,6 +116,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a class="collapse-item" href="<?php echo base_url('buscaEmClinica') ?>">Busca em Clinica</a>
             <a class="collapse-item" href="<?php echo base_url('coletaEmClinica') ?>">Coleta em Clinica</a>
             <a class="collapse-item" href="<?php echo base_url('coletaDomiciliar') ?>">Coleta Domiciliar</a>
+          </div>
+        </div>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgendamento3"
+          aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-list-alt"></i>
+          <span>Agendamentos Demandados</span>
+        </a>
+        <div id="collapseAgendamento3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tipos de Agendamento:</h6>
+            <a class="collapse-item" href="<?php echo base_url('buscaEmClinicaDm') ?>">Busca em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaEmClinicaDm') ?>">Coleta em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaDomiciliarDm') ?>">Coleta Domiciliar</a>
+          </div>
+        </div>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgendamento4"
+          aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-list-alt"></i>
+          <span>Agendamentos Cancelados</span>
+        </a>
+        <div id="collapseAgendamento4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tipos de Agendamento:</h6>
+            <a class="collapse-item" href="<?php echo base_url('buscaEmClinicaCld') ?>">Busca em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaEmClinicaCld') ?>">Coleta em Clinica</a>
+            <a class="collapse-item" href="<?php echo base_url('coletaDomiciliarCld') ?>">Coleta Domiciliar</a>
           </div>
         </div>
       </li>
