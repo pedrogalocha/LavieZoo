@@ -67,22 +67,23 @@ class Agendamento_Model extends CI_Model
     $inputEspecie = $dadosAt['inputEspecie'];
     $inputNomeProprietario = $dadosAt['inputNomeProprietario'];
     $radioExame = $dadosAt['radioExame'];
-    $radioBusca = $dadosAt['radioBusca'];
-    $inputBusca = $dadosAt['inputBusca'];
-    $DataColeta = $dadosAt['DataColeta'];
+    // $radioBusca = $dadosAt['radioBusca'];
+    // $inputBusca = $dadosAt['inputBusca'];
+    // $DataColeta = $dadosAt['DataColeta'];
     // $inputColeta = $dadosAt['inputColeta'];
-    $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
-    $inputBusca = $dadosAt['inputBusca'];
+    // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+    // $inputBusca = $dadosAt['inputBusca'];
     // $inputColeta = $dadosAt['inputColeta'];
-    $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
-	$inputEndereco = $dadosAt['inputEndereco'];
-	$inputComplemento = $dadosAt['inputComplemento'];
-	$inputBairro = $dadosAt['inputBairro'];
-	$inputCidade = $dadosAt['inputCidade'];
-	$inputEstado = $dadosAt['inputEstado'];
-    $inputCep = $dadosAt['inputCep'];
-    $inputCelular = $dadosAt['inputCelular'];
+    // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+	// $inputEndereco = $dadosAt['inputEndereco'];
+	// $inputComplemento = $dadosAt['inputComplemento'];
+	// $inputBairro = $dadosAt['inputBairro'];
+	// $inputCidade = $dadosAt['inputCidade'];
+	// $inputEstado = $dadosAt['inputEstado'];
+    // $inputCep = $dadosAt['inputCep'];
+    // $inputCelular = $dadosAt['inputCelular'];
     $selectStatus = $dadosAt['selectStatus'];
+    $inputDesc = $dadosAt['inputDesc'];
     $idAgen = $dadosAt['idUsu'];
  
 
@@ -91,9 +92,7 @@ class Agendamento_Model extends CI_Model
     SET ani.ANIMAL_NOME = '$inputNomeAnimal'
     , ani.ANIMAL_IDADE = '$inputIdadeAnimal', ani.ANIMAL_MESES = '$inputMesesAnimal', ani.ANIMAL_RACA = '$radioRaca', 
     ani.ANIMAL_SEXO = '$radioSexo', ani.ANIMAL_ESPECIE = '$inputEspecie', ani.ANIMAL_PROPRIETARIO = '$inputNomeProprietario', age.PERFIL_EXAME_ID = '$radioExame', 
-    age.TIPO_BUSCA = '$radioBusca', age.DATA_BUSCA_CLINICA = '$inputBusca', age.DATA_COLETA = '$DataColeta', age.FAIXA_HORARIO_ID = '$inputFaixaHorario', 
-    age.ENDERECO = '$inputEndereco', age.COMPLEMENTO = '$inputComplemento', age.BAIRRO = '$inputBairro', age.CIDADE = '$inputCidade', age.ESTADO = '$inputEstado',
-    age.CEP = '$inputCep',age.STATUS = '$selectStatus', age.CELULAR = '$inputCelular'
+    age.STATUS = '$selectStatus', age.DESC_STATUS = '$inputDesc'
     WHERE age.AGENDAMENTO_ID = $idAgen";
 
     $this->db->trans_start();

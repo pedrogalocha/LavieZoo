@@ -2,8 +2,8 @@
 	<?php
 	$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 	?>
-	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad" 
-	 action='<?php echo base_url('update_agendamento') ?>' novalidate autocomplete="off">
+	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad"
+		action='<?php echo base_url('update_agendamento') ?>' novalidate autocomplete="off">
 		<div class="row" style="display: inline">
 
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
@@ -66,8 +66,8 @@
 					<div class="col-md-6 mx-auto ">
 						<label class="align-self-center font-weight-bold" for="inputEspecie">ESPECIE</label>
 						<input type="text" class="form-control text-uppercase text-left"
-							value="<?php echo  $acionaInfo['ANIMAL_ESPECIE'] ?>" name="inputEspecie"
-							id="inputEspecie" placeholder="Especie do Animal" required>
+							value="<?php echo  $acionaInfo['ANIMAL_ESPECIE'] ?>" name="inputEspecie" id="inputEspecie"
+							placeholder="Especie do Animal" required>
 					</div>
 				</div>
 
@@ -89,8 +89,8 @@
 						<?php if ($tpagen->PERFIL_EXAME_ID <= 9) { ?>
 						<div class="pt-2 form-check form-check">
 							<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio"
-								name="radioExame" id="inlineRadio1"
-								value="<?php print_r($tpagen->PERFIL_EXAME_ID) ?>" required>
+								name="radioExame" id="inlineRadio1" value="<?php print_r($tpagen->PERFIL_EXAME_ID) ?>"
+								required>
 							<label class="form-check-label"
 								for="inlineRadio1"><b><?php print_r($tpagen->TIPO_PERFIL_EXAME) ?> </b>-
 								<?php print_r($tpagen->DS_PERFIL_EXAME) ?></label>
@@ -100,8 +100,8 @@
 						<?php foreach ($exameUsuario as $eUsu) { ?>
 						<div class="pt-2 form-check form-check">
 							<input onclick="ocultaOutrosExames()" class="form-check-input" type="radio"
-								name="radioExame" id="inlineRadio1"
-								value="<?php print_r($eUsu->PERFIL_EXAME_ID) ?>" required>
+								name="radioExame" id="inlineRadio1" value="<?php print_r($eUsu->PERFIL_EXAME_ID) ?>"
+								required>
 							<label class="form-check-label"
 								for="inlineRadio1"><?php print_r($eUsu->DS_PERFIL_EXAME) ?></label>
 						</div>
@@ -110,7 +110,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="pt-2 container col-sm-12 mx-auto align-self-center align-items-center justify-content-center"
+			<!-- <div class="pt-2 container col-sm-12 mx-auto align-self-center align-items-center justify-content-center"
 				style="margin-top:30px; margin-bottom:30px; background-color: #F9F2C7">
 				<div class="px-2 form-group row">
 					<div class="col-md-8 mx-auto mb-2 ">
@@ -118,10 +118,10 @@
 						<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
 							<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
 								<div class="pt-2 form-check form-check d-inline">
-									<input <?php echo $acionaInfo['TIPO_BUSCA']=="Busca em Clinica" ? "checked" : "" ?>
+									<input hidden <?php echo $acionaInfo['TIPO_BUSCA']=="Busca em Clinica" ? "checked" : "" ?>
 										onchange="ocultaData();ocultaAgend();exibeDataBusca()" class="form-check-input"
 										type="radio" name="radioBusca" id="inlineRadioOptions2"
-										value="Busca em Clinica" required>
+										value="Busca em Clinica" >
 									<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
 								</div>
 							</div>
@@ -245,35 +245,35 @@
 							</div>
 							<div class="col-md-6"></div>
 						</div>
-						<div>
-							<input hidden name="idUsu" value='<?php echo $acionaInfo['AGENDAMENTO_ID']?>'>
-						</div>
+						
 					</div>
 					
 				</div>
 				
+			</div> -->
+			<div>
+				<input hidden name="idUsu" value='<?php echo $acionaInfo['AGENDAMENTO_ID']?>'>
 			</div>
 			<div class="pt-5 container col-sm-8 mx-auto ">
-			<label class="align-self-center font-weight-bold" for="selectStatus">Status</label>
-				<select class="form-control text-uppercase" id="selectStatus" name="selectStatus" required>
+				<label class="align-self-center font-weight-bold" for="selectStatus">Status</label>
+				<select onchange="exibeDesc()" class="form-control text-uppercase" id="selectStatus" name="selectStatus" required>
 					<option disabled>---<?php echo $acionaInfo['STATUS']?>---</option>
 					<option value="DEMANDADO">DEMANDADO</option>
 					<option value="EM EXECUÇÃO">EM EXECUÇÃO</option>
 					<option value="CANCELADO">CANCELADO</option>
 				</select>
 			</div>
-<!-- 			
-			<div class="pt-5 container col-sm-8 mx-auto ">
-			<label class="align-self-center font-weight-bold" for="inputDesc">Descrição</label>
-						<textarea class="form-control text-uppercase" cols="20" rows="2" name="inputDesc"
-							id="inputDesc" placeholder="Descrição..."  required>
-						</textarea>
-					</div> -->
+						
+			<div class="pt-5 container col-sm-8 mx-auto">
+			<label class="coleta-clinica align-self-center font-weight-bold" name="labelDesc" id = "labelDesc" for="inputDesc" >Descrição</label>
+			<input type="text" class="coleta-clinica form-control text-uppercase text-left" 
+							name="inputDesc" id="inputDesc" placeholder="Descrição...">
+					</div>
 		</div>
 		<!-- btn btn-info btn-lg -->
 		<div class="col-md-12 mb-2" style="text-align:center;">
-				<button type="submit" class="btn btn-lg btn-warning text-white">Atualizar</button>
-			</div>
+			<button type="submit" class="btn btn-lg btn-warning text-white">Atualizar</button>
+		</div>
 
 	</form>
 
@@ -309,6 +309,12 @@
 			$("#DataColeta2").removeClass("coleta-clinica");
 			$("#DataColeta").prop("required", true);
 			$("#DataColeta2").prop("required", true);
+		}
+		function exibeDesc(){
+			$("#labelDesc").removeClass("coleta-clinica");
+			$("#inputDesc").removeClass("coleta-clinica");
+			$("#labelDesc").prop("required", true);
+			$("#inputDesc").prop("required", true);
 		}
 
 		function exibeDataBusca() {
