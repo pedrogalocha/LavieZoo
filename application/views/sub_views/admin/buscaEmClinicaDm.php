@@ -51,7 +51,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
         <td><?php print_r($ag->TIPO_BUSCA) ?></td>
         <td><?php print_r($ag->DATA_BUSCA_CLINICA) ?></td>
-        <!-- <td><?php print_r($ag->VETERINARIO_NOME) ?></td> -->
+        <td><?php 
+        if($ag->VETERINARIO_NOME != null)
+        {
+          print_r($ag->VETERINARIO_NOME);
+        }
+        else if($ag->CLINICA_NOME_FANTASIA != null){
+          print_r($ag->CLINICA_NOME_FANTASIA);
+        }
+          ?></td>
         <td><?php print_r($ag->STATUS) ?></td>
         <td>
           <form action="salvarLaudo" method="POST" enctype="multipart/form-data">

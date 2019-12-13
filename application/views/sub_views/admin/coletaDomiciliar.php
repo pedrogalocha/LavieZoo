@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Bairro</th>
 				<th>Cidade</th>
 				<th>Estado</th>
-				<!-- <th>Solicitante</th> -->
+				<th>Solicitante</th>
 				<th>Laudo</th>
 				<th>-</th>
 				<th>-</th>
@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		</thead>
 		<tfoot>
 			<tr>
-            <th>ID</th>
+				<th>ID</th>
 				<th>Animal</th>
 				<th>Raça</th>
 				<th>Especie</th>
@@ -40,7 +40,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Bairro</th>
 				<th>Cidade</th>
 				<th>Estado</th>
-				<!-- <th>Solicitante</th> -->
+				<th>Solicitante</th>
 				<th>Laudo</th>
 				<th>-</th>
 				<th>-</th>
@@ -55,8 +55,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td><?php print_r($ag->ANIMAL_NOME) ?></td>
 				<td><?php print_r($ag->ANIMAL_RACA) ?></td>
 				<td><?php print_r($ag->ANIMAL_ESPECIE) ?></td>
-                <td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
-                <td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
+				<td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
+				<td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
 				<td><?php print_r($ag->TIPO_BUSCA) ?></td>
 				<td><?php print_r($ag->STATUS) ?></td>
 				<td><?php print_r($ag->CEP)?></td>
@@ -64,7 +64,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td><?php print_r($ag->BAIRRO)?></td>
 				<td><?php print_r($ag->CIDADE)?></td>
 				<td><?php print_r($ag->ESTADO)?></td>
-				<!-- <td><?php print_r($ag->VETERINARIO_NOME) ?></td> -->
+				<td><?php 
+        if($ag->VETERINARIO_NOME != null)
+        {
+          print_r($ag->VETERINARIO_NOME);
+        }
+        else if($ag->CLINICA_NOME_FANTASIA != null){
+          print_r($ag->CLINICA_NOME_FANTASIA);
+        }
+          ?></td>
 				<td>
 					<form action="salvarLaudo" method="POST" enctype="multipart/form-data">
 						<input type="text" name="agId" style="display:none;"
