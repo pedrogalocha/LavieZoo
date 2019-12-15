@@ -13,7 +13,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Horario Solicitação</th>
         <th>Tipo de Busca</th>
-        <th>Data Busca</th>
         <th>Solicitante</th>
         <th>Status</th>
         <th>Laudo</th>
@@ -30,7 +29,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Perfil Exame</th>
         <th>Horario Solicitação</th>
         <th>Tipo de Busca</th>
-        <th>Data Busca</th>
         <th>Solicitante</th>
         <th>Status</th>
         <th>Laudo</th>
@@ -50,7 +48,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
         <td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
         <td><?php print_r($ag->TIPO_BUSCA) ?></td>
-        <td><?php print_r($ag->DATA_BUSCA_CLINICA) ?></td>
         <td><?php 
         if($ag->VETERINARIO_NOME != null)
         {
