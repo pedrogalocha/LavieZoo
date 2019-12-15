@@ -29,7 +29,7 @@
 					<div class="col-md-3 mx-auto ">
 						<label class="align-self-center font-weight-bold" for="inputMesesAnimal">MESES</label>
 						<input type="text" required class="form-control text-uppercase text-left"
-							name="inputMesesAnimal" value="<?php echo  $acionaInfo['ANIMAL_MESES'] ?>"
+							name="inputMesesAnimal" value="<?php echo $acionaInfo['ANIMAL_MESES'] ?>"
 							id="inputMesesAnimal" placeholder="Meses do Animal" required>
 					</div>
 				</div>
