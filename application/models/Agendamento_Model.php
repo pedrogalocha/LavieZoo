@@ -260,7 +260,7 @@ class Agendamento_Model extends CI_Model
     }
 
     public function getBuscaEmClinica(){
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, HORARIO_SOLICITACAO,
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, ag.HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
@@ -280,14 +280,15 @@ class Agendamento_Model extends CI_Model
     }
 
     public function getColetaEmClinica(){
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
-        FROM tb_agendamento  ag
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, ag.HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, f.DS_FAIXA_HORARIO
+        FROM tb_agendamento ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_faixa_horario f on ag.FAIXA_HORARIO_ID = f.FAIXA_HORARIO_ID
         LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
-        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID        
+        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID    
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'EM EXECUÇÃO';";
             $eClinica = $this->db->query($qClinica);
@@ -300,8 +301,9 @@ class Agendamento_Model extends CI_Model
     }
 
     public function getBuscaDomiciliar(){
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA,
+        ag.DATA_COLETA, ag.CIDADE, ag.ESTADO, ag.BAIRRO
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
@@ -377,7 +379,7 @@ class Agendamento_Model extends CI_Model
     }
     public function buscaEmClinicaDm()
     {
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, HORARIO_SOLICITACAO,
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, ag.HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
@@ -398,14 +400,15 @@ class Agendamento_Model extends CI_Model
     }
     public function coletaEmClinicaDm()
     {
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
-        FROM tb_agendamento  ag
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, f.DS_FAIXA_HORARIO
+        FROM tb_agendamento ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_faixa_horario f on ag.FAIXA_HORARIO_ID = f.FAIXA_HORARIO_ID
         LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
-        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID    
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'DEMANDADO';";
             $eClinica = $this->db->query($qClinica);
@@ -418,8 +421,9 @@ class Agendamento_Model extends CI_Model
     }
     public function coletaDomiciliarDm()
     {
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA,
+        ag.DATA_COLETA, ag.CIDADE, ag.ESTADO, ag.BAIRRO
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
@@ -461,14 +465,15 @@ class Agendamento_Model extends CI_Model
     }
     public function coletaEmClinicaCld()
     {
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
-        FROM tb_agendamento  ag
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, f.DS_FAIXA_HORARIO
+        FROM tb_agendamento ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_faixa_horario f on ag.FAIXA_HORARIO_ID = f.FAIXA_HORARIO_ID
         LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
-        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID    
         
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'CANCELADO';";
@@ -482,8 +487,9 @@ class Agendamento_Model extends CI_Model
     }
     public function coletaDomiciliarCld()
     {
-        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA,
+        ag.DATA_COLETA, ag.CIDADE, ag.ESTADO, ag.BAIRRO
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
