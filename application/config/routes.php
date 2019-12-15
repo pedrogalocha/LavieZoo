@@ -110,6 +110,7 @@ $route['cadastroVetCli/(:any)'] = 'Cadastro/cadastro_vet_clinica/$1';
 $route['agendamento_form'] = 'Agendamento';
 $route['faixaHorario'] = 'Agendamento/agendamento';
 $route['cadastrarAgendamento'] = 'Agendamento/cadastrarAgendamento';
+$route['requesicao'] = 'Agendamento/requesicao';
 $route['ver_agendamento/(:any)'] = 'Agendamento/ver_agendamento/$1';
 $route['del_agendamento/(:any)'] = 'Agendamento/del_agendamento/$1';
 $route['update_agendamento'] = 'Agendamento/update_agendamento';

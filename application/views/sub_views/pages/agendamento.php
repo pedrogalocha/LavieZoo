@@ -123,19 +123,17 @@
 							<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
 								<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
 									<div class="pt-2 form-check form-check d-inline">
-										<input onchange="ocultaData();ocultaAgend();exibeDataBusca()" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
+										<input onchange="ocultaData();ocultaAgend()" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadioOptions2" value="Busca em Clinica" required>
 										<label class="form-check-label" for="buscaEmClinica">Busca em Clinica</label>
 									</div>
 								</div>
-								<div class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
+								<div hidden class="col-sm-2 d-inline" style="padding-left: 1px !important; padding-right:0px">
 									<label id="DataBusca" class=" coleta-clinica align-self-center font-weight-bold" for="inputDataBusca">Data busca</label>
 								</div>
-								<div class="col-sm-2 d-inline " style="padding-left: 1px !important">
+								<div hidden class="col-sm-2 d-inline " style="padding-left: 1px !important">
 									<input onchange="validaDataBusca()" id="DataBusca2" class="coleta-clinica" type="datetime-local" name="inputBusca" placeholder="dd/mm/aaaa">
-								</div>
+								</div> 
 							</div>
-
-
 
 							<div class="pt-2 form-check form-check" style="padding-left: 0px !important">
 								<div class="col-sm-3 d-inline" style="padding-left: 0px !important">
