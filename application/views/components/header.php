@@ -48,6 +48,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">CONHEÇA</a>
           </li>
           <li class="nav-item nav-texto">
+            <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('requesicao') ?>">TESTE DE PDF</a>
+          </li>
+          <li class="nav-item nav-texto">
             <?php 
             
            if ($this->session->userdata('USUARIO_NIVEL_ACESSO') != null && $this->session->userdata('USUARIO_NIVEL_ACESSO') != "ADMIN") {
