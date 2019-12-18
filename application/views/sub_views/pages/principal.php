@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-
+<link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
 <header class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/bg/3_novo membro_bg.png') ?>'); 
 background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="container d-flex align-items-center justify-content-center">

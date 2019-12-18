@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 <header class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/bg/2_login_bg.png') ?>'); 
 background-repeat: no-repeat; background-size: cover; background-position: center center;">
