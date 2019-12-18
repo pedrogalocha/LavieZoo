@@ -295,16 +295,16 @@ class Agendamento extends CI_Controller
     $id_usu_exame['ID'] = $this->usuario->getUsuAgendamentos($id);
     $id_exame = implode("", $id_usu_exame['ID']);
     $exame_usuario = $this->agendamento->getExameUsuario($id_exame);
-    $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+    // $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
     if ($id_sessao == $id || $conta == "ADMIN") {
       $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
       $dados = array(
         'tela' =>  'dados_agendamento',
-        'permissao' => $conta,
+        // 'permissao' => $conta,
         'tipoAgendamento' => $tipoAgendamento,
         'exameUsuario' => $exame_usuario,
-        'acionaInfo' => $dados['aciona'],
-        'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO')
+        'acionaInfo' => $dados['aciona']
+        // 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO')
       );
       $this->load->view('sub_views/area_nav', $dados);
     }

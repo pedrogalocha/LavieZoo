@@ -1,6 +1,6 @@
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none">
 	<?php
-	$permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
+	// $permissao = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 	?>
 	<form class="text-dark text-uppercase needs-validation" method="POST" id="form_cad"
 		action='<?php echo base_url('update_agendamento') ?>' novalidate autocomplete="off">
