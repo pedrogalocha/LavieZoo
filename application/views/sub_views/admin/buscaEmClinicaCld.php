@@ -66,10 +66,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </form>
         </td>
         <td>
-        <a href="#" onclick="window.open('<?= base_url('ver_agendamento/' . $ag->AGENDAMENTO_ID)  ?>', 'Atualizar', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=10, LEFT=10, WIDTH=1200, HEIGHT=800');"><button type='button' class='btn btn-primary'>+</button></a> 
+        <a href="#" onclick="window.open('<?= base_url('ver_agendamento/' . $ag->AGENDAMENTO_ID)  ?>', 'Atualizar', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=10, LEFT=10, WIDTH=1200, HEIGHT=800');"><button type='button' class='btn btn-primary'  title="Editar">+</button></a> 
         </td>
         <td>
-        <a href="<?= base_url('del_agendamento/' . $ag->AGENDAMENTO_ID) ?>"> <button type='button' class='btn btn-danger btn-circle'  alt="Remover">X</button></a> 
+        <a href="<?= base_url('del_agendamento/' . $ag->AGENDAMENTO_ID) ?>"> <button type='button' class='btn btn-danger btn-circle'  title="Remover">X</button></a> 
         </td>
       </tr>
       <?php } ?>

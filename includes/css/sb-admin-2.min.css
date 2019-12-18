@@ -5036,14 +5036,14 @@ input[type=submit].btn-block {
 	padding: .5rem .75rem;
 	margin-left: -1px;
 	line-height: 1.25;
-	color: #4e73df;
+	color: #39BFBF;
 	background-color: #fff;
 	border: 1px solid #dddfeb
 }
 
 .page-link:hover {
 	z-index: 2;
-	color: #224abe;
+	color: #39BFBF;
 	text-decoration: none;
 	background-color: #eaecf4;
 	border-color: #dddfeb
@@ -5069,8 +5069,8 @@ input[type=submit].btn-block {
 .page-item.active .page-link {
 	z-index: 1;
 	color: #fff;
-	background-color: #4e73df;
-	border-color: #4e73df
+	background-color: #39BFBF;
+	border-color: #39BFBF
 }
 
 .page-item.disabled .page-link {
