@@ -1,3 +1,4 @@
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none">
 
 
