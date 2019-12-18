@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</td>
 				<td>
 					<a href="<?= base_url('del_agendamento/' . $ag->AGENDAMENTO_ID) ?>"> <button type='button'
-							class='btn btn-danger'>Remover</button></a>
+							class='btn btn-danger btn-circle' alt="Remover">X</button></a>
 				</td>
 			</tr>
 			<?php } ?>

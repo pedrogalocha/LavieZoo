@@ -10,8 +10,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Animal</th>
 				<th>Especie</th>
 				<th>Raça</th>
-                <th>Perfil Exame</th>
-                <th>Horario Solicitação</th>
+				<th>Perfil Exame</th>
+				<th>Horario Solicitação</th>
 				<th>Status</th>
 				<th>Tipo de Busca</th>
 				<th>Data Coleta</th>
@@ -49,9 +49,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td><?php print_r($ag->ANIMAL_NOME) ?></td>
 				<td><?php print_r($ag->ANIMAL_RACA) ?></td>
 				<td><?php print_r($ag->ANIMAL_ESPECIE) ?></td>
-                <td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
-                <td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
-                <td><?php print_r($ag->STATUS) ?></td>
+				<td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
+				<td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
+				<td><?php print_r($ag->STATUS) ?></td>
 				<td><?php print_r($ag->TIPO_BUSCA) ?></td>
 				<td><?php print_r($ag->DATA_COLETA) ?></td>
 				<td><?php print_r($ag->DS_FAIXA_HORARIO) ?></td>
@@ -79,10 +79,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</td>
 				<td>
 					<a href="<?= base_url('del_agendamento/' . $ag->AGENDAMENTO_ID) ?>"> <button type='button'
-							class='btn btn-danger'>Remover</button></a>
+							class='btn btn-danger btn-circle' alt="Remover">X</button></a>
 				</td>
-			</tr>
-			<?php } ?>
+				<?php } ?>
 		</tbody>
 	</table>
 </div>
