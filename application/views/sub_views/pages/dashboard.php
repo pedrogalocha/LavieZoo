@@ -72,8 +72,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <a
                     href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->AGENDAMENTO_OUTROS_EXAMES)?></strong></a>
                   <?php } else {?>
-                  <a target="_blank"
-                    href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
+                  <a target="<?= base_url('ver_agendamento/' . $agend->AGENDAMENTO_ID)?>" href="<?= base_url('ver_agendamento/' . $agend->AGENDAMENTO_ID)?>"><strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
                   <?php }?>
                   <p class="margin-botton-perso"><?php print_r("<b>Nome do Animal: </b>" . $agend->ANIMAL_NOME)?></p>
                   <p class="margin-botton-perso"><?php print_r("<b>Proprietario: </b>" . $agend->ANIMAL_PROPRIETARIO)?>

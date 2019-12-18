@@ -228,7 +228,7 @@ class Agendamento_Model extends CI_Model
 
     public function getAgendamentos($idUsu)
     {
-        $qAgendamento = "SELECT pa.PERFIL_EXAME_ID, pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.AGENDAMENTO_LAUDO FROM tb_agendamento  ag
+        $qAgendamento = "SELECT pa.PERFIL_EXAME_ID, pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.AGENDAMENTO_LAUDO, ag.AGENDAMENTO_ID FROM tb_agendamento  ag
     INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
     INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
     WHERE ag.USUARIO_ID = $idUsu; ";
