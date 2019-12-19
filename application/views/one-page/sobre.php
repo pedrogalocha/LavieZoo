@@ -1,4 +1,4 @@
-<section id="about">
+<!-- <section id="about">
   <div class="container">
     <div class="row">
       <img src="<?php echo base_url('includes/img/icon_doggo.svg') ?>"
@@ -47,8 +47,23 @@
       <div class="col-sm-2"></div>
     </div>
     <div class="row justify-content-center" style="margin-top:20px">
-      <a href="<?php echo base_url('cadastro') ?>"><button
+      <a href="<?php echo base_url('cadastro') ?>"><button 
           class="text-center btn btn-lg btn-laranja">CADASTRE-SE</button></a>
     </div>
   </div>
+</section> -->
+<section id="about">
+  <center><p class="h1 text-dark font-weight-bold">NOSSOS PLANOS</p>
+<br>
+<p class="h4 text-dark font-weight-bold">A Laviezoo oferece seus serviços laboratoriais</br>
+sem cobrar nenhuma taxa de inscrição ou de cancelamento!</br></br>
+Aqui, você fica a vontade para escolher o</br>
+melhor plano para você e/ou sua equipe:
+</p>
+<br>
+<br>
+</center>
+<div class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/bg/CONHECA.png') ?>'); 
+background-repeat: no-repeat; background-size: 60% 100%;">
+</div>
 </section>
