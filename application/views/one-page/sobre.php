@@ -52,6 +52,7 @@
     </div>
   </div>
 </section> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <section id="about">
   <center><p class="h1 text-dark font-weight-bold">NOSSOS PLANOS</p>
 <br>
@@ -63,7 +64,25 @@ melhor plano para você e/ou sua equipe:
 <br>
 <br>
 </center>
-<div class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/bg/CONHECA.png') ?>'); 
-background-repeat: no-repeat; background-size: 60% 100%;">
-</div>
+<div class="row justify-content-center" style="margin-top:20px">
+      <!-- <a href="<?php echo base_url('cadastro') ?>"><button 
+          class="text-center btn btn-lg btn-laranja">SAIBA MAIS</button></a> -->
+
+          <button onclick="document.getElementById('id01').style.display='block'"  class="text-center btn btn-lg btn-laranja">SAIBA MAIS</button>
+    </div>
 </section>
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        
+      </header>
+      <div class="w3-container">
+      <header class="bg text-white" style="background-image: url('<?php echo base_url('includes/img/bg/CONHECA.png') ?>'); 
+background-repeat: no-repeat; background-size: 100% 100%; background-position: center center;">
+      </div>
+      
+    </div>
+  </div>
