@@ -82,7 +82,7 @@ melhor plano para você e/ou sua equipe:
       <div class="w3-container">
       <!-- <header  style="background-image: url('<?php echo base_url('includes/img/bg/CONHECA.png') ?>'); 
 background-repeat: no-repeat; background-size: 100% 100%; background-position: center center;"> -->
-      <img src="includes/img/bg/CONHECA.png" style="width:100%; height: 100%;">
+      <img src="includes/img/bg/CONHECA.png" class="w3-image" width="100%" height="100%">
 
       </div>
       
