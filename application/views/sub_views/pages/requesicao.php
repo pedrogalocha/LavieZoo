@@ -47,7 +47,7 @@
 		<div class="row" style="display: inline" id="tabela">
 
 			<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
-
+			<hr style="border-top: dotted 10px; color: #6EB1B9;" />
 				<div class="pt-4 px-2 form-group row">
 
 					<div class="col-md-6 mx-auto ">
@@ -120,10 +120,16 @@
 						$vet = $acionaInfo['CLINICA_NOME_FANTASIA'];
 					}
 					?>
-					<label class="align-self-center font-weight-bold" for="inputClinica">VETERINARIO / CLINICA</label>
-					<input type="text" class="form-control text-uppercase text-left"
-						value="<?php echo $vet ?>" name="inputClinica" id="inputClinica"
-						placeholder="Exame" required> 
+					<div class="col-md-6 mx-auto ">
+						<label class="align-self-center font-weight-bold" for="inputClinica">VETERINARIO / CLINICA</label>
+						<input type="text" class="form-control text-uppercase text-left" value="<?php echo $vet ?>"
+							name="inputClinica" id="inputClinica" placeholder="Exame" required>
+					</div>
+					<div class="col-md-6 mx-auto ">
+						<label class="align-self-center font-weight-bold" for="inputStatus">STATUS</label>
+						<input type="text" class="form-control text-uppercase text-left" value="<?php echo  $acionaInfo['STATUS'] ?>"
+							name="inputStatus" id="inputStatus" placeholder="STATUS" required>
+					</div>	
 				</div>
 			</div>
 		</div>
@@ -144,7 +150,7 @@
 			win.document.write('<link rel="stylesheet" type="text/css" href="includes/vendor/bootstrap/css/bootstrap.min.css">');
 			win.document.write('<link rel="stylesheet" type="text/css" href="includes/css/cadastro.css">');
 			win.document.write('<link rel="stylesheet" type="text/css" href="includes/css/fonts.css">');
-			win.document.write('<title>teste de pdf</title>'); // <title> CABEÇALHO DO PDF.
+			// win.document.write('<title>teste de pdf</title>'); // <title> CABEÇALHO DO PDF.
 			// INCLUI UM ESTILO NA TAB HEAD
 			win.document.write('</head>');
 			win.document.write('<body>');

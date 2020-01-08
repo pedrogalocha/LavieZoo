@@ -48,11 +48,11 @@ class Agendamento extends CI_Controller
     $id = 65;
     $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
     $dados = array(
-      'tela'      =>  'teste',
       'acionaInfo' => $dados['aciona']
     );
 
-    $this->load->view('sub_views/area_nav', $dados);
+    //  $this->load->view('sub_views/area_nav', $dados);
+     $this->load->view('sub_views/pages/requesicao', $dados);
   }
 
   public function ver_agendamento($id)
@@ -100,9 +100,6 @@ class Agendamento extends CI_Controller
   public function cadastrarAgendamento()
   {
     $dados_form = $this->input->post();
-
-    // echo "<script>alert(cheguei)</script>";
-
     $dados_insert['inputNomeAnimal'] = $dados_form['inputNomeAnimal'];
     $dados_insert['inputIdadeAnimal'] = $dados_form['inputIdadeAnimal'];
     $dados_insert['inputMesesAnimal'] = $dados_form['inputMesesAnimal'];
@@ -152,22 +149,7 @@ class Agendamento extends CI_Controller
     $dadosAt['inputEspecie'] = $dados_post['inputEspecie'];
     $dadosAt['inputNomeProprietario'] = $dados_post['inputNomeProprietario'];
     $dadosAt['radioExame'] = $dados_post['radioExame'];
-    // $dadosAt['radioBusca'] = $dados_post['radioBusca'];
-    // $dadosAt['inputBusca'] = $dados_post['inputBusca'];
-    // $dadosAt['DataColeta'] = $dados_post['DataColeta2'];
-    // $dadosAt['inputColeta'] = $dados_post['inputColeta'];
     $dadosAt['selectStatus'] = $dados_post['selectStatus'];
-    // $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'];
-    // $dadosAt['inputBusca'] = $dados_post['inputBusca'] == null ? null : $dados_post['inputBusca'] ;
-    // $dadosAt['inputColeta'] = $dados_post['inputColeta'] == null ? null : $dados_post['inputColeta'] ;
-    // $dadosAt['inputFaixaHorario'] = $dados_post['inputFaixaHorario'] == null ? 0 : $dados_post['inputFaixaHorario']  ;
-    // $dadosAt['inputEndereco'] = $dados_post['inputEndereco'] == null ? null : $dados_post['inputEndereco']  ;
-    // $dadosAt['inputComplemento'] = $dados_post['inputComplemento'] == null ? null : $dados_post['inputComplemento'] ;
-    // $dadosAt['inputBairro'] = $dados_post['inputBairro'] == null ? null : $dados_post['inputBairro']  ;
-    // $dadosAt['inputCidade'] = $dados_post['inputCidade'] == null ? null : $dados_post['inputCidade'];
-    // $dadosAt['inputEstado'] = $dados_post['inputEstado'] == null ? null : $dados_post['inputEstado'];
-    // $dadosAt['inputCep'] = $dados_post['inputCep'] == null ? null : $dados_post['inputCep'];
-    // $dadosAt['inputCelular'] = $dados_post['inputCelular'] == null ? null : $dados_post['inputCelular'];
     $dadosAt['inputDesc'] = $dados_post['inputDesc'];
     $dadosAt['idUsu'] = $dados_post['idUsu'];
 
