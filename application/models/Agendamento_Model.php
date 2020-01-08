@@ -1,4 +1,7 @@
 <?php
+
+use phpbb\cache\driver\redis;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 class Agendamento_Model extends CI_Model
 {
@@ -213,7 +216,7 @@ class Agendamento_Model extends CI_Model
     '$especie',
     '$proprietario',
     '$meses',
-    '$sexoA'
+    '$sexoA' 
     );";
         // print_r($qPrincipal);
         return $qPrincipal;
@@ -377,6 +380,7 @@ class Agendamento_Model extends CI_Model
             return 0;
         }
     }
+
     public function buscaEmClinicaDm()
     {
         $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, ag.HORARIO_SOLICITACAO,
@@ -506,5 +510,26 @@ class Agendamento_Model extends CI_Model
             } else {
                 return null;
             }
+    }
+    public function getAgendamentoPdf()
+    {
+        $query = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, ag.HORARIO_SOLICITACAO,
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
+        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        WHERE ag.AGENDAMENTO_ID = 64;";
+
+        $exec = $this->db->query($query);
+        $array = $exec->result();
+        if($exec->num_rows() > 0){
+            return $array;
+        }
+        else{
+            return null;
+        }
     }
 }

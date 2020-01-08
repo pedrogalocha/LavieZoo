@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller
     {
         $login = $this->session->userdata('USUARIO_EMAIL');
         $id = $this->session->userdata('ID_USUARIO');
-        $conta = $this->session->userdata('TIPO_CONTA');
+        $conta = $this->session->userdata('TIPO_CONTA'); 
         $dados['permissao'] = $this->session->userdata('USUARIO_NIVEL_ACESSO');
 
         if ($dados['permissao'] != null) {
