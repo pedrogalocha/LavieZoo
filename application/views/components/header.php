@@ -47,9 +47,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li class="nav-item nav-texto">
             <a class="nav-link js-scroll-trigger navbar-links" href="#about">CONHEÇA</a>
           </li>
-          <li class="nav-item nav-texto">
+          <!-- <li class="nav-item nav-texto">
             <a class="nav-link js-scroll-trigger navbar-links" href="<?php echo base_url('requesicao') ?>">TESTE DE PDF</a>
-          </li>
+          </li> -->
           <li class="nav-item nav-texto">
             <?php 
             

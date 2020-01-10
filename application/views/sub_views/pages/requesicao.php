@@ -35,6 +35,7 @@
 
 
 <body class="pt-5 bg text-white" style="margin-top:80px; background-color: #F3F3F3; background-image:none" onload="CriaPDF()">
+<!--  -->
 
 
 	<?php
@@ -136,7 +137,7 @@
 		<div class="pt-4 px-2 form-group row">
 			<div class="col-md-12 mb-2" style="text-align:center;">
 				<button type="button" class="btn btn-lg btn-warning text-white" id="btnImprimir"
-					onclick="CriaPDF()">teste</button>
+					onclick="CriaPDF()">Gerar PDF</button>
 			</div>
 		</div>
 		</div>
@@ -147,9 +148,9 @@
 			// CRIA UM OBJETO WINDOW
 			var win = window.open('', '', 'height=700,width=700');
 			win.document.write('<html><head>');
-			win.document.write('<link rel="stylesheet" type="text/css" href="includes/vendor/bootstrap/css/bootstrap.min.css">');
-			win.document.write('<link rel="stylesheet" type="text/css" href="includes/css/cadastro.css">');
-			win.document.write('<link rel="stylesheet" type="text/css" href="includes/css/fonts.css">');
+			win.document.write('<link rel="stylesheet" type="text/css" href="../includes/vendor/bootstrap/css/bootstrap.min.css">');
+			win.document.write('<link rel="stylesheet" type="text/css" href="../includes/css/cadastro.css">');
+			win.document.write('<link rel="stylesheet" type="text/css" href="../includes/css/fonts.css">');
 			// win.document.write('<title>teste de pdf</title>'); // <title> CABEÇALHO DO PDF.
 			// INCLUI UM ESTILO NA TAB HEAD
 			win.document.write('</head>');

@@ -43,16 +43,15 @@ class Agendamento extends CI_Controller
     }
   }
 
-  public function requesicao() 
-  { 
-    $id = 65;
+  public function requesicao($id) 
+  {
     $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
     $dados = array(
       'acionaInfo' => $dados['aciona']
     );
 
     //  $this->load->view('sub_views/area_nav', $dados);
-     $this->load->view('sub_views/pages/requesicao', $dados);
+     $this->load->view('sub_views/pages/requesicao', $dados); 
   }
 
   public function ver_agendamento($id)
