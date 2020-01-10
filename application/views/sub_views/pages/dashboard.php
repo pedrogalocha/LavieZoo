@@ -69,13 +69,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <li class="list-group-item list_dash">
                   
                   <?php if ($agend->PERFIL_EXAME_ID == 24) {?>
-                  <a
+                    <a
                     href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->AGENDAMENTO_OUTROS_EXAMES)?></strong></a>
                   <?php } else {?>
-                  <a target="<?= base_url('ver_agendamento/' . 
-                  $agend->AGENDAMENTO_ID)?>" href="<?= base_url('ver_agendamento/' . $agend->AGENDAMENTO_ID)?>">
-                  <strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
+                  <a target="_blank"
+                    href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
                   <?php }?>
+                  
                   <p class="margin-botton-perso"><?php print_r("<b>Nome do Animal: </b>" . $agend->ANIMAL_NOME)?></p>
                   <p class="margin-botton-perso"><?php print_r("<b>Proprietario: </b>" . $agend->ANIMAL_PROPRIETARIO)?>
                   </p>
@@ -103,7 +103,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #FFFFFF">
                 <?php if ($agendamentos != null) {?>
                 <?php $i = 1;foreach ($agendamentos as $agend) {?>
-                <li class="list-group-item list_dash">
+                <li class="list-group-item list_dash_cad">
                   
                   <?php if ($agend->PERFIL_EXAME_ID == 24) {?>  
                   <a
@@ -117,7 +117,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <p class="margin-botton-perso"><?php print_r("<b>Proprietario: </b>" . $agend->ANIMAL_PROPRIETARIO)?>
                   </p>
                   <p><?php print_r("<b>Status: </b>" . $agend->STATUS)?></p>
-                </li>
+                </li> 
                 <?php $i++;}?>
                 <?php } else {?>
                 <li class="list-group-item list_dash">
