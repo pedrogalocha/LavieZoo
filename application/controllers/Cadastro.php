@@ -29,7 +29,7 @@ class Cadastro extends CI_Controller
     {
         $dados = array(
             'tela' => 'vet',
-            'permissao' => 'cadastro',
+            'permissao' => 'cadastro', 
             'clinica' => false,
         );
         $this->load->view('sub_views/area_nav', $dados);
@@ -88,9 +88,6 @@ class Cadastro extends CI_Controller
             $cep = limpaCPF_CNPJ($dados_form['inputCep']);
             $senha = base64_encode($dados_form['inputSenha']);
             $email = $dados_form['inputEmail'];
-            // $dados_update['idClinica'] = $idClinica;
-
-            //tem que adicioar a atualização do cliente!!!
 
             $qVet = "UPDATE tb_veterinario SET VETERINARIO_NOME = '$nome', VETERINARIO_CRMV = '$crmv', VETERINARIO_DATA_NASC = '$nasc', VETERINARIO_SEXO = '$sexo', VETERINARIO_ESPECIALIDADE = '$spec',
         VETERINARIO_CPF = '$cpf', VETERINARIO_ENDERECO = '$end', VETERINARIO_COMPLEMENTO = '$comp', VETERINARIO_BAIRRO = '$bairro', VETERINARIO_CIDADE = '$cid', 
@@ -183,12 +180,12 @@ class Cadastro extends CI_Controller
         $dados_insert['inputCel'] = $dados_form['inputCel'];
         $dados_insert['inputEmail'] = $dados_form['inputEmail'];
         $dados_insert['inputSenha'] = base64_encode($dados_form['inputSenha']);
-        $dados_insert['inputEndereco'] = $dados_form['inputEndereco'];
-        $dados_insert['inputComplemento'] = $dados_form['inputComplemento'];
-        $dados_insert['inputBairro'] = $dados_form['inputBairro'];
-        $dados_insert['inputCidade'] = $dados_form['inputCidade'];
-        $dados_insert['inputEstado'] = $dados_form['inputEstado'];
-        $dados_insert['inputCep'] = limpaCPF_CNPJ($dados_form['inputCep']);
+        // $dados_insert['inputEndereco'] = $dados_form['inputEndereco'];
+        // $dados_insert['inputComplemento'] = $dados_form['inputComplemento'];
+        // $dados_insert['inputBairro'] = $dados_form['inputBairro'];
+        // $dados_insert['inputCidade'] = $dados_form['inputCidade'];
+        // $dados_insert['inputEstado'] = $dados_form['inputEstado'];
+        // $dados_insert['inputCep'] = limpaCPF_CNPJ($dados_form['inputCep']);
         $dados_insert['idClinica'] = $idClinica;
 
         // Pega CPF inserido e valida se já existe no banco

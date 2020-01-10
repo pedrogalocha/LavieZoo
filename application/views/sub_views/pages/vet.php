@@ -11,7 +11,8 @@
 			<?php } ?>
 			<div class="row">
 				<?php print_r($clinica) ?>
-				<div class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
+				<div
+					class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
 					<div class="rounded px-2 pt-3 pb-5 align-items-center justify-content-center"
 						style="background-color: rgba(255, 255, 255, 0.85)">
 						<img class="" src="<?php echo base_url('includes/img/agencia_cadastro_ICONE.svg') ?>" style="
@@ -22,13 +23,15 @@
             " />
 
 						<div class="mt-5 row form-group">
-							<h3 class="mt-5 mx-auto font-weight-bold text-center" style="color: #0C7C95">Cadastro Veterinário</h3>
+							<h3 class="mt-5 mx-auto font-weight-bold text-center" style="color: #0C7C95">Cadastro
+								Veterinário</h3>
 						</div>
 						<div class="form-group row">
 							<div class="col-md-9 mx-auto text-center">
-								<label class="align-self-center font-weight-bold" for="inputNomeCompleto">Nome Completo</label>
-								<input type="text" class="form-control text-uppercase" name="inputNomeCompleto" id="inputNomeCompleto"
-									placeholder="Digite o seu nome completo" required>
+								<label class="align-self-center font-weight-bold" for="inputNomeCompleto">Nome
+									Completo</label>
+								<input type="text" class="form-control text-uppercase" name="inputNomeCompleto"
+									id="inputNomeCompleto" placeholder="Digite o seu nome completo" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -43,20 +46,23 @@
 
 					<div class="pt-4 px-2 form-group row">
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de Nascimento</label>
-							<input type="date" class="form-control text-uppercase text-left" name="inputDataDeNascimento"
-								id="inputDataDeNascimento" placeholder="dd/mm/aaaa" required
-								pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
+							<label class="align-self-center font-weight-bold" for="inputDataDeNascimento">Data de
+								Nascimento</label>
+							<input type="date" class="form-control text-uppercase text-left"
+								name="inputDataDeNascimento" id="inputDataDeNascimento" placeholder="dd/mm/aaaa"
+								required pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$">
 						</div>
 
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" for="inputEspecialidade">Especialidade</label>
-							<input type="text" required class="form-control text-uppercase text-left" name="inputEspecialidade"
-								id="inputEspecialidade" placeholder="Qual a sua Especialidade?" required>
+							<label class="align-self-center font-weight-bold"
+								for="inputEspecialidade">Especialidade</label>
+							<input type="text" required class="form-control text-uppercase text-left"
+								name="inputEspecialidade" id="inputEspecialidade"
+								placeholder="Qual a sua Especialidade?" required>
 						</div>
 					</div>
 
-					<div class="px-2 form-group row">
+					<div class="pt-4 px-2 form-group row">
 						<div class="col-md-6 mx-auto ">
 							<div class="pt-4 form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
@@ -77,33 +83,38 @@
 
 						<div class="col-md-6 mx-auto ">
 							<label class="align-self-center font-weight-bold" for="inputCPF">CPF</label>
-							<input type="text" class="form-control text-uppercase text-left cpf" name="inputCPF" id="inputCPF"
-								placeholder="Digite o CPF" required
+							<input type="text" class="form-control text-uppercase text-left cpf" name="inputCPF"
+								id="inputCPF" placeholder="Digite o CPF" required
 								pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})">
 						</div>
 					</div>
 
-					<div class="px-2 form-group row">
+					<div class="pt-4 px-2 form-group row">
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" required for="inputConveniado">Telefone Celular</label>
-							<input type="text" class="form-control text-uppercase text-left ddd_cell form-control" name="inputCel"
-								id="inputCel" placeholder="+55(__)_____-____" onfocus="this.removeAttribute('readonly');" readonly>
+							<label class="align-self-center font-weight-bold" required for="inputConveniado">Telefone
+								Celular</label>
+							<input type="text" class="form-control text-uppercase text-left ddd_cell form-control"
+								name="inputCel" id="inputCel" placeholder="+55(__)_____-____"
+								onfocus="this.removeAttribute('readonly');" readonly>
 						</div>
 
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" for="inputConveniado">Telefone Fixo</label>
-							<input type="text" class="form-control text-uppercase text-left ddd_fix" name="inputFixo" id="inputFixo"
-								placeholder="+55(__)____-____" onfocus="this.removeAttribute('readonly');" readonly>
+							<label class="align-self-center font-weight-bold" for="inputConveniado">Telefone
+								Fixo</label>
+							<input type="text" class="form-control text-uppercase text-left ddd_fix" name="inputFixo"
+								id="inputFixo" placeholder="+55(__)____-____"
+								onfocus="this.removeAttribute('readonly');" readonly>
 						</div>
 
-						<div class="col-md-3 mx-auto pt-5 ">
+						<!-- <div class="col-md-3 mx-auto pt-5 ">
 							<button class="btn-azul">Conheça o nosso plano!</button>
-						</div>
+						</div> -->
 					</div>
-
+					<br>
 					<hr style="border-top: dotted 10px; color: #6EB1B9;" />
+					<br>
 
-					<div class="px-2 pt-4 form-group row">
+					<!-- <div class="px-2 pt-4 form-group row">
 						<div class="col-md-12 mx-auto ">
 							<label class="align-self-center font-weight-bold" for="inputEndereco">Endereço</label>
 							<input type="text" class="form-control text-uppercase text-left" name="inputEndereco" id="inputEndereco"
@@ -146,36 +157,41 @@
 								onblur="buscarEndereco(document.getElementById('inputCep').value); ">
 						</div>
 					</div>
-					<hr style="border-top: dotted 10px; color: #6EB1B9;" />
+					<hr style="border-top: dotted 10px; color: #6EB1B9;" /> -->
 
 					<div class="px-2 form-group row">
 						<div class="col-md-6 mx-auto ">
 							<label class="align-self-center font-weight-bold" for="inputEmail">E-mail</label>
-							<input type="email" required class="form-control text-uppercase text-left form-control" name="inputEmail"
-								id="inputEmail" placeholder="Digite seu Email" onfocus="this.removeAttribute('readonly');" readonly>
+							<input type="email" required class="form-control text-uppercase text-left form-control"
+								name="inputEmail" id="inputEmail" placeholder="Digite seu Email"
+								onfocus="this.removeAttribute('readonly');" readonly>
 						</div>
 
 						<div class="col-md-6 mx-auto ">
 							<label class="align-self-center font-weight-bold" for="inputSenha">Senha</label>
-							<input type="password" required class="form-control text-uppercase text-left" name="inputSenha"
-								id="inputSenha" placeholder="Digite sua Senha" onfocus="this.removeAttribute('readonly');" readonly>
+							<input type="password" required class="form-control text-uppercase text-left"
+								name="inputSenha" id="inputSenha" placeholder="Digite sua Senha"
+								onfocus="this.removeAttribute('readonly');" readonly>
 						</div>
 					</div>
 
 					<div class="px-2 form-group row">
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" for="inputEmailConfirm">Confirme o seu E-mail</label>
+							<label class="align-self-center font-weight-bold" for="inputEmailConfirm">Confirme o seu
+								E-mail</label>
 							<input type="email" name="inputEmailConfirm" class="form-control text-uppercase text-left"
 								id="inputEmailConfirm" placeholder="Insira o email novamente">
 						</div>
 
 						<div class="col-md-6 mx-auto ">
-							<label class="align-self-center font-weight-bold" for="inputSenhaConfirm">Confirme a sua Senha</label>
-							<input type="password" name="inputSenhaConfirm" class="form-control text-uppercase text-left"
-								id="inputSenhaConfirm" placeholder="Insira a senha novamente">
+							<label class="align-self-center font-weight-bold" for="inputSenhaConfirm">Confirme a sua
+								Senha</label>
+							<input type="password" name="inputSenhaConfirm"
+								class="form-control text-uppercase text-left" id="inputSenhaConfirm"
+								placeholder="Insira a senha novamente">
 						</div>
 					</div>
-
+					<br>
 					<div class="px-2 form-group row pb-5">
 						<div class="col-md-12">
 							<div class="form-check">
@@ -187,19 +203,25 @@
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="SaberMais" required>
 								<label class="form-check-label" for="SaberMais">
-									Para saber mais sobre como o LavieZoo coleta, processa, compartilha e protege seus dados pessoais,
+									Para saber mais sobre como o LavieZoo coleta, processa, compartilha e protege seus
+									dados pessoais,
 									leia a Política de Privacidade do Laviezoo
 								</label>
 							</div>
+							<br>
+							<br>
 						</div>
+						
 						<div class="col-md-12">
-                        <?php if ($permissao != 'CLI_PRO' ) {?>
+							<center>
+							<?php if ($permissao == 'CLI_PRO' ) {?>
 							<button type="submit" class="btn btn-lg btn-warning text-white">Cadastrar</button>
 							<?php }else{?>
-								<button type="button" class="btn btn-lg btn-warning text-black" disabled>Cadastrar</button>
-								<label color="red"> --->  Função disponivel apenas para Clinicas com o plano PRO</label>
-								<?php } ?>
-              
+							<button type="button" class="btn btn-lg btn-warning text-black" disabled>Cadastrar</button>
+							<label color="red"> ---> Função disponivel apenas para Clinicas com o plano PRO</label>
+							<?php } ?>
+							</center>
+
 						</div>
 					</div>
 				</div>
@@ -230,7 +252,7 @@
 						required: true,
 					},
 					inputEmail: {
-						required: true,
+						required: true, 
 						minlength: 6,
 					},
 					inputSenha: {
@@ -246,24 +268,24 @@
 					inputEmailConfirm: {
 						equalTo: inputEmail,
 					},
-					inputEndereco: {
-						required: true,
-					},
-					inputComplemento: {
-						required: true,
-					},
-					inputBairro: {
-						required: true,
-					},
-					inputCidade: {
-						required: true,
-					},
-					inputEstado: {
-						required: true,
-					},
-					inputCep: {
-						required: true,
-					},
+					// inputEndereco: {
+					// 	required: true,
+					// },
+					// inputComplemento: {
+					// 	required: true,
+					// },
+					// inputBairro: {
+					// 	required: true,
+					// },
+					// inputCidade: {
+					// 	required: true,
+					// },
+					// inputEstado: {
+					// 	required: true,
+					// },
+					// inputCep: {
+					// 	required: true,
+					// },
 				},
 				messages: {
 					inputNomeCompleto: {
@@ -292,24 +314,24 @@
 					inputEmailConfirm: {
 						equalTo: "Os dois emails devem ser iguais.",
 					},
-					inputEndereco: {
-						required: "Por favor inserir um endereço."
-					},
-					inputComplemento: {
-						required: "Por favor inserir um complemento.",
-					},
-					inputBairro: {
-						required: "Por favor inserir um Bairro.",
-					},
-					inputCidade: {
-						required: "Por favor inserir uma Cidade.",
-					},
-					inputEstado: {
-						required: "Por favor inserir uma Estado.",
-					},
-					inputCep: {
-						required: "Por favor inserir uma CEP.",
-					},
+					// inputEndereco: {
+					// 	required: "Por favor inserir um endereço."
+					// },
+					// inputComplemento: {
+					// 	required: "Por favor inserir um complemento.",
+					// },
+					// inputBairro: {
+					// 	required: "Por favor inserir um Bairro.",
+					// },
+					// inputCidade: {
+					// 	required: "Por favor inserir uma Cidade.",
+					// },
+					// inputEstado: {
+					// 	required: "Por favor inserir uma Estado.",
+					// },
+					// inputCep: {
+					// 	required: "Por favor inserir uma CEP.",
+					// },
 				}
 			});
 
@@ -332,15 +354,15 @@
 			})();
 
 
-			function buscarEndereco(cep) {
-				var url = 'http://api.postmon.com.br/v1/cep/' + cep.toString();
-				$.getJSON(url, function (data) {
-					document.getElementById("inputEndereco").value = data.logradouro
-					document.getElementById("inputCidade").value = data.cidade
-					document.getElementById("inputBairro").value = data.bairro
-					document.getElementById("inputEstado").value = data.estado
-				})
-			}
+			// function buscarEndereco(cep) {
+			// 	var url = 'http://api.postmon.com.br/v1/cep/' + cep.toString();
+			// 	$.getJSON(url, function (data) {
+			// 		document.getElementById("inputEndereco").value = data.logradouro
+			// 		document.getElementById("inputCidade").value = data.cidade
+			// 		document.getElementById("inputBairro").value = data.bairro
+			// 		document.getElementById("inputEstado").value = data.estado
+			// 	})
+			// }
 
 		</script>
 </body>

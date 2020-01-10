@@ -94,7 +94,7 @@ $route['coletaDomiciliar'] ='Dashboard/coletaDomiciliar';
 $route['buscaEmClinicaDm'] ='Dashboard/buscaEmClinicaDm';
 $route['coletaEmClinicaDm'] ='Dashboard/coletaEmClinicaDm';
 $route['coletaDomiciliarDm'] ='Dashboard/coletaDomiciliarDm';
-//listagem Cancelados
+//listagem Cancelados 
 $route['buscaEmClinicaCld'] ='Dashboard/buscaEmClinicaCld';
 $route['coletaEmClinicaCld'] ='Dashboard/coletaEmClinicaCld';
 $route['coletaDomiciliarCld'] ='Dashboard/coletaDomiciliarCld';

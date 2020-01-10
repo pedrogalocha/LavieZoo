@@ -145,7 +145,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <strong><?php print_r("Veterinario: " . $vetass->VETERINARIO_NOME)?></strong>
                   <p><?php print_r("CRMV: " . $vetass->VETERINARIO_CRMV)?></p>
                 </li>
-                <?php }?>
+                <?php }?> 
                 <?php } else {?>
                 <li class="list-group-item list_dash">
                   <strong>Nenhum Item associado</strong>
