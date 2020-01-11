@@ -214,7 +214,7 @@
 						
 						<div class="col-md-12">
 							<center>
-							<?php if ($permissao == 'CLI_PRO' ) {?>
+							<?php if ($permissao == 'CLI_PRO' || $permissao == 'ADMIN') {?>
 							<button type="submit" class="btn btn-lg btn-warning text-white">Cadastrar</button>
 							<?php }else{?>
 							<button type="button" class="btn btn-lg btn-warning text-black" disabled>Cadastrar</button>
