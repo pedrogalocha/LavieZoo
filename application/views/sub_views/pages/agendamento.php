@@ -95,11 +95,9 @@
 								</div>
 						<?php } ?>
 						
-						<div class="pt-2 form-check form-check coleta">
-							<!-- <input class="form-check-input" type="radio" name="inlineRadioOptions2" data-toggle="modal" data-target="#myModal" id="inlineRadio1" value="9" required>
-							<label class="form-check-label" for="inlineRadio1"><b>Outros exames </b>
-							</label> -->
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Cadastrar um novo exame</button>
+						<div class="pt-2 form-check form-check coleta" align="right">
+							<br>
+							<button type="button"  class="btn btn-info" data-toggle="modal" data-target="#myModal">CADASTRAR NOVO PERFIL</button>
 						</div>
 					</div>
 				</div>
