@@ -15,6 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Tipo de Busca</th>
         <th>Solicitante</th>
         <th>Status</th>
+        <th>Motivo</th>
         <th>Laudo</th>
         <th>-</th>
         <th>-</th>
@@ -31,6 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <th>Tipo de Busca</th>
         <th>Solicitante</th>
         <th>Status</th>
+        <th>Motivo</th>
         <th>Laudo</th>
         <th>-</th>
         <th>-</th>
@@ -58,6 +60,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
           ?></td>
         <td><?php print_r($ag->STATUS) ?></td>
+        <td><?php print_r($ag->DESC_STATUS) ?></td>
         <td>
           <form action="salvarLaudo" method="POST" enctype="multipart/form-data">
             <input type="text" name="agId" style="display:none;" value="<?php print_r($ag->AGENDAMENTO_ID) ?>">

@@ -14,6 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Horario Solicitação</th>
 				<th>Tipo de Busca</th>
 				<th>Status</th>
+				<th>Motivo</th>
 				<th>CEP</th>
 				<th>Endereço</th>
 				<th>Bairro</th>
@@ -35,6 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Horario Solicitação</th>
 				<th>Tipo de Busca</th>
 				<th>Status</th>
+				<th>Motivo</th>
 				<th>CEP</th>
 				<th>Endereço</th>
 				<th>Bairro</th>
@@ -47,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</tr>
 		</tfoot>
 		<tbody>
-			<?php foreach($agendamentos as $ag){ ?>
+		<?php foreach($agendamentos as $ag){ ?>
 			<tr>
 
 				<td id="ag_<?php print_r($ag->AGENDAMENTO_ID) ?>"><?php print_r($ag->AGENDAMENTO_ID) ?></td>
@@ -57,13 +59,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td><?php print_r($ag->ANIMAL_ESPECIE) ?></td>
 				<td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
 				<td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
-				<td><?php print_r($ag->TIPO_BUSCA) ?></td>
 				<td><?php print_r($ag->STATUS) ?></td>
-				<td><?php print_r($ag->CEP)?></td>
-				<td><?php print_r($ag->ENDERECO)?></td>
-				<td><?php print_r($ag->BAIRRO)?></td>
-				<td><?php print_r($ag->CIDADE)?></td>
-				<td><?php print_r($ag->ESTADO)?></td>
+				<td><?php print_r($ag->DESC_STATUS) ?></td>
+				<td><?php print_r($ag->TIPO_BUSCA) ?></td>
+				<td><?php print_r($ag->DATA_COLETA) ?></td>
+				<td><?php print_r($ag->DS_FAIXA_HORARIO) ?></td>
 				<td><?php 
         if($ag->VETERINARIO_NOME != null)
         {
@@ -84,7 +84,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td>
 					<a href="#"
 						onclick="window.open('<?= base_url('ver_agendamento/' . $ag->AGENDAMENTO_ID)  ?>', 'Atualizar', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=10, LEFT=10, WIDTH=1200, HEIGHT=800');"><button
-							type='button' class='btn btn-primary'  title="Editar">+</button></a>
+							type='button' class='btn btn-primary' title="Editar">+</button></a>
 				</td>
 				<td>
 					<a href="<?= base_url('del_agendamento/' . $ag->AGENDAMENTO_ID) ?>"> <button type='button'

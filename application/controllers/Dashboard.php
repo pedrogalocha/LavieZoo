@@ -309,7 +309,7 @@ class Dashboard extends CI_Controller
             $dados['agendamentos'] = $this->agenModel->buscaEmClinicaCld();
 
             $dados = array(
-                'tela' => 'buscaEmClinicaDm',
+                'tela' => 'buscaEmClinicaCld',
                 'permissao' => $dados['permissao'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
                 'agendamentos' => $dados['agendamentos']
@@ -332,7 +332,7 @@ class Dashboard extends CI_Controller
             $dados['agendamentos'] = $this->agenModel->coletaEmClinicaCld();
 
             $dados = array(
-                'tela' => 'coletaEmClinicaDm',
+                'tela' => 'coletaEmClinicaCld',
                 'permissao' => $dados['permissao'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
                 'agendamentos' => $dados['agendamentos']
@@ -355,7 +355,7 @@ class Dashboard extends CI_Controller
             $dados['agendamentos'] = $this->agenModel->coletaDomiciliarCld();
 
             $dados = array(
-                'tela' => 'coletaDomiciliarDm',
+                'tela' => 'coletaDomiciliarCld',
                 'permissao' => $dados['permissao'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
                 'agendamentos' => $dados['agendamentos']

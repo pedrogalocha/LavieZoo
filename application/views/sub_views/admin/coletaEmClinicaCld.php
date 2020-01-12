@@ -13,6 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Perfil Exame</th>
 				<th>Horario Solicitação</th>
 				<th>Status</th>
+				<th>Motivo</th>
 				<th>Tipo de Busca</th>
 				<th>Data Coleta</th>
 				<th>Faixa de Horario</th>
@@ -31,6 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<th>Perfil Exame</th>
 				<th>Horario Solicitação</th>
 				<th>Status</th>
+				<th>Motivo</th>
 				<th>Tipo de Busca</th>
 				<th>Data Coleta</th>
 				<th>Faixa de Horario</th>
@@ -52,6 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<td><?php print_r($ag->DS_PERFIL_EXAME) ?></td>
 				<td><?php print_r($ag->HORARIO_SOLICITACAO) ?></td>
 				<td><?php print_r($ag->STATUS) ?></td>
+				<td><?php print_r($ag->DESC_STATUS) ?></td>
 				<td><?php print_r($ag->TIPO_BUSCA) ?></td>
 				<td><?php print_r($ag->DATA_COLETA) ?></td>
 				<td><?php print_r($ag->DS_FAIXA_HORARIO) ?></td>

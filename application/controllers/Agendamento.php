@@ -46,8 +46,12 @@ class Agendamento extends CI_Controller
   public function requesicao($id) 
   {
     $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
+    $vet = $this->agendamento->getInfoNomeVeterinario($id);
+    $fantasia = $this->agendamento->getInfoNomeFantasia($id);
     $dados = array(
-      'acionaInfo' => $dados['aciona']
+      'acionaInfo' => $dados['aciona'],
+      'vet' => $vet,
+      'fantasia' => $fantasia 
     );
 
     //  $this->load->view('sub_views/area_nav', $dados);
@@ -56,7 +60,6 @@ class Agendamento extends CI_Controller
 
   public function ver_agendamento($id)
   {
-
     $rotabaseDash = base_url('Dash');
     $login = $this->session->userdata('USUARIO_EMAIL');
     $id_sessao = $this->session->userdata('USUARIO_ID');
