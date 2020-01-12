@@ -357,7 +357,7 @@ class Agendamento_Model extends CI_Model
     }
     public function getInfoTotalAciona($id){
         $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE, a.ANIMAL_MESES, a.ANIMAL_RACA, a.ANIMAL_SEXO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, ag.DESC_STATUS
         FROM tb_agendamento  ag
         INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
         INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
@@ -380,7 +380,7 @@ class Agendamento_Model extends CI_Model
             return 0;
         }
     }
-    public function getInfoNomeFantasia($id)
+    public function getInfoNomeFantasia($cli_id)
     {
         $queryBuscaAc = "SELECT c.CLINICA_NOME_FANTASIA
         FROM tb_agendamento  ag
@@ -389,7 +389,7 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
         --  
-        WHERE ag.AGENDAMENTO_ID = '$id';";
+        WHERE c.CLINICA_ID = '$cli_id';";
         
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
@@ -428,6 +428,31 @@ class Agendamento_Model extends CI_Model
             return 0;
         }
     }
+    public function getInfoClinicaVeterinario($id)
+    {
+        $queryBuscaAc = "SELECT u.CLINICA_ID
+        FROM tb_agendamento  ag
+        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+        INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+        --  
+        WHERE ag.AGENDAMENTO_ID = '$id';";
+        
+        // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
+
+        $execBuscaAciona = $this->db->query($queryBuscaAc);
+        $dadosAc = $execBuscaAciona->row_array();
+        if($execBuscaAciona->num_rows() > 0)   
+        {
+            return $dadosAc; 
+      
+        }
+        else{
+            return 0;
+        }
+    }
+
 
     public function buscaEmClinicaDm()
     {

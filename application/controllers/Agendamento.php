@@ -47,11 +47,13 @@ class Agendamento extends CI_Controller
   {
     $dados['aciona'] = $this->agendamento->getInfoTotalAciona($id);
     $vet = $this->agendamento->getInfoNomeVeterinario($id);
-    $fantasia = $this->agendamento->getInfoNomeFantasia($id);
+    $id_cli['id'] = $this->agendamento->getInfoClinicaVeterinario($id);
+    $id_clinica = implode("", $id_cli['id']);
+    $fantasia = $this->agendamento->getInfoNomeFantasia($id_clinica);
     $dados = array(
       'acionaInfo' => $dados['aciona'],
       'vet' => $vet,
-      'fantasia' => $fantasia 
+      'fantasia' => $fantasia
     );
 
     //  $this->load->view('sub_views/area_nav', $dados);

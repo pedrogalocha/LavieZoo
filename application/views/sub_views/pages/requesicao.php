@@ -64,19 +64,20 @@
 							class="pt-5 container col-sm-8 mx-auto align-self-center align-items-center justify-content-center">
 							<hr style="border-top: dotted 10px; color: #6EB1B9;" />
 							<div class="pt-4 px-2 form-group row">
-								
+
 								<div class="col-md-6 mx-auto ">
-									<label class="align-self-center font-weight-bold" for="inputClinica">VETERINARIO</label>
+									<label class="align-self-center font-weight-bold"
+										for="inputClinica">VETERINARIO</label>
 									<input type="text" class="form-control text-uppercase text-left"
-										value="<?php echo $vet['VETERINARIO_NOME'] ?>" name="inputClinica" id="inputClinica"
-										 required>
+										value="<?php echo $vet['VETERINARIO_NOME'] ?>" name="inputClinica"
+										id="inputClinica" required>
 								</div>
 								<div class="col-md-6 mx-auto ">
 									<label class="align-self-center font-weight-bold" for="inputClinica">
 										CLINICA</label>
 									<input type="text" class="form-control text-uppercase text-left"
-										value="<?php  echo $fantasia['CLINICA_NOME_FANTASIA'] ?>" name="inputClinica" id="inputClinica"
-										 required>
+										value="<?php  echo $fantasia['CLINICA_NOME_FANTASIA'] ?>" name="inputClinica"
+										id="inputClinica" required>
 								</div>
 							</div>
 							<div class="pt-4 px-2 form-group row">
@@ -165,6 +166,17 @@
 									<label class="align-self-center font-weight-bold" for="inputStatus">STATUS</label>
 									<input type="text" class="form-control text-uppercase text-left"
 										value="<?php echo  $acionaInfo['STATUS'] ?>" name="inputStatus" id="inputStatus"
+										required>
+								</div>
+							</div>
+
+							<div class="pt-4 px-2 form-group row">
+
+
+								<div class="col-md-12 mx-auto ">
+									<label class="align-self-center font-weight-bold" for="inputStatus">Descrição</label>
+									<input type="text" class="form-control text-uppercase text-left"
+										value="<?php echo  $acionaInfo['DESC_STATUS'] ?>" name="inputStatus" id="inputStatus"
 										required>
 								</div>
 							</div>
