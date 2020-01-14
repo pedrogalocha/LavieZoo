@@ -21,8 +21,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <p class="font-weight-bold text_padrao"><?php echo ("Dr. " . $userInfo['VETERINARIO_NOME']) ?></p>
               <?php } else {?>
               <p class="mt-5 font-weight-bold dashboard_user text_padrao">Seja bem vindo,
-                <?php echo $userInfo['CLINICA_NOME_FANTASIA'] ?></p>
-              <p class="font-weight-bold text_padrao"><?php echo ($userInfo['CLINICA_NOME_FANTASIA']) ?></p>
+                <!-- <?php echo $userInfo['CLINICA_NOME_FANTASIA'] ?></p> -->
+              <!-- <p class="font-weight-bold text_padrao"><?php echo ($userInfo['CLINICA_NOME_FANTASIA']) ?></p> -->
+              <!-- <p class="font-weight-bold text_padrao"><?php echo ($vetAssociados['VETERINARIO_NOME']) ?></p> -->
               <?php }?>
             </div>
           </div>
@@ -109,8 +110,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <a
                     href="<?php echo $agend->AGENDAMENTO_LAUDO ?>"><strong><?php print_r($i . " - " . $agend->AGENDAMENTO_OUTROS_EXAMES)?></strong></a>
                   <?php } else {?>
-                  <a target="<?= base_url('requesicao/' . 
-                  $agend->AGENDAMENTO_ID)?>" href="<?= base_url('requesicao/' . $agend->AGENDAMENTO_ID)?>">
+                  <a target="<?= base_url('requesicao/' . $agend->AGENDAMENTO_ID)?>" href="<?= base_url('requesicao/' . $agend->AGENDAMENTO_ID)?>">
                   <strong><?php print_r($i . " - " . $agend->DS_PERFIL_EXAME)?></strong></a>
                   <?php }?>
                   <p class="margin-botton-perso"><?php print_r("<b>Nome do Animal: </b>" . $agend->ANIMAL_NOME)?></p>
@@ -134,22 +134,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="col-md-4 mx-6 ml-6 ajuste_margin_list">
         <div>
           <div class="panel panel-primary" id="result_panel">
+            
             <div class="panel-heading ">
               <h3 class="panel-title text_padrao">Cadastrar Novo Usuário</h3>
             </div>
             <div class="panel-body">
               <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
                 <?php if ($vetAssociados != null) {?>
-                <?php foreach ($vetAssociados as $vetass) {?>
+                <?php $i = 1; foreach ($vetAssociados as $vetass) {?>
                 <li class="list-group-item list_dash">
-                  <strong><?php print_r("Veterinario: " . $vetass->VETERINARIO_NOME)?></strong>
-                  <p><?php print_r("CRMV: " . $vetass->VETERINARIO_CRMV)?></p>
+                <a target="#" href="#">
+                  <strong><?php print_r($i . " - Veterinario: " . $vetass->VETERINARIO_NOME)?></strong></a>
+                  <!-- <p><?php print_r("CRMV: " . $vetass->VETERINARIO_CRMV)?></p> -->
                 </li>
-                <?php }?> 
+                <?php $i++;}?> 
                 <?php } else {?>
                 <li class="list-group-item list_dash">
                   <strong>Nenhum Item associado</strong>
                 </li>
+                
                 <?php }?>
               </ul>
               <div class="mt-2" style="text-align:center;">
