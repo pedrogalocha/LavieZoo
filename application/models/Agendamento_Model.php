@@ -61,36 +61,37 @@ class Agendamento_Model extends CI_Model
         }
     }
 
-    public function atualizarAgendamento($dadosAt){
-    $inputNomeAnimal = $dadosAt['inputNomeAnimal'];
-    $inputIdadeAnimal = $dadosAt['inputIdadeAnimal'];
-    $inputMesesAnimal = $dadosAt['inputMesesAnimal'];
-    $radioRaca = $dadosAt['radioRaca'];
-    $radioSexo = $dadosAt['radioSexo'];
-    $inputEspecie = $dadosAt['inputEspecie'];
-    $inputNomeProprietario = $dadosAt['inputNomeProprietario'];
-    $radioExame = $dadosAt['radioExame'];
-    // $radioBusca = $dadosAt['radioBusca'];
-    // $inputBusca = $dadosAt['inputBusca'];
-    // $DataColeta = $dadosAt['DataColeta'];
-    // $inputColeta = $dadosAt['inputColeta'];
-    // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
-    // $inputBusca = $dadosAt['inputBusca'];
-    // $inputColeta = $dadosAt['inputColeta'];
-    // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
-	// $inputEndereco = $dadosAt['inputEndereco'];
-	// $inputComplemento = $dadosAt['inputComplemento'];
-	// $inputBairro = $dadosAt['inputBairro'];
-	// $inputCidade = $dadosAt['inputCidade'];
-	// $inputEstado = $dadosAt['inputEstado'];
-    // $inputCep = $dadosAt['inputCep'];
-    // $inputCelular = $dadosAt['inputCelular'];
-    $selectStatus = $dadosAt['selectStatus'];
-    $inputDesc = $dadosAt['inputDesc'];
-    $idAgen = $dadosAt['idUsu'];
- 
+    public function atualizarAgendamento($dadosAt)
+    {
+        $inputNomeAnimal = $dadosAt['inputNomeAnimal'];
+        $inputIdadeAnimal = $dadosAt['inputIdadeAnimal'];
+        $inputMesesAnimal = $dadosAt['inputMesesAnimal'];
+        $radioRaca = $dadosAt['radioRaca'];
+        $radioSexo = $dadosAt['radioSexo'];
+        $inputEspecie = $dadosAt['inputEspecie'];
+        $inputNomeProprietario = $dadosAt['inputNomeProprietario'];
+        $radioExame = $dadosAt['radioExame'];
+        // $radioBusca = $dadosAt['radioBusca'];
+        // $inputBusca = $dadosAt['inputBusca'];
+        // $DataColeta = $dadosAt['DataColeta'];
+        // $inputColeta = $dadosAt['inputColeta'];
+        // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+        // $inputBusca = $dadosAt['inputBusca'];
+        // $inputColeta = $dadosAt['inputColeta'];
+        // $inputFaixaHorario = $dadosAt['inputFaixaHorario'];
+        // $inputEndereco = $dadosAt['inputEndereco'];
+        // $inputComplemento = $dadosAt['inputComplemento'];
+        // $inputBairro = $dadosAt['inputBairro'];
+        // $inputCidade = $dadosAt['inputCidade'];
+        // $inputEstado = $dadosAt['inputEstado'];
+        // $inputCep = $dadosAt['inputCep'];
+        // $inputCelular = $dadosAt['inputCelular'];
+        $selectStatus = $dadosAt['selectStatus'];
+        $inputDesc = $dadosAt['inputDesc'];
+        $idAgen = $dadosAt['idUsu'];
 
-    $qAtualizar ="UPDATE tb_agendamento AS age
+
+        $qAtualizar = "UPDATE tb_agendamento AS age
     INNER JOIN tb_animal AS ani ON (age.ANIMAL_ID = ani.ANIMAL_ID) 
     SET ani.ANIMAL_NOME = '$inputNomeAnimal'
     , ani.ANIMAL_IDADE = '$inputIdadeAnimal', ani.ANIMAL_MESES = '$inputMesesAnimal', ani.ANIMAL_RACA = '$radioRaca', 
@@ -98,20 +99,19 @@ class Agendamento_Model extends CI_Model
     age.STATUS = '$selectStatus', age.DESC_STATUS = '$inputDesc'
     WHERE age.AGENDAMENTO_ID = $idAgen";
 
-    $this->db->trans_start();
-            $this->db->query($qAtualizar);
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === false) {
-                // $route = base_url('exibeAgendVets');
-                echo "<script>alert('Erro ao atualizar os dados')</script>";
-                $this->db->trans_rollback();
-            }
-            else{   
-                $this->db->trans_commit();
-                // $route = base_url('exibeAgendVets');
-                    echo "<script>alert('Dados atualizados com sucesso');
+        $this->db->trans_start();
+        $this->db->query($qAtualizar);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === false) {
+            // $route = base_url('exibeAgendVets');
+            echo "<script>alert('Erro ao atualizar os dados')</script>";
+            $this->db->trans_rollback();
+        } else {
+            $this->db->trans_commit();
+            // $route = base_url('exibeAgendVets');
+            echo "<script>alert('Dados atualizados com sucesso');
             // </script>";
-            }
+        }
     }
 
     public function cadastraAgendamento($dados_insert)
@@ -139,16 +139,15 @@ class Agendamento_Model extends CI_Model
         $sexo = $dados_insert['sexo'];
         $inputBusca = $dados_insert['inputBusca'];
         $inputHorario = $dados_insert['inputHorario'];
-        
 
-        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions ,$inputNomeProprietario, $inputMesesAnimal, $sexo, $inputHorario);
-        $this->db->query($cadAnimal); 
+
+        $cadAnimal = $this->agendamento->cadastroAnimal($inputNomeAnimal, $inputIdadeAnimal, $inputRaça, $inlineRadioOptions, $inputNomeProprietario, $inputMesesAnimal, $sexo, $inputHorario);
+        $this->db->query($cadAnimal);
 
         $idAnimal = $this->agendamento->getIdAnimal($inputNomeAnimal);
         $idAni = $this->db->query($idAnimal)->row()->ANIMAL_ID;
 
-        $qPrincipal = "INSERT INTO tb_agendamento (
-    ANIMAL_ID,
+        $qPrincipal = "INSERT INTO tb_agendamento (ANIMAL_ID,
     PERFIL_EXAME_ID,
     TIPO_BUSCA,
     DATA_COLETA,
@@ -194,7 +193,6 @@ class Agendamento_Model extends CI_Model
             echo "<script>alert('Agendamento efetuado com sucesso.')</script>";
             return true;
         }
-
     }
 
     public function cadastroAnimal($nome, $idade, $especie, $raca, $proprietario, $meses, $sexoA)
@@ -244,7 +242,8 @@ class Agendamento_Model extends CI_Model
         }
     }
 
-    public function getAgendamentosVet(){
+    public function getAgendamentosVet()
+    {
         $qAgendamento = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_SEXO, a.ANIMAL_NOME, a.ANIMAL_RACA,ag.STATUS, 
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO,ag.CEP, ag.ENDERECO,  a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
@@ -253,16 +252,17 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         ";
         // WHERE ag.STATUS = 'SOLICITADO'";
-            $eAgendamento = $this->db->query($qAgendamento);
-            $aAgendamento = $eAgendamento->result();
-            if ($eAgendamento->num_rows() > 0) {
-                return $aAgendamento;
-            } else {
-                return null;
-            }
+        $eAgendamento = $this->db->query($qAgendamento);
+        $aAgendamento = $eAgendamento->result();
+        if ($eAgendamento->num_rows() > 0) {
+            return $aAgendamento;
+        } else {
+            return null;
+        }
     }
 
-    public function getBuscaEmClinica(){
+    public function getBuscaEmClinica()
+    {
         $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, ag.HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
@@ -273,16 +273,17 @@ class Agendamento_Model extends CI_Model
         LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         WHERE ag.TIPO_BUSCA = 'Busca em Clinica'
         AND ag.STATUS = 'EM EXECUÇÃO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
 
-    public function getColetaEmClinica(){
+    public function getColetaEmClinica()
+    {
         $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, ag.HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, f.DS_FAIXA_HORARIO
         FROM tb_agendamento ag
@@ -294,16 +295,17 @@ class Agendamento_Model extends CI_Model
         LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID    
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'EM EXECUÇÃO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
 
-    public function getBuscaDomiciliar(){
+    public function getBuscaDomiciliar()
+    {
         $qClinica = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,a.ANIMAL_RACA,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, ag.HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA,
         ag.DATA_COLETA, ag.CIDADE, ag.ESTADO, ag.BAIRRO
@@ -316,16 +318,17 @@ class Agendamento_Model extends CI_Model
         
         WHERE ag.TIPO_BUSCA = 'Busca Domiciliar'
         AND ag.STATUS = 'EM EXECUÇÃO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
 
-    public function getAgendamentosCli(){
+    public function getAgendamentosCli()
+    {
         $qAgendamento = "SELECT ag.AGENDAMENTO_ID ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME,a.ANIMAL_RACA, ag.STATUS, HORARIO_SOLICITACAO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
         FROM tb_agendamento  ag
@@ -334,16 +337,17 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
         INNER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID 
         -- WHERE ag.STATUS = 'SOLICITADO'";
-            $eAgendamento = $this->db->query($qAgendamento);
-            $aAgendamento = $eAgendamento->result();
-            if ($eAgendamento->num_rows() > 0) {
-                return $aAgendamento;
-            } else {
-                return null;
-            }
+        $eAgendamento = $this->db->query($qAgendamento);
+        $aAgendamento = $eAgendamento->result();
+        if ($eAgendamento->num_rows() > 0) {
+            return $aAgendamento;
+        } else {
+            return null;
+        }
     }
 
-    public function atualizaLaudo($path, $idAgendamento){
+    public function atualizaLaudo($path, $idAgendamento)
+    {
         $qAgendamento = "UPDATE tb_agendamento SET AGENDAMENTO_LAUDO = '$path', STATUS = 'DEMANDADO' WHERE AGENDAMENTO_ID = $idAgendamento";
         $this->db->trans_start();
         $this->db->query($qAgendamento);
@@ -352,10 +356,10 @@ class Agendamento_Model extends CI_Model
             $this->db->trans_rollback();
         } else {
             $this->db->trans_commit();
-
         }
     }
-    public function getInfoTotalAciona($id){
+    public function getInfoTotalAciona($id)
+    {
         $queryBuscaAc = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_IDADE, a.ANIMAL_MESES, a.ANIMAL_RACA, a.ANIMAL_SEXO,
         ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA, ag.DESC_STATUS
         FROM tb_agendamento  ag
@@ -366,17 +370,14 @@ class Agendamento_Model extends CI_Model
         LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         --  
         WHERE ag.AGENDAMENTO_ID = '$id';";
-        
+
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
         $execBuscaAciona = $this->db->query($queryBuscaAc);
         $dadosAc = $execBuscaAciona->row_array();
-        if($execBuscaAciona->num_rows() > 0)   
-        {
-            return $dadosAc; 
-      
-        }
-        else{
+        if ($execBuscaAciona->num_rows() > 0) {
+            return $dadosAc;
+        } else {
             return 0;
         }
     }
@@ -390,17 +391,14 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
         --  
         WHERE c.CLINICA_ID = '$cli_id';";
-        
+
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
         $execBuscaAciona = $this->db->query($queryBuscaAc);
         $dadosAc = $execBuscaAciona->row_array();
-        if($execBuscaAciona->num_rows() > 0)   
-        {
-            return $dadosAc; 
-      
-        }
-        else{
+        if ($execBuscaAciona->num_rows() > 0) {
+            return $dadosAc;
+        } else {
             return 0;
         }
     }
@@ -414,17 +412,14 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         --  
         WHERE ag.AGENDAMENTO_ID = '$id';";
-        
+
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
         $execBuscaAciona = $this->db->query($queryBuscaAc);
         $dadosAc = $execBuscaAciona->row_array();
-        if($execBuscaAciona->num_rows() > 0)   
-        {
-            return $dadosAc; 
-      
-        }
-        else{
+        if ($execBuscaAciona->num_rows() > 0) {
+            return $dadosAc;
+        } else {
             return 0;
         }
     }
@@ -438,17 +433,14 @@ class Agendamento_Model extends CI_Model
         INNER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
         --  
         WHERE ag.AGENDAMENTO_ID = '$id';";
-        
+
         // $queryBuscaAc = "SELECT endereco, complemento, bairro, cidade, estado, cep, celular FROM tb_agendamento WHERE AGENDAMENTO_ID = $id;";
 
         $execBuscaAciona = $this->db->query($queryBuscaAc);
         $dadosAc = $execBuscaAciona->row_array();
-        if($execBuscaAciona->num_rows() > 0)   
-        {
-            return $dadosAc; 
-      
-        }
-        else{
+        if ($execBuscaAciona->num_rows() > 0) {
+            return $dadosAc;
+        } else {
             return 0;
         }
     }
@@ -467,13 +459,13 @@ class Agendamento_Model extends CI_Model
         
         WHERE ag.TIPO_BUSCA = 'Busca em Clinica'
         AND ag.STATUS = 'DEMANDADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
     public function coletaEmClinicaDm()
     {
@@ -488,13 +480,13 @@ class Agendamento_Model extends CI_Model
         LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID    
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'DEMANDADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
     public function coletaDomiciliarDm()
     {
@@ -510,13 +502,13 @@ class Agendamento_Model extends CI_Model
         
         WHERE ag.TIPO_BUSCA = 'Busca Domiciliar'
         AND ag.STATUS = 'DEMANDADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
 
     public function buscaEmClinicaCld()
@@ -533,13 +525,13 @@ class Agendamento_Model extends CI_Model
         
         WHERE ag.TIPO_BUSCA = 'Busca em Clinica'
         AND ag.STATUS = 'CANCELADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
     public function coletaEmClinicaCld()
     {
@@ -555,13 +547,13 @@ class Agendamento_Model extends CI_Model
         
         WHERE ag.TIPO_BUSCA = 'Coleta em Clinica'
         AND ag.STATUS = 'CANCELADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
+            return null;
+        }
     }
     public function coletaDomiciliarCld()
     {
@@ -577,33 +569,33 @@ class Agendamento_Model extends CI_Model
 
         WHERE ag.TIPO_BUSCA = 'Busca Domiciliar'
         AND ag.STATUS = 'CANCELADO';";
-            $eClinica = $this->db->query($qClinica);
-            $aClinica = $eClinica->result();
-            if ($eClinica->num_rows() > 0) {
-                return $aClinica;
-            } else {
-                return null;
-            }
-    }
-    public function getAgendamentoPdf()
-    {
-        $query = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, ag.HORARIO_SOLICITACAO,
-        ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
-        FROM tb_agendamento  ag
-        INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
-        INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
-        INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
-        LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
-        LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
-        WHERE ag.AGENDAMENTO_ID = 64;";
-
-        $exec = $this->db->query($query);
-        $array = $exec->result();
-        if($exec->num_rows() > 0){
-            return $array;
-        }
-        else{
+        $eClinica = $this->db->query($qClinica);
+        $aClinica = $eClinica->result();
+        if ($eClinica->num_rows() > 0) {
+            return $aClinica;
+        } else {
             return null;
         }
     }
+    // public function getAgendamentoPdf()
+    // {
+    //     $query = "SELECT ag.AGENDAMENTO_ID,v.VETERINARIO_NOME ,pa.DS_PERFIL_EXAME, a.ANIMAL_NOME, ag.STATUS, a.ANIMAL_RACA, ag.HORARIO_SOLICITACAO,
+    //     ag.AGENDAMENTO_OUTROS_EXAMES, a.ANIMAL_PROPRIETARIO, ag.CEP, ag.ENDERECO,c.CLINICA_NOME_FANTASIA, a.ANIMAL_ESPECIE, ag.TIPO_BUSCA, ag.DATA_COLETA
+    //     FROM tb_agendamento  ag
+    //     INNER JOIN tb_animal a ON ag.ANIMAL_ID = a.ANIMAL_ID
+    //     INNER JOIN tb_perfil_exame pa on ag.PERFIL_EXAME_ID = pa.PERFIL_EXAME_ID
+    //     INNER JOIN tb_usuario u on ag.USUARIO_ID = u.ID_USUARIO
+    //     LEFT OUTER JOIN tb_clinica c on u.CLINICA_ID = c.CLINICA_ID
+    //     LEFT OUTER JOIN tb_veterinario v on u.VETERINARIO_ID = v.VETERINARIO_ID
+    //     WHERE ag.AGENDAMENTO_ID = 64;";
+
+    //     $exec = $this->db->query($query);
+    //     $array = $exec->result();
+    //     if($exec->num_rows() > 0){
+    //         return $array;
+    //     }
+    //     else{
+    //         return null;
+    //     }
+    // }
 }

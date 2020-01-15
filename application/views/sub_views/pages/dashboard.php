@@ -22,8 +22,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php } else {?>
               <p class="mt-5 font-weight-bold dashboard_user text_padrao">Seja bem vindo,
                 <!-- <?php echo $userInfo['CLINICA_NOME_FANTASIA'] ?></p> -->
-              <!-- <p class="font-weight-bold text_padrao"><?php echo ($userInfo['CLINICA_NOME_FANTASIA']) ?></p> -->
-              <!-- <p class="font-weight-bold text_padrao"><?php echo ($vetAssociados['VETERINARIO_NOME']) ?></p> -->
+              <p class="font-weight-bold text_padrao"><?php echo ($userInfo['CLINICA_NOME_FANTASIA']) ?></p>
+              <!-- <p class="font-weight-bold text_padrao"><?php echo ($vetAssociados['VETERINARIO_NOME']) ?></p>
+              <p class="font-weight-bold text_padrao"><?php echo ($vetAssociados['VETERINARIO_CRMV']) ?></p> -->
               <?php }?>
             </div>
           </div>
@@ -141,16 +142,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="panel-body">
               <ul class="list-group-scroll ajuste_bord_redonda" style="background-color: #F2DBAE ">
                 <?php if ($vetAssociados != null) {?>
-                <?php $i = 1; foreach ($vetAssociados as $vetass) {?>
+                <?php $i = 1; foreach ($vetAssociados as $vets) {?>
                 <li class="list-group-item list_dash">
-                <a target="#" href="#">
-                  <strong><?php print_r($i . " - Veterinario: " . $vetass->VETERINARIO_NOME)?></strong></a>
-                  <!-- <p><?php print_r("CRMV: " . $vetass->VETERINARIO_CRMV)?></p> -->
+                  <a>
+                  <strong><?php print_r($i . " - Veterinario: " . $vets->VETERINARIO_NOME)?></strong></a>
+                  <p><?php print_r("CRMV: " . $vets->VETERINARIO_CRMV)?></p>
                 </li>
                 <?php $i++;}?> 
                 <?php } else {?>
                 <li class="list-group-item list_dash">
-                  <strong>Nenhum Item associado</strong>
+                  <strong>Nenhum Usuário associado</strong>
                 </li>
                 
                 <?php }?>

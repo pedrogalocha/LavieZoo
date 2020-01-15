@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller
         $rotabaseLogin = base_url('Login');
         $rotabaseAdmin = base_url('Admin');
         $rotabaseDash = base_url('Dash');
-        $this->load->library('upload');
+        $this->load->library('upload'); 
     }
 
     public function index()
@@ -27,9 +27,12 @@ class Dashboard extends CI_Controller
         if ($dados['permissao'] != null) {
             $dados['usu'] = $this->vetModel->getInfoUsu($login);
             $agendamentos = $this->agenModel->getAgendamentos($dados['usu']['ID_USUARIO']);
-            $vet_associados = false;
+            // $id_cli['id'] = $this->agenModel->getInfoClinicaVeterinario($id);
+            // $id_clinica = implode("", $id_cli['id']);
+            // $id_clinica = $this->agenModel->getAgendamentos($dados['usu']['CLINICA_ID']);
+            $vet_associados = $this->vetModel->getVetsCli($dados['usu']['CLINICA_ID']);
             if ($dados['permissao'] == "CLI_PRO") {
-                $vet_associados = $this->vetModel->getVetsCli($dados['usu']['CLINICA_ID']);
+                
             }
 
             $dados = array(
@@ -38,7 +41,7 @@ class Dashboard extends CI_Controller
                 'userInfo' => $dados['usu'],
                 'sessao' => $this->session->userdata('USUARIO_NIVEL_ACESSO'),
                 'agendamentos' => $agendamentos,
-                'vetAssociados' => $vet_associados,
+                'vetAssociados' => $vet_associados
             );
             $this->load->view('sub_views/area_nav', $dados);
             //$this->load->view('sub_views/pages/dashboard');

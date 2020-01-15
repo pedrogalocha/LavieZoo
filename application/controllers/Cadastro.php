@@ -184,9 +184,10 @@ class Cadastro extends CI_Controller
         // $dados_insert['inputComplemento'] = $dados_form['inputComplemento'];
         // $dados_insert['inputBairro'] = $dados_form['inputBairro'];
         // $dados_insert['inputCidade'] = $dados_form['inputCidade'];
-        // $dados_insert['inputEstado'] = $dados_form['inputEstado'];
+        // $dados_insert['inputEstado'] = $dados_form['inputEstado']; 
         // $dados_insert['inputCep'] = limpaCPF_CNPJ($dados_form['inputCep']);
-        $dados_insert['idClinica'] = $idClinica;
+        $dados_insert['idClinica'] = $dados_form['inputIIDCli'];
+        //inputIIDCli
 
         // Pega CPF inserido e valida se já existe no banco
         $valida_cpf = $this->vet_model->validar_cpf($dados_insert['inputCPF']);

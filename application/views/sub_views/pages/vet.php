@@ -109,6 +109,11 @@
 						<!-- <div class="col-md-3 mx-auto pt-5 ">
 							<button class="btn-azul">Conheça o nosso plano!</button>
 						</div> -->
+						<div class="col-md-3 mx-auto pt-5 " hidden>
+						<input type="text" required class="form-control text-uppercase text-left"
+								name="inputIIDCli" id="inputIIDCli"
+								placeholder="Qual a sua Especialidade?" value="<?php echo($idCli)?>" >
+						</div>
 					</div>
 					<br>
 					<hr style="border-top: dotted 10px; color: #6EB1B9;" />
@@ -128,7 +133,7 @@
 							<label class="align-self-center font-weight-bold" for="inputComplemento">Complemento</label>
 							<input type="text" class="form-control text-uppercase text-left" name="inputComplemento"
 								id="inputComplemento" placeholder="Digite Aqui" formnovalidate="true">
-						</div>
+						</div> 
 
 						<div class="col-md-5 mx-auto ">
 							<label class="align-self-center font-weight-bold" for="inputBairro">Bairro</label>
