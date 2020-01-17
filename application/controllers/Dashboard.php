@@ -30,7 +30,11 @@ class Dashboard extends CI_Controller
             // $id_cli['id'] = $this->agenModel->getInfoClinicaVeterinario($id);
             // $id_clinica = implode("", $id_cli['id']);
             // $id_clinica = $this->agenModel->getAgendamentos($dados['usu']['CLINICA_ID']);
-            $vet_associados = $this->vetModel->getVetsCli($dados['usu']['CLINICA_ID']);
+            $vet_associados = null;
+            if($dados['permissao' != "ADMIN"]){
+                $vet_associados = $this->vetModel->getVetsCli($dados['usu']['CLINICA_ID']);
+            }
+            
             if ($dados['permissao'] == "CLI_PRO") {
                 
             }
